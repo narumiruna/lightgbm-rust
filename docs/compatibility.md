@@ -75,7 +75,7 @@ The native epsilon comparator is not a total order. Rust's standard sort can pan
 
 ### Model numbers and limits
 
-- Text input is limited to 64 MiB and 1,000,000 lines, features, trees and total leaves. Class count is limited to 65,536.
+- Text input is limited to 64 MiB and 1,000,000 lines, features, trees and total leaves. Class count is limited to 65,536. Serialized tree sizes refer to exact bytes; retain the producer's line endings. Fixture checkout disables newline conversion.
 - Batch and class-major score outputs are limited to 16,777,216 elements before allocation. Sparse dimensions do not permit unchecked dense allocation.
 - Numerical thresholds can be infinite. Split gains use native `f32` storage; finite labels can produce an infinite diagnostic gain with finite predictions. Text and gain importance preserve it. Structured inspection uses native clamps: `1e300` for double thresholds and `1e38_f32` for gains.
 - TreeSHAP requires consistent positive sample counts on split trees. It rejects linear models, as the native implementation does. It checks a depth limit of 256, 16 Mi output entries and 64 Mi path-work units before traversal. It does not substitute Hessians for missing counts.

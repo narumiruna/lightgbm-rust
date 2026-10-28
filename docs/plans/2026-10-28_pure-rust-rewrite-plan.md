@@ -123,7 +123,7 @@ Use separate evidence for prediction correctness, training correctness, model qu
 - The native oracle integration passed 399 artifact hashes and 126 deliberate mutation rejections. The final integration includes 15 extended workflow, 68 AUC-mu edge, and 14 empty-query cases. Reference regeneration must be repeated after producer/checker changes.
 - Dataset indexes, CV aggregate allocation limits, and finite AUC-mu inputs have dedicated safety regressions. Native-undefined empty-query combinations return typed errors.
 - Final-source quality, fixed-baseline timing, matched memory and native inference pass. Dense and multiclass native training pass. Sparse, categorical and ranking native training remain above 1.5x after measured optimization. This required gate remains open; no exception is authorized.
-- Format, Clippy, all-target tests, doctests, offline tests, Criterion and extracted-package tests pass on native macOS ARM64. Final clean package verification, native CI and pull-request delivery remain pending. Retain this plan while required gates are open.
+- Format, Clippy, all-target tests, doctests, offline tests, Criterion and extracted-package tests pass on native macOS ARM64. Clean package verification passes. Native Ubuntu, macOS and Windows CI pass for `0e0f949`, including the Windows fixture-byte fix. Draft PR #1 is open. Retain this plan while training-time gates are open.
 
 ## Plan
 
@@ -251,9 +251,10 @@ First milestone exit: a useful pure-Rust CPU implementation exists. Extended CPU
   - Evidence: recorded runs complete without crashes, invalid memory access, cycles, unchecked allocation arithmetic, or invalid model output. Test NaN/infinity, constant data, degenerate labels, large category IDs, and malformed metadata.
 - [x] Write API examples, migration notes, and the final compatibility report.
   - Evidence: documentation tests pass; every in-scope matrix entry links to passing evidence. Explain changed Python workflows, missing ecosystem adapters, category/label encoding, model-format limits, and reproducibility limits.
-- [ ] Configure native CI checks and a product-only build environment without Python or native LightGBM build dependencies.
+- [x] Configure native CI checks and a product-only build environment without Python or native LightGBM build dependencies.
   - Evidence: available native runners pass format/lint/unit/integration/doc/fixture gates. Prove a Rust-only product build and run. Claim Linux, macOS, or Windows support only for platforms with native test evidence; record unavailable runners in the handoff.
 - [ ] Verify the package contents, dependencies, and complete release-candidate checks.
+  - Package, dependency/license, documentation and native CI checks pass; release-candidate completion is blocked by the remaining training budgets, not an external prerequisite.
   - Evidence: the commands below pass; dependency/build-script and linked-library inspection find no native ML/numerical dependency. `cargo package` excludes the ignored checkout and oracle tooling, includes required notices, and verifies the package. Record the oracle regeneration and performance reports separately from normal Cargo tests.
 
 Planned commands after the package exists; these are not claims about checks run while drafting this document:
@@ -301,6 +302,6 @@ After dependencies are fetched, repeat fixture tests with `--offline`. A benchma
 - [x] Imported-model prediction, primitive-kernel, tiny-tree, workflow, and larger quality gates pass for every in-scope feature family.
 - [ ] Required time and memory budgets pass on the declared benchmark cases with comparable model quality.
 - [x] Normal builds, execution, and fixture tests work without Python, C++ compilation, CMake, OpenMP, Eigen, or `lib_lightgbm`.
-- [ ] Package verification, dependency/license review, documentation examples, and available native platform gates pass.
-- [ ] The retained compatibility report states all exclusions, unresolved external checks, and release restrictions; no complete-upstream-parity claim is made.
+- [x] Package verification, dependency/license review, documentation examples, and available native platform gates pass.
+- [x] The retained compatibility report states all exclusions, unresolved external checks, and release restrictions; no complete-upstream-parity claim is made.
 - [ ] Execution evidence and external handoff details are preserved in retained repository documents before this completed implementation plan is deleted.
