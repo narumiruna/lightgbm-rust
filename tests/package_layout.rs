@@ -1,4 +1,14 @@
 #[test]
+fn native_model_fixtures_keep_producer_line_endings() {
+    let text = include_str!("fixtures/models/linear_independent_lambda0.txt");
+    assert!(
+        !text.contains("\r\n"),
+        "native fixture bytes were transcoded"
+    );
+    lightgbm_rust::Model::from_text(text).unwrap();
+}
+
+#[test]
 fn package_patterns_are_root_anchored() {
     // Unanchored README/LICENSE patterns recursively include ignored native
     // checkouts and Python environments. Also verify the actual package list
