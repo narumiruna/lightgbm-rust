@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pinned LightGBM prediction and tiny training cases",
+  "type": "object",
+  "required": ["schema_version", "upstream_commit", "cases"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "upstream_commit": {"const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"},
+    "cases": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/case"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "matrix": {"type": "array", "items": {"type": "array", "items": {"type": "number"}}},
+    "case": {
+      "type": "object",
+      "required": ["name", "model_file", "rows", "raw", "transformed", "leaves", "params"],
+      "properties": {
+        "name": {"type": "string"},
+        "model_file": {"type": "string", "pattern": "^models/[^/]+\\.txt$"},
+        "rows": {"type": "array", "items": {"type": "array", "items": {"type": ["number", "null"]}}},
+        "raw": {"$ref": "#/$defs/matrix"},
+        "transformed": {"$ref": "#/$defs/matrix"},
+        "leaves": {"type": "array", "items": {"type": "array", "items": {"type": "integer", "minimum": 0}}},
+        "params": {"type": "object"},
+        "sparse": {
+          "type": "object",
+          "required": ["indptr", "indices", "data", "shape"],
+          "properties": {
+            "indptr": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+            "indices": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+            "data": {"type": "array", "items": {"type": ["number", "null"]}},
+            "shape": {"type": "array", "items": {"type": "integer", "minimum": 1}, "minItems": 2, "maxItems": 2}
+          },
+          "additionalProperties": false
+        },
+        "training": {
+          "type": "object",
+          "required": ["rows", "labels", "num_boost_round", "expected_structure"],
+          "properties": {
+            "rows": {"type": "array", "items": {"type": "array", "items": {"type": ["number", "null"]}}},
+            "labels": {"type": "array", "items": {"type": "number"}},
+            "weights": {"type": "array", "items": {"type": "number", "minimum": 0}},
+            "groups": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+            "positions": {"type": "array", "items": {"type": "integer"}},
+            "initial_scores": {"type": "array", "items": {"type": "number"}},
+            "steps": {
+              "type": "array", "minItems": 1,
+              "items": {
+                "type": "object", "required": ["iteration", "raw", "tree_shrinkage"],
+                "properties": {
+                  "iteration": {"type": "integer", "minimum": 0},
+                  "raw": {"$ref": "#/$defs/matrix"},
+                  "tree_shrinkage": {"type": "array", "items": {"type": "number"}}
+                },
+                "additionalProperties": false
+              }
+            },
+            "num_boost_round": {"type": "integer", "minimum": 1},
+            "expected_structure": {"type": "array", "items": {"type": "object"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

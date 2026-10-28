@@ -1,0 +1,4320 @@
+{
+  "schema_version": 1,
+  "measured_at_utc": "2026-10-28T11:07:20Z",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu": "Apple M4",
+    "logical_cpus": 10
+  },
+  "contract_sha256": "888fcd96522caeb3ece450bbc30225e54300442cb23f54a563e38fc86404d7ef",
+  "baseline_sha256": "118ef94407bb8b05bcfedcb47dea5ba8f419976b707fb73421292bc5843d6046",
+  "budgets": {
+    "training_ratio": 1.5,
+    "inference_ratio": 1.25,
+    "peak_memory_ratio": 1.5
+  },
+  "native_identity": {
+    "source": {
+      "url": "https://github.com/lightgbm-org/LightGBM",
+      "commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+      "version": "4.7.0.99",
+      "tree": "a9b83f5afaecffbbccfc1a043d519bac6b6b25c8",
+      "license": "MIT",
+      "license_file": "references/LightGBM/LICENSE",
+      "license_sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+    },
+    "submodules": [
+      "-36350b7de849300bd3d72a05d8bf890ca405a014 external_libs/compute",
+      " 3147391d946bb4b6c68edd901f2add6ac1f31f8c external_libs/eigen (3147391)",
+      " 252029ddac664370bdda3f0761675785d92a1573 external_libs/fast_double_parser (252029d)",
+      " 8303d140a1a11f19b982a9f664bbe59a1ccda3f4 external_libs/fmt (8303d14)",
+      " a579fbf5d192e85b6249935e117de7d02a6dc4e9 external_libs/nanoarrow (a579fbf)"
+    ],
+    "compiler": {
+      "path": "/usr/bin/clang++",
+      "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+      "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+      "selected_toolchain_path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "selected_toolchain_sha256": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9"
+    },
+    "cmake_version": "cmake version 3.31.6",
+    "ninja_version": "1.11.1.git.kitware.jobserver-1",
+    "configure_flags": [
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+      "-DCMAKE_C_COMPILER=/usr/bin/clang",
+      "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/narumi/src/lightgbm-rust/target/oracle/lib",
+      "-DUSE_OPENMP=OFF",
+      "-DUSE_GPU=OFF",
+      "-DUSE_CUDA=OFF",
+      "-DUSE_ROCM=OFF",
+      "-DUSE_MPI=OFF",
+      "-DUSE_HOMEBREW_FALLBACK=OFF",
+      "-DBUILD_CLI=OFF",
+      "-DBUILD_CPP_TEST=OFF"
+    ],
+    "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+    "library": {
+      "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+      "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+      "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+    },
+    "python": {
+      "version": "3.12.12 (main, Jan 14 2026, 23:36:32) [Clang 21.1.4 ]",
+      "executable": "/Users/narumi/src/lightgbm-rust/target/oracle/venv/bin/python3"
+    }
+  },
+  "native_build": {
+    "compile_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O3",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native.o",
+      "-c",
+      "/Users/narumi/src/lightgbm-rust/tools/oracle/benchmark_memory.cpp"
+    ],
+    "link_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O3",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+      "-Wl,-rpath,/Users/narumi/src/lightgbm-rust/target/oracle/lib",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native"
+    ],
+    "object_sha256": "27dc93a2d1fb55cbf09a8cea2b08d52da274613f4d64d64fd03fa99614493405",
+    "executable_sha256": "b079f40b635930178e888b70cca18b5556e134cab558a1b50396c3a21e08fee5",
+    "source_sha256": "8da946d5517740fa3eb6619f2f853a5b58188dc9d4e90b8045895b65e90677bf"
+  },
+  "rust_build": {
+    "command": [
+      "cargo",
+      "build",
+      "--offline",
+      "--locked",
+      "--release",
+      "--manifest-path",
+      "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-source/Cargo.toml",
+      "--target-dir",
+      "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build",
+      "--example",
+      "memory_case",
+      "--example",
+      "benchmark_case"
+    ],
+    "rustc": "rustc 1.92.0 (ded5c06cf 2025-12-08)\nbinary: rustc\ncommit-hash: ded5c06cf21d2b93bffd5d884aa6e96934ee4234\ncommit-date: 2025-12-08\nhost: aarch64-apple-darwin\nrelease: 1.92.0\nLLVM version: 21.1.3",
+    "cargo": "cargo 1.92.0 (344c4567c 2025-10-21)",
+    "rustc_path": "/Users/narumi/.cargo/bin/rustup",
+    "rustc_launcher_sha256": "20ef5516c31b1ac2290084199ba77dbbcaa1406c45c1d978ca68558ef5964ef5",
+    "rustc_toolchain_path": "/Users/narumi/.rustup/toolchains/1.92.0-aarch64-apple-darwin/bin/rustc",
+    "rustc_toolchain_sha256": "12cab30aa9890d54445e29149a1e82d18fbe457de12801bd11bbe7e5e7fe33a0",
+    "source_before": {
+      "sha256": "1684948c6c37c257f66ca840ede048c508eb3a033576c90f932bc1e15c042520",
+      "files": {
+        "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
+        "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
+        "src/boosting.rs": "be3d0184bd6299b000a4980a9ded442998ffa857443d72a75a28c9338fdbdfa3",
+        "src/cache.rs": "04fb221a091bd23d3a62f10c00333c5507a1fa71f634ccd78a137ebf818de865",
+        "src/config.rs": "8b48ab7d86bac31c4c152e7c5b8b7a1dbc5a2bd659df8a1475576085996962d7",
+        "src/constraints.rs": "32a87e772026a522cb55013c73dd1dab65a395acf2de3bdf61c399404d616933",
+        "src/cv/random.rs": "58adc73390cd90837c8d4c2e22b5574ea69e399577f470e336b7fbdaf2319b0e",
+        "src/cv.rs": "c9e4f18f67515c4b546ee3c481715235b38fc02d8f240ab467f9346984c97518",
+        "src/data/bin.rs": "4b10b91cfbaf041d3d90cbc4344ec55778f9c425fdf5f172875658da22d0da17",
+        "src/data/bundle.rs": "f5254c0bca29fe1ee6f90f4806eb4ad1ac248e2c9a51d8f032ea8fcc777b39c7",
+        "src/data/bundle_tests.rs": "8927814874df5ba3ff033711b7aaf4f39496411c3851ec94d3a2caca80e5857b",
+        "src/data/metadata.rs": "0df0056f0d277faa304c8e13c6776aefa2a4e5b31e50cd5669b39dbcc42e2420",
+        "src/data/mod.rs": "0b9c2d8955147954c211857706ff1a2151e746290d6b40349e44c93e292a862a",
+        "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
+        "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
+        "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
+        "src/learner.rs": "54f77eec19d26be325cad7c169061ebc72b383220b614e578e8ba4e16e8982c7",
+        "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
+        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
+        "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
+        "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
+        "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
+        "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
+        "src/model/operations.rs": "8809c86ab361ca6750183f7f20b432f2f372a6d50322d6241dfd9e5ac52ca6ae",
+        "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
+        "src/model.rs": "1ace09d84595c6e2c9ee9d2a78ea518ce05caa84464dc4c70b4698b30d0c8e65",
+        "src/objective/conformance.rs": "c7f40eada1d1c0285b9ee3f4a8c22424ffcaa3d5afb7d420b21be12d3928a552",
+        "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
+        "src/objective.rs": "398bf39d5a5806305891f920aa478bb90570f84f41e65dd2d2fa40b2bdc52f27",
+        "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
+        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
+        "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
+        "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
+        "src/trainer.rs": "e26f8393ac2ead0b012f5c3e6aeb116cf6db20bde18b35366e035a8897c04362",
+        "src/workflow.rs": "de7e6efebaf1fe5f9e7ef3b4f72d320da695c76c95fe91d1fa375e3f1bcb7914",
+        "benches/cpu.rs": "cefd21ba0cd9fab067f7feeb16b05fb4358ae45d8604828d2e4bd82354384260",
+        "Cargo.toml": "524162fdc3dffc5bbf619f93c340924da43f82fd24743b800270393285b2673c",
+        "Cargo.lock": "d39975d87dc59afd69f0a16bdeb7de9bfa0f997b9d7861d7ac29e9de8e03f256",
+        "rust-toolchain.toml": "d0c46cd3a68028a2d8bad683c5016ddafb0218922f8b2bb09e7fbae0ee73cf82",
+        "examples/memory_case.rs": "40617990cc329cf821ec883b49f8cb9e8be6b855e41f255b57847a923794ebcc",
+        "examples/benchmark_case.rs": "58f9c3904040274f986f900ae5c7336a9e016a820dbfaf4089c34219a734c4bb"
+      }
+    },
+    "source_after_build": {
+      "sha256": "1684948c6c37c257f66ca840ede048c508eb3a033576c90f932bc1e15c042520",
+      "files": {
+        "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
+        "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
+        "src/boosting.rs": "be3d0184bd6299b000a4980a9ded442998ffa857443d72a75a28c9338fdbdfa3",
+        "src/cache.rs": "04fb221a091bd23d3a62f10c00333c5507a1fa71f634ccd78a137ebf818de865",
+        "src/config.rs": "8b48ab7d86bac31c4c152e7c5b8b7a1dbc5a2bd659df8a1475576085996962d7",
+        "src/constraints.rs": "32a87e772026a522cb55013c73dd1dab65a395acf2de3bdf61c399404d616933",
+        "src/cv/random.rs": "58adc73390cd90837c8d4c2e22b5574ea69e399577f470e336b7fbdaf2319b0e",
+        "src/cv.rs": "c9e4f18f67515c4b546ee3c481715235b38fc02d8f240ab467f9346984c97518",
+        "src/data/bin.rs": "4b10b91cfbaf041d3d90cbc4344ec55778f9c425fdf5f172875658da22d0da17",
+        "src/data/bundle.rs": "f5254c0bca29fe1ee6f90f4806eb4ad1ac248e2c9a51d8f032ea8fcc777b39c7",
+        "src/data/bundle_tests.rs": "8927814874df5ba3ff033711b7aaf4f39496411c3851ec94d3a2caca80e5857b",
+        "src/data/metadata.rs": "0df0056f0d277faa304c8e13c6776aefa2a4e5b31e50cd5669b39dbcc42e2420",
+        "src/data/mod.rs": "0b9c2d8955147954c211857706ff1a2151e746290d6b40349e44c93e292a862a",
+        "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
+        "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
+        "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
+        "src/learner.rs": "54f77eec19d26be325cad7c169061ebc72b383220b614e578e8ba4e16e8982c7",
+        "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
+        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
+        "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
+        "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
+        "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
+        "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
+        "src/model/operations.rs": "8809c86ab361ca6750183f7f20b432f2f372a6d50322d6241dfd9e5ac52ca6ae",
+        "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
+        "src/model.rs": "1ace09d84595c6e2c9ee9d2a78ea518ce05caa84464dc4c70b4698b30d0c8e65",
+        "src/objective/conformance.rs": "c7f40eada1d1c0285b9ee3f4a8c22424ffcaa3d5afb7d420b21be12d3928a552",
+        "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
+        "src/objective.rs": "398bf39d5a5806305891f920aa478bb90570f84f41e65dd2d2fa40b2bdc52f27",
+        "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
+        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
+        "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
+        "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
+        "src/trainer.rs": "e26f8393ac2ead0b012f5c3e6aeb116cf6db20bde18b35366e035a8897c04362",
+        "src/workflow.rs": "de7e6efebaf1fe5f9e7ef3b4f72d320da695c76c95fe91d1fa375e3f1bcb7914",
+        "benches/cpu.rs": "cefd21ba0cd9fab067f7feeb16b05fb4358ae45d8604828d2e4bd82354384260",
+        "Cargo.toml": "524162fdc3dffc5bbf619f93c340924da43f82fd24743b800270393285b2673c",
+        "Cargo.lock": "d39975d87dc59afd69f0a16bdeb7de9bfa0f997b9d7861d7ac29e9de8e03f256",
+        "rust-toolchain.toml": "d0c46cd3a68028a2d8bad683c5016ddafb0218922f8b2bb09e7fbae0ee73cf82",
+        "examples/memory_case.rs": "40617990cc329cf821ec883b49f8cb9e8be6b855e41f255b57847a923794ebcc",
+        "examples/benchmark_case.rs": "58f9c3904040274f986f900ae5c7336a9e016a820dbfaf4089c34219a734c4bb"
+      }
+    },
+    "source_unchanged_during_build": true,
+    "snapshot": "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-source",
+    "snapshot_manifest_sha256": "2721fef518605c5f346bdb92d578cc5896d11c3700717ce66409c0a66bc5f961",
+    "flags": "Cargo.toml release profile; RUSTFLAGS/CARGO_ENCODED_RUSTFLAGS unset; no native ML dependency",
+    "executable_sha256": "889c5dcd232df02a68c64761f55f2bbac9f0287d93304c147c5d9ea0d51d2c62",
+    "benchmark_executable_sha256": "2e890d6ab04d08c8dde8ffd6413120749fe93e6009b2d98f410ed686d4418c2b",
+    "source_after_measurement": {
+      "sha256": "1684948c6c37c257f66ca840ede048c508eb3a033576c90f932bc1e15c042520",
+      "files": {
+        "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
+        "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
+        "src/boosting.rs": "be3d0184bd6299b000a4980a9ded442998ffa857443d72a75a28c9338fdbdfa3",
+        "src/cache.rs": "04fb221a091bd23d3a62f10c00333c5507a1fa71f634ccd78a137ebf818de865",
+        "src/config.rs": "8b48ab7d86bac31c4c152e7c5b8b7a1dbc5a2bd659df8a1475576085996962d7",
+        "src/constraints.rs": "32a87e772026a522cb55013c73dd1dab65a395acf2de3bdf61c399404d616933",
+        "src/cv/random.rs": "58adc73390cd90837c8d4c2e22b5574ea69e399577f470e336b7fbdaf2319b0e",
+        "src/cv.rs": "c9e4f18f67515c4b546ee3c481715235b38fc02d8f240ab467f9346984c97518",
+        "src/data/bin.rs": "4b10b91cfbaf041d3d90cbc4344ec55778f9c425fdf5f172875658da22d0da17",
+        "src/data/bundle.rs": "f5254c0bca29fe1ee6f90f4806eb4ad1ac248e2c9a51d8f032ea8fcc777b39c7",
+        "src/data/bundle_tests.rs": "8927814874df5ba3ff033711b7aaf4f39496411c3851ec94d3a2caca80e5857b",
+        "src/data/metadata.rs": "0df0056f0d277faa304c8e13c6776aefa2a4e5b31e50cd5669b39dbcc42e2420",
+        "src/data/mod.rs": "0b9c2d8955147954c211857706ff1a2151e746290d6b40349e44c93e292a862a",
+        "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
+        "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
+        "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
+        "src/learner.rs": "54f77eec19d26be325cad7c169061ebc72b383220b614e578e8ba4e16e8982c7",
+        "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
+        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
+        "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
+        "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
+        "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
+        "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
+        "src/model/operations.rs": "8809c86ab361ca6750183f7f20b432f2f372a6d50322d6241dfd9e5ac52ca6ae",
+        "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
+        "src/model.rs": "1ace09d84595c6e2c9ee9d2a78ea518ce05caa84464dc4c70b4698b30d0c8e65",
+        "src/objective/conformance.rs": "c7f40eada1d1c0285b9ee3f4a8c22424ffcaa3d5afb7d420b21be12d3928a552",
+        "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
+        "src/objective.rs": "398bf39d5a5806305891f920aa478bb90570f84f41e65dd2d2fa40b2bdc52f27",
+        "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
+        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
+        "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
+        "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
+        "src/trainer.rs": "e26f8393ac2ead0b012f5c3e6aeb116cf6db20bde18b35366e035a8897c04362",
+        "src/workflow.rs": "de7e6efebaf1fe5f9e7ef3b4f72d320da695c76c95fe91d1fa375e3f1bcb7914",
+        "benches/cpu.rs": "cefd21ba0cd9fab067f7feeb16b05fb4358ae45d8604828d2e4bd82354384260",
+        "Cargo.toml": "524162fdc3dffc5bbf619f93c340924da43f82fd24743b800270393285b2673c",
+        "Cargo.lock": "d39975d87dc59afd69f0a16bdeb7de9bfa0f997b9d7861d7ac29e9de8e03f256",
+        "rust-toolchain.toml": "d0c46cd3a68028a2d8bad683c5016ddafb0218922f8b2bb09e7fbae0ee73cf82",
+        "examples/memory_case.rs": "40617990cc329cf821ec883b49f8cb9e8be6b855e41f255b57847a923794ebcc",
+        "examples/benchmark_case.rs": "58f9c3904040274f986f900ae5c7336a9e016a820dbfaf4089c34219a734c4bb"
+      }
+    },
+    "source_unchanged_through_measurement": true,
+    "git_status": "A  .gitattributes\nA  .github/workflows/ci.yml\nM  .gitignore\nA  Cargo.lock\nAM Cargo.toml\nM  README.md\nA  THIRD_PARTY_NOTICES.md\nA  benches/cpu.rs\nA  docs/compatibility.md\nAM docs/conformance.md\nAM docs/performance.json\nAM docs/performance.md\nAM docs/plans/2026-10-28_pure-rust-rewrite-plan.md\nA  docs/reference-manifest.json\nA  docs/reference-manifest.schema.json\nA  docs/verification.md\nA  examples/benchmark_case.rs\nA  examples/memory_case.rs\nA  examples/train.rs\nA  licenses/LLVM.txt\nA  rust-toolchain.toml\nA  src/bin/lightgbm-rust.rs\nA  src/boosting.rs\nA  src/boosting/conformance.rs\nA  src/cache.rs\nA  src/config.rs\nA  src/constraints.rs\nA  src/cv.rs\nA  src/cv/random.rs\nA  src/data/bin.rs\nA  src/data/bundle.rs\nA  src/data/bundle_tests.rs\nA  src/data/metadata.rs\nA  src/data/mod.rs\nA  src/error.rs\nA  src/histogram.rs\nA  src/io.rs\nA  src/learner.rs\nA  src/lib.rs\nA  src/linear.rs\nAM src/metric.rs\nA  src/metric/discrimination.rs\nA  src/metric/rank.rs\nA  src/model.rs\nA  src/model/early_stop.rs\nA  src/model/linear.rs\nA  src/model/operations.rs\nA  src/model/shap.rs\nA  src/objective.rs\nA  src/objective/conformance.rs\nA  src/objective/rank.rs\nA  src/parallel.rs\nA  src/quantize.rs\nA  src/random.rs\nA  src/sampling.rs\nA  src/sampling/conformance.rs\nA  src/trainer.rs\nA  src/workflow.rs\nA  tests/auc_mu_safety.rs\nA  tests/boosting_oracle.rs\nA  tests/boosting_query.rs\nA  tests/boosting_regressions.rs\nA  tests/bundling_oracle.rs\nA  tests/categorical_training.rs\nA  tests/cli.rs\nA  tests/config_normalization.rs\nA  tests/constraints_invariants.rs\nA  tests/custom_layout.rs\nA  tests/custom_workflow.rs\nA  tests/cv_custom.rs\nA  tests/cv_custom_errors.rs\nA  tests/cv_oracle.rs\nA  tests/cv_resources.rs\nA  tests/data_bins.rs\nA  tests/data_bundle_storage.rs\nA  tests/data_empty_queries.rs\nA  tests/data_feature_info.rs\nA  tests/data_forced_bins.rs\nA  tests/data_indexing.rs\nA  tests/data_metadata.rs\nA  tests/data_oracle.rs\nA  tests/data_random.rs\nA  tests/data_validation.rs\nA  tests/fixtures/benchmark-contract.json\nA  tests/fixtures/bins.json\nA  tests/fixtures/bundling.json\nA  tests/fixtures/bundling.schema.json\nA  tests/fixtures/bundling_models/categorical_false.txt\nA  tests/fixtures/bundling_models/categorical_nan_false.txt\nA  tests/fixtures/bundling_models/categorical_nan_true.txt\nA  tests/fixtures/bundling_models/categorical_true.txt\nA  tests/fixtures/bundling_models/conflict_false.txt\nA  tests/fixtures/bundling_models/conflict_true.txt\nA  tests/fixtures/bundling_models/exclusive_false.txt\nA  tests/fixtures/bundling_models/exclusive_true.txt\nA  tests/fixtures/bundling_models/extra_trees_false.txt\nA  tests/fixtures/bundling_models/extra_trees_true.txt\nA  tests/fixtures/bundling_models/filtered_false.txt\nA  tests/fixtures/bundling_models/filtered_true.txt\nA  tests/fixtures/bundling_models/frequent_nonzero_false.txt\nA  tests/fixtures/bundling_models/frequent_nonzero_true.txt\nA  tests/fixtures/bundling_models/missing_false.txt\nA  tests/fixtures/bundling_models/missing_true.txt\nA  tests/fixtures/bundling_models/reordered_false.txt\nA  tests/fixtures/bundling_models/reordered_true.txt\nA  tests/fixtures/bundling_models/sparse_false.txt\nA  tests/fixtures/bundling_models/sparse_true.txt\nA  tests/fixtures/bundling_models/zero_missing_false.txt\nA  tests/fixtures/bundling_models/zero_missing_true.txt\nA  tests/fixtures/cv.json\nA  tests/fixtures/cv.schema.json\nA  tests/fixtures/data_feature_info.json\nA  tests/fixtures/data_feature_info.schema.json\nA  tests/fixtures/dataset_metadata.json\nA  tests/fixtures/dataset_metadata.schema.json\nA  tests/fixtures/empty_queries.json\nA  tests/fixtures/empty_queries.schema.json\nA  tests/fixtures/explain.json\nA  tests/fixtures/explain.schema.json\nA  tests/fixtures/extended_objectives.json\nA  tests/fixtures/extended_objectives.schema.json\nA  tests/fixtures/forced_bins.json\nA  tests/fixtures/forced_bins.schema.json\nA  tests/fixtures/histograms.json\nA  tests/fixtures/metric_edges.json\nA  tests/fixtures/metric_edges.schema.json\nA  tests/fixtures/metrics.json\nA  tests/fixtures/metrics.schema.json\nA  tests/fixtures/models/bagging_balanced.txt\nA  tests/fixtures/models/bagging_queries.txt\nA  tests/fixtures/models/bagging_rows.txt\nA  tests/fixtures/models/binary.txt\nA  tests/fixtures/models/binary_extended.txt\nA  tests/fixtures/models/binary_sigmoid.txt\nA  tests/fixtures/models/categorical.txt\nA  tests/fixtures/models/categorical_onehot.txt\nA  tests/fixtures/models/categorical_onehot_weighted.txt\nA  tests/fixtures/models/categorical_partition.txt\nA  tests/fixtures/models/categorical_partition_weighted.txt\nA  tests/fixtures/models/cegb_coupled.txt\nA  tests/fixtures/models/cegb_lazy.txt\nA  tests/fixtures/models/cegb_split.txt\nA  tests/fixtures/models/constraints_extra/cat_extra_onehot.txt\nA  tests/fixtures/models/constraints_extra/cat_extra_sorted.txt\nA  tests/fixtures/models/constraints_extra/cat_quantized.txt\nA  tests/fixtures/models/constraints_extra/cat_quantized_renew.txt\nA  tests/fixtures/models/constraints_extra/cat_smooth.txt\nA  tests/fixtures/models/constraints_extra/deep_monotone_advanced.txt\nA  tests/fixtures/models/constraints_extra/deep_monotone_basic.txt\nA  tests/fixtures/models/constraints_extra/deep_monotone_intermediate.txt\nA  tests/fixtures/models/constraints_extra/deep_monotone_smooth.txt\nA  tests/fixtures/models/constraints_extra/interaction_sampled.txt\nA  tests/fixtures/models/continue_dart_final.txt\nA  tests/fixtures/models/continue_dart_initial.txt\nA  tests/fixtures/models/continue_gbdt_final.txt\nA  tests/fixtures/models/continue_gbdt_initial.txt\nA  tests/fixtures/models/continue_goss_final.txt\nA  tests/fixtures/models/continue_goss_initial.txt\nA  tests/fixtures/models/continue_rf_initial.txt\nA  tests/fixtures/models/continue_supplied_initial_final.txt\nA  tests/fixtures/models/continue_supplied_initial_initial.txt\nA  tests/fixtures/models/controls_baseline.txt\nA  tests/fixtures/models/controls_combined.txt\nA  tests/fixtures/models/cross_entropy.txt\nA  tests/fixtures/models/cross_entropy_extended.txt\nA  tests/fixtures/models/cross_entropy_lambda.txt\nA  tests/fixtures/models/cross_entropy_lambda_extended.txt\nA  tests/fixtures/models/cv_early_truncation_booster.json\nA  tests/fixtures/models/cv_early_truncation_fold0.txt\nA  tests/fixtures/models/cv_early_truncation_fold0_full.txt\nA  tests/fixtures/models/cv_early_truncation_fold1.txt\nA  tests/fixtures/models/cv_early_truncation_fold1_full.txt\nA  tests/fixtures/models/cv_early_truncation_fold2.txt\nA  tests/fixtures/models/cv_early_truncation_fold2_full.txt\nA  tests/fixtures/models/cv_explicit_booster.json\nA  tests/fixtures/models/cv_explicit_fold0.txt\nA  tests/fixtures/models/cv_explicit_fold0_full.txt\nA  tests/fixtures/models/cv_explicit_fold1.txt\nA  tests/fixtures/models/cv_explicit_fold1_full.txt\nA  tests/fixtures/models/cv_explicit_fold2.txt\nA  tests/fixtures/models/cv_explicit_fold2_full.txt\nA  tests/fixtures/models/cv_group_safe_booster.json\nA  tests/fixtures/models/cv_group_safe_fold0.txt\nA  tests/fixtures/models/cv_group_safe_fold0_full.txt\nA  tests/fixtures/models/cv_group_safe_fold1.txt\nA  tests/fixtures/models/cv_group_safe_fold1_full.txt\nA  tests/fixtures/models/cv_group_safe_fold2.txt\nA  tests/fixtures/models/cv_group_safe_fold2_full.txt\nA  tests/fixtures/models/cv_standard_seeded_booster.json\nA  tests/fixtures/models/cv_standard_seeded_fold0.txt\nA  tests/fixtures/models/cv_standard_seeded_fold0_full.txt\nA  tests/fixtures/models/cv_standard_seeded_fold1.txt\nA  tests/fixtures/models/cv_standard_seeded_fold1_full.txt\nA  tests/fixtures/models/cv_standard_seeded_fold2.txt\nA  tests/fixtures/models/cv_standard_seeded_fold2_full.txt\nA  tests/fixtures/models/cv_standard_unshuffled_booster.json\nA  tests/fixtures/models/cv_standard_unshuffled_fold0.txt\nA  tests/fixtures/models/cv_standard_unshuffled_fold0_full.txt\nA  tests/fixtures/models/cv_standard_unshuffled_fold1.txt\nA  tests/fixtures/models/cv_standard_unshuffled_fold1_full.txt\nA  tests/fixtures/models/cv_standard_unshuffled_fold2.txt\nA  tests/fixtures/models/cv_standard_unshuffled_fold2_full.txt\nA  tests/fixtures/models/cv_stratified_seeded_booster.json\nA  tests/fixtures/models/cv_stratified_seeded_fold0.txt\nA  tests/fixtures/models/cv_stratified_seeded_fold0_full.txt\nA  tests/fixtures/models/cv_stratified_seeded_fold1.txt\nA  tests/fixtures/models/cv_stratified_seeded_fold1_full.txt\nA  tests/fixtures/models/cv_stratified_seeded_fold2.txt\nA  tests/fixtures/models/cv_stratified_seeded_fold2_full.txt\nA  tests/fixtures/models/dart_normalized.txt\nA  tests/fixtures/models/dart_uniform.txt\nA  tests/fixtures/models/dart_xgboost.txt\nA  tests/fixtures/models/extra_trees.txt\nA  tests/fixtures/models/fair_extended.txt\nA  tests/fixtures/models/feature_node.txt\nA  tests/fixtures/models/feature_penalties.txt\nA  tests/fixtures/models/feature_tree.txt\nA  tests/fixtures/models/feature_tree_node.txt\nA  tests/fixtures/models/forced_splits.txt\nA  tests/fixtures/models/gamma.txt\nA  tests/fixtures/models/gamma_extended.txt\nA  tests/fixtures/models/goss_multiclass.txt\nA  tests/fixtures/models/goss_warmup.txt\nA  tests/fixtures/models/huber_extended.txt\nA  tests/fixtures/models/interaction.txt\nA  tests/fixtures/models/lambdarank_extended.txt\nA  tests/fixtures/models/linear_independent_lambda0.txt\nA  tests/fixtures/models/linear_independent_lambda05.txt\nA  tests/fixtures/models/linear_nan_training.txt\nA  tests/fixtures/models/linear_nan_weighted_training.txt\nA  tests/fixtures/models/linear_rank_deficient_lambda0.txt\nA  tests/fixtures/models/linear_rank_deficient_lambda05.txt\nA  tests/fixtures/models/linear_weighted_training.txt\nA  tests/fixtures/models/mape_extended.txt\nA  tests/fixtures/models/missing_direction_tie.txt\nA  tests/fixtures/models/missing_nan.txt\nA  tests/fixtures/models/missing_none.txt\nA  tests/fixtures/models/missing_only.txt\nA  tests/fixtures/models/missing_zero.txt\nA  tests/fixtures/models/monotone_advanced.txt\nA  tests/fixtures/models/monotone_basic.txt\nA  tests/fixtures/models/monotone_intermediate.txt\nA  tests/fixtures/models/monotone_penalty.txt\nA  tests/fixtures/models/multiclass.txt\nA  tests/fixtures/models/multiclass_absent_extended.txt\nA  tests/fixtures/models/multiclass_empty_class.txt\nA  tests/fixtures/models/multiclass_extended.txt\nA  tests/fixtures/models/multiclassova.txt\nA  tests/fixtures/models/multiclassova_absent_extended.txt\nA  tests/fixtures/models/multiclassova_extended.txt\nA  tests/fixtures/models/numeric_l2.txt\nA  tests/fixtures/models/numeric_weighted.txt\nA  tests/fixtures/models/operations_extreme_gain.txt\nA  tests/fixtures/models/operations_initial_scores_only.txt\nA  tests/fixtures/models/operations_leaf_final.txt\nA  tests/fixtures/models/operations_leaf_initial.txt\nA  tests/fixtures/models/operations_predict_early_binary.txt\nA  tests/fixtures/models/operations_predict_early_linear.txt\nA  tests/fixtures/models/operations_predict_early_multiclass.txt\nA  tests/fixtures/models/operations_rollback_0.txt\nA  tests/fixtures/models/operations_rollback_1.txt\nA  tests/fixtures/models/operations_rollback_2.txt\nA  tests/fixtures/models/operations_rollback_3.txt\nA  tests/fixtures/models/operations_rollback_4.txt\nA  tests/fixtures/models/operations_rollback_5.txt\nA  tests/fixtures/models/operations_rollback_initial.txt\nA  tests/fixtures/models/path_smooth.txt\nA  tests/fixtures/models/poisson.txt\nA  tests/fixtures/models/poisson_extended.txt\nA  tests/fixtures/models/quantile_extended.txt\nA  tests/fixtures/models/quantized_binary.txt\nA  tests/fixtures/models/quantized_deterministic.txt\nA  tests/fixtures/models/quantized_renew.txt\nA  tests/fixtures/models/quantized_stochastic.txt\nA  tests/fixtures/models/rank_xendcg_extended.txt\nA  tests/fixtures/models/refit_binary_decay00.txt\nA  tests/fixtures/models/refit_binary_decay05.txt\nA  tests/fixtures/models/refit_binary_decay09.txt\nA  tests/fixtures/models/refit_binary_decay10.txt\nA  tests/fixtures/models/refit_binary_initial.txt\nA  tests/fixtures/models/refit_categorical_decay00.txt\nA  tests/fixtures/models/refit_categorical_decay05.txt\nA  tests/fixtures/models/refit_categorical_decay09.txt\nA  tests/fixtures/models/refit_categorical_decay10.txt\nA  tests/fixtures/models/refit_categorical_initial.txt\nA  tests/fixtures/models/refit_dart_decay00.txt\nA  tests/fixtures/models/refit_dart_decay05.txt\nA  tests/fixtures/models/refit_dart_decay09.txt\nA  tests/fixtures/models/refit_dart_decay10.txt\nA  tests/fixtures/models/refit_dart_initial.txt\nA  tests/fixtures/models/refit_gbdt_querybag_decay00.txt\nA  tests/fixtures/models/refit_gbdt_querybag_decay05.txt\nA  tests/fixtures/models/refit_gbdt_querybag_decay09.txt\nA  tests/fixtures/models/refit_gbdt_querybag_decay10.txt\nA  tests/fixtures/models/refit_gbdt_querybag_initial.txt\nA  tests/fixtures/models/refit_goss_querybag_decay00.txt\nA  tests/fixtures/models/refit_goss_querybag_decay05.txt\nA  tests/fixtures/models/refit_goss_querybag_decay09.txt\nA  tests/fixtures/models/refit_goss_querybag_decay10.txt\nA  tests/fixtures/models/refit_goss_querybag_initial.txt\nA  tests/fixtures/models/refit_l1_decay00.txt\nA  tests/fixtures/models/refit_l1_decay05.txt\nA  tests/fixtures/models/refit_l1_decay09.txt\nA  tests/fixtures/models/refit_l1_decay10.txt\nA  tests/fixtures/models/refit_l1_initial.txt\nA  tests/fixtures/models/refit_linear_decay00.txt\nA  tests/fixtures/models/refit_linear_decay05.txt\nA  tests/fixtures/models/refit_linear_decay09.txt\nA  tests/fixtures/models/refit_linear_decay10.txt\nA  tests/fixtures/models/refit_linear_initial.txt\nA  tests/fixtures/models/refit_mape_decay00.txt\nA  tests/fixtures/models/refit_mape_decay05.txt\nA  tests/fixtures/models/refit_mape_decay09.txt\nA  tests/fixtures/models/refit_mape_decay10.txt\nA  tests/fixtures/models/refit_mape_initial.txt\nA  tests/fixtures/models/refit_multiclass_decay00.txt\nA  tests/fixtures/models/refit_multiclass_decay05.txt\nA  tests/fixtures/models/refit_multiclass_decay09.txt\nA  tests/fixtures/models/refit_multiclass_decay10.txt\nA  tests/fixtures/models/refit_multiclass_initial.txt\nA  tests/fixtures/models/refit_quantile_decay00.txt\nA  tests/fixtures/models/refit_quantile_decay05.txt\nA  tests/fixtures/models/refit_quantile_decay09.txt\nA  tests/fixtures/models/refit_quantile_decay10.txt\nA  tests/fixtures/models/refit_quantile_initial.txt\nA  tests/fixtures/models/refit_ranking_decay00.txt\nA  tests/fixtures/models/refit_ranking_decay05.txt\nA  tests/fixtures/models/refit_ranking_decay09.txt\nA  tests/fixtures/models/refit_ranking_decay10.txt\nA  tests/fixtures/models/refit_ranking_initial.txt\nA  tests/fixtures/models/refit_regression_decay00.txt\nA  tests/fixtures/models/refit_regression_decay05.txt\nA  tests/fixtures/models/refit_regression_decay09.txt\nA  tests/fixtures/models/refit_regression_decay10.txt\nA  tests/fixtures/models/refit_regression_domain_initial.txt\nA  tests/fixtures/models/refit_regression_initial.txt\nA  tests/fixtures/models/refit_rf_decay00.txt\nA  tests/fixtures/models/refit_rf_decay05.txt\nA  tests/fixtures/models/refit_rf_decay09.txt\nA  tests/fixtures/models/refit_rf_decay10.txt\nA  tests/fixtures/models/refit_rf_initial.txt\nA  tests/fixtures/models/regression_extended.txt\nA  tests/fixtures/models/regression_l1_extended.txt\nA  tests/fixtures/models/regression_sqrt.txt\nA  tests/fixtures/models/rf_average.txt\nA  tests/fixtures/models/rf_averaging.txt\nA  tests/fixtures/models/rf_binary.txt\nA  tests/fixtures/models/single_leaf.txt\nA  tests/fixtures/models/tweedie.txt\nA  tests/fixtures/models/tweedie_extended.txt\nA  tests/fixtures/models/workflow_custom_binary.txt\nA  tests/fixtures/models/workflow_custom_binary_builtin.txt\nA  tests/fixtures/models/workflow_custom_binary_full.txt\nA  tests/fixtures/models/workflow_custom_l2.txt\nA  tests/fixtures/models/workflow_custom_l2_builtin.txt\nA  tests/fixtures/models/workflow_custom_l2_full.txt\nA  tests/fixtures/models/workflow_dart_disabled.txt\nA  tests/fixtures/models/workflow_dart_disabled_full.txt\nA  tests/fixtures/models/workflow_early_all_metrics.txt\nA  tests/fixtures/models/workflow_early_all_metrics_full.txt\nA  tests/fixtures/models/workflow_early_delta_scalar.txt\nA  tests/fixtures/models/workflow_early_delta_scalar_full.txt\nA  tests/fixtures/models/workflow_early_delta_vector.txt\nA  tests/fixtures/models/workflow_early_delta_vector_full.txt\nA  tests/fixtures/models/workflow_early_final_round.txt\nA  tests/fixtures/models/workflow_early_final_round_full.txt\nA  tests/fixtures/models/workflow_early_first_metric_only.txt\nA  tests/fixtures/models/workflow_early_first_metric_only_full.txt\nA  tests/fixtures/models/workflow_early_multival.txt\nA  tests/fixtures/models/workflow_early_multival_full.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold0.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold1.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold2.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_stop_fold0.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_stop_fold1.txt\nA  tests/fixtures/models/workflow_extra_cv_builtin_stop_fold2.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold0.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold1.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold2.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_fold0.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_fold1.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_schedule_fold2.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_stop_fold0.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_stop_fold1.txt\nA  tests/fixtures/models/workflow_extra_cv_custom_stop_fold2.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_original_three.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_original_three_initial.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_weighted.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_weighted_initial.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_xgboost.txt\nA  tests/fixtures/models/workflow_extra_dart_continue_xgboost_initial.txt\nA  tests/fixtures/models/workflow_extra_dart_schedule_after.txt\nA  tests/fixtures/models/workflow_extra_dart_schedule_features.txt\nA  tests/fixtures/models/workflow_extra_dart_schedule_uniform.txt\nA  tests/fixtures/models/workflow_extra_dart_schedule_weighted.txt\nA  tests/fixtures/models/workflow_extra_gbdt_schedule_features.txt\nA  tests/fixtures/models/workflow_extra_goss_schedule.txt\nA  tests/fixtures/models/workflow_extra_goss_schedule_features.txt\nA  tests/fixtures/models/workflow_no_split.txt\nA  tests/fixtures/models/workflow_no_split_full.txt\nA  tests/fixtures/models/workflow_ordering_schedule.txt\nA  tests/fixtures/models/workflow_ordering_schedule_full.txt\nA  tests/fixtures/models/workflow_training_excluded.txt\nA  tests/fixtures/models/workflow_training_excluded_full.txt\nA  tests/fixtures/models/workflow_training_only.txt\nA  tests/fixtures/models/workflow_training_only_full.txt\nA  tests/fixtures/objectives.json\nA  tests/fixtures/parameters.json\nA  tests/fixtures/prediction.json\nA  tests/fixtures/prediction.schema.json\nA  tests/fixtures/prediction_boosting.json\nA  tests/fixtures/prediction_constraints.json\nA  tests/fixtures/prediction_constraints_extra.json\nA  tests/fixtures/prediction_constraints_extra.schema.json\nA  tests/fixtures/prediction_extended.json\nA  tests/fixtures/prediction_linear.json\nA  tests/fixtures/prediction_linear_training.json\nA  tests/fixtures/prediction_operations.json\nA  tests/fixtures/prediction_operations.schema.json\nA  tests/fixtures/prediction_ranges.json\nA  tests/fixtures/prediction_regressions.json\nA  tests/fixtures/prediction_sparse.json\nA  tests/fixtures/primitives.schema.json\nA  tests/fixtures/reference-baseline.json\nA  tests/fixtures/rng.json\nA  tests/fixtures/rust-model-roundtrip.json\nA  tests/fixtures/rust-trained-model-roundtrip.json\nA  tests/fixtures/sampling.json\nA  tests/fixtures/sampling.schema.json\nA  tests/fixtures/workflow.json\nA  tests/fixtures/workflow.schema.json\nA  tests/fixtures/workflow_extended.json\nA  tests/fixtures/workflow_extended.schema.json\nA  tests/histogram_optimization/unit.rs\nA  tests/io.rs\nA  tests/learner/unit.rs\nA  tests/learner_controls.rs\nA  tests/linear_training.rs\nA  tests/metric_oracle.rs\nA  tests/model.rs\nA  tests/model_native_extended.rs\nA  tests/model_operations.rs\nA  tests/model_oracle.rs\nA  tests/model_prediction_options.rs\nA  tests/model_roundtrip.rs\nA  tests/model_shap.rs\nA  tests/objective.rs\nA  tests/objective_extended.rs\nA  tests/objective_oracle.rs\nA  tests/package_layout.rs\nA  tests/parallel_execution.rs\nA  tests/parallel_oracle.rs\nA  tests/perf_invariants.rs\nA  tests/ranking_empty_queries.rs\nA  tests/refit_domain.rs\nA  tests/sampling.rs\nA  tests/training_invariants.rs\nA  tests/training_oracle.rs\nA  tests/workflow_callbacks.rs\nA  tests/workflow_continuation.rs\nA  tests/workflow_extended.rs\nA  tests/workflow_oracle.rs\nA  tests/workflow_validation.rs\nA  tools/oracle/README.md\nA  tools/oracle/benchmark.py\nA  tools/oracle/benchmark_memory.cpp\nA  tools/oracle/build.py\nA  tools/oracle/bundling_driver.cpp\nA  tools/oracle/check.py\nA  tools/oracle/check_bundling.py\nA  tools/oracle/check_final.py\nA  tools/oracle/check_roundtrip.py\nA  tools/oracle/check_trained.py\nA  tools/oracle/check_workflows.py\nA  tools/oracle/common.py\nA  tools/oracle/data_feature_info.cpp\nA  tools/oracle/driver_common.hpp\nA  tools/oracle/extended_driver.cpp\nA  tools/oracle/generate_bundling.py\nA  tools/oracle/generate_constraints_extra.py\nA  tools/oracle/generate_cv.py\nA  tools/oracle/generate_empty_queries.py\nA  tools/oracle/generate_explain.py\nA  tools/oracle/generate_extended.py\nA  tools/oracle/generate_feature_info.py\nA  tools/oracle/generate_final_schemas.py\nA  tools/oracle/generate_linear.py\nA  tools/oracle/generate_linear_training.py\nA  tools/oracle/generate_metric_edges.py\nA  tools/oracle/generate_operations.py\nA  tools/oracle/generate_prediction_extended.py\nA  tools/oracle/generate_predictions.py\nA  tools/oracle/generate_primitives.py\nA  tools/oracle/generate_regressions.py\nA  tools/oracle/generate_sampling.py\nA  tools/oracle/generate_training_controls.py\nA  tools/oracle/generate_workflow.py\nA  tools/oracle/generate_workflow_extended.py\nA  tools/oracle/generate_workflow_schemas.py\nAM tools/oracle/manifest.py\nAM tools/oracle/measure_memory.py\nA  tools/oracle/native.py\nA  tools/oracle/primitive_driver.cpp\nA  tools/oracle/pyproject.toml\nA  tools/oracle/refit_driver.cpp\nA  tools/oracle/sampling_driver.cpp\nA  tools/oracle/uv.lock\nA  tools/oracle/workflow_common.py"
+  },
+  "measurement_script_sha256": "7d8f4e77912a2be6410446544a80c9c81813faacba636752945039d4346ab7dc",
+  "boundary": "Absolute entire fresh-process peak, including binary loader, OS libraries, raw input loading, six sequential construction/train/save/predict iterations, and final prediction output. No subtraction. One warm-up is included in each peak; five measured iterations per process, five fresh processes per implementation/case. Python is outside measured children.",
+  "input_format": "LGBMEM01; five u64 dimensions/rounds/CSR flag; u64-length-prefixed little-endian arrays in order: f64 dense train/valid (empty for CSR), f32 train/valid labels, f32 weights, i32 group lengths, i64 CSR offsets/i32 indexes/f64 data for train then valid. Sparse Rust indexes convert to usize; C API uses i32 indexes/i64 offsets. No whole-input JSON in either process.",
+  "timing_boundary": "Construction includes metadata; training includes BoosterCreate+50 UpdateOneIter in native, Trainer::fit in Rust. Serialization is separate, then batch prediction. Rust also validates scores and retains history records; metric=None disables metric kernels in both drivers. Fixed saved Python-engine timing baseline remains unchanged. Fresh native-only timing comparisons are separately reported, including failed budgets; they do not replace the fixed baseline.",
+  "parallel_restriction": "Original pinned native baseline is USE_OPENMP=OFF and actually serial even with num_threads=2/4. Supplemental Rust 2/4 runs are not matched parallel budget evidence. No alternate OpenMP library was built.",
+  "historical_phase9_summary_sha256": "44024492894997101cdef1fb6539ca09f612f8638813e43d9c34032f07b72810",
+  "cases": [
+    {
+      "name": "dense",
+      "inputs": {
+        "json_path": "target/oracle/benchmark-input-dense.json",
+        "json_sha256": "8cc08d310e998de41841409b9a28bc887d3cbda0d35cdc018c97089d9b332eca",
+        "binary_path": "target/phase9-final-memory-input-dense.bin",
+        "binary_sha256": "c552c618d99af332bfcdb8e9c85bad299411cbaaf0b210a786ef128eacf56d49",
+        "parameter_text": "bagging_seed=0 boost_from_average=true data_random_seed=0 deterministic=true device_type=cpu drop_seed=0 extra_seed=0 feature_fraction_seed=0 feature_pre_filter=false force_col_wise=true learning_rate=0.1 max_bin=63 max_depth=-1 metric=None min_data_in_bin=3 min_data_in_leaf=20 min_sum_hessian_in_leaf=0.001 num_leaves=15 num_threads=1 objective=regression objective_seed=0 seed=0 tree_learner=serial verbosity=-1",
+        "parameter_sha256": "0c1fcc8c8e2b372045f2bdb9efb4e189feb4c844597e309488757de77ee09d12",
+        "params": {
+          "verbosity": -1,
+          "device_type": "cpu",
+          "tree_learner": "serial",
+          "num_threads": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 0,
+          "data_random_seed": 0,
+          "feature_fraction_seed": 0,
+          "bagging_seed": 0,
+          "drop_seed": 0,
+          "extra_seed": 0,
+          "objective_seed": 0,
+          "num_leaves": 15,
+          "max_depth": -1,
+          "learning_rate": 0.1,
+          "min_data_in_leaf": 20,
+          "min_data_in_bin": 3,
+          "min_sum_hessian_in_leaf": 0.001,
+          "max_bin": 63,
+          "feature_pre_filter": false,
+          "boost_from_average": true,
+          "objective": "regression",
+          "metric": "None"
+        },
+        "weights": "absent",
+        "query_groups": [],
+        "train_rows": 8192,
+        "validation_rows": 2048,
+        "features": 16,
+        "rounds": 50,
+        "nonzero_training_values": 131072,
+        "csr": false
+      },
+      "quality_gate": {
+        "name": "dense",
+        "metric": "rmse",
+        "comparison": "<=",
+        "quality_bound": 0.45,
+        "reference_delta": 0.02
+      },
+      "reference_quality": 0.16417754751589952,
+      "python_check_predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+      "samples": {
+        "native": [
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.005372834,
+              0.003974416,
+              0.003827667,
+              0.003836083,
+              0.003876625
+            ],
+            "training_seconds": [
+              0.019315,
+              0.015922917,
+              0.016077125,
+              0.015867667,
+              0.0159225
+            ],
+            "serialization_seconds": [
+              0.001182583,
+              0.001094542,
+              0.001099125,
+              0.001088708,
+              0.001081667
+            ],
+            "inference_seconds": [
+              0.001530292,
+              0.001436833,
+              0.001446541,
+              0.00145025,
+              0.001434541
+            ],
+            "peak_rss_bytes": 11337728,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-native-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-native-p1.json",
+            "raw_rss": "target/phase9-final-memory-dense-native-p1.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.00379675,
+              0.003775792,
+              0.003786458,
+              0.00383825,
+              0.003777
+            ],
+            "training_seconds": [
+              0.01607,
+              0.016015625,
+              0.016176709,
+              0.016097709,
+              0.016005042
+            ],
+            "serialization_seconds": [
+              0.001095625,
+              0.001083041,
+              0.001102041,
+              0.001084625,
+              0.001075208
+            ],
+            "inference_seconds": [
+              0.001467792,
+              0.001463709,
+              0.001456375,
+              0.001447791,
+              0.001446042
+            ],
+            "peak_rss_bytes": 9797632,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-native-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-native-p2.json",
+            "raw_rss": "target/phase9-final-memory-dense-native-p2.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003764458,
+              0.003816792,
+              0.003819125,
+              0.003779666,
+              0.0037745
+            ],
+            "training_seconds": [
+              0.016011875,
+              0.016214291,
+              0.016048209,
+              0.015964292,
+              0.0159665
+            ],
+            "serialization_seconds": [
+              0.001088792,
+              0.001097042,
+              0.001089208,
+              0.001086583,
+              0.001083541
+            ],
+            "inference_seconds": [
+              0.001546541,
+              0.001492375,
+              0.001544125,
+              0.001523625,
+              0.001555792
+            ],
+            "peak_rss_bytes": 9814016,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-native-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-native-p3.json",
+            "raw_rss": "target/phase9-final-memory-dense-native-p3.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003829334,
+              0.003759333,
+              0.003797833,
+              0.00378625,
+              0.003801334
+            ],
+            "training_seconds": [
+              0.016100666,
+              0.016130958,
+              0.016118417,
+              0.016133708,
+              0.016105916
+            ],
+            "serialization_seconds": [
+              0.001098417,
+              0.001092584,
+              0.00109875,
+              0.001094958,
+              0.001088917
+            ],
+            "inference_seconds": [
+              0.001442833,
+              0.001448708,
+              0.001451125,
+              0.001461375,
+              0.001449208
+            ],
+            "peak_rss_bytes": 9715712,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-native-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-native-p4.json",
+            "raw_rss": "target/phase9-final-memory-dense-native-p4.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.004031583,
+              0.004021625,
+              0.0039195,
+              0.004021791,
+              0.003956125
+            ],
+            "training_seconds": [
+              0.0160555,
+              0.015998541,
+              0.016195167,
+              0.01601925,
+              0.015942666
+            ],
+            "serialization_seconds": [
+              0.00109275,
+              0.001074042,
+              0.00108775,
+              0.001080459,
+              0.001073542
+            ],
+            "inference_seconds": [
+              0.001453959,
+              0.001427542,
+              0.001427291,
+              0.001412583,
+              0.001417458
+            ],
+            "peak_rss_bytes": 9912320,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-native-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-native-p5.json",
+            "raw_rss": "target/phase9-final-memory-dense-native-p5.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          }
+        ],
+        "rust": [
+          {
+            "dataset_construction_seconds": [
+              0.00427575,
+              0.003253583,
+              0.003268375,
+              0.003256666,
+              0.003240125
+            ],
+            "inference_seconds": [
+              0.001203583,
+              0.001246,
+              0.001152917,
+              0.001083375,
+              0.001177792
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.00029925,
+              0.000292542,
+              0.000296833,
+              0.0002915,
+              0.000282083
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.024830584,
+              0.023308,
+              0.023273875,
+              0.023193125,
+              0.023280833
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 11354112,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-rust-p1.json",
+            "raw_rss": "target/phase9-final-memory-dense-rust-p1.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003483083,
+              0.003422542,
+              0.003506458,
+              0.0035185,
+              0.003492666
+            ],
+            "inference_seconds": [
+              0.001248667,
+              0.001270792,
+              0.001238917,
+              0.001248708,
+              0.001275042
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000301541,
+              0.000301375,
+              0.000300458,
+              0.000297834,
+              0.000295583
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.023395667,
+              0.023280958,
+              0.023269917,
+              0.023148166,
+              0.023232834
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 9142272,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-rust-p2.json",
+            "raw_rss": "target/phase9-final-memory-dense-rust-p2.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003431792,
+              0.003343209,
+              0.003565167,
+              0.003362541,
+              0.003595416
+            ],
+            "inference_seconds": [
+              0.001261875,
+              0.0012445,
+              0.001209167,
+              0.001162208,
+              0.001238125
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000296583,
+              0.000309292,
+              0.000292875,
+              0.000300542,
+              0.000300416
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.023202333,
+              0.023136916,
+              0.023252958,
+              0.023198917,
+              0.023207209
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 9125888,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-rust-p3.json",
+            "raw_rss": "target/phase9-final-memory-dense-rust-p3.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003489083,
+              0.003595625,
+              0.003376708,
+              0.003324125,
+              0.003585208
+            ],
+            "inference_seconds": [
+              0.001198375,
+              0.00120925,
+              0.001138084,
+              0.001080125,
+              0.001198917
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.00030375,
+              0.0002895,
+              0.0003,
+              0.0003025,
+              0.000283041
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.023506125,
+              0.023248417,
+              0.023286333,
+              0.023371083,
+              0.023315792
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 9142272,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-rust-p4.json",
+            "raw_rss": "target/phase9-final-memory-dense-rust-p4.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003484208,
+              0.00352675,
+              0.003551083,
+              0.003266291,
+              0.003586167
+            ],
+            "inference_seconds": [
+              0.001245583,
+              0.001273208,
+              0.001176958,
+              0.001183875,
+              0.001274667
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000296917,
+              0.000300125,
+              0.000289875,
+              0.000301958,
+              0.000307208
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.023216375,
+              0.023217083,
+              0.023149542,
+              0.023351584,
+              0.023837875
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 9142272,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-dense-rust-p5.json",
+            "raw_rss": "target/phase9-final-memory-dense-rust-p5.rss",
+            "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.16417754751589952
+          }
+        ]
+      },
+      "summary": {
+        "native": {
+          "median_dataset_construction_seconds": 0.003819125,
+          "median_training_seconds": 0.0160555,
+          "median_serialization_seconds": 0.001088917,
+          "median_inference_seconds": 0.00145025,
+          "median_peak_rss_bytes": 9814016,
+          "maximum_peak_rss_bytes": 11337728
+        },
+        "rust": {
+          "median_dataset_construction_seconds": 0.003484208,
+          "median_training_seconds": 0.023269917,
+          "median_serialization_seconds": 0.00029925,
+          "median_inference_seconds": 0.00120925,
+          "median_peak_rss_bytes": 9142272,
+          "maximum_peak_rss_bytes": 11354112
+        }
+      },
+      "timing_ratios_to_fixed_baseline": {
+        "training": 0.4067595417561698,
+        "inference": 0.2209785810985037
+      },
+      "timing_ratios_to_fresh_native": {
+        "training": 1.4493424060290867,
+        "inference": 0.8338217548698501
+      },
+      "fresh_native_training_pass": true,
+      "fresh_native_inference_pass": true,
+      "fixed_reference_median_training_seconds": 0.05720804212614894,
+      "fixed_reference_median_inference_seconds": 0.0054722498171031475,
+      "peak_memory_ratio": 1.0014450867052023,
+      "conservative_peak_memory_ratio": 1.1686340640809443,
+      "median_peak_memory_ratio": 0.9315525876460768,
+      "training_pass": true,
+      "inference_pass": true,
+      "memory_pass": true,
+      "quality_pass": true,
+      "supplemental_rust_parallel": [
+        {
+          "dataset_construction_seconds": [
+            0.003412875,
+            0.003301709,
+            0.003301875,
+            0.003229541,
+            0.003177458
+          ],
+          "inference_seconds": [
+            0.000772709,
+            0.000713708,
+            0.000711708,
+            0.000766125,
+            0.00071975
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.00031425,
+            0.0003065,
+            0.000302042,
+            0.000308334,
+            0.000301125
+          ],
+          "threads": 2,
+          "training_seconds": [
+            0.02920175,
+            0.024088583,
+            0.02337525,
+            0.02334475,
+            0.023502834
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 9715712,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+            "2",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-t2.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-dense-rust-t2.json",
+          "raw_rss": "target/phase9-final-memory-dense-rust-t2.rss",
+          "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+          "quality": 0.16417754751589952,
+          "matched_parallel_budget": null
+        },
+        {
+          "dataset_construction_seconds": [
+            0.003188042,
+            0.003155291,
+            0.003270167,
+            0.003134667,
+            0.00331475
+          ],
+          "inference_seconds": [
+            0.000451167,
+            0.000429958,
+            0.000361292,
+            0.000399792,
+            0.000402458
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000310166,
+            0.000304334,
+            0.000290417,
+            0.000308042,
+            0.000312625
+          ],
+          "threads": 4,
+          "training_seconds": [
+            0.028507375,
+            0.02898925,
+            0.028178208,
+            0.027640166,
+            0.0272875
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 9830400,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-dense.params",
+            "4",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-dense-rust-t4.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-dense-rust-t4.json",
+          "raw_rss": "target/phase9-final-memory-dense-rust-t4.rss",
+          "predictions_sha256": "349a203ba4f05e5dc5d14a6231910ea4b3e859aca1615a617988bc8fb643050c",
+          "quality": 0.16417754751589952,
+          "matched_parallel_budget": null
+        }
+      ]
+    },
+    {
+      "name": "sparse",
+      "inputs": {
+        "json_path": "target/oracle/benchmark-input-sparse.json",
+        "json_sha256": "9b21d2c412e837a51045dee1b253acf96ea252856c8aa46c4d71b70e1869b68c",
+        "binary_path": "target/phase9-final-memory-input-sparse.bin",
+        "binary_sha256": "57434a89c59b01d0a969d9ab5395442bddff13fd9d3ee6cdc3eb738ad228e9f6",
+        "parameter_text": "bagging_seed=0 boost_from_average=true data_random_seed=0 deterministic=true device_type=cpu drop_seed=0 extra_seed=0 feature_fraction_seed=0 feature_pre_filter=false force_col_wise=true learning_rate=0.1 max_bin=63 max_depth=-1 metric=None min_data_in_bin=3 min_data_in_leaf=20 min_sum_hessian_in_leaf=0.001 num_leaves=15 num_threads=1 objective=regression objective_seed=0 seed=0 tree_learner=serial verbosity=-1",
+        "parameter_sha256": "0c1fcc8c8e2b372045f2bdb9efb4e189feb4c844597e309488757de77ee09d12",
+        "params": {
+          "verbosity": -1,
+          "device_type": "cpu",
+          "tree_learner": "serial",
+          "num_threads": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 0,
+          "data_random_seed": 0,
+          "feature_fraction_seed": 0,
+          "bagging_seed": 0,
+          "drop_seed": 0,
+          "extra_seed": 0,
+          "objective_seed": 0,
+          "num_leaves": 15,
+          "max_depth": -1,
+          "learning_rate": 0.1,
+          "min_data_in_leaf": 20,
+          "min_data_in_bin": 3,
+          "min_sum_hessian_in_leaf": 0.001,
+          "max_bin": 63,
+          "feature_pre_filter": false,
+          "boost_from_average": true,
+          "objective": "regression",
+          "metric": "None"
+        },
+        "weights": "absent",
+        "query_groups": [],
+        "train_rows": 8192,
+        "validation_rows": 2048,
+        "features": 16,
+        "rounds": 50,
+        "nonzero_training_values": 13197,
+        "csr": true
+      },
+      "quality_gate": {
+        "name": "sparse",
+        "metric": "rmse",
+        "comparison": "<=",
+        "quality_bound": 0.3,
+        "reference_delta": 0.02
+      },
+      "reference_quality": 0.04335064004258384,
+      "python_check_predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+      "samples": {
+        "native": [
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.001203708,
+              0.00116875,
+              0.001102834,
+              0.00109725,
+              0.001108833
+            ],
+            "training_seconds": [
+              0.006918084,
+              0.006866459,
+              0.006889583,
+              0.0069455,
+              0.006859375
+            ],
+            "serialization_seconds": [
+              0.001112083,
+              0.001123875,
+              0.001114208,
+              0.001119459,
+              0.001106584
+            ],
+            "inference_seconds": [
+              0.001858458,
+              0.001867791,
+              0.0018615,
+              0.001856,
+              0.001834666
+            ],
+            "peak_rss_bytes": 6782976,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-native-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-native-p1.json",
+            "raw_rss": "target/phase9-final-memory-sparse-native-p1.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.00120225,
+              0.001142666,
+              0.001133084,
+              0.001098292,
+              0.001061417
+            ],
+            "training_seconds": [
+              0.006866583,
+              0.006797792,
+              0.006781,
+              0.006820375,
+              0.006793416
+            ],
+            "serialization_seconds": [
+              0.001111667,
+              0.001095917,
+              0.001098583,
+              0.001092375,
+              0.001093875
+            ],
+            "inference_seconds": [
+              0.001840833,
+              0.001857041,
+              0.00187025,
+              0.001856041,
+              0.001819042
+            ],
+            "peak_rss_bytes": 6782976,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-native-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-native-p2.json",
+            "raw_rss": "target/phase9-final-memory-sparse-native-p2.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.001223875,
+              0.001160667,
+              0.001133458,
+              0.001111416,
+              0.001081375
+            ],
+            "training_seconds": [
+              0.006914917,
+              0.006856292,
+              0.006875334,
+              0.006829834,
+              0.007076042
+            ],
+            "serialization_seconds": [
+              0.001130458,
+              0.001124958,
+              0.001120166,
+              0.001112708,
+              0.001116541
+            ],
+            "inference_seconds": [
+              0.00194625,
+              0.0019455,
+              0.001931417,
+              0.001911833,
+              0.001900417
+            ],
+            "peak_rss_bytes": 6766592,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-native-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-native-p3.json",
+            "raw_rss": "target/phase9-final-memory-sparse-native-p3.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.001240833,
+              0.001155792,
+              0.001114125,
+              0.001127959,
+              0.001097583
+            ],
+            "training_seconds": [
+              0.006928459,
+              0.006862541,
+              0.006845708,
+              0.00683925,
+              0.006849042
+            ],
+            "serialization_seconds": [
+              0.0011115,
+              0.001103792,
+              0.00111125,
+              0.0011095,
+              0.001109792
+            ],
+            "inference_seconds": [
+              0.001857,
+              0.001875208,
+              0.001882167,
+              0.001903458,
+              0.001845541
+            ],
+            "peak_rss_bytes": 6864896,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-native-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-native-p4.json",
+            "raw_rss": "target/phase9-final-memory-sparse-native-p4.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.001222417,
+              0.001173333,
+              0.001132542,
+              0.001122667,
+              0.001103708
+            ],
+            "training_seconds": [
+              0.00697525,
+              0.006869042,
+              0.006863958,
+              0.006835375,
+              0.006820792
+            ],
+            "serialization_seconds": [
+              0.00113275,
+              0.001126,
+              0.001123292,
+              0.001125167,
+              0.001109041
+            ],
+            "inference_seconds": [
+              0.001845791,
+              0.001844166,
+              0.001820458,
+              0.001829583,
+              0.00183025
+            ],
+            "peak_rss_bytes": 6881280,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-native-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-native-p5.json",
+            "raw_rss": "target/phase9-final-memory-sparse-native-p5.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          }
+        ],
+        "rust": [
+          {
+            "dataset_construction_seconds": [
+              0.001371709,
+              0.001342833,
+              0.001331916,
+              0.001343584,
+              0.001342625
+            ],
+            "inference_seconds": [
+              0.00153,
+              0.001478375,
+              0.001468959,
+              0.001502834,
+              0.001462042
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000304709,
+              0.000290709,
+              0.000289791,
+              0.000295875,
+              0.000296958
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.022527291,
+              0.022523625,
+              0.022622834,
+              0.022868791,
+              0.022582542
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 6455296,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-rust-p1.json",
+            "raw_rss": "target/phase9-final-memory-sparse-rust-p1.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "dataset_construction_seconds": [
+              0.001337291,
+              0.00133,
+              0.001351834,
+              0.001331958,
+              0.001319459
+            ],
+            "inference_seconds": [
+              0.001529417,
+              0.001512041,
+              0.00154,
+              0.001501875,
+              0.001498208
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000300375,
+              0.000310209,
+              0.000295875,
+              0.000300208,
+              0.000299334
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.021302125,
+              0.021340583,
+              0.021195708,
+              0.021267542,
+              0.021429666
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 6537216,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-rust-p2.json",
+            "raw_rss": "target/phase9-final-memory-sparse-rust-p2.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "dataset_construction_seconds": [
+              0.001363083,
+              0.001331792,
+              0.001326,
+              0.001333625,
+              0.001328625
+            ],
+            "inference_seconds": [
+              0.001506958,
+              0.001491083,
+              0.001485541,
+              0.001490542,
+              0.001485625
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000291709,
+              0.000284334,
+              0.000286209,
+              0.000288875,
+              0.000281333
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.021481333,
+              0.021409208,
+              0.021531125,
+              0.021572708,
+              0.0213785
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 6537216,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-rust-p3.json",
+            "raw_rss": "target/phase9-final-memory-sparse-rust-p3.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "dataset_construction_seconds": [
+              0.001341625,
+              0.001337208,
+              0.001334959,
+              0.001327542,
+              0.001350083
+            ],
+            "inference_seconds": [
+              0.001511875,
+              0.001500875,
+              0.001482458,
+              0.001517167,
+              0.0014915
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000302625,
+              0.000296708,
+              0.000292875,
+              0.000293583,
+              0.000292292
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.021518667,
+              0.021312792,
+              0.021738958,
+              0.021635,
+              0.021430583
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 6537216,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-rust-p4.json",
+            "raw_rss": "target/phase9-final-memory-sparse-rust-p4.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          },
+          {
+            "dataset_construction_seconds": [
+              0.001340958,
+              0.001319459,
+              0.001317834,
+              0.001334666,
+              0.001312208
+            ],
+            "inference_seconds": [
+              0.001514208,
+              0.001476166,
+              0.001501041,
+              0.001472917,
+              0.00146475
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000289917,
+              0.000286,
+              0.000287834,
+              0.000288792,
+              0.00028075
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.021692917,
+              0.021692625,
+              0.021751416,
+              0.021697625,
+              0.021659209
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 6455296,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-sparse-rust-p5.json",
+            "raw_rss": "target/phase9-final-memory-sparse-rust-p5.rss",
+            "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.04335064004258384
+          }
+        ]
+      },
+      "summary": {
+        "native": {
+          "median_dataset_construction_seconds": 0.001132542,
+          "median_training_seconds": 0.006862541,
+          "median_serialization_seconds": 0.001112083,
+          "median_inference_seconds": 0.001857041,
+          "median_peak_rss_bytes": 6782976,
+          "maximum_peak_rss_bytes": 6881280
+        },
+        "rust": {
+          "median_dataset_construction_seconds": 0.001334666,
+          "median_training_seconds": 0.021572708,
+          "median_serialization_seconds": 0.000292292,
+          "median_inference_seconds": 0.001498208,
+          "median_peak_rss_bytes": 6537216,
+          "maximum_peak_rss_bytes": 6537216
+        }
+      },
+      "timing_ratios_to_fixed_baseline": {
+        "training": 0.9067909375214522,
+        "inference": 0.22671781192736834
+      },
+      "timing_ratios_to_fresh_native": {
+        "training": 3.1435452261778836,
+        "inference": 0.8067716329364834
+      },
+      "fresh_native_training_pass": false,
+      "fresh_native_inference_pass": true,
+      "fixed_reference_median_training_seconds": 0.023790167178958654,
+      "fixed_reference_median_inference_seconds": 0.006608250085264444,
+      "peak_memory_ratio": 0.95,
+      "conservative_peak_memory_ratio": 0.9661016949152542,
+      "median_peak_memory_ratio": 0.9637681159420289,
+      "training_pass": true,
+      "inference_pass": true,
+      "memory_pass": true,
+      "quality_pass": true,
+      "supplemental_rust_parallel": [
+        {
+          "dataset_construction_seconds": [
+            0.001326791,
+            0.001349042,
+            0.001329625,
+            0.00132975,
+            0.001352
+          ],
+          "inference_seconds": [
+            0.000834667,
+            0.000832,
+            0.000827792,
+            0.00087325,
+            0.000848375
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000297208,
+            0.000303291,
+            0.000288708,
+            0.000296625,
+            0.000288458
+          ],
+          "threads": 2,
+          "training_seconds": [
+            0.021519042,
+            0.021616042,
+            0.021388709,
+            0.021343083,
+            0.021685167
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 6717440,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+            "2",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-t2.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-sparse-rust-t2.json",
+          "raw_rss": "target/phase9-final-memory-sparse-rust-t2.rss",
+          "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+          "quality": 0.04335064004258384,
+          "matched_parallel_budget": null
+        },
+        {
+          "dataset_construction_seconds": [
+            0.001450125,
+            0.001358125,
+            0.001334,
+            0.001356583,
+            0.001336084
+          ],
+          "inference_seconds": [
+            0.000482875,
+            0.00051275,
+            0.000478375,
+            0.000469667,
+            0.000466167
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.0003235,
+            0.000304583,
+            0.000304959,
+            0.000297416,
+            0.000298916
+          ],
+          "threads": 4,
+          "training_seconds": [
+            0.023273042,
+            0.023253667,
+            0.022991375,
+            0.022899084,
+            0.022972375
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 7176192,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-sparse.params",
+            "4",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-sparse-rust-t4.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-sparse-rust-t4.json",
+          "raw_rss": "target/phase9-final-memory-sparse-rust-t4.rss",
+          "predictions_sha256": "d74fe5fd4cccd278375f96f32268a23e44672c9bdc0a0fe8135ab9d4e4cb4e0f",
+          "quality": 0.04335064004258384,
+          "matched_parallel_budget": null
+        }
+      ]
+    },
+    {
+      "name": "categorical",
+      "inputs": {
+        "json_path": "target/oracle/benchmark-input-categorical.json",
+        "json_sha256": "c8c8f88ffbcb1f94227d0785771e9f7d6733fd4a27cf2d3f8d595d5aa5894ee2",
+        "binary_path": "target/phase9-final-memory-input-categorical.bin",
+        "binary_sha256": "0f6545592087f49915c3a2b832b68cbd56954f7b7cb1d9f449b0ee0f9068b7b6",
+        "parameter_text": "bagging_seed=0 boost_from_average=true categorical_feature=0 data_random_seed=0 deterministic=true device_type=cpu drop_seed=0 extra_seed=0 feature_fraction_seed=0 feature_pre_filter=false force_col_wise=true learning_rate=0.1 max_bin=63 max_depth=-1 metric=None min_data_in_bin=3 min_data_in_leaf=20 min_sum_hessian_in_leaf=0.001 num_leaves=15 num_threads=1 objective=binary objective_seed=0 seed=0 tree_learner=serial verbosity=-1",
+        "parameter_sha256": "1c1ecc9a70f9ef026ef99c1dc5ba5f933069c7f08113e3dac0ede636c673f3e6",
+        "params": {
+          "verbosity": -1,
+          "device_type": "cpu",
+          "tree_learner": "serial",
+          "num_threads": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 0,
+          "data_random_seed": 0,
+          "feature_fraction_seed": 0,
+          "bagging_seed": 0,
+          "drop_seed": 0,
+          "extra_seed": 0,
+          "objective_seed": 0,
+          "num_leaves": 15,
+          "max_depth": -1,
+          "learning_rate": 0.1,
+          "min_data_in_leaf": 20,
+          "min_data_in_bin": 3,
+          "min_sum_hessian_in_leaf": 0.001,
+          "max_bin": 63,
+          "feature_pre_filter": false,
+          "boost_from_average": true,
+          "objective": "binary",
+          "metric": "None"
+        },
+        "weights": "absent",
+        "query_groups": [],
+        "train_rows": 8192,
+        "validation_rows": 2048,
+        "features": 16,
+        "rounds": 50,
+        "nonzero_training_values": 130093,
+        "csr": false
+      },
+      "quality_gate": {
+        "name": "categorical",
+        "metric": "binary_logloss",
+        "comparison": "<=",
+        "quality_bound": 0.15,
+        "reference_delta": 0.02
+      },
+      "reference_quality": 0.0026642815182844714,
+      "python_check_predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+      "samples": {
+        "native": [
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003781708,
+              0.003734625,
+              0.003691958,
+              0.003677166,
+              0.003657542
+            ],
+            "training_seconds": [
+              0.009196833,
+              0.009171666,
+              0.009112458,
+              0.009100625,
+              0.009099
+            ],
+            "serialization_seconds": [
+              0.000592459,
+              0.000580709,
+              0.000563792,
+              0.000562584,
+              0.000568333
+            ],
+            "inference_seconds": [
+              0.000689,
+              0.00066725,
+              0.000677042,
+              0.00068025,
+              0.000706834
+            ],
+            "peak_rss_bytes": 9814016,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-native-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-native-p1.json",
+            "raw_rss": "target/phase9-final-memory-categorical-native-p1.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003817833,
+              0.003806208,
+              0.003838166,
+              0.003807583,
+              0.0038305
+            ],
+            "training_seconds": [
+              0.009473417,
+              0.009349167,
+              0.009444375,
+              0.009347084,
+              0.009376042
+            ],
+            "serialization_seconds": [
+              0.000616958,
+              0.000599583,
+              0.000601125,
+              0.00061025,
+              0.000594125
+            ],
+            "inference_seconds": [
+              0.00071275,
+              0.000694125,
+              0.000706084,
+              0.000688583,
+              0.000689458
+            ],
+            "peak_rss_bytes": 9715712,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-native-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-native-p2.json",
+            "raw_rss": "target/phase9-final-memory-categorical-native-p2.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003778,
+              0.003724209,
+              0.003709375,
+              0.003715167,
+              0.003701625
+            ],
+            "training_seconds": [
+              0.009260333,
+              0.009209708,
+              0.009162625,
+              0.009150875,
+              0.009119958
+            ],
+            "serialization_seconds": [
+              0.00060475,
+              0.000586125,
+              0.000567958,
+              0.000588541,
+              0.000580917
+            ],
+            "inference_seconds": [
+              0.000689459,
+              0.000688625,
+              0.000689125,
+              0.000697209,
+              0.000702875
+            ],
+            "peak_rss_bytes": 9601024,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-native-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-native-p3.json",
+            "raw_rss": "target/phase9-final-memory-categorical-native-p3.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003730041,
+              0.003716,
+              0.003724208,
+              0.00371325,
+              0.003694792
+            ],
+            "training_seconds": [
+              0.009188125,
+              0.009275375,
+              0.009166042,
+              0.009117708,
+              0.009085375
+            ],
+            "serialization_seconds": [
+              0.000591459,
+              0.000590833,
+              0.000569041,
+              0.000562542,
+              0.000558917
+            ],
+            "inference_seconds": [
+              0.000658166,
+              0.000680834,
+              0.000672667,
+              0.000685958,
+              0.00067525
+            ],
+            "peak_rss_bytes": 9699328,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-native-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-native-p4.json",
+            "raw_rss": "target/phase9-final-memory-categorical-native-p4.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.00379775,
+              0.003773125,
+              0.003778208,
+              0.003715334,
+              0.003778292
+            ],
+            "training_seconds": [
+              0.00910775,
+              0.00911275,
+              0.00901625,
+              0.009057333,
+              0.009050333
+            ],
+            "serialization_seconds": [
+              0.000588333,
+              0.000571958,
+              0.000554917,
+              0.000565875,
+              0.000553333
+            ],
+            "inference_seconds": [
+              0.000680917,
+              0.000690917,
+              0.000671291,
+              0.000670375,
+              0.000673542
+            ],
+            "peak_rss_bytes": 9895936,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-native-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-native-p5.json",
+            "raw_rss": "target/phase9-final-memory-categorical-native-p5.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          }
+        ],
+        "rust": [
+          {
+            "dataset_construction_seconds": [
+              0.003150542,
+              0.003201292,
+              0.003161125,
+              0.003171916,
+              0.003200458
+            ],
+            "inference_seconds": [
+              0.000695083,
+              0.000631834,
+              0.000654375,
+              0.000634208,
+              0.000653375
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000138625,
+              0.000135458,
+              0.000130416,
+              0.000130834,
+              0.000140792
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.0143295,
+              0.014191833,
+              0.0141055,
+              0.014242,
+              0.01419625
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8044544,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-rust-p1.json",
+            "raw_rss": "target/phase9-final-memory-categorical-rust-p1.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003438125,
+              0.003373542,
+              0.003330167,
+              0.003431959,
+              0.003373334
+            ],
+            "inference_seconds": [
+              0.000684541,
+              0.000639583,
+              0.000640125,
+              0.000637958,
+              0.000636791
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.0001415,
+              0.000142958,
+              0.000132583,
+              0.000138167,
+              0.000129042
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.014374709,
+              0.014291542,
+              0.0142525,
+              0.014488041,
+              0.014292583
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8159232,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-rust-p2.json",
+            "raw_rss": "target/phase9-final-memory-categorical-rust-p2.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003385375,
+              0.00346,
+              0.003378208,
+              0.00331025,
+              0.003386625
+            ],
+            "inference_seconds": [
+              0.000675083,
+              0.000630917,
+              0.000624459,
+              0.000646583,
+              0.000666
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000139625,
+              0.000143208,
+              0.000132583,
+              0.000143875,
+              0.000143209
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.014240667,
+              0.014408625,
+              0.014228917,
+              0.014291958,
+              0.01429675
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8028160,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-rust-p3.json",
+            "raw_rss": "target/phase9-final-memory-categorical-rust-p3.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "dataset_construction_seconds": [
+              0.00318925,
+              0.003215916,
+              0.003226542,
+              0.003177083,
+              0.003091833
+            ],
+            "inference_seconds": [
+              0.000672875,
+              0.000692125,
+              0.000665708,
+              0.000628208,
+              0.000646792
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000134,
+              0.000147459,
+              0.0001395,
+              0.000134959,
+              0.000131375
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.014359833,
+              0.014694125,
+              0.014482083,
+              0.01425725,
+              0.0143445
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8060928,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-rust-p4.json",
+            "raw_rss": "target/phase9-final-memory-categorical-rust-p4.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003409292,
+              0.003373917,
+              0.003367917,
+              0.003291292,
+              0.003388917
+            ],
+            "inference_seconds": [
+              0.000688458,
+              0.000646917,
+              0.000669208,
+              0.00064375,
+              0.000653708
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000140458,
+              0.000137625,
+              0.000140208,
+              0.00013875,
+              0.000133375
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.01435275,
+              0.014235916,
+              0.01439275,
+              0.014230083,
+              0.014189833
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 7929856,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-categorical-rust-p5.json",
+            "raw_rss": "target/phase9-final-memory-categorical-rust-p5.rss",
+            "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.002664281518284472
+          }
+        ]
+      },
+      "summary": {
+        "native": {
+          "median_dataset_construction_seconds": 0.003730041,
+          "median_training_seconds": 0.009162625,
+          "median_serialization_seconds": 0.000580917,
+          "median_inference_seconds": 0.000688583,
+          "median_peak_rss_bytes": 9715712,
+          "maximum_peak_rss_bytes": 9895936
+        },
+        "rust": {
+          "median_dataset_construction_seconds": 0.003330167,
+          "median_training_seconds": 0.014291958,
+          "median_serialization_seconds": 0.000138625,
+          "median_inference_seconds": 0.000646917,
+          "median_peak_rss_bytes": 8044544,
+          "maximum_peak_rss_bytes": 8159232
+        }
+      },
+      "timing_ratios_to_fixed_baseline": {
+        "training": 0.30873521680175237,
+        "inference": 0.26987202056208154
+      },
+      "timing_ratios_to_fresh_native": {
+        "training": 1.5598104255057912,
+        "inference": 0.9394902284837122
+      },
+      "fresh_native_training_pass": false,
+      "fresh_native_inference_pass": true,
+      "fixed_reference_median_training_seconds": 0.04629195900633931,
+      "fixed_reference_median_inference_seconds": 0.002397125121206045,
+      "peak_memory_ratio": 0.8245033112582781,
+      "conservative_peak_memory_ratio": 0.8498293515358362,
+      "median_peak_memory_ratio": 0.8279932546374368,
+      "training_pass": true,
+      "inference_pass": true,
+      "memory_pass": true,
+      "quality_pass": true,
+      "supplemental_rust_parallel": [
+        {
+          "dataset_construction_seconds": [
+            0.003449958,
+            0.003401375,
+            0.003360042,
+            0.003445542,
+            0.003313333
+          ],
+          "inference_seconds": [
+            0.000395833,
+            0.000401208,
+            0.000396291,
+            0.000371417,
+            0.000365709
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000146667,
+            0.000155959,
+            0.000150667,
+            0.000151083,
+            0.000147041
+          ],
+          "threads": 2,
+          "training_seconds": [
+            0.01383775,
+            0.01383475,
+            0.013787625,
+            0.013762875,
+            0.013688542
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 8486912,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+            "2",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-t2.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-categorical-rust-t2.json",
+          "raw_rss": "target/phase9-final-memory-categorical-rust-t2.rss",
+          "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+          "quality": 0.002664281518284472,
+          "matched_parallel_budget": null
+        },
+        {
+          "dataset_construction_seconds": [
+            0.003446667,
+            0.003349375,
+            0.003389709,
+            0.00334775,
+            0.003428125
+          ],
+          "inference_seconds": [
+            0.00023725,
+            0.000216875,
+            0.000193708,
+            0.000188042,
+            0.000218125
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000154833,
+            0.000148542,
+            0.000156667,
+            0.000151666,
+            0.000140125
+          ],
+          "threads": 4,
+          "training_seconds": [
+            0.0154705,
+            0.016094208,
+            0.016060083,
+            0.015749125,
+            0.014757208
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 8732672,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-categorical.params",
+            "4",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-categorical-rust-t4.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-categorical-rust-t4.json",
+          "raw_rss": "target/phase9-final-memory-categorical-rust-t4.rss",
+          "predictions_sha256": "00aa7eebf5512e14ea0981327adb08f845c467b63340e18267096c8ccab3f4c1",
+          "quality": 0.002664281518284472,
+          "matched_parallel_budget": null
+        }
+      ]
+    },
+    {
+      "name": "multiclass",
+      "inputs": {
+        "json_path": "target/oracle/benchmark-input-multiclass.json",
+        "json_sha256": "71409c0721f3635550a087b1cfe7401124bae149318d912bc6b8d90244ccc1a6",
+        "binary_path": "target/phase9-final-memory-input-multiclass.bin",
+        "binary_sha256": "d33ae81fcc1b7b0c696c983a3d3375e925c6acc90d1aab6899ff97f232631caa",
+        "parameter_text": "bagging_seed=0 boost_from_average=true data_random_seed=0 deterministic=true device_type=cpu drop_seed=0 extra_seed=0 feature_fraction_seed=0 feature_pre_filter=false force_col_wise=true learning_rate=0.1 max_bin=63 max_depth=-1 metric=None min_data_in_bin=3 min_data_in_leaf=20 min_sum_hessian_in_leaf=0.001 num_class=3 num_leaves=15 num_threads=1 objective=multiclass objective_seed=0 seed=0 tree_learner=serial verbosity=-1",
+        "parameter_sha256": "853a1be139f673fd2d35bea84c18f95c9b4a7fe3ae27c14637284941d0e5878c",
+        "params": {
+          "verbosity": -1,
+          "device_type": "cpu",
+          "tree_learner": "serial",
+          "num_threads": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 0,
+          "data_random_seed": 0,
+          "feature_fraction_seed": 0,
+          "bagging_seed": 0,
+          "drop_seed": 0,
+          "extra_seed": 0,
+          "objective_seed": 0,
+          "num_leaves": 15,
+          "max_depth": -1,
+          "learning_rate": 0.1,
+          "min_data_in_leaf": 20,
+          "min_data_in_bin": 3,
+          "min_sum_hessian_in_leaf": 0.001,
+          "max_bin": 63,
+          "feature_pre_filter": false,
+          "boost_from_average": true,
+          "objective": "multiclass",
+          "metric": "None",
+          "num_class": 3
+        },
+        "weights": "absent",
+        "query_groups": [],
+        "train_rows": 8192,
+        "validation_rows": 2048,
+        "features": 16,
+        "rounds": 50,
+        "nonzero_training_values": 131072,
+        "csr": false
+      },
+      "quality_gate": {
+        "name": "multiclass",
+        "metric": "multi_logloss",
+        "comparison": "<=",
+        "quality_bound": 0.45,
+        "reference_delta": 0.02
+      },
+      "reference_quality": 0.062098232276276824,
+      "python_check_predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+      "samples": {
+        "native": [
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 6144,
+            "dataset_construction_seconds": [
+              0.00383275,
+              0.003809292,
+              0.003803916,
+              0.003875,
+              0.003813917
+            ],
+            "training_seconds": [
+              0.055382834,
+              0.055207583,
+              0.055123042,
+              0.054971,
+              0.054885875
+            ],
+            "serialization_seconds": [
+              0.003362041,
+              0.003352583,
+              0.00339025,
+              0.003291541,
+              0.003267041
+            ],
+            "inference_seconds": [
+              0.006872167,
+              0.006862792,
+              0.007015625,
+              0.006736709,
+              0.006699834
+            ],
+            "peak_rss_bytes": 10649600,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-native-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-native-p1.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-native-p1.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 6144,
+            "dataset_construction_seconds": [
+              0.003861625,
+              0.00387875,
+              0.003851459,
+              0.00382375,
+              0.003885084
+            ],
+            "training_seconds": [
+              0.054597417,
+              0.054686667,
+              0.054512708,
+              0.054405459,
+              0.055039958
+            ],
+            "serialization_seconds": [
+              0.003366166,
+              0.003388125,
+              0.003395583,
+              0.003367291,
+              0.003403875
+            ],
+            "inference_seconds": [
+              0.006679834,
+              0.006621417,
+              0.006599834,
+              0.006614292,
+              0.007081958
+            ],
+            "peak_rss_bytes": 10502144,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-native-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-native-p2.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-native-p2.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 6144,
+            "dataset_construction_seconds": [
+              0.003866459,
+              0.003789708,
+              0.00378625,
+              0.003771625,
+              0.003803
+            ],
+            "training_seconds": [
+              0.055062666,
+              0.05468725,
+              0.05478875,
+              0.055018084,
+              0.055140959
+            ],
+            "serialization_seconds": [
+              0.003316459,
+              0.003353417,
+              0.003364833,
+              0.003270208,
+              0.003380458
+            ],
+            "inference_seconds": [
+              0.006811916,
+              0.006837208,
+              0.006774958,
+              0.006765208,
+              0.006942833
+            ],
+            "peak_rss_bytes": 10600448,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-native-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-native-p3.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-native-p3.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 6144,
+            "dataset_construction_seconds": [
+              0.003790292,
+              0.003776792,
+              0.003810666,
+              0.003822417,
+              0.0039365
+            ],
+            "training_seconds": [
+              0.0549965,
+              0.054691375,
+              0.054687459,
+              0.054721833,
+              0.054708042
+            ],
+            "serialization_seconds": [
+              0.003360917,
+              0.003369958,
+              0.003379041,
+              0.003328042,
+              0.003339666
+            ],
+            "inference_seconds": [
+              0.006685416,
+              0.006642667,
+              0.006708667,
+              0.006908583,
+              0.006964125
+            ],
+            "peak_rss_bytes": 10780672,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-native-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-native-p4.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-native-p4.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 6144,
+            "dataset_construction_seconds": [
+              0.003818125,
+              0.00536625,
+              0.00384875,
+              0.003772334,
+              0.003790083
+            ],
+            "training_seconds": [
+              0.054586166,
+              0.05580625,
+              0.055103459,
+              0.054986708,
+              0.055108625
+            ],
+            "serialization_seconds": [
+              0.003358334,
+              0.003340708,
+              0.003279,
+              0.003253208,
+              0.003273667
+            ],
+            "inference_seconds": [
+              0.007087333,
+              0.007046834,
+              0.0068155,
+              0.006763209,
+              0.006766375
+            ],
+            "peak_rss_bytes": 10731520,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-native-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-native-p5.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-native-p5.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          }
+        ],
+        "rust": [
+          {
+            "dataset_construction_seconds": [
+              0.003509542,
+              0.003598333,
+              0.003592542,
+              0.003541,
+              0.003571416
+            ],
+            "inference_seconds": [
+              0.00493325,
+              0.005279875,
+              0.00501275,
+              0.004989542,
+              0.005240584
+            ],
+            "measured_runs": 5,
+            "prediction_count": 6144,
+            "serialization_seconds": [
+              0.000940459,
+              0.00096275,
+              0.000945917,
+              0.00093625,
+              0.000945208
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.077962458,
+              0.078343042,
+              0.077935125,
+              0.078143167,
+              0.078090917
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 10141696,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-rust-p1.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-rust-p1.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "dataset_construction_seconds": [
+              0.0032265,
+              0.003251708,
+              0.0032835,
+              0.003328166,
+              0.003187708
+            ],
+            "inference_seconds": [
+              0.005068833,
+              0.005075375,
+              0.005305458,
+              0.004987083,
+              0.005008667
+            ],
+            "measured_runs": 5,
+            "prediction_count": 6144,
+            "serialization_seconds": [
+              0.000929917,
+              0.000935541,
+              0.000931417,
+              0.000939792,
+              0.000928375
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.078901708,
+              0.078410459,
+              0.078583958,
+              0.07861875,
+              0.078164333
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 10043392,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-rust-p2.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-rust-p2.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003343167,
+              0.003325583,
+              0.003326542,
+              0.003262208,
+              0.0032855
+            ],
+            "inference_seconds": [
+              0.005076375,
+              0.005028875,
+              0.005007541,
+              0.004993625,
+              0.005302875
+            ],
+            "measured_runs": 5,
+            "prediction_count": 6144,
+            "serialization_seconds": [
+              0.000937125,
+              0.000955208,
+              0.000930375,
+              0.000941,
+              0.000939333
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.078765625,
+              0.077649792,
+              0.077859417,
+              0.07782925,
+              0.078234375
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 10027008,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-rust-p3.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-rust-p3.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003589708,
+              0.003551458,
+              0.003582709,
+              0.003615625,
+              0.003431292
+            ],
+            "inference_seconds": [
+              0.005228333,
+              0.005237458,
+              0.004930667,
+              0.005236875,
+              0.005222917
+            ],
+            "measured_runs": 5,
+            "prediction_count": 6144,
+            "serialization_seconds": [
+              0.001000459,
+              0.000949417,
+              0.000944791,
+              0.000944083,
+              0.000943292
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.079202125,
+              0.0775165,
+              0.077275,
+              0.077256834,
+              0.078405041
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 10141696,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-rust-p4.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-rust-p4.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003263833,
+              0.003255125,
+              0.003243875,
+              0.003297833,
+              0.003241041
+            ],
+            "inference_seconds": [
+              0.005005167,
+              0.004986166,
+              0.005282542,
+              0.005213833,
+              0.004944333
+            ],
+            "measured_runs": 5,
+            "prediction_count": 6144,
+            "serialization_seconds": [
+              0.000939958,
+              0.00093925,
+              0.00094375,
+              0.000987875,
+              0.000938084
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.078054375,
+              0.077958875,
+              0.078283708,
+              0.078033959,
+              0.077998125
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 10076160,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-multiclass-rust-p5.json",
+            "raw_rss": "target/phase9-final-memory-multiclass-rust-p5.rss",
+            "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.062098232276276824
+          }
+        ]
+      },
+      "summary": {
+        "native": {
+          "median_dataset_construction_seconds": 0.003818125,
+          "median_training_seconds": 0.054971,
+          "median_serialization_seconds": 0.003358334,
+          "median_inference_seconds": 0.006774958,
+          "median_peak_rss_bytes": 10649600,
+          "maximum_peak_rss_bytes": 10780672
+        },
+        "rust": {
+          "median_dataset_construction_seconds": 0.003326542,
+          "median_training_seconds": 0.078090917,
+          "median_serialization_seconds": 0.000940459,
+          "median_inference_seconds": 0.005068833,
+          "median_peak_rss_bytes": 10076160,
+          "maximum_peak_rss_bytes": 10141696
+        }
+      },
+      "timing_ratios_to_fixed_baseline": {
+        "training": 0.27610724381384777,
+        "inference": 0.26254484256593885
+      },
+      "timing_ratios_to_fresh_native": {
+        "training": 1.4205838896872895,
+        "inference": 0.748171870585766
+      },
+      "fresh_native_training_pass": true,
+      "fresh_native_inference_pass": true,
+      "fixed_reference_median_training_seconds": 0.2828282080590725,
+      "fixed_reference_median_inference_seconds": 0.01930654188618064,
+      "peak_memory_ratio": 0.9407294832826748,
+      "conservative_peak_memory_ratio": 0.9656786271450858,
+      "median_peak_memory_ratio": 0.9461538461538461,
+      "training_pass": true,
+      "inference_pass": true,
+      "memory_pass": true,
+      "quality_pass": true,
+      "supplemental_rust_parallel": [
+        {
+          "dataset_construction_seconds": [
+            0.003265458,
+            0.003284167,
+            0.003264958,
+            0.003273625,
+            0.003285166
+          ],
+          "inference_seconds": [
+            0.002780125,
+            0.002874667,
+            0.00285475,
+            0.002861,
+            0.002851125
+          ],
+          "measured_runs": 5,
+          "prediction_count": 6144,
+          "serialization_seconds": [
+            0.000937958,
+            0.000933833,
+            0.000939625,
+            0.000941208,
+            0.000940417
+          ],
+          "threads": 2,
+          "training_seconds": [
+            0.077263542,
+            0.07723675,
+            0.077477709,
+            0.07777875,
+            0.077709542
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 10354688,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+            "2",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-t2.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-multiclass-rust-t2.json",
+          "raw_rss": "target/phase9-final-memory-multiclass-rust-t2.rss",
+          "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+          "quality": 0.062098232276276824,
+          "matched_parallel_budget": null
+        },
+        {
+          "dataset_construction_seconds": [
+            0.003568542,
+            0.00337525,
+            0.003723917,
+            0.003730834,
+            0.003499792
+          ],
+          "inference_seconds": [
+            0.001542375,
+            0.002036791,
+            0.0019675,
+            0.00154975,
+            0.001563875
+          ],
+          "measured_runs": 5,
+          "prediction_count": 6144,
+          "serialization_seconds": [
+            0.000951417,
+            0.000984209,
+            0.000967916,
+            0.000952292,
+            0.000948958
+          ],
+          "threads": 4,
+          "training_seconds": [
+            0.088422625,
+            0.088174041,
+            0.085365042,
+            0.087042333,
+            0.088150083
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 10911744,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-multiclass.params",
+            "4",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-multiclass-rust-t4.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-multiclass-rust-t4.json",
+          "raw_rss": "target/phase9-final-memory-multiclass-rust-t4.rss",
+          "predictions_sha256": "4a7ead87253de86b9a4e6e71e970498dab99c396b52094a0442bee02e7d1f76e",
+          "quality": 0.062098232276276824,
+          "matched_parallel_budget": null
+        }
+      ]
+    },
+    {
+      "name": "ranking",
+      "inputs": {
+        "json_path": "target/oracle/benchmark-input-ranking.json",
+        "json_sha256": "7f779d8d74293f84400461a5af326de925b4549aaf3e5f6d815a5567488e0546",
+        "binary_path": "target/phase9-final-memory-input-ranking.bin",
+        "binary_sha256": "fb497b538b3d1af39e91a9d753ad38ce6fd211434e1707e78d0e24800c1c4e37",
+        "parameter_text": "bagging_seed=0 boost_from_average=true data_random_seed=0 deterministic=true device_type=cpu drop_seed=0 extra_seed=0 feature_fraction_seed=0 feature_pre_filter=false force_col_wise=true learning_rate=0.1 max_bin=63 max_depth=-1 metric=None min_data_in_bin=3 min_data_in_leaf=20 min_sum_hessian_in_leaf=0.001 num_leaves=15 num_threads=1 objective=lambdarank objective_seed=0 seed=0 tree_learner=serial verbosity=-1",
+        "parameter_sha256": "286283d9007dfd595a21736d6838b62bd6d03a58be625cd8a2f2205c0e7e0a51",
+        "params": {
+          "verbosity": -1,
+          "device_type": "cpu",
+          "tree_learner": "serial",
+          "num_threads": 1,
+          "deterministic": true,
+          "force_col_wise": true,
+          "seed": 0,
+          "data_random_seed": 0,
+          "feature_fraction_seed": 0,
+          "bagging_seed": 0,
+          "drop_seed": 0,
+          "extra_seed": 0,
+          "objective_seed": 0,
+          "num_leaves": 15,
+          "max_depth": -1,
+          "learning_rate": 0.1,
+          "min_data_in_leaf": 20,
+          "min_data_in_bin": 3,
+          "min_sum_hessian_in_leaf": 0.001,
+          "max_bin": 63,
+          "feature_pre_filter": false,
+          "boost_from_average": true,
+          "objective": "lambdarank",
+          "metric": "None"
+        },
+        "weights": "absent",
+        "query_groups": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "train_rows": 8192,
+        "validation_rows": 2048,
+        "features": 16,
+        "rounds": 50,
+        "nonzero_training_values": 131072,
+        "csr": false
+      },
+      "quality_gate": {
+        "name": "ranking",
+        "metric": "ndcg@5",
+        "comparison": ">=",
+        "quality_bound": 0.9,
+        "reference_delta": 0.01
+      },
+      "reference_quality": 0.9999282680508397,
+      "python_check_predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+      "samples": {
+        "native": [
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003801833,
+              0.003784584,
+              0.003737166,
+              0.003762458,
+              0.003828792
+            ],
+            "training_seconds": [
+              0.026483417,
+              0.026234,
+              0.026046542,
+              0.026282,
+              0.026063542
+            ],
+            "serialization_seconds": [
+              0.001185958,
+              0.001149166,
+              0.001155958,
+              0.001150292,
+              0.001133625
+            ],
+            "inference_seconds": [
+              0.00099775,
+              0.001015417,
+              0.001011042,
+              0.001014,
+              0.000994583
+            ],
+            "peak_rss_bytes": 18300928,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-native-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-native-p1.json",
+            "raw_rss": "target/phase9-final-memory-ranking-native-p1.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003988208,
+              0.0038685,
+              0.003908917,
+              0.003862709,
+              0.003843875
+            ],
+            "training_seconds": [
+              0.026367375,
+              0.026395125,
+              0.02606825,
+              0.026366375,
+              0.0264995
+            ],
+            "serialization_seconds": [
+              0.0011615,
+              0.00114625,
+              0.001145917,
+              0.001193166,
+              0.001155625
+            ],
+            "inference_seconds": [
+              0.001025167,
+              0.00102675,
+              0.001022958,
+              0.001075542,
+              0.001065333
+            ],
+            "peak_rss_bytes": 18350080,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-native-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-native-p2.json",
+            "raw_rss": "target/phase9-final-memory-ranking-native-p2.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.003852291,
+              0.0038885,
+              0.003861584,
+              0.003848417,
+              0.003877666
+            ],
+            "training_seconds": [
+              0.02620425,
+              0.026062583,
+              0.025901458,
+              0.025979958,
+              0.025902584
+            ],
+            "serialization_seconds": [
+              0.00119075,
+              0.001156875,
+              0.001167792,
+              0.001176,
+              0.001142041
+            ],
+            "inference_seconds": [
+              0.001093542,
+              0.001117333,
+              0.001100916,
+              0.001109584,
+              0.001117417
+            ],
+            "peak_rss_bytes": 18399232,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-native-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-native-p3.json",
+            "raw_rss": "target/phase9-final-memory-ranking-native-p3.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.00383375,
+              0.003854583,
+              0.003788459,
+              0.003760208,
+              0.00377775
+            ],
+            "training_seconds": [
+              0.02636875,
+              0.026451833,
+              0.026132083,
+              0.026356417,
+              0.026200667
+            ],
+            "serialization_seconds": [
+              0.001180834,
+              0.001144459,
+              0.001144625,
+              0.001153042,
+              0.001139041
+            ],
+            "inference_seconds": [
+              0.001063708,
+              0.001050625,
+              0.001042208,
+              0.001060458,
+              0.00105225
+            ],
+            "peak_rss_bytes": 18317312,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-native-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-native-p4.json",
+            "raw_rss": "target/phase9-final-memory-ranking-native-p4.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "warmup_runs": 1,
+            "measured_runs": 5,
+            "threads": 1,
+            "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+            "prediction_count": 2048,
+            "dataset_construction_seconds": [
+              0.004012916,
+              0.003976459,
+              0.00386725,
+              0.003875416,
+              0.003879125
+            ],
+            "training_seconds": [
+              0.027047459,
+              0.026949333,
+              0.026349625,
+              0.026373917,
+              0.026122875
+            ],
+            "serialization_seconds": [
+              0.001216458,
+              0.001169208,
+              0.001201542,
+              0.001173125,
+              0.001149292
+            ],
+            "inference_seconds": [
+              0.001107917,
+              0.001050584,
+              0.001028417,
+              0.001042667,
+              0.001023291
+            ],
+            "peak_rss_bytes": 18300928,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-native",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-native-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-native-p5.json",
+            "raw_rss": "target/phase9-final-memory-ranking-native-p5.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          }
+        ],
+        "rust": [
+          {
+            "dataset_construction_seconds": [
+              0.003467416,
+              0.003329542,
+              0.003466792,
+              0.003397792,
+              0.003396584
+            ],
+            "inference_seconds": [
+              0.0008505,
+              0.00084125,
+              0.000858167,
+              0.000864041,
+              0.000824167
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000327917,
+              0.000322916,
+              0.000338208,
+              0.000327209,
+              0.000339541
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.047357542,
+              0.047408625,
+              0.047107,
+              0.047349333,
+              0.047639375
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8372224,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-p1.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-rust-p1.json",
+            "raw_rss": "target/phase9-final-memory-ranking-rust-p1.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003267541,
+              0.003266083,
+              0.003256917,
+              0.003242166,
+              0.003192125
+            ],
+            "inference_seconds": [
+              0.000762583,
+              0.000762125,
+              0.000741791,
+              0.000763959,
+              0.000778917
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000336209,
+              0.000331958,
+              0.000323334,
+              0.000323666,
+              0.000321791
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.047305875,
+              0.047407917,
+              0.047215041,
+              0.047305084,
+              0.047185459
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8568832,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-p2.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-rust-p2.json",
+            "raw_rss": "target/phase9-final-memory-ranking-rust-p2.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003444916,
+              0.003217791,
+              0.003224375,
+              0.003488708,
+              0.003302166
+            ],
+            "inference_seconds": [
+              0.0007775,
+              0.000772083,
+              0.000767167,
+              0.000778416,
+              0.000875458
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000330875,
+              0.000326458,
+              0.000324667,
+              0.000336417,
+              0.000338667
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.047295667,
+              0.047268834,
+              0.047517166,
+              0.047812667,
+              0.047737792
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8339456,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-p3.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-rust-p3.json",
+            "raw_rss": "target/phase9-final-memory-ranking-rust-p3.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003433,
+              0.003567416,
+              0.003448792,
+              0.003566583,
+              0.003349417
+            ],
+            "inference_seconds": [
+              0.000784125,
+              0.000778208,
+              0.000760541,
+              0.000758041,
+              0.000790334
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000327292,
+              0.000326167,
+              0.0003315,
+              0.00032525,
+              0.000336625
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.047723458,
+              0.047872042,
+              0.047436375,
+              0.047438084,
+              0.049054708
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8339456,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-p4.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-rust-p4.json",
+            "raw_rss": "target/phase9-final-memory-ranking-rust-p4.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          },
+          {
+            "dataset_construction_seconds": [
+              0.003290709,
+              0.003251417,
+              0.003156208,
+              0.003246083,
+              0.003284333
+            ],
+            "inference_seconds": [
+              0.0008455,
+              0.000853416,
+              0.000848541,
+              0.000857375,
+              0.000773542
+            ],
+            "measured_runs": 5,
+            "prediction_count": 2048,
+            "serialization_seconds": [
+              0.000325833,
+              0.000331667,
+              0.000326292,
+              0.000326083,
+              0.000328208
+            ],
+            "threads": 1,
+            "training_seconds": [
+              0.047449833,
+              0.04750075,
+              0.04732525,
+              0.04742375,
+              0.047777084
+            ],
+            "warmup_runs": 1,
+            "peak_rss_bytes": 8601600,
+            "command": [
+              "/usr/bin/time",
+              "-l",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+              "1",
+              "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-p5.pred.bin"
+            ],
+            "raw_stdout": "target/phase9-final-memory-ranking-rust-p5.json",
+            "raw_rss": "target/phase9-final-memory-ranking-rust-p5.rss",
+            "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+            "max_prediction_absolute_delta_from_python": 0.0,
+            "quality": 0.9999282680508396
+          }
+        ]
+      },
+      "summary": {
+        "native": {
+          "median_dataset_construction_seconds": 0.003854583,
+          "median_training_seconds": 0.026282,
+          "median_serialization_seconds": 0.001155958,
+          "median_inference_seconds": 0.001050584,
+          "median_peak_rss_bytes": 18317312,
+          "maximum_peak_rss_bytes": 18399232
+        },
+        "rust": {
+          "median_dataset_construction_seconds": 0.003302166,
+          "median_training_seconds": 0.04742375,
+          "median_serialization_seconds": 0.000327292,
+          "median_inference_seconds": 0.000778917,
+          "median_peak_rss_bytes": 8372224,
+          "maximum_peak_rss_bytes": 8601600
+        }
+      },
+      "timing_ratios_to_fixed_baseline": {
+        "training": 0.5658863273555196,
+        "inference": 0.26407324862627696
+      },
+      "timing_ratios_to_fresh_native": {
+        "training": 1.8044193744768282,
+        "inference": 0.7414133472430572
+      },
+      "fresh_native_training_pass": false,
+      "fresh_native_inference_pass": true,
+      "fixed_reference_median_training_seconds": 0.08380437502637506,
+      "fixed_reference_median_inference_seconds": 0.002949624788016081,
+      "peak_memory_ratio": 0.46749777382012464,
+      "conservative_peak_memory_ratio": 0.4700089525514772,
+      "median_peak_memory_ratio": 0.45706618962432916,
+      "training_pass": true,
+      "inference_pass": true,
+      "memory_pass": true,
+      "quality_pass": true,
+      "supplemental_rust_parallel": [
+        {
+          "dataset_construction_seconds": [
+            0.003302833,
+            0.003447916,
+            0.00335525,
+            0.003226875,
+            0.003230042
+          ],
+          "inference_seconds": [
+            0.000457375,
+            0.000473958,
+            0.000456958,
+            0.000459791,
+            0.000462333
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000350875,
+            0.000344959,
+            0.00033425,
+            0.000334417,
+            0.000326708
+          ],
+          "threads": 2,
+          "training_seconds": [
+            0.048573792,
+            0.0528405,
+            0.048289167,
+            0.048202625,
+            0.04729825
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 8978432,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+            "2",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-t2.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-ranking-rust-t2.json",
+          "raw_rss": "target/phase9-final-memory-ranking-rust-t2.rss",
+          "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+          "quality": 0.9999282680508396,
+          "matched_parallel_budget": null
+        },
+        {
+          "dataset_construction_seconds": [
+            0.003601458,
+            0.003508084,
+            0.003572916,
+            0.003468125,
+            0.003556417
+          ],
+          "inference_seconds": [
+            0.0002765,
+            0.000263625,
+            0.000260041,
+            0.000246708,
+            0.000253417
+          ],
+          "measured_runs": 5,
+          "prediction_count": 2048,
+          "serialization_seconds": [
+            0.000336125,
+            0.000344292,
+            0.000337,
+            0.00034,
+            0.000337083
+          ],
+          "threads": 4,
+          "training_seconds": [
+            0.052445042,
+            0.051518833,
+            0.053024459,
+            0.053751417,
+            0.053133542
+          ],
+          "warmup_runs": 1,
+          "peak_rss_bytes": 9125888,
+          "command": [
+            "/usr/bin/time",
+            "-l",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-build/release/examples/memory_case",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.bin",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-input-ranking.params",
+            "4",
+            "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-ranking-rust-t4.pred.bin"
+          ],
+          "raw_stdout": "target/phase9-final-memory-ranking-rust-t4.json",
+          "raw_rss": "target/phase9-final-memory-ranking-rust-t4.rss",
+          "predictions_sha256": "7f07e57ae6031d4e4ec16b4de8812bd0a29515836e8e2b10a1619dbc2b6d53f0",
+          "quality": 0.9999282680508396,
+          "matched_parallel_budget": null
+        }
+      ]
+    }
+  ],
+  "fixed_timing_and_matched_memory_pass": true,
+  "fresh_native_all_budgets_pass": false,
+  "current_source_matches_snapshot": true,
+  "remaining_gates": [
+    "Fresh matched native-only training exceeds 1.5x for: sparse, categorical, ranking. Fixed saved Python-engine timing passes are not native-only throughput passes.",
+    "Matched actual 2/4-thread native timing and memory are unverified; pinned baseline has OpenMP off.",
+    "Other correctness/package/platform gates belong to the main task; these measurements do not complete the full plan."
+  ]
+}

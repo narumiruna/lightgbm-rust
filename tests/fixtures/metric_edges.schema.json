@@ -1,0 +1,637 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "dataset_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_value": {
+          "type": "number"
+        },
+        "maximize": {
+          "type": "boolean"
+        },
+        "metric_std_dev": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataset_name",
+        "metric_name",
+        "metric_value",
+        "maximize",
+        "metric_std_dev"
+      ],
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "model_file": {
+          "type": "string",
+          "pattern": "^models/[a-z0-9_]+\\.txt$"
+        },
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "model_file",
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "upstream_commit": {
+          "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+        },
+        "loaded_library_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "python_sources": {
+          "type": "object",
+          "properties": {
+            "engine.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "callback.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "basic.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "compat.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "engine.py",
+            "callback.py",
+            "basic.py",
+            "compat.py"
+          ],
+          "additionalProperties": false
+        },
+        "dependencies": {
+          "type": "object",
+          "properties": {
+            "numpy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scipy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scikit-learn": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "numpy",
+            "scipy",
+            "scikit-learn"
+          ],
+          "additionalProperties": false
+        },
+        "execution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "iteration_index": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "upstream_commit",
+        "loaded_library_sha256",
+        "python_sources",
+        "dependencies",
+        "execution",
+        "iteration_index"
+      ],
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "folds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "train_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "valid_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "train_indices",
+          "valid_indices"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2
+    },
+    "params": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "dump_tree": {
+      "type": "object",
+      "properties": {
+        "split_gain": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          ]
+        },
+        "left_child": {
+          "$ref": "#/$defs/dump_tree"
+        },
+        "right_child": {
+          "$ref": "#/$defs/dump_tree"
+        }
+      }
+    },
+    "original_training": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "groups": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "positions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "num_boost_round": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "rows",
+        "labels",
+        "num_boost_round"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "compiler_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_toolchain_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sort_header_sha256": {
+      "type": "object",
+      "properties": {
+        "sort.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "make_heap.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sift_down.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "pop_heap.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "push_heap.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sort_heap.h": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "sort.h",
+        "make_heap.h",
+        "sift_down.h",
+        "pop_heap.h",
+        "push_heap.h",
+        "sort_heap.h"
+      ],
+      "additionalProperties": false
+    },
+    "loaded_library_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "loaded_library_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_driver_source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "native_driver_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "generator_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sort_contract": {
+      "const": "single-thread Apple clang 21.0.0 / libc++ 2200.27.0 std::sort; EPS comparison is not strict weak ordering"
+    },
+    "epsilon_bits": {
+      "const": "3cd203afa0000000"
+    },
+    "absolute_bound": {
+      "const": 1e-12
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "enum": [
+              "auc_mu_seed_1_rows_1025_classes_2_clusters",
+              "auc_mu_seed_1_rows_1025_classes_2_weighted_clusters",
+              "auc_mu_seed_1_rows_127_classes_2_clusters",
+              "auc_mu_seed_1_rows_127_classes_2_weighted_clusters",
+              "auc_mu_seed_1_rows_128_classes_2",
+              "auc_mu_seed_1_rows_128_classes_2_weighted",
+              "auc_mu_seed_1_rows_129_classes_2_clusters",
+              "auc_mu_seed_1_rows_129_classes_2_weighted_clusters",
+              "auc_mu_seed_1_rows_23_classes_2_clusters",
+              "auc_mu_seed_1_rows_23_classes_2_weighted_clusters",
+              "auc_mu_seed_1_rows_24_classes_2",
+              "auc_mu_seed_1_rows_24_classes_2_weighted",
+              "auc_mu_seed_1_rows_257_classes_2_clusters",
+              "auc_mu_seed_1_rows_257_classes_2_weighted_clusters",
+              "auc_mu_seed_1_rows_5_classes_2_clusters",
+              "auc_mu_seed_1_rows_5_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_1025_classes_2_clusters",
+              "auc_mu_seed_2026_rows_1025_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_127_classes_2_clusters",
+              "auc_mu_seed_2026_rows_127_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_128_classes_2",
+              "auc_mu_seed_2026_rows_128_classes_2_weighted",
+              "auc_mu_seed_2026_rows_129_classes_2_clusters",
+              "auc_mu_seed_2026_rows_129_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_23_classes_2_clusters",
+              "auc_mu_seed_2026_rows_23_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_24_classes_2",
+              "auc_mu_seed_2026_rows_24_classes_2_weighted",
+              "auc_mu_seed_2026_rows_257_classes_2_clusters",
+              "auc_mu_seed_2026_rows_257_classes_2_weighted_clusters",
+              "auc_mu_seed_2026_rows_5_classes_2_clusters",
+              "auc_mu_seed_2026_rows_5_classes_2_weighted_clusters",
+              "auc_mu_seed_42_rows_1025_classes_3_clusters",
+              "auc_mu_seed_42_rows_1025_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_127_classes_3_clusters",
+              "auc_mu_seed_42_rows_127_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_128_classes_2",
+              "auc_mu_seed_42_rows_128_classes_2_weighted",
+              "auc_mu_seed_42_rows_129_classes_3_asymmetric_matrix",
+              "auc_mu_seed_42_rows_129_classes_3_clusters",
+              "auc_mu_seed_42_rows_129_classes_3_weighted_asymmetric_matrix",
+              "auc_mu_seed_42_rows_129_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_23_classes_3_clusters",
+              "auc_mu_seed_42_rows_23_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_24_classes_3",
+              "auc_mu_seed_42_rows_24_classes_3_weighted",
+              "auc_mu_seed_42_rows_257_classes_3_clusters",
+              "auc_mu_seed_42_rows_257_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_5_classes_3_clusters",
+              "auc_mu_seed_42_rows_5_classes_3_weighted_clusters",
+              "auc_mu_seed_42_rows_64_classes_2_exact_epsilon_boundaries",
+              "auc_mu_seed_42_rows_64_classes_2_weighted_exact_epsilon_boundaries",
+              "auc_mu_seed_7_rows_1025_classes_2_clusters",
+              "auc_mu_seed_7_rows_1025_classes_2_weighted_clusters",
+              "auc_mu_seed_7_rows_127_classes_2_clusters",
+              "auc_mu_seed_7_rows_127_classes_2_weighted_clusters",
+              "auc_mu_seed_7_rows_128_classes_2",
+              "auc_mu_seed_7_rows_128_classes_2_weighted",
+              "auc_mu_seed_7_rows_129_classes_2_clusters",
+              "auc_mu_seed_7_rows_129_classes_2_weighted_clusters",
+              "auc_mu_seed_7_rows_23_classes_2_clusters",
+              "auc_mu_seed_7_rows_23_classes_2_weighted_clusters",
+              "auc_mu_seed_7_rows_24_classes_2",
+              "auc_mu_seed_7_rows_24_classes_2_weighted",
+              "auc_mu_seed_7_rows_257_classes_2_clusters",
+              "auc_mu_seed_7_rows_257_classes_2_weighted_clusters",
+              "auc_mu_seed_7_rows_5_classes_2_clusters",
+              "auc_mu_seed_7_rows_5_classes_2_weighted_clusters"
+            ]
+          },
+          "objective": {
+            "const": "multiclass"
+          },
+          "metric": {
+            "const": "auc_mu"
+          },
+          "params": {
+            "$ref": "#/$defs/params"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "scores": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "weights": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "score_bits": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{16}$"
+            },
+            "minItems": 1
+          },
+          "results": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "const": "auc_mu"
+                },
+                "higher_is_better": {
+                  "const": true
+                },
+                "value": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "name",
+                "higher_is_better",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "name",
+          "objective",
+          "metric",
+          "params",
+          "labels",
+          "scores",
+          "score_bits",
+          "results"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 68,
+      "maxItems": 68
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "compiler_version",
+    "selected_toolchain_sha256",
+    "sort_header_sha256",
+    "loaded_library_sha256",
+    "loaded_library_path",
+    "native_driver_source_sha256",
+    "native_driver_sha256",
+    "generator_sha256",
+    "sort_contract",
+    "epsilon_bits",
+    "absolute_bound",
+    "cases"
+  ],
+  "additionalProperties": false
+}

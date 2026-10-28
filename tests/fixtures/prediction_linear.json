@@ -1,0 +1,3712 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "cases": [
+    {
+      "name": "linear_independent_lambda0",
+      "model_file": "models/linear_independent_lambda0.txt",
+      "rows": [
+        [
+          -12.0,
+          -5.0
+        ],
+        [
+          -11.0,
+          2.0
+        ],
+        [
+          -10.0,
+          -2.0
+        ],
+        [
+          -9.0,
+          5.0
+        ],
+        [
+          -8.0,
+          1.0
+        ],
+        [
+          -7.0,
+          -3.0
+        ],
+        [
+          -6.0,
+          4.0
+        ],
+        [
+          -5.0,
+          0.0
+        ],
+        [
+          -4.0,
+          -4.0
+        ],
+        [
+          -3.0,
+          3.0
+        ],
+        [
+          -2.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          -5.0
+        ],
+        [
+          0.0,
+          2.0
+        ],
+        [
+          1.0,
+          -2.0
+        ],
+        [
+          2.0,
+          5.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          4.0,
+          -3.0
+        ],
+        [
+          5.0,
+          4.0
+        ],
+        [
+          6.0,
+          0.0
+        ],
+        [
+          7.0,
+          -4.0
+        ],
+        [
+          8.0,
+          3.0
+        ],
+        [
+          9.0,
+          -1.0
+        ],
+        [
+          10.0,
+          -5.0
+        ],
+        [
+          11.0,
+          2.0
+        ],
+        [
+          null,
+          0.0
+        ],
+        [
+          0.0,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          -20.0,
+          -40.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 4,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "linear_tree": true,
+        "linear_lambda": 0.0
+      },
+      "raw": [
+        [
+          -11.259117815739092
+        ],
+        [
+          -10.401838614147326
+        ],
+        [
+          -9.544559412555563
+        ],
+        [
+          -8.687280210963797
+        ],
+        [
+          -8.567223328716686
+        ],
+        [
+          -8.059199890615917
+        ],
+        [
+          -5.582128925287063
+        ],
+        [
+          -5.0741054871862925
+        ],
+        [
+          -4.566082049085522
+        ],
+        [
+          -4.058058610984752
+        ],
+        [
+          -3.550035172883982
+        ],
+        [
+          -3.042011734783211
+        ],
+        [
+          -1.5244712022798397
+        ],
+        [
+          3.509504691059842
+        ],
+        [
+          4.157658081930695
+        ],
+        [
+          4.8058114728015475
+        ],
+        [
+          5.4539648636724
+        ],
+        [
+          6.402118387802206
+        ],
+        [
+          7.000896754235156
+        ],
+        [
+          7.599675120668104
+        ],
+        [
+          8.198453487101053
+        ],
+        [
+          8.797231853534
+        ],
+        [
+          9.39601021996695
+        ],
+        [
+          9.994788586399899
+        ],
+        [
+          -0.9848255046066775
+        ],
+        [
+          -1.5244712022798397
+        ],
+        [
+          -0.9848255046066775
+        ],
+        [
+          -18.117351428473206
+        ],
+        [
+          15.383793884296438
+        ]
+      ],
+      "transformed": [
+        [
+          -11.259117815739092
+        ],
+        [
+          -10.401838614147326
+        ],
+        [
+          -9.544559412555563
+        ],
+        [
+          -8.687280210963797
+        ],
+        [
+          -8.567223328716686
+        ],
+        [
+          -8.059199890615917
+        ],
+        [
+          -5.582128925287063
+        ],
+        [
+          -5.0741054871862925
+        ],
+        [
+          -4.566082049085522
+        ],
+        [
+          -4.058058610984752
+        ],
+        [
+          -3.550035172883982
+        ],
+        [
+          -3.042011734783211
+        ],
+        [
+          -1.5244712022798397
+        ],
+        [
+          3.509504691059842
+        ],
+        [
+          4.157658081930695
+        ],
+        [
+          4.8058114728015475
+        ],
+        [
+          5.4539648636724
+        ],
+        [
+          6.402118387802206
+        ],
+        [
+          7.000896754235156
+        ],
+        [
+          7.599675120668104
+        ],
+        [
+          8.198453487101053
+        ],
+        [
+          8.797231853534
+        ],
+        [
+          9.39601021996695
+        ],
+        [
+          9.994788586399899
+        ],
+        [
+          -0.9848255046066775
+        ],
+        [
+          -1.5244712022798397
+        ],
+        [
+          -0.9848255046066775
+        ],
+        [
+          -18.117351428473206
+        ],
+        [
+          15.383793884296438
+        ]
+      ],
+      "leaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ]
+      ],
+      "training": {
+        "rows": [
+          [
+            -12.0,
+            -5.0
+          ],
+          [
+            -11.0,
+            2.0
+          ],
+          [
+            -10.0,
+            -2.0
+          ],
+          [
+            -9.0,
+            5.0
+          ],
+          [
+            -8.0,
+            1.0
+          ],
+          [
+            -7.0,
+            -3.0
+          ],
+          [
+            -6.0,
+            4.0
+          ],
+          [
+            -5.0,
+            0.0
+          ],
+          [
+            -4.0,
+            -4.0
+          ],
+          [
+            -3.0,
+            3.0
+          ],
+          [
+            -2.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            -5.0
+          ],
+          [
+            0.0,
+            2.0
+          ],
+          [
+            1.0,
+            -2.0
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            3.0,
+            1.0
+          ],
+          [
+            4.0,
+            -3.0
+          ],
+          [
+            5.0,
+            4.0
+          ],
+          [
+            6.0,
+            0.0
+          ],
+          [
+            7.0,
+            -4.0
+          ],
+          [
+            8.0,
+            3.0
+          ],
+          [
+            9.0,
+            -1.0
+          ],
+          [
+            10.0,
+            -5.0
+          ],
+          [
+            11.0,
+            2.0
+          ]
+        ],
+        "labels": [
+          -18.399999618530273,
+          -14.399999618530273,
+          -14.800000190734863,
+          -10.800000190734863,
+          -11.199999809265137,
+          -11.600000381469727,
+          -7.599999904632568,
+          -8.0,
+          -8.399999618530273,
+          -4.400000095367432,
+          -4.800000190734863,
+          -5.199999809265137,
+          -1.2000000476837158,
+          3.4000000953674316,
+          7.400000095367432,
+          7.0,
+          6.599999904632568,
+          10.600000381469727,
+          10.199999809265137,
+          9.800000190734863,
+          13.800000190734863,
+          13.399999618530273,
+          13.0,
+          17.0
+        ],
+        "num_boost_round": 4,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 2263.8701171875,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": -0.358333,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 200.41900634765625,
+              "threshold": -6.499999999999999,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -2.59183,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -3.6520832280317936,
+                "leaf_weight": 6,
+                "leaf_count": 6,
+                "leaf_const": -3.6520832280317936,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -1.683035700803711,
+                "leaf_weight": 7.000000000000002,
+                "leaf_count": 7,
+                "leaf_const": -1.683035700803711,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            },
+            "right_child": {
+              "leaf_index": 1,
+              "leaf_value": 2.2812500659263497,
+              "leaf_weight": 10.999999999999998,
+              "leaf_count": 11,
+              "leaf_const": 2.2812500659263497,
+              "leaf_features": [],
+              "leaf_coeff": []
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 1278.6500244140625,
+            "threshold": -1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": -1.8247767637173329,
+              "leaf_weight": 12.000000000000002,
+              "leaf_count": 12,
+              "leaf_const": -0.3525365473646104,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.2264984948234958
+              ]
+            },
+            "right_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 147.44400024414062,
+              "threshold": 4.500000000000001,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.82478,
+              "internal_weight": 12,
+              "internal_count": 12,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 0.787901781499386,
+                "leaf_weight": 4.999999999999998,
+                "leaf_count": 5,
+                "leaf_const": 0.22433035522699366,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.2817857131361961
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": 2.5654017925262447,
+                "leaf_weight": 7,
+                "leaf_count": 7,
+                "leaf_const": 0.5368304593222464,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.2535714166504997
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 719.239013671875,
+            "threshold": -1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": -1.3685825988650318,
+              "leaf_weight": 12.000000000000002,
+              "leaf_count": 12,
+              "leaf_const": -0.26440242203799114,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.16987387335800622
+              ]
+            },
+            "right_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 82.93699645996094,
+              "threshold": 4.500000000000001,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.3685800000000001,
+              "internal_weight": 12,
+              "internal_count": 12,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 0.5909263208508493,
+                "leaf_weight": 4.999999999999998,
+                "leaf_count": 5,
+                "leaf_const": 0.16824776977300634,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.2113392755389214
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": 1.9240513018199372,
+                "leaf_weight": 7,
+                "leaf_count": 7,
+                "leaf_const": 0.40262292112622833,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.19017854758671354
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 405.9070129394531,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 32.89580154418945,
+              "threshold": -8.499999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -0.945741,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -1.5422669500112534,
+                "leaf_weight": 3.999999999999999,
+                "leaf_count": 4,
+                "leaf_const": 3.297254800796478,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.4609068334102625
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.6806179061532018,
+                "leaf_weight": 9.000000000000002,
+                "leaf_count": 9,
+                "leaf_const": -0.23401362647612878,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.11165106991926828
+                ]
+              }
+            },
+            "right_child": {
+              "leaf_index": 1,
+              "leaf_value": 1.1176935224370523,
+              "leaf_weight": 10.999999999999998,
+              "leaf_count": 11,
+              "leaf_const": 0.1875231092626393,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.15502840219573538
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "linear_independent_lambda05",
+      "model_file": "models/linear_independent_lambda05.txt",
+      "rows": [
+        [
+          -12.0,
+          -5.0
+        ],
+        [
+          -11.0,
+          2.0
+        ],
+        [
+          -10.0,
+          -2.0
+        ],
+        [
+          -9.0,
+          5.0
+        ],
+        [
+          -8.0,
+          1.0
+        ],
+        [
+          -7.0,
+          -3.0
+        ],
+        [
+          -6.0,
+          4.0
+        ],
+        [
+          -5.0,
+          0.0
+        ],
+        [
+          -4.0,
+          -4.0
+        ],
+        [
+          -3.0,
+          3.0
+        ],
+        [
+          -2.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          -5.0
+        ],
+        [
+          0.0,
+          2.0
+        ],
+        [
+          1.0,
+          -2.0
+        ],
+        [
+          2.0,
+          5.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          4.0,
+          -3.0
+        ],
+        [
+          5.0,
+          4.0
+        ],
+        [
+          6.0,
+          0.0
+        ],
+        [
+          7.0,
+          -4.0
+        ],
+        [
+          8.0,
+          3.0
+        ],
+        [
+          9.0,
+          -1.0
+        ],
+        [
+          10.0,
+          -5.0
+        ],
+        [
+          11.0,
+          2.0
+        ],
+        [
+          null,
+          0.0
+        ],
+        [
+          0.0,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          -20.0,
+          -40.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 4,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "linear_tree": true,
+        "linear_lambda": 0.5
+      },
+      "raw": [
+        [
+          -11.191340540545648
+        ],
+        [
+          -10.376877236424145
+        ],
+        [
+          -9.56241393230264
+        ],
+        [
+          -8.747950628181137
+        ],
+        [
+          -8.560339370214061
+        ],
+        [
+          -8.054927378537176
+        ],
+        [
+          -5.5804678596322095
+        ],
+        [
+          -5.075055867955324
+        ],
+        [
+          -4.56964387627844
+        ],
+        [
+          -4.064231884601556
+        ],
+        [
+          -3.5588198929246704
+        ],
+        [
+          -3.0534079012477857
+        ],
+        [
+          -1.4902051657491049
+        ],
+        [
+          3.532560767302316
+        ],
+        [
+          4.160057548733181
+        ],
+        [
+          4.787554330164044
+        ],
+        [
+          5.415051111594908
+        ],
+        [
+          6.423487136916509
+        ],
+        [
+          7.0152037684549144
+        ],
+        [
+          7.60692039999332
+        ],
+        [
+          8.198637031531725
+        ],
+        [
+          8.790353663070128
+        ],
+        [
+          9.382070294608534
+        ],
+        [
+          9.97378692614694
+        ],
+        [
+          -0.9854261425989006
+        ],
+        [
+          -1.4902051657491049
+        ],
+        [
+          -0.9854261425989006
+        ],
+        [
+          -17.707046973517684
+        ],
+        [
+          15.299236609992583
+        ]
+      ],
+      "transformed": [
+        [
+          -11.191340540545648
+        ],
+        [
+          -10.376877236424145
+        ],
+        [
+          -9.56241393230264
+        ],
+        [
+          -8.747950628181137
+        ],
+        [
+          -8.560339370214061
+        ],
+        [
+          -8.054927378537176
+        ],
+        [
+          -5.5804678596322095
+        ],
+        [
+          -5.075055867955324
+        ],
+        [
+          -4.56964387627844
+        ],
+        [
+          -4.064231884601556
+        ],
+        [
+          -3.5588198929246704
+        ],
+        [
+          -3.0534079012477857
+        ],
+        [
+          -1.4902051657491049
+        ],
+        [
+          3.532560767302316
+        ],
+        [
+          4.160057548733181
+        ],
+        [
+          4.787554330164044
+        ],
+        [
+          5.415051111594908
+        ],
+        [
+          6.423487136916509
+        ],
+        [
+          7.0152037684549144
+        ],
+        [
+          7.60692039999332
+        ],
+        [
+          8.198637031531725
+        ],
+        [
+          8.790353663070128
+        ],
+        [
+          9.382070294608534
+        ],
+        [
+          9.97378692614694
+        ],
+        [
+          -0.9854261425989006
+        ],
+        [
+          -1.4902051657491049
+        ],
+        [
+          -0.9854261425989006
+        ],
+        [
+          -17.707046973517684
+        ],
+        [
+          15.299236609992583
+        ]
+      ],
+      "leaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          2,
+          1
+        ]
+      ],
+      "training": {
+        "rows": [
+          [
+            -12.0,
+            -5.0
+          ],
+          [
+            -11.0,
+            2.0
+          ],
+          [
+            -10.0,
+            -2.0
+          ],
+          [
+            -9.0,
+            5.0
+          ],
+          [
+            -8.0,
+            1.0
+          ],
+          [
+            -7.0,
+            -3.0
+          ],
+          [
+            -6.0,
+            4.0
+          ],
+          [
+            -5.0,
+            0.0
+          ],
+          [
+            -4.0,
+            -4.0
+          ],
+          [
+            -3.0,
+            3.0
+          ],
+          [
+            -2.0,
+            -1.0
+          ],
+          [
+            -1.0,
+            -5.0
+          ],
+          [
+            0.0,
+            2.0
+          ],
+          [
+            1.0,
+            -2.0
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            3.0,
+            1.0
+          ],
+          [
+            4.0,
+            -3.0
+          ],
+          [
+            5.0,
+            4.0
+          ],
+          [
+            6.0,
+            0.0
+          ],
+          [
+            7.0,
+            -4.0
+          ],
+          [
+            8.0,
+            3.0
+          ],
+          [
+            9.0,
+            -1.0
+          ],
+          [
+            10.0,
+            -5.0
+          ],
+          [
+            11.0,
+            2.0
+          ]
+        ],
+        "labels": [
+          -18.399999618530273,
+          -14.399999618530273,
+          -14.800000190734863,
+          -10.800000190734863,
+          -11.199999809265137,
+          -11.600000381469727,
+          -7.599999904632568,
+          -8.0,
+          -8.399999618530273,
+          -4.400000095367432,
+          -4.800000190734863,
+          -5.199999809265137,
+          -1.2000000476837158,
+          3.4000000953674316,
+          7.400000095367432,
+          7.0,
+          6.599999904632568,
+          10.600000381469727,
+          10.199999809265137,
+          9.800000190734863,
+          13.800000190734863,
+          13.399999618530273,
+          13.0,
+          17.0
+        ],
+        "num_boost_round": 4,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 2263.8701171875,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": -0.358333,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 200.41900634765625,
+              "threshold": -6.499999999999999,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -2.59183,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -3.6520832280317936,
+                "leaf_weight": 6,
+                "leaf_count": 6,
+                "leaf_const": -3.6520832280317936,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -1.683035700803711,
+                "leaf_weight": 7.000000000000002,
+                "leaf_count": 7,
+                "leaf_const": -1.683035700803711,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            },
+            "right_child": {
+              "leaf_index": 1,
+              "leaf_value": 2.2812500659263497,
+              "leaf_weight": 10.999999999999998,
+              "leaf_count": 11,
+              "leaf_const": 2.2812500659263497,
+              "leaf_features": [],
+              "leaf_coeff": []
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 1278.6500244140625,
+            "threshold": -1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": -1.8247767637173329,
+              "leaf_weight": 12.000000000000002,
+              "leaf_count": 12,
+              "leaf_const": -0.3576663042160134,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.22570930146174137
+              ]
+            },
+            "right_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 147.44400024414062,
+              "threshold": 4.500000000000001,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.82478,
+              "internal_weight": 12,
+              "internal_count": 12,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 0.787901781499386,
+                "leaf_weight": 4.999999999999998,
+                "leaf_count": 5,
+                "leaf_const": 0.25116708981139313,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.26836734584399635
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": 2.5654017925262447,
+                "leaf_weight": 7,
+                "leaf_count": 7,
+                "leaf_const": 0.572419430080216,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.24912279530575338
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 719.239013671875,
+            "threshold": -1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": -1.368582596381505,
+              "leaf_weight": 12.000000000000002,
+              "leaf_count": 12,
+              "leaf_const": -0.2669717339619244,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.16947859421839692
+              ]
+            },
+            "right_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 82.93699645996094,
+              "threshold": 4.500000000000001,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.3685800000000001,
+              "internal_weight": 12,
+              "internal_count": 12,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 0.590926331281662,
+                "leaf_weight": 4.999999999999998,
+                "leaf_count": 5,
+                "leaf_const": 0.18198561583246525,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.2044703577245984
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": 1.9240513358797344,
+                "leaf_weight": 7,
+                "leaf_count": 7,
+                "leaf_const": 0.42057326891667474,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.1879347583703825
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 406.5769958496094,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 32.940399169921875,
+              "threshold": -8.499999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -0.946521,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -1.54345141351223,
+                "leaf_weight": 3.999999999999999,
+                "leaf_count": 4,
+                "leaf_const": 2.858940375122131,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.4192754084413658
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.6812185545762377,
+                "leaf_weight": 9.000000000000002,
+                "leaf_count": 9,
+                "leaf_const": -0.24032217058925245,
+                "leaf_features": [
+                  0
+                ],
+                "leaf_coeff": [
+                  0.11022409599674637
+                ]
+              }
+            },
+            "right_child": {
+              "leaf_index": 1,
+              "leaf_value": 1.1186156814748591,
+              "leaf_weight": 10.999999999999998,
+              "leaf_count": 11,
+              "leaf_const": 0.19066121430124452,
+              "leaf_features": [
+                0
+              ],
+              "leaf_coeff": [
+                0.1546590778622691
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "linear_rank_deficient_lambda0",
+      "model_file": "models/linear_rank_deficient_lambda0.txt",
+      "rows": [
+        [
+          -12.0,
+          -24.0
+        ],
+        [
+          -11.0,
+          -22.0
+        ],
+        [
+          -10.0,
+          -20.0
+        ],
+        [
+          -9.0,
+          -18.0
+        ],
+        [
+          -8.0,
+          -16.0
+        ],
+        [
+          -7.0,
+          -14.0
+        ],
+        [
+          -6.0,
+          -12.0
+        ],
+        [
+          -5.0,
+          -10.0
+        ],
+        [
+          -4.0,
+          -8.0
+        ],
+        [
+          -3.0,
+          -6.0
+        ],
+        [
+          -2.0,
+          -4.0
+        ],
+        [
+          -1.0,
+          -2.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          3.0,
+          6.0
+        ],
+        [
+          4.0,
+          8.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          6.0,
+          12.0
+        ],
+        [
+          7.0,
+          14.0
+        ],
+        [
+          8.0,
+          16.0
+        ],
+        [
+          9.0,
+          18.0
+        ],
+        [
+          10.0,
+          20.0
+        ],
+        [
+          11.0,
+          22.0
+        ],
+        [
+          null,
+          0.0
+        ],
+        [
+          0.0,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          -20.0,
+          -40.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 4,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 4,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "linear_tree": true,
+        "linear_lambda": 0.0,
+        "forcedsplits_filename": "/Users/narumi/src/lightgbm-rust/target/oracle/linear-forced-splits.json"
+      },
+      "raw": [
+        [
+          -17.259277274211268
+        ],
+        [
+          -16.103027274211264
+        ],
+        [
+          -14.94677727421126
+        ],
+        [
+          -13.790527274211257
+        ],
+        [
+          -12.634277274211255
+        ],
+        [
+          -11.478027274211254
+        ],
+        [
+          -10.32177727421125
+        ],
+        [
+          -9.165527274211247
+        ],
+        [
+          -6.63818359610935
+        ],
+        [
+          -5.481933595736821
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -3.1694335949917627
+        ],
+        [
+          -2.0131835946192336
+        ],
+        [
+          3.7211913665135716
+        ],
+        [
+          4.8774413665135725
+        ],
+        [
+          6.0336913665135725
+        ],
+        [
+          7.189941366513572
+        ],
+        [
+          8.346191366513573
+        ],
+        [
+          9.502441366513573
+        ],
+        [
+          11.818847815195713
+        ],
+        [
+          12.975097815195713
+        ],
+        [
+          14.13134781519571
+        ],
+        [
+          15.28759781519571
+        ],
+        [
+          16.443847815195706
+        ],
+        [
+          -2.0131835946192336
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -26.50927727421129
+        ],
+        [
+          26.850097815195703
+        ]
+      ],
+      "transformed": [
+        [
+          -17.259277274211268
+        ],
+        [
+          -16.103027274211264
+        ],
+        [
+          -14.94677727421126
+        ],
+        [
+          -13.790527274211257
+        ],
+        [
+          -12.634277274211255
+        ],
+        [
+          -11.478027274211254
+        ],
+        [
+          -10.32177727421125
+        ],
+        [
+          -9.165527274211247
+        ],
+        [
+          -6.63818359610935
+        ],
+        [
+          -5.481933595736821
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -3.1694335949917627
+        ],
+        [
+          -2.0131835946192336
+        ],
+        [
+          3.7211913665135716
+        ],
+        [
+          4.8774413665135725
+        ],
+        [
+          6.0336913665135725
+        ],
+        [
+          7.189941366513572
+        ],
+        [
+          8.346191366513573
+        ],
+        [
+          9.502441366513573
+        ],
+        [
+          11.818847815195713
+        ],
+        [
+          12.975097815195713
+        ],
+        [
+          14.13134781519571
+        ],
+        [
+          15.28759781519571
+        ],
+        [
+          16.443847815195706
+        ],
+        [
+          -2.0131835946192336
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -4.325683595364291
+        ],
+        [
+          -26.50927727421129
+        ],
+        [
+          26.850097815195703
+        ]
+      ],
+      "leaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ]
+      ],
+      "training": {
+        "rows": [
+          [
+            -12.0,
+            -24.0
+          ],
+          [
+            -11.0,
+            -22.0
+          ],
+          [
+            -10.0,
+            -20.0
+          ],
+          [
+            -9.0,
+            -18.0
+          ],
+          [
+            -8.0,
+            -16.0
+          ],
+          [
+            -7.0,
+            -14.0
+          ],
+          [
+            -6.0,
+            -12.0
+          ],
+          [
+            -5.0,
+            -10.0
+          ],
+          [
+            -4.0,
+            -8.0
+          ],
+          [
+            -3.0,
+            -6.0
+          ],
+          [
+            -2.0,
+            -4.0
+          ],
+          [
+            -1.0,
+            -2.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            2.0
+          ],
+          [
+            2.0,
+            4.0
+          ],
+          [
+            3.0,
+            6.0
+          ],
+          [
+            4.0,
+            8.0
+          ],
+          [
+            5.0,
+            10.0
+          ],
+          [
+            6.0,
+            12.0
+          ],
+          [
+            7.0,
+            14.0
+          ],
+          [
+            8.0,
+            16.0
+          ],
+          [
+            9.0,
+            18.0
+          ],
+          [
+            10.0,
+            20.0
+          ],
+          [
+            11.0,
+            22.0
+          ]
+        ],
+        "labels": [
+          -26.0,
+          -24.0,
+          -22.0,
+          -20.0,
+          -18.0,
+          -16.0,
+          -14.0,
+          -12.0,
+          -10.0,
+          -8.0,
+          -6.0,
+          -4.0,
+          -2.0,
+          5.0,
+          7.0,
+          9.0,
+          11.0,
+          13.0,
+          15.0,
+          17.0,
+          19.0,
+          21.0,
+          23.0,
+          25.0
+        ],
+        "num_boost_round": 4,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 5010.9599609375,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": -0.708333,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 520,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -4.03125,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -5.28124993046125,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": -5.28124993046125,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -2.031250001986821,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": -2.031250001986821,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 330,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 3.21875,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.9687499602635712,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 1.9687499602635712,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 4.718750158945719,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": 4.718750158945719,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 14128.7001953125,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 292.5,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -2.49219,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -3.4296875000000018,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.8203125000000071,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.25000000000000056
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.992187499813735,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": 0.0078125005587939,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.25000000009313234
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 185.625,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 2.94531,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 2.007812500000001,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.2578125,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.25
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 4.070312499999999,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.4296875,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.2499999999999996
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 7947.39990234375,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 164.531005859375,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -1.86914,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -2.5722656250000013,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.6152343750000071,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.18750000000000064
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.7441406249068674,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": 0.00585937527939695,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.18750000004656614
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 104.41400146484375,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 2.20898,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.5058593750000007,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.193359375,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.18750000000000006
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 3.0527343749999996,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.322265625,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.18749999999999972
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 4470.41015625,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 92.54879760742188,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -1.40186,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -1.929199218750001,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.46142578125000355,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.14062500000000025
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.5581054686568675,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": 0.004394531529396728,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.1406250000465661
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 58.7328987121582,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.65674,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.1293945312500004,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.14501953125,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.1406250000000001
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 2.2895507812499996,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.24169921875,
+                "leaf_features": [
+                  1
+                ],
+                "leaf_coeff": [
+                  0.14062500000000022
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "linear_rank_deficient_lambda05",
+      "model_file": "models/linear_rank_deficient_lambda05.txt",
+      "rows": [
+        [
+          -12.0,
+          -24.0
+        ],
+        [
+          -11.0,
+          -22.0
+        ],
+        [
+          -10.0,
+          -20.0
+        ],
+        [
+          -9.0,
+          -18.0
+        ],
+        [
+          -8.0,
+          -16.0
+        ],
+        [
+          -7.0,
+          -14.0
+        ],
+        [
+          -6.0,
+          -12.0
+        ],
+        [
+          -5.0,
+          -10.0
+        ],
+        [
+          -4.0,
+          -8.0
+        ],
+        [
+          -3.0,
+          -6.0
+        ],
+        [
+          -2.0,
+          -4.0
+        ],
+        [
+          -1.0,
+          -2.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0
+        ],
+        [
+          2.0,
+          4.0
+        ],
+        [
+          3.0,
+          6.0
+        ],
+        [
+          4.0,
+          8.0
+        ],
+        [
+          5.0,
+          10.0
+        ],
+        [
+          6.0,
+          12.0
+        ],
+        [
+          7.0,
+          14.0
+        ],
+        [
+          8.0,
+          16.0
+        ],
+        [
+          9.0,
+          18.0
+        ],
+        [
+          10.0,
+          20.0
+        ],
+        [
+          11.0,
+          22.0
+        ],
+        [
+          null,
+          0.0
+        ],
+        [
+          0.0,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          -20.0,
+          -40.0
+        ],
+        [
+          20.0,
+          40.0
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 4,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 4,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "linear_tree": true,
+        "linear_lambda": 0.5,
+        "forcedsplits_filename": "/Users/narumi/src/lightgbm-rust/target/oracle/linear-forced-splits.json"
+      },
+      "raw": [
+        [
+          -17.25225719545069
+        ],
+        [
+          -16.09801293223905
+        ],
+        [
+          -14.943768669027412
+        ],
+        [
+          -13.789524405815772
+        ],
+        [
+          -12.635280142604133
+        ],
+        [
+          -11.481035879392497
+        ],
+        [
+          -10.326791616180858
+        ],
+        [
+          -9.17254735296922
+        ],
+        [
+          -6.621420463352266
+        ],
+        [
+          -5.473552028333831
+        ],
+        [
+          -4.325683593315395
+        ],
+        [
+          -3.1778151582969594
+        ],
+        [
+          -2.029946723278524
+        ],
+        [
+          3.7331992098779367
+        ],
+        [
+          4.884646072532189
+        ],
+        [
+          6.036092935186441
+        ],
+        [
+          7.187539797840694
+        ],
+        [
+          8.338986660494946
+        ],
+        [
+          9.490433523149196
+        ],
+        [
+          11.835610925876626
+        ],
+        [
+          12.983479346694802
+        ],
+        [
+          14.131347767512974
+        ],
+        [
+          15.279216188331148
+        ],
+        [
+          16.427084609149322
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -26.48621130114379
+        ],
+        [
+          26.757900396512888
+        ]
+      ],
+      "transformed": [
+        [
+          -17.25225719545069
+        ],
+        [
+          -16.09801293223905
+        ],
+        [
+          -14.943768669027412
+        ],
+        [
+          -13.789524405815772
+        ],
+        [
+          -12.635280142604133
+        ],
+        [
+          -11.481035879392497
+        ],
+        [
+          -10.326791616180858
+        ],
+        [
+          -9.17254735296922
+        ],
+        [
+          -6.621420463352266
+        ],
+        [
+          -5.473552028333831
+        ],
+        [
+          -4.325683593315395
+        ],
+        [
+          -3.1778151582969594
+        ],
+        [
+          -2.029946723278524
+        ],
+        [
+          3.7331992098779367
+        ],
+        [
+          4.884646072532189
+        ],
+        [
+          6.036092935186441
+        ],
+        [
+          7.187539797840694
+        ],
+        [
+          8.338986660494946
+        ],
+        [
+          9.490433523149196
+        ],
+        [
+          11.835610925876626
+        ],
+        [
+          12.983479346694802
+        ],
+        [
+          14.131347767512974
+        ],
+        [
+          15.279216188331148
+        ],
+        [
+          16.427084609149322
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -4.325683593315381
+        ],
+        [
+          -26.48621130114379
+        ],
+        [
+          26.757900396512888
+        ]
+      ],
+      "leaves": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          3
+        ]
+      ],
+      "training": {
+        "rows": [
+          [
+            -12.0,
+            -24.0
+          ],
+          [
+            -11.0,
+            -22.0
+          ],
+          [
+            -10.0,
+            -20.0
+          ],
+          [
+            -9.0,
+            -18.0
+          ],
+          [
+            -8.0,
+            -16.0
+          ],
+          [
+            -7.0,
+            -14.0
+          ],
+          [
+            -6.0,
+            -12.0
+          ],
+          [
+            -5.0,
+            -10.0
+          ],
+          [
+            -4.0,
+            -8.0
+          ],
+          [
+            -3.0,
+            -6.0
+          ],
+          [
+            -2.0,
+            -4.0
+          ],
+          [
+            -1.0,
+            -2.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            2.0
+          ],
+          [
+            2.0,
+            4.0
+          ],
+          [
+            3.0,
+            6.0
+          ],
+          [
+            4.0,
+            8.0
+          ],
+          [
+            5.0,
+            10.0
+          ],
+          [
+            6.0,
+            12.0
+          ],
+          [
+            7.0,
+            14.0
+          ],
+          [
+            8.0,
+            16.0
+          ],
+          [
+            9.0,
+            18.0
+          ],
+          [
+            10.0,
+            20.0
+          ],
+          [
+            11.0,
+            22.0
+          ]
+        ],
+        "labels": [
+          -26.0,
+          -24.0,
+          -22.0,
+          -20.0,
+          -18.0,
+          -16.0,
+          -14.0,
+          -12.0,
+          -10.0,
+          -8.0,
+          -6.0,
+          -4.0,
+          -2.0,
+          5.0,
+          7.0,
+          9.0,
+          11.0,
+          13.0,
+          15.0,
+          17.0,
+          19.0,
+          21.0,
+          23.0,
+          25.0
+        ],
+        "num_boost_round": 4,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 5010.9599609375,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": -0.708333,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 520,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -4.03125,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -5.28124993046125,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": -5.28124993046125,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -2.031250001986821,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": -2.031250001986821,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 330,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 3.21875,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.9687499602635712,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 1.9687499602635712,
+                "leaf_features": [],
+                "leaf_coeff": []
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 4.718750158945719,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": 4.718750158945719,
+                "leaf_features": [],
+                "leaf_coeff": []
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 14128.7001953125,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 292.5,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -2.49219,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -3.4296875000000018,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.8102174881235129,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.09976247030875651,
+                  0.19952494061756015
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.992187499813735,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": -0.0020884895439041706,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.09900990102698505,
+                  0.1980198020539673
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 185.625,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 2.94531,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 2.007812500000001,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.2677556818181799,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.09943181818181766,
+                  0.1988636363636364
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 4.070312499999999,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.38513304455446473,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.09900990099009684,
+                  0.19801980198022362
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 7947.39990234375,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 164.531005859375,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -1.86914,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -2.5722656250000013,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.6101808856615207,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.07488109436847079,
+                  0.14976218873700092
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.7441406277939673,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": 0.0008843782459306837,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.07450250060399062,
+                  0.14900500120798002
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 104.41400146484375,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 2.20898,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.5058593551317858,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.19834513668761034,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.0747150981968102,
+                  0.14943019639362123
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 3.0527343749999996,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.2998781770762804,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.0745025011572494,
+                  0.14900500231451683
+                ]
+              }
+            }
+          },
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 4470.41015625,
+            "threshold": 1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "None",
+            "internal_value": 0,
+            "internal_weight": 24,
+            "internal_count": 24,
+            "left_child": {
+              "split_index": 1,
+              "split_feature": 1,
+              "split_gain": 92.54879760742188,
+              "threshold": -8.999999999999998,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": -1.40186,
+              "internal_weight": 13,
+              "internal_count": 13,
+              "left_child": {
+                "leaf_index": 0,
+                "leaf_value": -1.929199218750001,
+                "leaf_weight": 7.999999999999995,
+                "leaf_count": 8,
+                "leaf_const": 0.45952551976518663,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.0562052879650336,
+                  0.11241057593012753
+                ]
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": -0.5581054637208578,
+                "leaf_weight": 5.000000000000002,
+                "leaf_count": 5,
+                "leaf_const": 0.002507390006270427,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.05606128537271392,
+                  0.11212257074542563
+                ]
+              }
+            },
+            "right_child": {
+              "split_index": 2,
+              "split_feature": 1,
+              "split_gain": 58.7328987121582,
+              "threshold": 13.000000000000002,
+              "decision_type": "<=",
+              "default_left": true,
+              "missing_type": "None",
+              "internal_value": 1.65674,
+              "internal_weight": 11,
+              "internal_count": 11,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 1.1293945511182155,
+                "leaf_weight": 5.9999999999999964,
+                "leaf_count": 6,
+                "leaf_const": 0.14690156845432334,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.056142456152218655,
+                  0.11228491230444516
+                ]
+              },
+              "right_child": {
+                "leaf_index": 3,
+                "leaf_value": 2.289550733566284,
+                "leaf_weight": 5,
+                "leaf_count": 5,
+                "leaf_const": -0.23320695716556372,
+                "leaf_features": [
+                  0,
+                  1
+                ],
+                "leaf_coeff": [
+                  0.056061282016264216,
+                  0.11212256403254127
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

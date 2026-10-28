@@ -1,0 +1,3264 @@
+{
+  "cases": [
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "l2",
+      "name": "l2",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "l2",
+          "value": 2.2176041666666664
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "l2",
+      "name": "l2_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "l2",
+          "value": 2.7098809523809524
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "rmse",
+      "name": "rmse",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "rmse",
+          "value": 1.489162236516447
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "rmse",
+      "name": "rmse_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "rmse",
+          "value": 1.6461716047790864
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "l1",
+      "name": "l1",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "l1",
+          "value": 1.0541666666666667
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "l1",
+      "name": "l1_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "l1",
+          "value": 1.2904761904761903
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "quantile",
+      "name": "quantile",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "quantile",
+          "value": 0.54875
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "quantile",
+      "name": "quantile_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "quantile",
+          "value": 0.7804761904761905
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "huber",
+      "name": "huber",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "huber",
+          "value": 0.68109375
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "huber",
+      "name": "huber_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "huber",
+          "value": 0.8673214285714286
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "fair",
+      "name": "fair",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "fair",
+          "value": 0.4609848253719586
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "fair",
+      "name": "fair_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "fair",
+          "value": 0.5757998136015298
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "poisson",
+      "name": "poisson",
+      "objective": "poisson",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "poisson",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "poisson",
+          "value": 3660.0603322806965
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "poisson",
+      "name": "poisson_weighted",
+      "objective": "poisson",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "poisson",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "poisson",
+          "value": 3485.5587384622436
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "binary_logloss",
+      "name": "binary_logloss",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_logloss",
+          "value": 2.0301103703104237
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "binary_logloss",
+      "name": "binary_logloss_weighted",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_logloss",
+          "value": 1.8650920629964054
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "binary_error",
+      "name": "binary_error",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_error",
+          "value": 0.3333333333333333
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "binary_error",
+      "name": "binary_error_weighted",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_error",
+          "value": 0.1746031746031746
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "auc",
+      "name": "auc",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc",
+          "value": 0.5555555555555556
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "auc",
+      "name": "auc_weighted",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc",
+          "value": 0.6896551724137931
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "average_precision",
+      "name": "average_precision",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "average_precision",
+          "value": 0.5888888888888889
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "average_precision",
+      "name": "average_precision_weighted",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "average_precision",
+          "value": 0.7039937109970205
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "auc_mu",
+      "name": "auc_mu",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc_mu",
+          "value": 0.16666666666666666
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "auc_mu",
+      "name": "auc_mu_weighted",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc_mu",
+          "value": 0.13333333333333333
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        3,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "metric": "ndcg",
+      "name": "ndcg",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "ndcg@1",
+          "value": 0.3333333333333333
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@2",
+          "value": 0.5712034469528334
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@4",
+          "value": 0.7240900157383262
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        3,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "metric": "ndcg",
+      "name": "ndcg_weighted",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "ndcg@1",
+          "value": 0.24742268284495525
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@2",
+          "value": 0.5419181935066021
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@4",
+          "value": 0.6601294546842829
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        3,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "metric": "map",
+      "name": "map",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "map@1",
+          "value": 0.3333333333333333
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@2",
+          "value": 0.5833333333333334
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@4",
+          "value": 0.6944444444444443
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        3,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "metric": "map",
+      "name": "map_weighted",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "map@1",
+          "value": 0.30927835355619404
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@2",
+          "value": 0.5902061889118134
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@4",
+          "value": 0.6761168394001915
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "multi_logloss",
+      "name": "multi_logloss",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 2.2409417864037318
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "multi_logloss",
+      "name": "multi_logloss_weighted",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 2.5680809138301703
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "multi_error",
+      "name": "multi_error",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_error",
+          "value": 1
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "metric": "multi_error",
+      "name": "multi_error_weighted",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_error",
+          "value": 1
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "cross_entropy",
+      "name": "cross_entropy",
+      "objective": "cross_entropy",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "cross_entropy",
+          "value": 0.3993812036435955
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "cross_entropy",
+      "name": "cross_entropy_weighted",
+      "objective": "cross_entropy",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "cross_entropy",
+          "value": 0.37605436458355307
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "cross_entropy_lambda",
+      "name": "cross_entropy_lambda",
+      "objective": "cross_entropy_lambda",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy_lambda",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "cross_entropy_lambda",
+          "value": 0.3993812036435955
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "cross_entropy_lambda",
+      "name": "cross_entropy_lambda_weighted",
+      "objective": "cross_entropy_lambda",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy_lambda",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "cross_entropy_lambda",
+          "value": 0.5416320843022747
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "kullback_leibler",
+      "name": "kullback_leibler",
+      "objective": "cross_entropy",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "kullback_leibler",
+          "value": 0.08634610168518048
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0.125,
+        0.25,
+        0.75,
+        0.875,
+        1
+      ],
+      "metric": "kullback_leibler",
+      "name": "kullback_leibler_weighted",
+      "objective": "cross_entropy",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "cross_entropy",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "kullback_leibler",
+          "value": 0.04802330230121843
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "mape",
+      "name": "mape",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "mape",
+          "value": 0.326984126984127
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "mape",
+      "name": "mape_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "mape",
+          "value": 0.3346938775510204
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "gamma",
+      "name": "gamma",
+      "objective": "gamma",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "gamma",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "gamma",
+          "value": 3.034627815874949
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "gamma",
+      "name": "gamma_weighted",
+      "objective": "gamma",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "gamma",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "gamma",
+          "value": 3.365781155507794
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "gamma_deviance",
+      "name": "gamma_deviance",
+      "objective": "gamma",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "gamma",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "gamma_deviance",
+          "value": 20.652790393086136
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "gamma_deviance",
+      "name": "gamma_deviance_weighted",
+      "objective": "gamma",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "gamma",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "gamma_deviance",
+          "value": 25.158889660109175
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "tweedie",
+      "name": "tweedie",
+      "objective": "tweedie",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "tweedie",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "tweedie",
+          "value": 53.49926754827575
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "tweedie",
+      "name": "tweedie_weighted",
+      "objective": "tweedie",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "tweedie",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "tweedie",
+          "value": 52.383245738778
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "r2",
+      "name": "r2",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "r2",
+          "value": 0.7552519639777735
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "r2",
+      "name": "r2_weighted",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "r2",
+          "value": 0.6796882657595823
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "metric": "auc",
+      "name": "auc_single0",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc",
+          "value": 1
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "metric": "auc",
+      "name": "auc_single1",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc",
+          "value": 1
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "auc",
+      "name": "auc_ties",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc",
+          "value": 0.2413793103448276
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "metric": "average_precision",
+      "name": "average_precision_single0",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "average_precision",
+          "value": 1
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "metric": "average_precision",
+      "name": "average_precision_single1",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "average_precision",
+          "value": 1
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "average_precision",
+      "name": "average_precision_ties",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "average_precision",
+          "value": 0.41448389105939637
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "metric": "ndcg",
+      "name": "ndcg_zero_relevance",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "ndcg@1",
+          "value": 0.7422680485348657
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@2",
+          "value": 0.7422680485348657
+        },
+        {
+          "higher_is_better": true,
+          "name": "ndcg@4",
+          "value": 0.7422680485348657
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "groups": [
+        3,
+        2,
+        1
+      ],
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "metric": "map",
+      "name": "map_zero_relevance",
+      "objective": "lambdarank",
+      "params": {
+        "deterministic": true,
+        "eval_at": [
+          1,
+          2,
+          4
+        ],
+        "num_threads": 1,
+        "objective": "lambdarank",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "map@1",
+          "value": 1
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@2",
+          "value": 1
+        },
+        {
+          "higher_is_better": true,
+          "name": "map@4",
+          "value": 1
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "metric": "r2",
+      "name": "r2_constant",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "r2",
+          "value": 0
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "metric": "r2",
+      "name": "r2_constant_perfect",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "r2",
+          "value": 1
+        }
+      ],
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "auc_mu",
+      "name": "auc_mu_ties",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc_mu",
+          "value": 0.5
+        }
+      ],
+      "scores": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "multi_error",
+      "name": "multi_error_top2",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "multi_error_top_k": 2,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_error@2",
+          "value": 0.20634920634920634
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "multi_error",
+      "name": "multi_error_ova_absent",
+      "objective": "multiclassova",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclassova",
+        "sigmoid": 2,
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_error",
+          "value": 0.36507936507936506
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "metric": "multi_logloss",
+      "name": "multi_logloss_ova_absent",
+      "objective": "multiclassova",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclassova",
+        "sigmoid": 2,
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 0.9917426731725556
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "auc_mu",
+      "name": "auc_mu_costs",
+      "objective": "multiclass",
+      "params": {
+        "auc_mu_weights": [
+          0,
+          2,
+          1,
+          3,
+          0,
+          4,
+          2,
+          5,
+          0
+        ],
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": true,
+          "name": "auc_mu",
+          "value": 0.5427350427350427
+        }
+      ],
+      "scores": [
+        -1,
+        0,
+        2,
+        0.5,
+        0.5,
+        -2,
+        1,
+        0,
+        -2,
+        0.5,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0.5,
+        -1,
+        0
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "quantile",
+      "name": "quantile_variant",
+      "objective": "quantile",
+      "params": {
+        "alpha": 0.2,
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "quantile",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "quantile",
+          "value": 0.5438095238095239
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "huber",
+      "name": "huber_variant",
+      "objective": "huber",
+      "params": {
+        "alpha": 0.25,
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "huber",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "huber",
+          "value": 0.2998015873015873
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "fair",
+      "name": "fair_variant",
+      "objective": "fair",
+      "params": {
+        "deterministic": true,
+        "fair_c": 0.25,
+        "num_threads": 1,
+        "objective": "fair",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "fair",
+          "value": 0.23087211750526923
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0.25,
+        1,
+        2,
+        0.5,
+        3.75,
+        7
+      ],
+      "metric": "tweedie",
+      "name": "tweedie_variant",
+      "objective": "tweedie",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "tweedie",
+        "tweedie_variance_power": 1.8,
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "tweedie",
+          "value": 12.225177779436509
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        -2.25,
+        -0.125,
+        0,
+        1.125,
+        3.75,
+        7
+      ],
+      "metric": "l2",
+      "name": "l2_variant",
+      "objective": "regression",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "regression",
+        "reg_sqrt": true,
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "l2",
+          "value": 1378.7348708395336
+        }
+      ],
+      "scores": [
+        -3,
+        -0.125,
+        0,
+        0.3,
+        2,
+        10
+      ],
+      "weights": [
+        1,
+        0.125,
+        2,
+        0.5,
+        3,
+        1.25
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "metric": "binary_logloss",
+      "model_objective": "binary sigmoid:1",
+      "name": "binary_logloss_binary_saturated",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_logloss",
+          "value": 11.743974526088342
+        }
+      ],
+      "scores": [
+        1000,
+        -1000,
+        -1000,
+        1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "metric": "binary_logloss",
+      "model_objective": "binary sigmoid:1",
+      "name": "binary_logloss_binary_saturated_weighted",
+      "objective": "binary",
+      "params": {
+        "deterministic": true,
+        "num_threads": 1,
+        "objective": "binary",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "binary_logloss",
+          "value": 16.26088780535309
+        }
+      ],
+      "scores": [
+        1000,
+        -1000,
+        -1000,
+        1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true
+      ],
+      "weights": [
+        1,
+        2,
+        0,
+        0.5,
+        0,
+        3
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "multi_logloss",
+      "model_objective": "multiclass num_class:3",
+      "name": "multi_logloss_multiclass_saturated",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 17.63559229507524
+        }
+      ],
+      "scores": [
+        -1000,
+        1000,
+        1000,
+        1000,
+        0,
+        0,
+        1000,
+        -1000,
+        -1000,
+        -1000,
+        0,
+        0,
+        0,
+        0,
+        -1000,
+        -1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "multi_logloss",
+      "model_objective": "multiclass num_class:3",
+      "name": "multi_logloss_multiclass_saturated_weighted",
+      "objective": "multiclass",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclass",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 16.448025547556856
+        }
+      ],
+      "scores": [
+        -1000,
+        1000,
+        1000,
+        1000,
+        0,
+        0,
+        1000,
+        -1000,
+        -1000,
+        -1000,
+        0,
+        0,
+        0,
+        0,
+        -1000,
+        -1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true,
+        true,
+        true
+      ],
+      "weights": [
+        1,
+        2,
+        0,
+        0.5,
+        0,
+        3
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "multi_logloss",
+      "model_objective": "multiclassova num_class:3 sigmoid:1",
+      "name": "multi_logloss_multiclassova_saturated",
+      "objective": "multiclassova",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclassova",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 17.500437259039188
+        }
+      ],
+      "scores": [
+        -1000,
+        1000,
+        1000,
+        1000,
+        0,
+        0,
+        1000,
+        -1000,
+        -1000,
+        -1000,
+        0,
+        0,
+        0,
+        0,
+        -1000,
+        -1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "labels": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "metric": "multi_logloss",
+      "model_objective": "multiclassova num_class:3 sigmoid:1",
+      "name": "multi_logloss_multiclassova_saturated_weighted",
+      "objective": "multiclassova",
+      "params": {
+        "deterministic": true,
+        "num_class": 3,
+        "num_threads": 1,
+        "objective": "multiclassova",
+        "verbosity": -1
+      },
+      "results": [
+        {
+          "higher_is_better": false,
+          "name": "multi_logloss",
+          "value": 16.26088780535309
+        }
+      ],
+      "scores": [
+        -1000,
+        1000,
+        1000,
+        1000,
+        0,
+        0,
+        1000,
+        -1000,
+        -1000,
+        -1000,
+        0,
+        0,
+        0,
+        0,
+        -1000,
+        -1000,
+        0,
+        0
+      ],
+      "source_class_need_train": [
+        true,
+        true,
+        true
+      ],
+      "weights": [
+        1,
+        2,
+        0,
+        0.5,
+        0,
+        3
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+}

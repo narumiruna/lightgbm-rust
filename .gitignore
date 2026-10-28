@@ -26,3 +26,8 @@ rustc-ice-*.txt
 # Project
 references/
 
+# Isolated reference tooling
+__pycache__/
+.venv/
+*.pyc
+

@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "cases": [
+    {
+      "name": "missing_only",
+      "model_file": "models/missing_only.txt",
+      "rows": [
+        [
+          -1.0
+        ],
+        [
+          1.0
+        ],
+        [
+          null
+        ],
+        [
+          null
+        ],
+        [
+          -1e+301
+        ],
+        [
+          1e+301
+        ],
+        [
+          0.0
+        ]
+      ],
+      "raw": [
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.625
+        ],
+        [
+          0.625
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ]
+      ],
+      "transformed": [
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.625
+        ],
+        [
+          0.625
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ],
+        [
+          0.37500000000000006
+        ]
+      ],
+      "leaves": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression"
+      },
+      "training": {
+        "rows": [
+          [
+            -1.0
+          ],
+          [
+            1.0
+          ],
+          [
+            null
+          ],
+          [
+            null
+          ]
+        ],
+        "labels": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "num_boost_round": 1,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 1,
+            "threshold": 1e+300,
+            "decision_type": "<=",
+            "default_left": false,
+            "missing_type": "NaN",
+            "internal_value": 0.5,
+            "internal_weight": 4,
+            "internal_count": 4,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": 0.37500000000000006,
+              "leaf_weight": 1.9999999999999998,
+              "leaf_count": 2
+            },
+            "right_child": {
+              "leaf_index": 1,
+              "leaf_value": 0.625,
+              "leaf_weight": 1.9999999999999998,
+              "leaf_count": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing_direction_tie",
+      "model_file": "models/missing_direction_tie.txt",
+      "rows": [
+        [
+          1.0
+        ],
+        [
+          null
+        ],
+        [
+          0.0
+        ],
+        [
+          2.0
+        ],
+        [
+          1.0
+        ],
+        [
+          -1.0
+        ],
+        [
+          -1e+301
+        ],
+        [
+          1e+301
+        ],
+        [
+          0.0
+        ]
+      ],
+      "raw": [
+        [
+          0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          0.0
+        ],
+        [
+          0.3
+        ],
+        [
+          0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          0.3
+        ],
+        [
+          0.0
+        ]
+      ],
+      "transformed": [
+        [
+          0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          0.0
+        ],
+        [
+          0.3
+        ],
+        [
+          0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          -0.3
+        ],
+        [
+          0.3
+        ],
+        [
+          0.0
+        ]
+      ],
+      "leaves": [
+        [
+          2
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          1
+        ]
+      ],
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.3,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 7,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "lambda_l2": 0.5,
+        "max_delta_step": 1.0
+      },
+      "training": {
+        "rows": [
+          [
+            1.0
+          ],
+          [
+            null
+          ],
+          [
+            0.0
+          ],
+          [
+            2.0
+          ],
+          [
+            1.0
+          ],
+          [
+            -1.0
+          ]
+        ],
+        "labels": [
+          1.0,
+          -2.0,
+          0.0,
+          1.0,
+          2.0,
+          -2.0
+        ],
+        "num_boost_round": 1,
+        "expected_structure": [
+          {
+            "split_index": 0,
+            "split_feature": 0,
+            "split_gain": 9.055560111999512,
+            "threshold": -1.0000000180025095e-35,
+            "decision_type": "<=",
+            "default_left": true,
+            "missing_type": "NaN",
+            "internal_value": 0,
+            "internal_weight": 6,
+            "internal_count": 6,
+            "left_child": {
+              "leaf_index": 0,
+              "leaf_value": -0.3,
+              "leaf_weight": 1.9999999999999998,
+              "leaf_count": 2
+            },
+            "right_child": {
+              "split_index": 1,
+              "split_feature": 0,
+              "split_gain": 0.9444440007209778,
+              "threshold": 1.0000000180025095e-35,
+              "decision_type": "<=",
+              "default_left": false,
+              "missing_type": "NaN",
+              "internal_value": 0.266667,
+              "internal_weight": 4,
+              "internal_count": 4,
+              "left_child": {
+                "leaf_index": 1,
+                "leaf_value": 0,
+                "leaf_weight": 1.0000000000000002,
+                "leaf_count": 1
+              },
+              "right_child": {
+                "leaf_index": 2,
+                "leaf_value": 0.3,
+                "leaf_weight": 2.9999999999999996,
+                "leaf_count": 3
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

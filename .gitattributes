@@ -1,0 +1,3 @@
+# Keep native model and third-party license bytes unchanged.
+tests/fixtures/models/*.txt -whitespace
+licenses/LLVM.txt -whitespace

@@ -1,0 +1,767 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "dataset_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_value": {
+          "type": "number"
+        },
+        "maximize": {
+          "type": "boolean"
+        },
+        "metric_std_dev": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataset_name",
+        "metric_name",
+        "metric_value",
+        "maximize",
+        "metric_std_dev"
+      ],
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "model_file": {
+          "type": "string",
+          "pattern": "^models/[a-z0-9_]+\\.txt$"
+        },
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "model_file",
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "upstream_commit": {
+          "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+        },
+        "loaded_library_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "python_sources": {
+          "type": "object",
+          "properties": {
+            "engine.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "callback.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "basic.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "compat.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "engine.py",
+            "callback.py",
+            "basic.py",
+            "compat.py"
+          ],
+          "additionalProperties": false
+        },
+        "dependencies": {
+          "type": "object",
+          "properties": {
+            "numpy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scipy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scikit-learn": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "numpy",
+            "scipy",
+            "scikit-learn"
+          ],
+          "additionalProperties": false
+        },
+        "execution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "iteration_index": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "upstream_commit",
+        "loaded_library_sha256",
+        "python_sources",
+        "dependencies",
+        "execution",
+        "iteration_index"
+      ],
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "folds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "train_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "valid_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "train_indices",
+          "valid_indices"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2
+    },
+    "params": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "dump_tree": {
+      "type": "object",
+      "properties": {
+        "split_gain": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          ]
+        },
+        "left_child": {
+          "$ref": "#/$defs/dump_tree"
+        },
+        "right_child": {
+          "$ref": "#/$defs/dump_tree"
+        }
+      }
+    },
+    "original_training": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "groups": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "positions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "num_boost_round": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "rows",
+        "labels",
+        "num_boost_round"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "cv_builtin_schedule",
+                  "cv_builtin_stop",
+                  "cv_custom_schedule",
+                  "cv_custom_schedule_after",
+                  "cv_custom_stop",
+                  "dart_continue_original_three",
+                  "dart_continue_weighted",
+                  "dart_continue_xgboost",
+                  "dart_schedule_after",
+                  "dart_schedule_features",
+                  "dart_schedule_uniform",
+                  "dart_schedule_weighted",
+                  "gbdt_schedule_features",
+                  "goss_schedule",
+                  "goss_schedule_features"
+                ]
+              },
+              "kind": {
+                "const": "train"
+              },
+              "params": {
+                "$ref": "#/$defs/params"
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 0
+                },
+                "minItems": 1
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "learning_rates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "schedule_after": {
+                "type": "boolean"
+              },
+              "initial_model": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/model"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "begin_iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "end_iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "learning_rate": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/metric"
+                      },
+                      "minItems": 1
+                    },
+                    "training_scores": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    },
+                    "raw": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "iteration",
+                    "begin_iteration",
+                    "end_iteration",
+                    "learning_rate",
+                    "evaluation",
+                    "training_scores",
+                    "raw"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "final_model": {
+                "$ref": "#/$defs/model"
+              }
+            },
+            "required": [
+              "name",
+              "kind",
+              "params",
+              "rows",
+              "labels",
+              "learning_rates",
+              "schedule_after",
+              "initial_model",
+              "steps",
+              "final_model"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "cv_builtin_schedule",
+                  "cv_builtin_stop",
+                  "cv_custom_schedule",
+                  "cv_custom_schedule_after",
+                  "cv_custom_stop",
+                  "dart_continue_original_three",
+                  "dart_continue_weighted",
+                  "dart_continue_xgboost",
+                  "dart_schedule_after",
+                  "dart_schedule_features",
+                  "dart_schedule_uniform",
+                  "dart_schedule_weighted",
+                  "gbdt_schedule_features",
+                  "goss_schedule",
+                  "goss_schedule_features"
+                ]
+              },
+              "kind": {
+                "const": "cv"
+              },
+              "params": {
+                "$ref": "#/$defs/params"
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 0
+                },
+                "minItems": 1
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "learning_rates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              "schedule_after": {
+                "type": "boolean"
+              },
+              "custom": {
+                "type": "boolean"
+              },
+              "stopping": {
+                "type": "boolean"
+              },
+              "folds": {
+                "$ref": "#/$defs/folds"
+              },
+              "objective_calls": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rows": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "predictions": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "rows",
+                    "predictions"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "trace": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "phase": {
+                      "enum": [
+                        "before",
+                        "after_early",
+                        "after_record"
+                      ]
+                    },
+                    "iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "history_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "phase",
+                    "iteration",
+                    "history_length"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "learning_rate": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/metric"
+                      },
+                      "minItems": 1
+                    },
+                    "folds": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "evaluation": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/$defs/metric"
+                            },
+                            "minItems": 1
+                          },
+                          "raw": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 1
+                          }
+                        },
+                        "required": [
+                          "evaluation",
+                          "raw"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 3
+                    }
+                  },
+                  "required": [
+                    "iteration",
+                    "learning_rate",
+                    "evaluation",
+                    "folds"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "history": {
+                "type": "object",
+                "minProperties": 4,
+                "maxProperties": 4,
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                }
+              },
+              "best_iteration": {
+                "type": "integer",
+                "minimum": -1
+              },
+              "models": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/model"
+                },
+                "minItems": 3
+              }
+            },
+            "required": [
+              "name",
+              "kind",
+              "params",
+              "rows",
+              "labels",
+              "learning_rates",
+              "schedule_after",
+              "custom",
+              "stopping",
+              "folds",
+              "objective_calls",
+              "trace",
+              "steps",
+              "history",
+              "best_iteration",
+              "models"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 15,
+      "maxItems": 15
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "provenance",
+    "cases"
+  ],
+  "additionalProperties": false
+}

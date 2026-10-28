@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "rows",
+              "features",
+              "dart",
+              "quantization"
+            ]
+          },
+          "params": {
+            "type": "object"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "weights": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "scores": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "eligible_features": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+          "inner_feature_indices": {"type": "array", "items": {"type": "integer", "minimum": -1}},
+          "num_steps": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "constant_hessian": {
+            "type": "boolean"
+          },
+          "gradients": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "hessians": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "iteration": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "all_rows": {
+                  "type": "boolean"
+                },
+                "selected_rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "selected_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "selected_queries": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "input_gradients": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "input_hessians": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "gradients": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "hessians": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "by_tree": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      0,
+                      1
+                    ]
+                  }
+                },
+                "by_node": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    }
+                  }
+                },
+                "drop_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "tree_weights": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "sum_weight": {
+                  "type": "number"
+                },
+                "stopped": {
+                  "type": "boolean"
+                },
+                "packed_hessian_gradient": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": -128,
+                    "maximum": 127
+                  }
+                },
+                "grad_scale": {
+                  "type": "number"
+                },
+                "hess_scale": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "iteration"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "name",
+          "kind",
+          "params",
+          "rows",
+          "labels",
+          "num_steps",
+          "steps"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "rows"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "scores"
+              ],
+              "properties": {
+                "steps": {
+                  "items": {
+                    "required": [
+                      "iteration",
+                      "all_rows",
+                      "selected_rows",
+                      "selected_count",
+                      "input_gradients",
+                      "input_hessians",
+                      "gradients",
+                      "hessians"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "features"
+                }
+              }
+            },
+            "then": {
+              "required": ["eligible_features", "inner_feature_indices"],
+              "properties": {
+                "steps": {
+                  "items": {
+                    "required": [
+                      "iteration",
+                      "by_tree",
+                      "by_node"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "dart"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "steps": {
+                  "items": {
+                    "required": [
+                      "iteration",
+                      "drop_indices",
+                      "tree_weights",
+                      "sum_weight",
+                      "stopped"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "quantization"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "constant_hessian",
+                "gradients",
+                "hessians"
+              ],
+              "properties": {
+                "steps": {
+                  "items": {
+                    "required": [
+                      "iteration",
+                      "packed_hessian_gradient",
+                      "grad_scale",
+                      "hess_scale"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases"
+  ],
+  "additionalProperties": false
+}

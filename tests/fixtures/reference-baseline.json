@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "host": "macOS-26.6.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "library": {
+    "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+  },
+  "compiler": {
+    "path": "/usr/bin/clang++",
+    "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+    "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin"
+  },
+  "warmup_runs": 1,
+  "measured_runs": 5,
+  "memory": "Not measured at a matched native boundary; memory budget remains open",
+  "cases": [
+    {
+      "name": "dense",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "learning_rate": 0.1,
+        "min_data_in_leaf": 20,
+        "min_data_in_bin": 3,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 63,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "metric": "None"
+      },
+      "train_rows": 8192,
+      "validation_rows": 2048,
+      "columns": 16,
+      "nonzero_training_values": 131072,
+      "metric": "rmse",
+      "quality": [
+        0.16417754751589952,
+        0.16417754751589952,
+        0.16417754751589952,
+        0.16417754751589952,
+        0.16417754751589952
+      ],
+      "dataset_construction_seconds": [
+        0.013025292195379734,
+        0.011741665657609701,
+        0.010707917157560587,
+        0.011288125067949295,
+        0.011264500208199024
+      ],
+      "training_seconds": [
+        0.06575883273035288,
+        0.054242334328591824,
+        0.05183995794504881,
+        0.05720804212614894,
+        0.07090299995616078
+      ],
+      "inference_seconds": [
+        0.0051386673003435135,
+        0.005244124680757523,
+        0.006520249880850315,
+        0.0054722498171031475,
+        0.006763875018805265
+      ],
+      "median_dataset_construction_seconds": 0.011288125067949295,
+      "median_training_seconds": 0.05720804212614894,
+      "median_inference_seconds": 0.0054722498171031475
+    },
+    {
+      "name": "sparse",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "learning_rate": 0.1,
+        "min_data_in_leaf": 20,
+        "min_data_in_bin": 3,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 63,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "regression",
+        "metric": "None"
+      },
+      "train_rows": 8192,
+      "validation_rows": 2048,
+      "columns": 16,
+      "nonzero_training_values": 13197,
+      "metric": "rmse",
+      "quality": [
+        0.04335064004258384,
+        0.04335064004258384,
+        0.04335064004258384,
+        0.04335064004258384,
+        0.04335064004258384
+      ],
+      "dataset_construction_seconds": [
+        0.004188708029687405,
+        0.0037378747947514057,
+        0.0037954170256853104,
+        0.004175832960754633,
+        0.003619167022407055
+      ],
+      "training_seconds": [
+        0.023790167178958654,
+        0.024403541814535856,
+        0.02334624994546175,
+        0.022906874772161245,
+        0.12155666714534163
+      ],
+      "inference_seconds": [
+        0.006964582949876785,
+        0.005144375376403332,
+        0.005157625302672386,
+        0.006608250085264444,
+        0.030327499844133854
+      ],
+      "median_dataset_construction_seconds": 0.0037954170256853104,
+      "median_training_seconds": 0.023790167178958654,
+      "median_inference_seconds": 0.006608250085264444
+    },
+    {
+      "name": "categorical",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "learning_rate": 0.1,
+        "min_data_in_leaf": 20,
+        "min_data_in_bin": 3,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 63,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "binary",
+        "metric": "None"
+      },
+      "train_rows": 8192,
+      "validation_rows": 2048,
+      "columns": 16,
+      "nonzero_training_values": 130093,
+      "metric": "binary_logloss",
+      "quality": [
+        0.0026642815182844714,
+        0.0026642815182844714,
+        0.0026642815182844714,
+        0.0026642815182844714,
+        0.0026642815182844714
+      ],
+      "dataset_construction_seconds": [
+        0.018003040924668312,
+        0.015237750019878149,
+        0.013722832780331373,
+        0.01102416729554534,
+        0.0974961668252945
+      ],
+      "training_seconds": [
+        0.04629195900633931,
+        0.0911692501977086,
+        0.02956641698256135,
+        0.04143558302894235,
+        0.19491895800456405
+      ],
+      "inference_seconds": [
+        0.002397125121206045,
+        0.004099708050489426,
+        0.003013291861861944,
+        0.0020504998974502087,
+        0.0019151251763105392
+      ],
+      "median_dataset_construction_seconds": 0.015237750019878149,
+      "median_training_seconds": 0.04629195900633931,
+      "median_inference_seconds": 0.002397125121206045
+    },
+    {
+      "name": "multiclass",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "learning_rate": 0.1,
+        "min_data_in_leaf": 20,
+        "min_data_in_bin": 3,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 63,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "multiclass",
+        "metric": "None",
+        "num_class": 3
+      },
+      "train_rows": 8192,
+      "validation_rows": 2048,
+      "columns": 16,
+      "nonzero_training_values": 131072,
+      "metric": "multi_logloss",
+      "quality": [
+        0.062098232276276824,
+        0.062098232276276824,
+        0.062098232276276824,
+        0.062098232276276824,
+        0.062098232276276824
+      ],
+      "dataset_construction_seconds": [
+        0.010600416921079159,
+        0.010159457568079233,
+        0.011105124838650227,
+        0.010680708102881908,
+        0.011436332948505878
+      ],
+      "training_seconds": [
+        0.29620429081842303,
+        0.29769041715189815,
+        0.18080125004053116,
+        0.1772291250526905,
+        0.2828282080590725
+      ],
+      "inference_seconds": [
+        0.01930654188618064,
+        0.01828791620209813,
+        0.06206637481227517,
+        0.019845124799758196,
+        0.018196833785623312
+      ],
+      "median_dataset_construction_seconds": 0.010680708102881908,
+      "median_training_seconds": 0.2828282080590725,
+      "median_inference_seconds": 0.01930654188618064
+    },
+    {
+      "name": "ranking",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 0,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 15,
+        "max_depth": -1,
+        "learning_rate": 0.1,
+        "min_data_in_leaf": 20,
+        "min_data_in_bin": 3,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 63,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "objective": "lambdarank",
+        "metric": "None"
+      },
+      "train_rows": 8192,
+      "validation_rows": 2048,
+      "columns": 16,
+      "nonzero_training_values": 131072,
+      "metric": "ndcg@5",
+      "quality": [
+        0.9999282680508397,
+        0.9999282680508397,
+        0.9999282680508397,
+        0.9999282680508397,
+        0.9999282680508397
+      ],
+      "dataset_construction_seconds": [
+        0.015308749862015247,
+        0.010549874976277351,
+        0.01062412466853857,
+        0.011412874795496464,
+        0.010212957859039307
+      ],
+      "training_seconds": [
+        0.24207674991339445,
+        0.08380437502637506,
+        0.09100525034591556,
+        0.08118841610848904,
+        0.07804070878773928
+      ],
+      "inference_seconds": [
+        0.004082334227859974,
+        0.002876708284020424,
+        0.00493345782160759,
+        0.002949624788016081,
+        0.002883375156670809
+      ],
+      "median_dataset_construction_seconds": 0.01062412466853857,
+      "median_training_seconds": 0.08380437502637506,
+      "median_inference_seconds": 0.002949624788016081
+    }
+  ]
+}

@@ -1,0 +1,1080 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "dataset_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_value": {
+          "type": "number"
+        },
+        "maximize": {
+          "type": "boolean"
+        },
+        "metric_std_dev": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataset_name",
+        "metric_name",
+        "metric_value",
+        "maximize",
+        "metric_std_dev"
+      ],
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "model_file": {
+          "type": "string",
+          "pattern": "^models/[a-z0-9_]+\\.txt$"
+        },
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "model_file",
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "upstream_commit": {
+          "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+        },
+        "loaded_library_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "python_sources": {
+          "type": "object",
+          "properties": {
+            "engine.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "callback.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "basic.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "compat.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "engine.py",
+            "callback.py",
+            "basic.py",
+            "compat.py"
+          ],
+          "additionalProperties": false
+        },
+        "dependencies": {
+          "type": "object",
+          "properties": {
+            "numpy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scipy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scikit-learn": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "numpy",
+            "scipy",
+            "scikit-learn"
+          ],
+          "additionalProperties": false
+        },
+        "execution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "iteration_index": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "upstream_commit",
+        "loaded_library_sha256",
+        "python_sources",
+        "dependencies",
+        "execution",
+        "iteration_index"
+      ],
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "folds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "train_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "valid_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "train_indices",
+          "valid_indices"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2
+    },
+    "params": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "dump_tree": {
+      "type": "object",
+      "properties": {
+        "split_gain": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          ]
+        },
+        "left_child": {
+          "$ref": "#/$defs/dump_tree"
+        },
+        "right_child": {
+          "$ref": "#/$defs/dump_tree"
+        }
+      }
+    },
+    "original_training": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "groups": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "positions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "num_boost_round": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "rows",
+        "labels",
+        "num_boost_round"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "enum": [
+              "continuation",
+              "initial_scores",
+              "refit",
+              "rollback",
+              "set_leaf_output",
+              "prediction_early_stop",
+              "extreme_gain_diagnostic"
+            ]
+          },
+          "params": {
+            "$ref": "#/$defs/params"
+          },
+          "effective_params": {
+            "$ref": "#/$defs/params"
+          },
+          "backend_params": {
+            "type": "object",
+            "properties": {
+              "boosting": {
+                "enum": [
+                  "gbdt",
+                  "dart",
+                  "rf"
+                ]
+              },
+              "objective": {
+                "type": "string",
+                "minLength": 1
+              },
+              "data_sample_strategy": {
+                "enum": [
+                  "bagging",
+                  "goss"
+                ]
+              },
+              "bagging_by_query": {
+                "type": "boolean"
+              },
+              "refit_decay_rate": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "boosting",
+              "objective",
+              "data_sample_strategy",
+              "bagging_by_query",
+              "refit_decay_rate"
+            ],
+            "additionalProperties": false
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 0
+            },
+            "minItems": 1
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "original_training": {
+            "$ref": "#/$defs/original_training"
+          },
+          "initial_model": {
+            "$ref": "#/$defs/model"
+          },
+          "final_model": {
+            "$ref": "#/$defs/model"
+          },
+          "supplied_initial_scores": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "initial_scores": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "num_boost_round": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "training_score_buffer": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "weights": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "groups": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "positions": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "decay_rate": {
+            "type": "number",
+            "enum": [
+              -0.1,
+              0.0,
+              0.5,
+              0.9,
+              1.0,
+              1.1
+            ]
+          },
+          "leaf_pred": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "minItems": 1
+          },
+          "refit_steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "iteration": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "training_scores_before": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "gradients": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "hessians": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "iteration",
+                "training_scores_before",
+                "gradients",
+                "hessians"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "training_scores_after": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "tree_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "leaf_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "old_output": {
+            "type": "number"
+          },
+          "set_output": {
+            "type": "number"
+          },
+          "get_output": {
+            "type": "number"
+          },
+          "leaves_before": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            "minItems": 1
+          },
+          "probes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "params": {
+                  "$ref": "#/$defs/params"
+                },
+                "raw": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 0
+                  },
+                  "minItems": 1
+                },
+                "transformed": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 0
+                  },
+                  "minItems": 1
+                },
+                "leaves": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "minItems": 0
+                  },
+                  "minItems": 1
+                },
+                "contributions": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 0
+                  },
+                  "minItems": 1
+                },
+                "error_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "error": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "params"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "model_dump": {
+            "type": "object",
+            "required": [
+              "tree_info"
+            ],
+            "properties": {
+              "tree_info": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "tree_structure"
+                  ],
+                  "properties": {
+                    "tree_structure": {
+                      "$ref": "#/$defs/dump_tree"
+                    }
+                  }
+                },
+                "minItems": 1
+              }
+            }
+          },
+          "contributions": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 0
+            },
+            "minItems": 1
+          },
+          "importance_split": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "importance_gain": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "enum": [
+                    "Infinity",
+                    "-Infinity",
+                    "NaN"
+                  ]
+                }
+              ]
+            },
+            "minItems": 1
+          },
+          "prefix_raw": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 0
+              },
+              "minItems": 1
+            },
+            "minItems": 1
+          },
+          "nonfinite_encoding": {
+            "const": "Infinity, -Infinity, NaN strings represent actual nonfinite native outputs"
+          },
+          "error_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "error": {
+            "type": "string",
+            "minLength": 1
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "begin_iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "end_iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "training_score_buffer": {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 1
+                    },
+                    "model": {
+                      "$ref": "#/$defs/snapshot"
+                    }
+                  },
+                  "required": [
+                    "iteration",
+                    "begin_iteration",
+                    "end_iteration",
+                    "training_score_buffer",
+                    "model"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "call": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "before_iteration": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "model": {
+                      "$ref": "#/$defs/model"
+                    }
+                  },
+                  "required": [
+                    "call",
+                    "before_iteration",
+                    "model"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "name",
+          "operation",
+          "params",
+          "rows",
+          "labels"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "continuation"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "original_training",
+                "initial_model",
+                "supplied_initial_scores",
+                "num_boost_round",
+                "steps",
+                "warnings"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "initial_scores"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "initial_scores",
+                "num_boost_round",
+                "training_score_buffer",
+                "final_model"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "refit"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "initial_model",
+                "original_training",
+                "weights",
+                "groups",
+                "positions",
+                "initial_scores",
+                "decay_rate",
+                "leaf_pred"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "rollback"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "initial_model",
+                "steps",
+                "num_boost_round"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "set_leaf_output"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "initial_model",
+                "tree_id",
+                "leaf_id",
+                "old_output",
+                "set_output",
+                "get_output",
+                "leaves_before",
+                "final_model"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "prediction_early_stop"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "initial_model",
+                "num_boost_round",
+                "probes",
+                "prefix_raw"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "extreme_gain_diagnostic"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "final_model",
+                "num_boost_round",
+                "model_dump",
+                "contributions",
+                "importance_split",
+                "importance_gain",
+                "nonfinite_encoding"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "refit"
+                }
+              }
+            },
+            "then": {
+              "oneOf": [
+                {
+                  "required": [
+                    "error_type",
+                    "error"
+                  ],
+                  "not": {
+                    "required": [
+                      "final_model"
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "final_model",
+                    "effective_params",
+                    "refit_steps",
+                    "training_scores_after"
+                  ],
+                  "properties": {
+                    "decay_rate": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "not": {
+                    "required": [
+                      "error"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "provenance",
+    "cases"
+  ],
+  "additionalProperties": false
+}

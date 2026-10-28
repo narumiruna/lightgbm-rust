@@ -1,0 +1,333 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "loaded_library": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "loaded_path": {
+          "type": "string"
+        },
+        "loaded_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "verification": {
+          "const": "dladdr(LGBM_GetLastError) + SHA-256"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "loaded_path",
+        "loaded_sha256",
+        "verification"
+      ],
+      "additionalProperties": false
+    },
+    "native_helper": {
+      "type": "object",
+      "required": [
+        "compile_command",
+        "link_command",
+        "source_sha256",
+        "executable_sha256",
+        "loaded_library_sha256",
+        "object_sha256"
+      ],
+      "properties": {
+        "compile_command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "link_command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "executable_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "loaded_library_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "object_sha256": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "peak_rss_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "exclusiveMaximum": 536870912
+        },
+        "elapsed_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 300
+        }
+      },
+      "required": [
+        "peak_rss_bytes",
+        "elapsed_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 22,
+      "maxItems": 22,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "enum": [
+              "categorical_false",
+              "categorical_nan_false",
+              "categorical_nan_true",
+              "categorical_true",
+              "conflict_false",
+              "conflict_true",
+              "exclusive_false",
+              "exclusive_true",
+              "extra_trees_false",
+              "extra_trees_true",
+              "filtered_false",
+              "filtered_true",
+              "frequent_nonzero_false",
+              "frequent_nonzero_true",
+              "missing_false",
+              "missing_true",
+              "reordered_false",
+              "reordered_true",
+              "sparse_false",
+              "sparse_true",
+              "zero_missing_false",
+              "zero_missing_true"
+            ]
+          },
+          "rows": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "parameters": {
+            "type": "string",
+            "minLength": 1
+          },
+          "params": {
+            "type": "object",
+            "minProperties": 1
+          },
+          "bins": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "inner_features": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": -1
+            }
+          },
+          "maps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "default_bin": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "most_freq_bin": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "missing_type": {
+                      "enum": [
+                        0,
+                        1,
+                        2
+                      ]
+                    },
+                    "num_bins": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "group": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "default_bin",
+                    "most_freq_bin",
+                    "missing_type",
+                    "num_bins",
+                    "group"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "groups": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "features": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "multi_value": {
+                  "type": "boolean"
+                },
+                "decoded_conflicts": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "features",
+                "multi_value",
+                "decoded_conflicts"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "labels": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "number"
+            }
+          },
+          "model": {
+            "type": "string",
+            "pattern": "^bundling_models/[a-z_]+\\.txt$"
+          },
+          "model_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "raw_predictions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "rows",
+          "parameters",
+          "params",
+          "bins",
+          "inner_features",
+          "maps",
+          "groups",
+          "labels",
+          "model",
+          "model_sha256",
+          "raw_predictions"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "loaded_library",
+    "native_helper",
+    "resources",
+    "cases"
+  ],
+  "additionalProperties": false
+}

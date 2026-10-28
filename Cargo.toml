@@ -1,0 +1,33 @@
+[package]
+name = "lightgbm-rust"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+description = "A pure Rust implementation of LightGBM algorithms and model prediction"
+license = "MIT AND (Apache-2.0 WITH LLVM-exception)"
+repository = "https://github.com/narumiruna/lightgbm-rust"
+readme = "README.md"
+include = ["/src/**", "/tests/**", "/examples/**", "/benches/**", "/Cargo.toml", "/Cargo.lock", "/rust-toolchain.toml", "/README.md", "/LICENSE", "/THIRD_PARTY_NOTICES.md", "/licenses/**", "/docs/compatibility.md", "/docs/conformance.md", "/docs/performance.md", "/docs/performance.json", "/docs/verification.md", "/docs/reference-manifest.json", "/docs/reference-manifest.schema.json"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+csv = "1"
+rayon = "1.12.0"
+
+[[bench]]
+name = "cpu"
+harness = false
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+
+[dev-dependencies]
+criterion = { version = "0.7.0", default-features = false, features = ["cargo_bench_support"] }

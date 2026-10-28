@@ -1,0 +1,32 @@
+name: Rust checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install pinned Rust
+        run: rustup toolchain install 1.92.0 --profile minimal --component rustfmt --component clippy
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Lint
+        run: cargo clippy --locked --all-targets -- -D warnings
+      - name: Test
+        run: cargo test --locked --all-targets
+      - name: Documentation tests
+        run: cargo test --locked --doc
+      - name: Offline fixture tests
+        run: cargo test --locked --offline --all-targets
+      - name: Package verification
+        run: cargo package --locked

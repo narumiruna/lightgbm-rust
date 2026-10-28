@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "seed": 0,
+  "generator": "NumPy PCG64(0), pinned dependencies, tools/oracle/benchmark.py::data",
+  "train_rows": 8192,
+  "validation_rows": 2048,
+  "features": 16,
+  "num_boost_round": 50,
+  "num_leaves": 15,
+  "max_bin": 63,
+  "learning_rate": 0.1,
+  "num_threads": 1,
+  "deterministic": true,
+  "force_col_wise": true,
+  "sparse_density": 0.1,
+  "query_size": 16,
+  "resource_limits": {
+    "seconds_per_case": 300,
+    "peak_rss_mib": 512
+  },
+  "performance_budgets": {
+    "training_ratio": 1.5,
+    "inference_ratio": 1.25,
+    "peak_memory_ratio": 1.5
+  },
+  "cases": [
+    {
+      "name": "dense",
+      "metric": "rmse",
+      "comparison": "<=",
+      "quality_bound": 0.45,
+      "reference_delta": 0.02
+    },
+    {
+      "name": "sparse",
+      "metric": "rmse",
+      "comparison": "<=",
+      "quality_bound": 0.3,
+      "reference_delta": 0.02
+    },
+    {
+      "name": "categorical",
+      "metric": "binary_logloss",
+      "comparison": "<=",
+      "quality_bound": 0.15,
+      "reference_delta": 0.02
+    },
+    {
+      "name": "multiclass",
+      "metric": "multi_logloss",
+      "comparison": "<=",
+      "quality_bound": 0.45,
+      "reference_delta": 0.02
+    },
+    {
+      "name": "ranking",
+      "metric": "ndcg@5",
+      "comparison": ">=",
+      "quality_bound": 0.9,
+      "reference_delta": 0.01
+    }
+  ]
+}

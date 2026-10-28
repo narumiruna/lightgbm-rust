@@ -1,0 +1,3799 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-28T11:08:57.712222+00:00",
+  "source": {
+    "url": "https://github.com/lightgbm-org/LightGBM",
+    "commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+    "version": "4.7.0.99",
+    "tree": "a9b83f5afaecffbbccfc1a043d519bac6b6b25c8",
+    "license": "MIT",
+    "license_file": "references/LightGBM/LICENSE",
+    "license_sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+  },
+  "license_provenance": {
+    "notice_file": "THIRD_PARTY_NOTICES.md",
+    "upstream_license_sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+  },
+  "precision": {
+    "label_t": "f32",
+    "weight_t": "f32",
+    "score_t": "f32",
+    "hist_t": "f64",
+    "prediction_t": "f64",
+    "macros": {
+      "SCORE_T_USE_DOUBLE": false,
+      "LABEL_T_USE_DOUBLE": false
+    }
+  },
+  "execution": {
+    "device": "cpu",
+    "histogram_mode": "force_col_wise",
+    "deterministic": true,
+    "threads": 1,
+    "seeds": {
+      "seed": 0,
+      "data_random_seed": 0,
+      "feature_fraction_seed": 0,
+      "bagging_seed": 0,
+      "drop_seed": 0,
+      "extra_seed": 0,
+      "objective_seed": 0
+    },
+    "rng_fixture_seeds": [
+      0,
+      1,
+      42
+    ]
+  },
+  "build": {
+    "compiler": {
+      "path": "/usr/bin/clang++",
+      "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+      "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+      "selected_toolchain_path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "selected_toolchain_sha256": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9"
+    },
+    "cmake_version": "cmake version 3.31.6",
+    "ninja_version": "1.11.1.git.kitware.jobserver-1",
+    "configure_flags": [
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+      "-DCMAKE_C_COMPILER=/usr/bin/clang",
+      "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/narumi/src/lightgbm-rust/target/oracle/lib",
+      "-DUSE_OPENMP=OFF",
+      "-DUSE_GPU=OFF",
+      "-DUSE_CUDA=OFF",
+      "-DUSE_ROCM=OFF",
+      "-DUSE_MPI=OFF",
+      "-DUSE_HOMEBREW_FALLBACK=OFF",
+      "-DBUILD_CLI=OFF",
+      "-DBUILD_CPP_TEST=OFF"
+    ],
+    "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+    "representative_compile_command": "/usr/bin/clang++ -DEIGEN_DONT_PARALLELIZE -DEIGEN_MPL2_ONLY -DMM_MALLOC -DUSE_SOCKET -I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen -I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include -I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include -I/Users/narumi/src/lightgbm-rust/references/LightGBM/include -I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src -I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src  -pthread -Wextra -Wall -Wno-ignored-attributes -Wno-unknown-pragmas -Wno-return-type -O3 -Wno-unknown-pragmas -Wno-unused-private-field -fPIC -funroll-loops -O3 -DNDEBUG -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk -mmacosx-version-min=26.6 -fvisibility=hidden -fvisibility-inlines-hidden -o CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o -c /Users/narumi/src/lightgbm-rust/references/LightGBM/src/boosting/boosting.cpp",
+    "openmp": false,
+    "gpu": false,
+    "cuda": false,
+    "rocm": false,
+    "mpi": false
+  },
+  "loaded_library": {
+    "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "verification": "dladdr(LGBM_GetLastError) + SHA-256",
+    "linked_libraries": [
+      "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib:",
+      "\t@rpath/lib_lightgbm.dylib (compatibility version 0.0.0, current version 0.0.0)",
+      "\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)",
+      "\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)"
+    ]
+  },
+  "driver": {
+    "compile_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O0",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O0",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/primitive_driver.o",
+      "-c",
+      "/Users/narumi/src/lightgbm-rust/tools/oracle/primitive_driver.cpp",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+    ],
+    "link_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O0",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O0",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/primitive_driver.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/primitive_driver"
+    ],
+    "source_sha256": "040a410592322370f69500e0753ce8f517efa8ddc32eb697ad7b40af8ecf4de4",
+    "shared_header_sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7",
+    "generated_defaults_include_sha256": "9ec0b3910ee8fdf542691da30b49efb2d1cfb964d2af1f624d1bbcb8597cd651",
+    "executable_sha256": "73024cab68b453730291e8887112fb8262b05ba925523c813465dbc3c37f8971"
+  },
+  "extended_driver": {
+    "compile_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O3",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/extended_driver.o",
+      "-c",
+      "/Users/narumi/src/lightgbm-rust/tools/oracle/extended_driver.cpp",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+    ],
+    "link_command": [
+      "/usr/bin/clang++",
+      "-DEIGEN_DONT_PARALLELIZE",
+      "-DEIGEN_MPL2_ONLY",
+      "-DMM_MALLOC",
+      "-DUSE_SOCKET",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+      "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+      "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+      "-pthread",
+      "-Wextra",
+      "-Wall",
+      "-Wno-ignored-attributes",
+      "-Wno-unknown-pragmas",
+      "-Wno-return-type",
+      "-O3",
+      "-Wno-unknown-pragmas",
+      "-Wno-unused-private-field",
+      "-fPIC",
+      "-funroll-loops",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++17",
+      "-arch",
+      "arm64",
+      "-isysroot",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+      "-mmacosx-version-min=26.6",
+      "-fvisibility=hidden",
+      "-fvisibility-inlines-hidden",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/extended_driver.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+      "-o",
+      "/Users/narumi/src/lightgbm-rust/target/oracle/extended_driver"
+    ],
+    "source_sha256": "c3bf539564637d74e4c2c8a657ac3aadd3bff3efe8b23b15f0f96ca0ac6b15d8",
+    "shared_header_sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7",
+    "executable_sha256": "72db87931a29703f40375836abb34161cba758672cf0b8e1e46799b31b098c31",
+    "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e"
+  },
+  "native_helpers": {
+    "data_feature_info": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/data_feature_info.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/tools/oracle/data_feature_info.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/data_feature_info.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/data_feature_info"
+      ],
+      "source_sha256": "b23058c409e850730d82cbbe3899149462c793e0740141e1e198e5d72a4fd45e",
+      "executable_sha256": "c6ed4f79ab5156df7b1f4a838b4d6d96dd65869f6a1f998af344f066642bc7a6",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+          "sha256": "083ab672a10527d2abc814c677fd9ab5d8b394094c0751bf3b50d0b4741edb2f"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    },
+    "sampling_driver": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/sampling_driver.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/tools/oracle/sampling_driver.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/sampling_driver.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/sampling_driver"
+      ],
+      "source_sha256": "4d89d67135679f5ca91fcbb599219c47ff1bb30b74b095a6f9e6a381c640b27a",
+      "executable_sha256": "bafdfad31abb743d35753ee429bf8014110f2f66e0baddc216a24cb6930c2870",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+          "sha256": "083ab672a10527d2abc814c677fd9ab5d8b394094c0751bf3b50d0b4741edb2f"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    },
+    "refit_driver": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/refit_driver.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/tools/oracle/refit_driver.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/refit_driver.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/refit_driver"
+      ],
+      "source_sha256": "373274ce169f0db1c64b9a8ceaa51779487dc103514d13bca50ef0a750ebaaf7",
+      "executable_sha256": "0ef8c435f0d4f812c2cb306ae660d591a951602725558e142a026ba7e4f7f22e",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+          "sha256": "083ab672a10527d2abc814c677fd9ab5d8b394094c0751bf3b50d0b4741edb2f"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    },
+    "bundling_driver": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/bundling_driver.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/tools/oracle/bundling_driver.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/bundling_driver.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/bundling_driver"
+      ],
+      "source_sha256": "990b985a2dfa6284156601411b63f865e543e318b5f1af0518bf8a6669e9aeb4",
+      "executable_sha256": "9d5f79f6c4bc1d830aa28c525abe1b9efa025006713f3a21993e796a27170608",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_capi_objs.dir/src/c_api.cpp.o",
+          "sha256": "083ab672a10527d2abc814c677fd9ab5d8b394094c0751bf3b50d0b4741edb2f"
+        },
+        {
+          "path": "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    }
+  },
+  "family_builds": {
+    "metric_edges": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/metric-edges/driver.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/tools/oracle/extended_driver.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/metric-edges/driver.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/metric-edges/driver"
+      ],
+      "source_sha256": "c3bf539564637d74e4c2c8a657ac3aadd3bff3efe8b23b15f0f96ca0ac6b15d8",
+      "shared_header_sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7",
+      "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+      "driver_object_sha256": "aa3edbacb30691211b12ce4d9c6002cd668a161c62922c929abfeee3a08d92d6",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    },
+    "empty_queries": {
+      "compile_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/empty-queries/driver.o",
+        "-c",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/empty-queries/driver.cpp",
+        "-I/Users/narumi/src/lightgbm-rust/tools/oracle",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle"
+      ],
+      "link_command": [
+        "/usr/bin/clang++",
+        "-DEIGEN_DONT_PARALLELIZE",
+        "-DEIGEN_MPL2_ONLY",
+        "-DMM_MALLOC",
+        "-DUSE_SOCKET",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/eigen",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fast_double_parser/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/fmt/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/include",
+        "-I/Users/narumi/src/lightgbm-rust/references/LightGBM/external_libs/nanoarrow/src",
+        "-I/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/src",
+        "-pthread",
+        "-Wextra",
+        "-Wall",
+        "-Wno-ignored-attributes",
+        "-Wno-unknown-pragmas",
+        "-Wno-return-type",
+        "-O3",
+        "-Wno-unknown-pragmas",
+        "-Wno-unused-private-field",
+        "-fPIC",
+        "-funroll-loops",
+        "-O3",
+        "-DNDEBUG",
+        "-std=gnu++17",
+        "-arch",
+        "arm64",
+        "-isysroot",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk",
+        "-mmacosx-version-min=26.6",
+        "-fvisibility=hidden",
+        "-fvisibility-inlines-hidden",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/empty-queries/driver.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+        "-o",
+        "/Users/narumi/src/lightgbm-rust/target/oracle/empty-queries/driver"
+      ],
+      "source_sha256": "bf6be75bfde4b93c687b05d8323504378d4311f977db2dbcb1736b5b9fefa229",
+      "shared_header_sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7",
+      "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+      "driver_object_sha256": "75eb35b0753f4d85afba3a286778088e3e2fdc2eeefeb30d192da9b43f732315",
+      "loaded_library_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "object_sha256": [
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/boosting.cpp.o",
+          "sha256": "43b83ab09f4709478e1f9844a5a778c0837cbb29f2b65ef87879ef85270f2a39"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt.cpp.o",
+          "sha256": "a1f39270c39c22c6a530a598f802e1659338bd0ada8020f8c28db0ff05a834cd"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_model_text.cpp.o",
+          "sha256": "47b9a91db6a3d3b4fdd28ec69bf0116a6f02caa34c605d68e0873602000e018c"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/gbdt_prediction.cpp.o",
+          "sha256": "d0198229b91dd135f3ee24fac4275be52da8a1cc4be0a8cbe3900a93777993e2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/prediction_early_stop.cpp.o",
+          "sha256": "bd9e8e9461a61670dcbeada27d4f67b80e39c00b44f5089459233e6f391673df"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/boosting/sample_strategy.cpp.o",
+          "sha256": "69d5990a6513c0ccbf724105e4bc5617d072d6b111974ad38b20fee5f44773f2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/bin.cpp.o",
+          "sha256": "e43435b5facd249ed3bdcc1a44dc5ab160f169ee164b1784a30c2315cc40b64d"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config.cpp.o",
+          "sha256": "0f404adad609edd60d5eb8568d68e9d39e2e559e46242e02a543fb1d4663bc50"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/config_auto.cpp.o",
+          "sha256": "eb9e198891b14857120969e5eb1e3123886220434b50af0a799fff66e1e682b9"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset.cpp.o",
+          "sha256": "3cb55ffb1a1457210b41c7978603f713fdd008e4ed0d7f465d8e33711092b041"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/dataset_loader.cpp.o",
+          "sha256": "9027e8dcb6de4c3851d8b2c392b9b50485c12f5aa5bb9552c58eb189ea9a8f18"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/file_io.cpp.o",
+          "sha256": "f38c9f36e685a9b29ea7b460e5f498d16691d4ea0e5ef114bf887d9ffd11afda"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/json11.cpp.o",
+          "sha256": "128325c50116790f0b68d378487105c5cefe0110c3b603d5d0cd552401e995ca"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/metadata.cpp.o",
+          "sha256": "7092d77dcbdb5e71ca902cc635e7ebd67b73050d4b25fa79046ad1446d0e43c2"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/parser.cpp.o",
+          "sha256": "b6737ad6f3d24184475d670a4ef7ae5b7a54a2812fbfde89b02cd510402e04c9"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/train_share_states.cpp.o",
+          "sha256": "2b2adbb9d37db4738f68ab9131643b990e19b3ead2ef0a7d4c9921b5feb5c570"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/io/tree.cpp.o",
+          "sha256": "8dc977ff3f41953eb15a00ef5a8cc667ab0e2e4b8d59d4d5c6b6652bbcfd232b"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/dcg_calculator.cpp.o",
+          "sha256": "122dab926f455a32d35efc4203552e26ec5fc520e6ad7a00f06ab0587cc39502"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/metric/metric.cpp.o",
+          "sha256": "3ea172efcfdf49df1ff64317690b33ff8e6de0095a952d8ade6a1ffc05481705"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linker_topo.cpp.o",
+          "sha256": "d2750578c30edb2959f2a7fb90b613ced60c6a1744064ca28245a6d01b5c6e26"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_mpi.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/linkers_socket.cpp.o",
+          "sha256": "73a3afac6666f0e6224f51e430afbdbf23af631d8df888af16edb6eb979d96fe"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/network/network.cpp.o",
+          "sha256": "454875430541339f315123bae8939995cae3d39c989e72c5d774fb637935bfe7"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/objective/objective_function.cpp.o",
+          "sha256": "9af7fe37c4e9e6cd6ce3936ce02b2307f2435c76efce3e173649cedef9aa3634"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/data_parallel_tree_learner.cpp.o",
+          "sha256": "eabdd51131a6e347d0f55df6c4c2825b96b3cfb5210a0a98de32b33d66e284ca"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_histogram.cpp.o",
+          "sha256": "641eed042ed6939bc843aa0ba5ace1aa32bd028fbeeb92819ff891e570b100e4"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/feature_parallel_tree_learner.cpp.o",
+          "sha256": "f392ba22585d6e5dfd7696cd0d435f431cf81b2ed5b8831e3dda1fde9a5778be"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gpu_tree_learner.cpp.o",
+          "sha256": "399c2aebe61a4fa74a42d3693205cc0c981b523bbc377982f2479a9dafe71b34"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/gradient_discretizer.cpp.o",
+          "sha256": "2dd89f4bbb199f2c04d0f9b423c6c1b7b5cd54b2f66be9d86584caeb7474d0d6"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/linear_tree_learner.cpp.o",
+          "sha256": "51c8617c99f63bb500f8eabb4b89d73611992111966448fb2ca0c88d7e129155"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/serial_tree_learner.cpp.o",
+          "sha256": "bf46b32c12aa3582b6e9fd2c7eac9df2312b6cc2a5266c88c93a5eaf5e027704"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/tree_learner.cpp.o",
+          "sha256": "f836b59f22ca36dadd316441e34f9062fbaff74e426b2c5f2456a44631606058"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/treelearner/voting_parallel_tree_learner.cpp.o",
+          "sha256": "8cf937b41608684fe84d70796921933df8ee76bd5d03064ea057eb417e9f9157"
+        },
+        {
+          "path": "target/oracle/build/CMakeFiles/lightgbm_objs.dir/src/utils/openmp_wrapper.cpp.o",
+          "sha256": "786c0f448c12e7f4f9742bc136c598f28f51d9f4f86b4826eeab90111660689d"
+        },
+        {
+          "path": "target/oracle/build/external_libs/nanoarrow/libnanoarrow_static.a",
+          "sha256": "25553c066f519bb9e00ef99b755d2572fefabdbaf715158db37f12493019a8d6"
+        }
+      ]
+    }
+  },
+  "sort_headers": {
+    "directory": "/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk/usr/include/c++/v1/__algorithm",
+    "sha256": {
+      "sort.h": "b644503828e13c3c90b5d343684eb993add9330762c5a7957001876be653e014",
+      "make_heap.h": "5ab9161e636194bcd093a590e1b8dc60fd6b51dd61914bd93525bb767bf08bfe",
+      "sift_down.h": "4373650c4f27d3a28db01ed8202ae05336dd174d242d5d329a75b2fbc4fe2246",
+      "pop_heap.h": "029b6ccb3f1111118825615131564ecddf5ed1504f6d72276087d49ec03def33",
+      "push_heap.h": "e0c6e2d27018c570c1e97450d5035cb5b337149ef73d0744c27e62a49c618ace",
+      "sort_heap.h": "9e6f491404587d7008813a6ba261686be81be4dddab95a483232fd53eb78d014"
+    }
+  },
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu": "Apple M4",
+    "logical_cpus": 10,
+    "memory_bytes": 17179869184
+  },
+  "dependencies": {
+    "lockfile": "tools/oracle/uv.lock",
+    "lockfile_sha256": "279b7cc51283b1d1abc8ef95caac2d5a423e2ee4ff7b49a1c9269fca115727dc",
+    "python": {
+      "version": "3.12.12 (main, Jan 14 2026, 23:36:32) [Clang 21.1.4 ]",
+      "executable": "/Users/narumi/src/lightgbm-rust/target/oracle/venv/bin/python3"
+    },
+    "submodules": [
+      "-36350b7de849300bd3d72a05d8bf890ca405a014 external_libs/compute",
+      " 3147391d946bb4b6c68edd901f2add6ac1f31f8c external_libs/eigen (3147391)",
+      " 252029ddac664370bdda3f0761675785d92a1573 external_libs/fast_double_parser (252029d)",
+      " 8303d140a1a11f19b982a9f664bbe59a1ccda3f4 external_libs/fmt (8303d14)",
+      " a579fbf5d192e85b6249935e117de7d02a6dc4e9 external_libs/nanoarrow (a579fbf)"
+    ]
+  },
+  "reference_sources": [
+    {
+      "path": ".gitmodules",
+      "sha256": "26af9104d9986d3bc0abc5e36dbf50b6ebba75bd0cfefde22554e7b6ca1857a7"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "18d94375b0b7607660817fa100475e356f5e6c315cbe654c5a103ea915f2862d"
+    },
+    {
+      "path": "VERSION.txt",
+      "sha256": "38d2f03f24ce77f7b1b5616bfec63bb9e2cf6a2b3245e429e632926473dc1604"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+    },
+    {
+      "path": "include/LightGBM/meta.h",
+      "sha256": "45eb0423aeed9e32a4705df7733c87997369ba749d5d4bc6baba44a5873d027f"
+    },
+    {
+      "path": "include/LightGBM/config.h",
+      "sha256": "9bf1ddda3970be0a43f1b95f3564450a81595d1c0a00c9d40eed8873ae68ae23"
+    },
+    {
+      "path": "include/LightGBM/utils/random.h",
+      "sha256": "42a32ffe667983d6b1eab2c149ebdc0f17a77e09e56633db8f6fb6276f19c5a9"
+    },
+    {
+      "path": "include/LightGBM/bin.h",
+      "sha256": "b6d660283fa67cfad4f164a5cff7618347ed15e94ef39b1ad0b90a6994e1ae8d"
+    },
+    {
+      "path": "src/io/config.cpp",
+      "sha256": "2335f222503bbaf9186fe1aa320c8043934beb929e38a48df1e89b50168a2b35"
+    },
+    {
+      "path": "src/io/config_auto.cpp",
+      "sha256": "a3fc3f20b4fbc25199491c7dd2cdadbe8e6c89934c175924c3a6ca447241baca"
+    },
+    {
+      "path": "src/io/bin.cpp",
+      "sha256": "a1964bda478458cdeab5276da4d17e958e1eada21a086c486aa433dabbdce2ff"
+    },
+    {
+      "path": "src/io/dense_bin.hpp",
+      "sha256": "00226b7aa4fbf3fc1457d4d34b64a3425e1ec7ed5bd80b9914501d62201d401f"
+    },
+    {
+      "path": "src/objective/regression_objective.hpp",
+      "sha256": "0e8200eafcf075e93f736fa2d59863a8b34dfb62c19df476af60183f8584408d"
+    },
+    {
+      "path": "src/objective/binary_objective.hpp",
+      "sha256": "19b6feede89bb87a37903efa53bf3d73aa0c76ff02cad4a473bedefd935588e3"
+    },
+    {
+      "path": "src/objective/multiclass_objective.hpp",
+      "sha256": "4818c1cd367843a4e931b7817e10dd3fbe356ca6a4e13e81e65d607827e0200b"
+    },
+    {
+      "path": "src/objective/xentropy_objective.hpp",
+      "sha256": "2ceb81765904fa43315abc272698b2b09cb352c4375e9ae6e9301a1160594271"
+    },
+    {
+      "path": "src/objective/objective_function.cpp",
+      "sha256": "1b5555652e64a30de3cabe736b9da0da70b9e6d58dc5dd47462f625f40deb5e0"
+    },
+    {
+      "path": "src/objective/rank_objective.hpp",
+      "sha256": "865f9f4735564a80a1ba49bbeb2f2e25f08c41bfbcc398838c82eba60ac8eeaa"
+    },
+    {
+      "path": "include/LightGBM/objective_function.h",
+      "sha256": "26d029de769c8184886d1c4af7084b645ff55929059387e80873cbda8a2040be"
+    },
+    {
+      "path": "include/LightGBM/metric.h",
+      "sha256": "07e88547f28f4296ca0c468fa88637590cbdb8c622bce603184e9e34f781c13b"
+    },
+    {
+      "path": "src/metric/metric.cpp",
+      "sha256": "8a7ce029d3985d6e42aedd5919a0cff4ee4e193d780fd50b6a68772a872ad74d"
+    },
+    {
+      "path": "src/metric/regression_metric.hpp",
+      "sha256": "31641075ea9689e576cb995190d82cd103ef7d8f28a332657a826a439d6fec66"
+    },
+    {
+      "path": "src/metric/binary_metric.hpp",
+      "sha256": "1e27bfc24047136c8129d4fd818a421d2d7bf626e7b5b6282733a6bf8a84cc3c"
+    },
+    {
+      "path": "src/metric/multiclass_metric.hpp",
+      "sha256": "8061f0d462ba27acb7f6975f51f520cbf9d7639c386ee098613df697030ce5c2"
+    },
+    {
+      "path": "src/metric/rank_metric.hpp",
+      "sha256": "bb4968685c74ab34b2db49348c367c99feb97344e9c2748303e93f9a2c74e4f4"
+    },
+    {
+      "path": "src/metric/map_metric.hpp",
+      "sha256": "d052be30d399993ff933b325056b255498031f0207d13353fccb81f3c0691b69"
+    },
+    {
+      "path": "src/metric/xentropy_metric.hpp",
+      "sha256": "1ceb7ee877bf6fd82c1010c7d4b3a42d561cdefa3056f0c54199b0f0ff5098ff"
+    },
+    {
+      "path": "src/io/metadata.cpp",
+      "sha256": "b977d54d48d36c2c16aa0197962cd935ebba0b89f4b1e721c2f493d8e6c5c266"
+    },
+    {
+      "path": "include/LightGBM/dataset.h",
+      "sha256": "7067ef8f1dbd95bb218f3912934ceb356cbfd4c6907337fb3153daaaa13a9454"
+    },
+    {
+      "path": "src/io/dataset_loader.cpp",
+      "sha256": "b3faca82ca123ebd6363aa57fb29bbb707752c1e0668ed0911e75fbde01c24b1"
+    },
+    {
+      "path": "include/LightGBM/dataset_loader.h",
+      "sha256": "94ef97ec28af88d73deff511ab28cc12d0ee904ac2b96259af0ac96ffd51e178"
+    },
+    {
+      "path": "include/LightGBM/feature_group.h",
+      "sha256": "2131fd56e41596ba8f00a79529bbae647b20285dc59ad09062796d50e5747c72"
+    },
+    {
+      "path": "src/treelearner/linear_tree_learner.cpp",
+      "sha256": "f99487844db6ec8369c8ee30c48d2a96e5980134340312b7dcd33523b2472b2e"
+    },
+    {
+      "path": "src/treelearner/linear_tree_learner.h",
+      "sha256": "0981f8936e67bd233f3bd60ffbd94ef4b8a0c545f811a0bd9e3161979b427d02"
+    },
+    {
+      "path": "src/treelearner/feature_histogram.hpp",
+      "sha256": "e49b1eadaef190f87e70d42bb4bc3d7e318467734872658a7152690fe65212aa"
+    },
+    {
+      "path": "src/treelearner/feature_histogram.cpp",
+      "sha256": "e3c74eba0d391e26ec65e933f25b6da5837adbe96d9935a666d12147d332bb75"
+    },
+    {
+      "path": "src/treelearner/split_info.hpp",
+      "sha256": "48cb813a844c92b9ceec809c82d343994ce43a83a0df3c2ad78e79d087ac52d9"
+    },
+    {
+      "path": "src/boosting/gbdt_model_text.cpp",
+      "sha256": "8b951c2b90e6010928333b5379014aeef0f326f10bc3ce1f4a614bf60c4c170c"
+    },
+    {
+      "path": "src/boosting/gbdt_prediction.cpp",
+      "sha256": "f11ab814bdfd43de33617ab511d2029a18129ddfcbad4e78bbf6ec1c5a465eb6"
+    },
+    {
+      "path": "src/boosting/gbdt.cpp",
+      "sha256": "3157b7e3d8beaa0fb57c2e604f0a50b90c4380f36c8ec773c4aca8c68bd465d7"
+    },
+    {
+      "path": "src/boosting/gbdt.h",
+      "sha256": "9f660360c2332eae453328e2e108a726708e638d4d816b69c80322d534c1da42"
+    },
+    {
+      "path": "src/boosting/prediction_early_stop.cpp",
+      "sha256": "902fdd5413617061e4d9cb8d6db7bc2eb72b5200b5dfb7be4bbdf52ca90ea9a0"
+    },
+    {
+      "path": "src/treelearner/serial_tree_learner.cpp",
+      "sha256": "2232ec90197424c10ef39ba785c5242f26116e155b0533bfab5b52d4ecb417b3"
+    },
+    {
+      "path": "src/io/tree.cpp",
+      "sha256": "549cfb20792fed577666fe77156c952776d958a18400002e251535630849dad3"
+    },
+    {
+      "path": "include/LightGBM/tree.h",
+      "sha256": "c53f39e0bc5ad28a6ace95710d0541d161d9238c58b0e900718a3d8525d0a380"
+    },
+    {
+      "path": "include/LightGBM/sample_strategy.h",
+      "sha256": "1781f08cb46457dd5144b8435f0b4fe408f0c421b6dfbca5744311eee1d5917e"
+    },
+    {
+      "path": "include/LightGBM/tree_learner.h",
+      "sha256": "9131ce76934827224140fe6416786c12102dd8bf602c22d8dc7b957c2d343f38"
+    },
+    {
+      "path": "src/boosting/bagging.hpp",
+      "sha256": "8feae67b152c4853b80181841625fb34cf252ce9d020f9026654229cefe57d49"
+    },
+    {
+      "path": "src/boosting/goss.hpp",
+      "sha256": "eca8bf9cf9d422d4858c5e26da95f9b2d69955cf6d96b6e78fd7bbc753791578"
+    },
+    {
+      "path": "src/boosting/dart.hpp",
+      "sha256": "c4132f997399a35329d567e70fcd8aa1522be0debfec3936b9954e3a45e7f2c7"
+    },
+    {
+      "path": "src/boosting/rf.hpp",
+      "sha256": "7ce37b5a78c88d7e42ef346181da16fc005837170f4b4eae958d17a52fb99f76"
+    },
+    {
+      "path": "src/treelearner/col_sampler.hpp",
+      "sha256": "dfcfdad6cb9453dc89c9b52fbad1ebf9b4b2f73bfd286714003f8f61f0a0bdcb"
+    },
+    {
+      "path": "src/treelearner/gradient_discretizer.hpp",
+      "sha256": "1c7bcf4ff2621d0f7fb45b3dbdf2b287019c03e9b4c6250281dd2b7af30a1169"
+    },
+    {
+      "path": "src/treelearner/gradient_discretizer.cpp",
+      "sha256": "ad89098ff8227c199a726f9fc38e823d6183612d189255a98ab2ccea1058d70c"
+    },
+    {
+      "path": "src/treelearner/monotone_constraints.hpp",
+      "sha256": "34875eee17398f058fddf3b5e8bc0ee4fbbd6046e867433eb58dc9805726d5a4"
+    },
+    {
+      "path": "src/treelearner/cost_effective_gradient_boosting.hpp",
+      "sha256": "6a3cfdcc1204962ad788bec58de3381ab2f0de8196f3f5a44e58b043aa605b9c"
+    },
+    {
+      "path": "python-package/lightgbm/libpath.py",
+      "sha256": "5a330bae64674386a611349a7bb7e505914d05227f63c500c08b1bfb086857cb"
+    },
+    {
+      "path": "python-package/lightgbm/basic.py",
+      "sha256": "5f5adf269636e1b694b6b81764d6e5beec9a76f8f8a366b0a5d4c8a644e9ab4f"
+    },
+    {
+      "path": "python-package/lightgbm/engine.py",
+      "sha256": "3609f80d3f1b0ad24e9db90e55c7b84e518713df477047e8f46d5f8c053b3eeb"
+    },
+    {
+      "path": "python-package/lightgbm/callback.py",
+      "sha256": "892071fe99a1577b7e3015744b1fe77c3999ec7fd88c2ab0ee5ace23707d7b14"
+    },
+    {
+      "path": "python-package/lightgbm/compat.py",
+      "sha256": "8c83ae59e7c3ef72a26b9ca28ffd99995d1c5610f5f09efc7d043a2423cc8604"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "6d27623cb739f17cbdfd2f3be19a96a645a92e1f024749be55af160f6525ed6c"
+    },
+    {
+      "path": "docs/conformance.md",
+      "sha256": "9bde86369b929de2185d1d15a213fd3aa4626537460a9c49d611c08e5f43fe41"
+    },
+    {
+      "path": "docs/reference-manifest.schema.json",
+      "sha256": "92504ed2c12af313a0b382fc6731d760765335d30f0c438c497c7fccef677122"
+    },
+    {
+      "path": "licenses/LLVM.txt",
+      "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee"
+    },
+    {
+      "path": "tests/fixtures/benchmark-contract.json",
+      "sha256": "888fcd96522caeb3ece450bbc30225e54300442cb23f54a563e38fc86404d7ef"
+    },
+    {
+      "path": "tests/fixtures/bins.json",
+      "sha256": "7a793ca0625d29aa91117a2e263e71ef967012fcff7070d0c2cdeb1d743f95c1"
+    },
+    {
+      "path": "tests/fixtures/bundling.json",
+      "sha256": "155534c87ce4d46baf14d8abe956e58746a9b8c93c9e674de6ad4d2f8401ef31"
+    },
+    {
+      "path": "tests/fixtures/bundling.schema.json",
+      "sha256": "59d1afbc9fb52fb34753345d4d486a4ee31b63fb3493ee47835daa09c862cbf9"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/categorical_false.txt",
+      "sha256": "4eed51a56712695d8c1d9bac3afc5ae81059dec3409a2266b254f63fb9ccc0a4"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/categorical_nan_false.txt",
+      "sha256": "aeaba07555a7e093a822efc9f4b6562b705dd350a4e65d57b2738869da826fd6"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/categorical_nan_true.txt",
+      "sha256": "a11e8438ab60d9f414bf10ee4c7f05a502e3e97fb0691828f96fbadd2834d3a7"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/categorical_true.txt",
+      "sha256": "e89609763dc3e90bc5fb1c8dfe30feb4b9525367e345cfff6d061d147e3ab1f7"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/conflict_false.txt",
+      "sha256": "6e19279f5b027bed77ef0117e7f1fd7320f94b5154adc12a96ab6eba5a9d8010"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/conflict_true.txt",
+      "sha256": "f71574dd7bf42ad5861416a450a1364c36647032ac29882351d255cea242f5f3"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/exclusive_false.txt",
+      "sha256": "f54464b04547465c78ce575834b580d12974c2f57a22bdee2ddd36aadaa92ed6"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/exclusive_true.txt",
+      "sha256": "316528d50549d14079163f30543de1de62577835415fb2e685c0de535dbd8e45"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/extra_trees_false.txt",
+      "sha256": "aa7b5585394c9c87dbab146638607b92dbfc3796b7f6c77dd573c1700d03a24c"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/extra_trees_true.txt",
+      "sha256": "34c4b9ce9c051afa85a0af959fb204d4e104289a1f8f654c3dac825a665768a1"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/filtered_false.txt",
+      "sha256": "e174c91cec4ea5d048e2a6a250e9aa9cd1db816ecd05ca1d262d0d24c25c2eaa"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/filtered_true.txt",
+      "sha256": "1bac88940a6b4b6af339600509a7beb1fb202d0a15cc192fb01bd6b15057010d"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/frequent_nonzero_false.txt",
+      "sha256": "3b5764df716b2be009bf39294eb63d5022dbc0a305055c122929f5f9523d561b"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/frequent_nonzero_true.txt",
+      "sha256": "3a84a9bf1ba8c948546e951dae4f11290ac29f364ad6944a01a9609907da9031"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/missing_false.txt",
+      "sha256": "2cc976179f1b063f4833f2f20f3904f7790b24ce0664df8e63bb057a3ec06c40"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/missing_true.txt",
+      "sha256": "43f5e30348ea7219f0a6dea3b7bc44b16d9e11d263fcb4b482c2d4da2eb725c3"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/reordered_false.txt",
+      "sha256": "3e32af51810c9defdfbf94d1c38b110996b1c6d08557d4b67676c3c4605b7a36"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/reordered_true.txt",
+      "sha256": "3affea761562ef740fad0ee16f6874c56c5b4a8cace353a1ba596c8ace11e57e"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/sparse_false.txt",
+      "sha256": "6e19279f5b027bed77ef0117e7f1fd7320f94b5154adc12a96ab6eba5a9d8010"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/sparse_true.txt",
+      "sha256": "f71574dd7bf42ad5861416a450a1364c36647032ac29882351d255cea242f5f3"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/zero_missing_false.txt",
+      "sha256": "5e628248356239e06d193258058099306c30ca4b444f5ca15ba8f3ed235fbb41"
+    },
+    {
+      "path": "tests/fixtures/bundling_models/zero_missing_true.txt",
+      "sha256": "a28d926c059ee50088d4d53b79334b737da4d2f1be62068db7b65f3fbefee4fa"
+    },
+    {
+      "path": "tests/fixtures/cv.json",
+      "sha256": "988d633f48128d5e02e6124c280add57e4fab70eaf2ae2c009c1ee28b91f28f6"
+    },
+    {
+      "path": "tests/fixtures/cv.schema.json",
+      "sha256": "7369a6fe9e254bade38382320ee0e1c39edfdfa9f4cad04295e5b0747661cb13"
+    },
+    {
+      "path": "tests/fixtures/data_feature_info.json",
+      "sha256": "18228b7d6d0c4452e07c0348b50a6573da7a66099b89bde98e888c74b75e2721"
+    },
+    {
+      "path": "tests/fixtures/data_feature_info.schema.json",
+      "sha256": "3a44273a30dacf2eecb29d1ff6f225f703b568e0aedc0d2c7610c5e61531585f"
+    },
+    {
+      "path": "tests/fixtures/dataset_metadata.json",
+      "sha256": "90e29f389519d1cf2e72ce9fafa8674459b42c56766c1b669066047b91c5a1f0"
+    },
+    {
+      "path": "tests/fixtures/dataset_metadata.schema.json",
+      "sha256": "5148b5c4279f1a9064d22ca44abd9d9a3b27b073c4466fa410422343b9fec190"
+    },
+    {
+      "path": "tests/fixtures/empty_queries.json",
+      "sha256": "af3af2ea6e14c7bc0a4abaf02158c6999e85bc8cb3f334841e4675179729fa2c"
+    },
+    {
+      "path": "tests/fixtures/empty_queries.schema.json",
+      "sha256": "aaaea2155ff7be6a1a0f775765e0150f258fcebc3e33806e7f5276617b54e79d"
+    },
+    {
+      "path": "tests/fixtures/explain.json",
+      "sha256": "7bdd12558a6f95050e4a45accec59cbb880c3f1c3a41300bdec82e9de8965f94"
+    },
+    {
+      "path": "tests/fixtures/explain.schema.json",
+      "sha256": "56b79c3733d70a3bb20a2ad49e459934e53555c640ed332251b3b74eebb92526"
+    },
+    {
+      "path": "tests/fixtures/extended_objectives.json",
+      "sha256": "9e0d6a6d80692ab64d63c1414f145a2f711a37569a060c06d512059eb1f64f80"
+    },
+    {
+      "path": "tests/fixtures/extended_objectives.schema.json",
+      "sha256": "a45a40732f1b621ba01c6127eb2479bc3de18fa5ed28693c5b882b16b74a7a93"
+    },
+    {
+      "path": "tests/fixtures/forced_bins.json",
+      "sha256": "500aa9d206921b81161d65489055946e9732829e88754380d8ca8f89d63b5d89"
+    },
+    {
+      "path": "tests/fixtures/forced_bins.schema.json",
+      "sha256": "39fba9c78e97217723dcfbe817313e3c8dca296d79e8364a1f1210d4db9ed6d8"
+    },
+    {
+      "path": "tests/fixtures/histograms.json",
+      "sha256": "bc4e08da3447a0711adcde228d12e3b0281268dc0693955a179fa1d4270d7f2c"
+    },
+    {
+      "path": "tests/fixtures/metric_edges.json",
+      "sha256": "c06aded16dd7d0a7d22c3b3724a020fb6a05e7f4385c5829791c95e466829142"
+    },
+    {
+      "path": "tests/fixtures/metric_edges.schema.json",
+      "sha256": "fb9767a7ee240b1791afafbfa5a9dbee9b54110cd650cbc6b034a93f98dfb08a"
+    },
+    {
+      "path": "tests/fixtures/metrics.json",
+      "sha256": "7de9e35b0cbec66134870d187707916f273204cda7bbe2712fe4af62738666b5"
+    },
+    {
+      "path": "tests/fixtures/metrics.schema.json",
+      "sha256": "df9fb860b01a8d763bfd4585e7473fbb72e87a4866f7673214de9a68144a5faa"
+    },
+    {
+      "path": "tests/fixtures/models/bagging_balanced.txt",
+      "sha256": "1cccddfa8c381df1a8bfb3ca8ba6bde1bb7651b51e3159d23cc4f64c2c18f81e"
+    },
+    {
+      "path": "tests/fixtures/models/bagging_queries.txt",
+      "sha256": "4d867ef3c12216b66a12496da838b056df9316196004f4a8a730fa4d042608b1"
+    },
+    {
+      "path": "tests/fixtures/models/bagging_rows.txt",
+      "sha256": "ad2f0c4d087305f2fe60e596b07029eb1a51fe0311bb654a7c48f9c6f854c99f"
+    },
+    {
+      "path": "tests/fixtures/models/binary.txt",
+      "sha256": "7b5941148a39bc225310c77e2f36e71f870d9b74ab36e72fb273b9073a0ac654"
+    },
+    {
+      "path": "tests/fixtures/models/binary_extended.txt",
+      "sha256": "72e10b3ab5d9cab66894460b8df3ea9859029034278693fb293dfdb6c7d31168"
+    },
+    {
+      "path": "tests/fixtures/models/binary_sigmoid.txt",
+      "sha256": "8a5e13be4837b6e0e39a04427e6407be591b38b6f628a319cc00cac2fbd6a39c"
+    },
+    {
+      "path": "tests/fixtures/models/categorical.txt",
+      "sha256": "71f68ca639406e2e1b4720c261ce2defcb54c3917f316ba77d71176700b5f7c3"
+    },
+    {
+      "path": "tests/fixtures/models/categorical_onehot.txt",
+      "sha256": "aadb23338f9f9e25770ceff05f4d6de30aee73025b353b913e62ffcc46e965f4"
+    },
+    {
+      "path": "tests/fixtures/models/categorical_onehot_weighted.txt",
+      "sha256": "cc12aeccff6990bf66074c828a6c3ff49070a5b789a819d09fe3783098d1b287"
+    },
+    {
+      "path": "tests/fixtures/models/categorical_partition.txt",
+      "sha256": "3aa8503a4c1c2d3d256de25c145984c6a61cfa1f4c3566b3b67bdda9d72b85c1"
+    },
+    {
+      "path": "tests/fixtures/models/categorical_partition_weighted.txt",
+      "sha256": "a824452fc82397c346ed483d929767107e75e43dc98d9b1a1bea719d32f64a2b"
+    },
+    {
+      "path": "tests/fixtures/models/cegb_coupled.txt",
+      "sha256": "76a43da55092eb77f4ec534c2e72cfbb1e5795d10a1e933e708786cf1938e174"
+    },
+    {
+      "path": "tests/fixtures/models/cegb_lazy.txt",
+      "sha256": "b62b829e9a327ef914775d9ffd3ad315b1e347cf4a21633c19d5a2b90238dda9"
+    },
+    {
+      "path": "tests/fixtures/models/cegb_split.txt",
+      "sha256": "77712be2aa4b7e44e513c6a3b6ca0a250a0c456869f9a4e8d18c8d3286fba4f6"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/cat_extra_onehot.txt",
+      "sha256": "1a05572304135805e53ba1e34f544f4a08329b0e6e5630971e52bbad038f129c"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/cat_extra_sorted.txt",
+      "sha256": "7c69255baa80e1f554771214bd1d37c755030623bbea8064cdeaa85dc7e3d55e"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/cat_quantized.txt",
+      "sha256": "423bac7e1641a1e1016066a7589dfcd4fe593b1854409940b350b1fc754482e5"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/cat_quantized_renew.txt",
+      "sha256": "849647694a4f9c294d1dc457c5a7e444147e6d08d9812f9e636c9bdf8a742338"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/cat_smooth.txt",
+      "sha256": "39bf044f10b469f3a3edd14ff9892c0f3dc4a043279258ad3c98a44a64560dff"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/deep_monotone_advanced.txt",
+      "sha256": "45cfe8169e1f3abee8da1e1b21fbb6c0a343cb2234e8f5de38ffa7eed5a8b151"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/deep_monotone_basic.txt",
+      "sha256": "f94f2d1658c0b109fd5f0287d2b03ce74aec84b8ffef63c4421b6a91f2cce153"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/deep_monotone_intermediate.txt",
+      "sha256": "ccfeb7ee28dbe8dbac51d31ff8aa9828fc19033d7f4fac43a92875afe3b05f5f"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/deep_monotone_smooth.txt",
+      "sha256": "ee2df6a14c7691ec8006af61197cc4d9bf16f901d3592a9a44ad771268ca4f88"
+    },
+    {
+      "path": "tests/fixtures/models/constraints_extra/interaction_sampled.txt",
+      "sha256": "e49f54fd9b1b0afbcd6153aecfc50de84a8b863cc1f6d4533bc4e354a11707cb"
+    },
+    {
+      "path": "tests/fixtures/models/continue_dart_final.txt",
+      "sha256": "8191bb9a9ef52b867320ce1aec193ed7d3fb423cd7663fc3ed8a72928b0f129b"
+    },
+    {
+      "path": "tests/fixtures/models/continue_dart_initial.txt",
+      "sha256": "e9cdc0b7456e4f2e6dc2e10d8c213e04d0059aa941b2a466a24fa5b7386d727c"
+    },
+    {
+      "path": "tests/fixtures/models/continue_gbdt_final.txt",
+      "sha256": "64c84fda7063340fcdd8a4e480c6d0afdc85f3f068772b9bc206797c8ada5bef"
+    },
+    {
+      "path": "tests/fixtures/models/continue_gbdt_initial.txt",
+      "sha256": "414a0f0ecf0f6e52f0556376acd5d20729f856723083159ea11f6b376efe0dbb"
+    },
+    {
+      "path": "tests/fixtures/models/continue_goss_final.txt",
+      "sha256": "51beeef5d8813214ebff68af94e05ad31d40a6bb9a5b8291c41856e6e7d36811"
+    },
+    {
+      "path": "tests/fixtures/models/continue_goss_initial.txt",
+      "sha256": "2cf0735df1fa05ae3c9126a9471fa9ec3be51cc47778c33d9f8fdb920ed62402"
+    },
+    {
+      "path": "tests/fixtures/models/continue_rf_initial.txt",
+      "sha256": "9fb77ddee72737e9f2fe3113c041bd7715cd97bcb0f65639a490b773b08badde"
+    },
+    {
+      "path": "tests/fixtures/models/continue_supplied_initial_final.txt",
+      "sha256": "64c84fda7063340fcdd8a4e480c6d0afdc85f3f068772b9bc206797c8ada5bef"
+    },
+    {
+      "path": "tests/fixtures/models/continue_supplied_initial_initial.txt",
+      "sha256": "414a0f0ecf0f6e52f0556376acd5d20729f856723083159ea11f6b376efe0dbb"
+    },
+    {
+      "path": "tests/fixtures/models/controls_baseline.txt",
+      "sha256": "9084eb5624d46ec6cc66b4133786ee402c6854b82978bd44398057585ef4f3c6"
+    },
+    {
+      "path": "tests/fixtures/models/controls_combined.txt",
+      "sha256": "5ad3fe3f55e4f02c542ec9d5c05ec0be3834b0d8e5a4ec3cb7ad8951c6faf6dc"
+    },
+    {
+      "path": "tests/fixtures/models/cross_entropy.txt",
+      "sha256": "964b0ecaf81bbf67aa0a79e6d236f5d195011ea8501f1c9e6c322673906bd077"
+    },
+    {
+      "path": "tests/fixtures/models/cross_entropy_extended.txt",
+      "sha256": "b40eb2957b0dd5e0294f3884d4de310f427976ed9dd0614a9f5e59a18b812abe"
+    },
+    {
+      "path": "tests/fixtures/models/cross_entropy_lambda.txt",
+      "sha256": "5eb21053d79c6ca5eaeb2081e2a15c2201505c484c1a51c85b90c7f53065f3b5"
+    },
+    {
+      "path": "tests/fixtures/models/cross_entropy_lambda_extended.txt",
+      "sha256": "780e938ad1331a9aa8b7b9152649c32106fb9677438863cf55ab2fdde1144958"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_booster.json",
+      "sha256": "77bd5ff7e17f7e139142e21eab54c6fa06ae17f60cf2554c7fa1e6ebd6f4fb41"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold0.txt",
+      "sha256": "2ec617ac4d2b93174edb7184ba8b9a24f720d441615d6ef817f77ca4e6460822"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold0_full.txt",
+      "sha256": "c0855c104e8d6cda80970fa6b2db628428d5698729104956159f1f4c55d661c5"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold1.txt",
+      "sha256": "51907b1f0e9b9629c88ddfe5c56d1137b331f9af6e391df9a9aeaa8668efcf45"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold1_full.txt",
+      "sha256": "d043323d89e3ceb8719d53fa9435be64618984188190ae5212e28c3731bbbece"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold2.txt",
+      "sha256": "344355a8351fd0021577663a053a895c9cd054d83115f27fb8703b2a8353cc74"
+    },
+    {
+      "path": "tests/fixtures/models/cv_early_truncation_fold2_full.txt",
+      "sha256": "728a852310f53121ecafc2b13faaad80d76fde1c12458584a5a10174d52be923"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_booster.json",
+      "sha256": "b75f0c9004ef935128582b2425257da745432be3e7c6df754b716e328e575c39"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold0.txt",
+      "sha256": "5c34bb87bf41ee593e384b9958f45710d8d954ca9cddb9e85504d0fd2d572a82"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold0_full.txt",
+      "sha256": "5c34bb87bf41ee593e384b9958f45710d8d954ca9cddb9e85504d0fd2d572a82"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold1.txt",
+      "sha256": "73a89b42aadfe07a543f6933a6feebf77bba1700bef8cd9b1c48014468659fc0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold1_full.txt",
+      "sha256": "73a89b42aadfe07a543f6933a6feebf77bba1700bef8cd9b1c48014468659fc0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold2.txt",
+      "sha256": "46b1cf1e7cd5024673c233f2ea3830c5d340eaf575ced33743d55dcf6b80f187"
+    },
+    {
+      "path": "tests/fixtures/models/cv_explicit_fold2_full.txt",
+      "sha256": "46b1cf1e7cd5024673c233f2ea3830c5d340eaf575ced33743d55dcf6b80f187"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_booster.json",
+      "sha256": "a7c794452555949c74c518887398b3f0ccb8ea9aa0d80f860071cbbe0e747e52"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold0.txt",
+      "sha256": "7d9dac0053cfb5475befd7deb102753a9ef91de24701e554c5c61dbac3219de0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold0_full.txt",
+      "sha256": "7d9dac0053cfb5475befd7deb102753a9ef91de24701e554c5c61dbac3219de0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold1.txt",
+      "sha256": "45ab96e0f5a4329df36baabfeaca2285116edaa4e3d1e2ec0dc1f7c5343ea081"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold1_full.txt",
+      "sha256": "45ab96e0f5a4329df36baabfeaca2285116edaa4e3d1e2ec0dc1f7c5343ea081"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold2.txt",
+      "sha256": "844b5c2baf95b41a9362980c04cb360559eb168746ee959646895e33f008aec0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_group_safe_fold2_full.txt",
+      "sha256": "844b5c2baf95b41a9362980c04cb360559eb168746ee959646895e33f008aec0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_booster.json",
+      "sha256": "628e142a5761eaf55a328521bd609021be660927197af89c9351d37e7c0aa998"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold0.txt",
+      "sha256": "8d1dcd0d24807e7e7cf16f782d860f5eb9fb19a812dc7eb9352a1582155eda6a"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold0_full.txt",
+      "sha256": "8d1dcd0d24807e7e7cf16f782d860f5eb9fb19a812dc7eb9352a1582155eda6a"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold1.txt",
+      "sha256": "7a271394170203fd5cc9a8dbcff32769e93d493a8ecdc8a9269c6bfe3e8e6ab4"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold1_full.txt",
+      "sha256": "7a271394170203fd5cc9a8dbcff32769e93d493a8ecdc8a9269c6bfe3e8e6ab4"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold2.txt",
+      "sha256": "f2c8f27fb18f04c9a9d379aaa7d542220d127e477849d66aa903c7b531d74ccb"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_seeded_fold2_full.txt",
+      "sha256": "f2c8f27fb18f04c9a9d379aaa7d542220d127e477849d66aa903c7b531d74ccb"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_booster.json",
+      "sha256": "ffdfd708dbd894d077f8ae47e2c366638eb3befeb3770c75080d4c631cfce454"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold0.txt",
+      "sha256": "763197c14e56e66c19c03bddc5805f28de3b3f865591faa0aa166f3af69d4222"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold0_full.txt",
+      "sha256": "763197c14e56e66c19c03bddc5805f28de3b3f865591faa0aa166f3af69d4222"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold1.txt",
+      "sha256": "3f56818e92004776d06c2d704b968c453387b9ea577ffb014f97c2a9245552dc"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold1_full.txt",
+      "sha256": "3f56818e92004776d06c2d704b968c453387b9ea577ffb014f97c2a9245552dc"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold2.txt",
+      "sha256": "240495c91600292eca915155a825b78864e632a802cbdda693115aaef425c017"
+    },
+    {
+      "path": "tests/fixtures/models/cv_standard_unshuffled_fold2_full.txt",
+      "sha256": "240495c91600292eca915155a825b78864e632a802cbdda693115aaef425c017"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_booster.json",
+      "sha256": "fe06df1da7c98fe63f495250902d434522c09ccec2a627155713eee60363ce64"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold0.txt",
+      "sha256": "6cf8dc512902efcd000af61b012118216e1f59205ec8d3e4b1b770145436881a"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold0_full.txt",
+      "sha256": "6cf8dc512902efcd000af61b012118216e1f59205ec8d3e4b1b770145436881a"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold1.txt",
+      "sha256": "81ed1a159e6aa0d9633ae55bcf4ef0ee859984f2fefc2d18f7dae514db1e679c"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold1_full.txt",
+      "sha256": "81ed1a159e6aa0d9633ae55bcf4ef0ee859984f2fefc2d18f7dae514db1e679c"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold2.txt",
+      "sha256": "fe1dc082f423b4be90976076c40c848b68b9dd969dea60c5ebcced1553b921d0"
+    },
+    {
+      "path": "tests/fixtures/models/cv_stratified_seeded_fold2_full.txt",
+      "sha256": "fe1dc082f423b4be90976076c40c848b68b9dd969dea60c5ebcced1553b921d0"
+    },
+    {
+      "path": "tests/fixtures/models/dart_normalized.txt",
+      "sha256": "4aac005543e176d34fcc4bf571f68d42d4566ee16619ca0c679878d5bf5af0b6"
+    },
+    {
+      "path": "tests/fixtures/models/dart_uniform.txt",
+      "sha256": "8b7fa6150fc8a02b50dba9aafc8bc3e27ab567f363c06f6617d4992d2168d214"
+    },
+    {
+      "path": "tests/fixtures/models/dart_xgboost.txt",
+      "sha256": "f27facee0ec2a64cf8ab0b6a28b256f4bc2c570c9ac5d444ab03630937c292e4"
+    },
+    {
+      "path": "tests/fixtures/models/extra_trees.txt",
+      "sha256": "4438d397ac9a100a69e53fa40b6d4e9c4ccfabebb97213142a658bf790c90ea8"
+    },
+    {
+      "path": "tests/fixtures/models/fair_extended.txt",
+      "sha256": "57ec7c1c0149868e19908315f354c75bd5f8c3fdb225d4f5d23af7db908582d1"
+    },
+    {
+      "path": "tests/fixtures/models/feature_node.txt",
+      "sha256": "e92f1795bc73034a182f59026c55cab683978cf639e233b99cef9bd15474d4e5"
+    },
+    {
+      "path": "tests/fixtures/models/feature_penalties.txt",
+      "sha256": "b2340ed6ac85c930801d5eeffc7abbe85fe72c43e99b6c53afe8d53e60af65b7"
+    },
+    {
+      "path": "tests/fixtures/models/feature_tree.txt",
+      "sha256": "b7d1653e69b1eca9d40012311b0e01c9eb8451403b4f2f73261e627bb278a443"
+    },
+    {
+      "path": "tests/fixtures/models/feature_tree_node.txt",
+      "sha256": "684f27f2b89bcdce9474f1d31f929593d01648a07b39b6ebcad0d73d2b00dcbe"
+    },
+    {
+      "path": "tests/fixtures/models/forced_splits.txt",
+      "sha256": "9aac4e75b2406511c54349cb3b480f19e3691f83f42c25eaa9bdcefdbf06ae8c"
+    },
+    {
+      "path": "tests/fixtures/models/gamma.txt",
+      "sha256": "0645558306509b2eb866bbc3bf60002f672d69b0534a7a44b2544d9f23dea330"
+    },
+    {
+      "path": "tests/fixtures/models/gamma_extended.txt",
+      "sha256": "acf17458cfbbdbd522838e52cf0f42459760727dc1bc5a7ed36482903285f8d9"
+    },
+    {
+      "path": "tests/fixtures/models/goss_multiclass.txt",
+      "sha256": "70c1da39a80cbf5a3746a8b8beaf51b202db8113eb04ec4600725f29392582e5"
+    },
+    {
+      "path": "tests/fixtures/models/goss_warmup.txt",
+      "sha256": "f93ddee0060e10fa396f18a2ef99c5e1fad6c400cbba82c427349b70e6f8a878"
+    },
+    {
+      "path": "tests/fixtures/models/huber_extended.txt",
+      "sha256": "d576fc4d8ced94d3bf4c6c3eaf62e04f27216a91ceb47137fbca5ba923b18fd8"
+    },
+    {
+      "path": "tests/fixtures/models/interaction.txt",
+      "sha256": "4319142fe23b3bf316ef51c4c1b91164f89cd0bcb51693762862d04fcbd8702d"
+    },
+    {
+      "path": "tests/fixtures/models/lambdarank_extended.txt",
+      "sha256": "1e647e21091b0fda834c43026aad66d57cb3c9bbe365aadb742230d12457cb2c"
+    },
+    {
+      "path": "tests/fixtures/models/linear_independent_lambda0.txt",
+      "sha256": "610fbad00892544e6615fe7f70295e309e4613f4d4be42f08978de060ca11ca5"
+    },
+    {
+      "path": "tests/fixtures/models/linear_independent_lambda05.txt",
+      "sha256": "b963063fef4a48bd02af52ff4285db6cac2d525a1be48c406f5c1b50bda1b07e"
+    },
+    {
+      "path": "tests/fixtures/models/linear_nan_training.txt",
+      "sha256": "f7135313802fd7920b9aca5cfb51cabdb77d27ee0d4b8ac43f51a5ee81aaa755"
+    },
+    {
+      "path": "tests/fixtures/models/linear_nan_weighted_training.txt",
+      "sha256": "c1cbdb8318283b50bc1c0e36cf30b548b03aa2c4a4ab7e86247b9df7582e5a68"
+    },
+    {
+      "path": "tests/fixtures/models/linear_rank_deficient_lambda0.txt",
+      "sha256": "b3a11ac511a30ac4c855f7731e1cf0a05c35e5cd37ee99c710932b5d716ef978"
+    },
+    {
+      "path": "tests/fixtures/models/linear_rank_deficient_lambda05.txt",
+      "sha256": "19be16bf313e19daac094b6f771ee4c8d7dffa82f5eadb156e77c3b6c0ac6705"
+    },
+    {
+      "path": "tests/fixtures/models/linear_weighted_training.txt",
+      "sha256": "2a560f182a3ffea6a43642c260f25e38523ffa72ba6aee191596fd795376b1f8"
+    },
+    {
+      "path": "tests/fixtures/models/mape_extended.txt",
+      "sha256": "f5a3cdae3c7d24acf54eb19ddfd1144f0eeaa73e794d03f58d167763c02ff5a5"
+    },
+    {
+      "path": "tests/fixtures/models/missing_direction_tie.txt",
+      "sha256": "13a9ca0cd1046d28c37ec6158e06adad9e2cccdfb4c9297f5cdca537f4f761ff"
+    },
+    {
+      "path": "tests/fixtures/models/missing_nan.txt",
+      "sha256": "c731a6b9be8721a5c942bb97cc534961578adc18742feaa4d1eb4b20007b19a4"
+    },
+    {
+      "path": "tests/fixtures/models/missing_none.txt",
+      "sha256": "d0c741dc11ad0997ca090141115c76d3b380ad0bd6389cd40e26cdd4ecdfaa66"
+    },
+    {
+      "path": "tests/fixtures/models/missing_only.txt",
+      "sha256": "110c6a91d1d64d7aec1b3c0fe22eb8be114773bf93d8f2ac014898aea3d960ae"
+    },
+    {
+      "path": "tests/fixtures/models/missing_zero.txt",
+      "sha256": "abf43d3063b0c7d6ccdf59028f322a25a363ec29432394ecfe49eeda755396ad"
+    },
+    {
+      "path": "tests/fixtures/models/monotone_advanced.txt",
+      "sha256": "c11c00475e6a88b8045c268dd25a58f3a8c84361f4c3d01239a83394ddd3a6a2"
+    },
+    {
+      "path": "tests/fixtures/models/monotone_basic.txt",
+      "sha256": "2d0c6fc0c6c18aa33fd8cbda1bf6072513ee045436862e3d3afd22b442003117"
+    },
+    {
+      "path": "tests/fixtures/models/monotone_intermediate.txt",
+      "sha256": "123f00083ec1cceaa85878d21546e511d81dc37f68c264e835908f8f2c9121c9"
+    },
+    {
+      "path": "tests/fixtures/models/monotone_penalty.txt",
+      "sha256": "5b91366176bc964eadd1fd7ab0c11a2b84c604b816e91928d5fd465b87fb6e96"
+    },
+    {
+      "path": "tests/fixtures/models/multiclass.txt",
+      "sha256": "86c0353914d7bd1033cc2af8ecdf931d12846ea0cfd0cf206fd5c12f0472393f"
+    },
+    {
+      "path": "tests/fixtures/models/multiclass_absent_extended.txt",
+      "sha256": "edb55658fbfe334ed551fcefea41689815bf79d5925c028be0d8bc802b34589a"
+    },
+    {
+      "path": "tests/fixtures/models/multiclass_empty_class.txt",
+      "sha256": "59cf67cd306ec4151a8e1e44be3c5184a25c97be02188809b15e56d3c9001520"
+    },
+    {
+      "path": "tests/fixtures/models/multiclass_extended.txt",
+      "sha256": "87eded56dbee3bc747421530647a1960df7c79dfc5eda7901278282be0ae2e61"
+    },
+    {
+      "path": "tests/fixtures/models/multiclassova.txt",
+      "sha256": "6bfe1a9cc57f39ce3c23abb1e7eb8f29ec59a9976ce48a858d2130e632a33ccd"
+    },
+    {
+      "path": "tests/fixtures/models/multiclassova_absent_extended.txt",
+      "sha256": "c1a3a479c849b3d161455b7dc29870e3cd86a5226ca8cb5005e40212029149f2"
+    },
+    {
+      "path": "tests/fixtures/models/multiclassova_extended.txt",
+      "sha256": "209b32a319e0271310357bb860bab514bce2449896c349cfe18a7d70cc8dd37d"
+    },
+    {
+      "path": "tests/fixtures/models/numeric_l2.txt",
+      "sha256": "5d4fd5167c4c473e646be984ec182902b042407c9fd6f0806ba4a1e25284cdc5"
+    },
+    {
+      "path": "tests/fixtures/models/numeric_weighted.txt",
+      "sha256": "7795fc3279e9479be3164cc37b85e189f09cbf3ab20e37bcae0bf4ba21f6a559"
+    },
+    {
+      "path": "tests/fixtures/models/operations_extreme_gain.txt",
+      "sha256": "971ef851b2aa980655f85ae0cb60c2de3a43fd56f7d32fa6932dab26c3f2a42b"
+    },
+    {
+      "path": "tests/fixtures/models/operations_initial_scores_only.txt",
+      "sha256": "2855105f223c81a7acc253c300971bd767169252323aaef83d87510723761693"
+    },
+    {
+      "path": "tests/fixtures/models/operations_leaf_final.txt",
+      "sha256": "456772c348328c0a1e6970ba58e1ac725ab5b7a8381f68e0dd6f12f93b957873"
+    },
+    {
+      "path": "tests/fixtures/models/operations_leaf_initial.txt",
+      "sha256": "414a0f0ecf0f6e52f0556376acd5d20729f856723083159ea11f6b376efe0dbb"
+    },
+    {
+      "path": "tests/fixtures/models/operations_predict_early_binary.txt",
+      "sha256": "d321e25f19d8ee35696359e71566ace029a0ab6a74ec74dd7967bb4b8a0cb91a"
+    },
+    {
+      "path": "tests/fixtures/models/operations_predict_early_linear.txt",
+      "sha256": "6babdabe08f84c3bca77cdf84f59671774692b4733091ca20ccd38f632c0934b"
+    },
+    {
+      "path": "tests/fixtures/models/operations_predict_early_multiclass.txt",
+      "sha256": "41e5e3ca2a2781bf6ea43d8fc4346ea3446d4106c6156b9f7065a72b9d73bd08"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_0.txt",
+      "sha256": "29851c18a248a494d1e992fc69ebdd6dcb4ef745e650e00b031f2b354c0d4c38"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_1.txt",
+      "sha256": "27e33c8ceb7cf2f081cfc4187eb32f5a3ee23c2b5ab8563c3afb8f4a4b80a7c9"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_2.txt",
+      "sha256": "6e0e6b7e4c326bcf2d9af5bd7e33ae9c353629cd72faba2a873ab9e4154730c2"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_3.txt",
+      "sha256": "285b26f00f323e1e6c5204130e730658310e985e7c58f43dbe3d5ef87a5f5e1c"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_4.txt",
+      "sha256": "285b26f00f323e1e6c5204130e730658310e985e7c58f43dbe3d5ef87a5f5e1c"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_5.txt",
+      "sha256": "285b26f00f323e1e6c5204130e730658310e985e7c58f43dbe3d5ef87a5f5e1c"
+    },
+    {
+      "path": "tests/fixtures/models/operations_rollback_initial.txt",
+      "sha256": "414a0f0ecf0f6e52f0556376acd5d20729f856723083159ea11f6b376efe0dbb"
+    },
+    {
+      "path": "tests/fixtures/models/path_smooth.txt",
+      "sha256": "45be96e30edb055d53b9c4ee23b36828604403740b55b90a11224436e0290efd"
+    },
+    {
+      "path": "tests/fixtures/models/poisson.txt",
+      "sha256": "66cb15defe456ec2a24034c5b0e5014a5012984b7c246849b88662ddead61302"
+    },
+    {
+      "path": "tests/fixtures/models/poisson_extended.txt",
+      "sha256": "89e2a14c18b6988af73bdfca7c22d7f1d81c128e4817785fe37c11441c7a52e9"
+    },
+    {
+      "path": "tests/fixtures/models/quantile_extended.txt",
+      "sha256": "3159ac854eff801243c07a9110eefa15ba0ba509b4b850c2c64b0a4b7f555327"
+    },
+    {
+      "path": "tests/fixtures/models/quantized_binary.txt",
+      "sha256": "bc4564a86f7ab08e4d5eb60e09d7c0f0651a4070753a3e7abf6ae3a131d11988"
+    },
+    {
+      "path": "tests/fixtures/models/quantized_deterministic.txt",
+      "sha256": "3ab4735c6db245138dea796e5d1f8da7fbb86564ed851f849a8b87b1394f3464"
+    },
+    {
+      "path": "tests/fixtures/models/quantized_renew.txt",
+      "sha256": "a67bc0f51f4c512ed13db83e3ada0cdad125aff218da5231a12e12414e899831"
+    },
+    {
+      "path": "tests/fixtures/models/quantized_stochastic.txt",
+      "sha256": "fe9a239f7067f7dc7e9ca474406907fa8342125b8b9101ce94f7ab13f30c5273"
+    },
+    {
+      "path": "tests/fixtures/models/rank_xendcg_extended.txt",
+      "sha256": "dc8c6dcfe05e1f9fb1e4802a17a08b8f8af9c182e158e6f6bcd13c26e65a685c"
+    },
+    {
+      "path": "tests/fixtures/models/refit_binary_decay00.txt",
+      "sha256": "28298243ca2ddb7fd35858ff253bf2c9cbceabb7425e67f1032cea5a6e10ffab"
+    },
+    {
+      "path": "tests/fixtures/models/refit_binary_decay05.txt",
+      "sha256": "f13c3543cd7762edee92804dca2fb4456fb6a45caecedf7a19a936e6a99c7c3e"
+    },
+    {
+      "path": "tests/fixtures/models/refit_binary_decay09.txt",
+      "sha256": "44732e5fef63311bc46fa05d930ac8ad8528de25c590f2a3c1724053da9404b2"
+    },
+    {
+      "path": "tests/fixtures/models/refit_binary_decay10.txt",
+      "sha256": "fefefbab5040734d86ff454e6495567fcf35e4d94c35b47b3c62f3192491084b"
+    },
+    {
+      "path": "tests/fixtures/models/refit_binary_initial.txt",
+      "sha256": "1f1d5b13d07723eba1b9740f7e0ae6256677eff85005af3a6ba165c137f19e66"
+    },
+    {
+      "path": "tests/fixtures/models/refit_categorical_decay00.txt",
+      "sha256": "ee2d3374fc46783bcd5a2d9d3820f6033a831e1b5b00f1bd59698fef3f77a374"
+    },
+    {
+      "path": "tests/fixtures/models/refit_categorical_decay05.txt",
+      "sha256": "d76cc57e9705626d194c5624fa08ef97d378985ba2e5c15bbd30c69d8f433936"
+    },
+    {
+      "path": "tests/fixtures/models/refit_categorical_decay09.txt",
+      "sha256": "cb1d06787cd083611dde1cba7bf7f9035057ebd537edefeeac1361f560c5d71f"
+    },
+    {
+      "path": "tests/fixtures/models/refit_categorical_decay10.txt",
+      "sha256": "260c1aac63db4e73988d44befb00021486c9a228d75792f4f5ae394716326791"
+    },
+    {
+      "path": "tests/fixtures/models/refit_categorical_initial.txt",
+      "sha256": "3ff2e8fb39f88bfddec972939287425668f5369e16dc9a7c180fb8f0a6bcf6ae"
+    },
+    {
+      "path": "tests/fixtures/models/refit_dart_decay00.txt",
+      "sha256": "78681b1b986d0b08add51c7c32fec08df077fe14f246831a5be6b70a0f067e28"
+    },
+    {
+      "path": "tests/fixtures/models/refit_dart_decay05.txt",
+      "sha256": "3a7c1fd592554274be2414526cb536d32c827b19a627b56bdfe0c7f9bc128b5e"
+    },
+    {
+      "path": "tests/fixtures/models/refit_dart_decay09.txt",
+      "sha256": "b362571b057f4c24ad7c502471de67805a595a772b5120df4d6705784e412deb"
+    },
+    {
+      "path": "tests/fixtures/models/refit_dart_decay10.txt",
+      "sha256": "c74a1da53765143489ec0e3049494f23a1441abe64f9134792be9305aec0f3fa"
+    },
+    {
+      "path": "tests/fixtures/models/refit_dart_initial.txt",
+      "sha256": "a29c0454972e607566b0162279e1ee49fc6069b40a738e2b3055eb17d7cd541d"
+    },
+    {
+      "path": "tests/fixtures/models/refit_gbdt_querybag_decay00.txt",
+      "sha256": "2523e1f7852cda06c7f75b0bbd21fc42229ff548dd942671645162e93ebcce39"
+    },
+    {
+      "path": "tests/fixtures/models/refit_gbdt_querybag_decay05.txt",
+      "sha256": "e8836a6765035497b61637e61c87931b509ae512d7616c7a3ff3503630ddeb43"
+    },
+    {
+      "path": "tests/fixtures/models/refit_gbdt_querybag_decay09.txt",
+      "sha256": "fc1c2e95664775b5758e266c5bd0c18a4c16d30f0a565b8c1981e470ecc92077"
+    },
+    {
+      "path": "tests/fixtures/models/refit_gbdt_querybag_decay10.txt",
+      "sha256": "0b41c8b518c4ae8913ed9303a74c33e5368ab87ac0d843e43242bb0dd54af5ba"
+    },
+    {
+      "path": "tests/fixtures/models/refit_gbdt_querybag_initial.txt",
+      "sha256": "610d01ad86c40217e02c3627073ffb831fbe1dcfc35e79f9df84f1cdc45d7e75"
+    },
+    {
+      "path": "tests/fixtures/models/refit_goss_querybag_decay00.txt",
+      "sha256": "3e1a83c12a6c06d88d2f62ff7aa37082da031a03b1ab72139fc3cbe1c68afb9a"
+    },
+    {
+      "path": "tests/fixtures/models/refit_goss_querybag_decay05.txt",
+      "sha256": "5ce196cab282ff13180992c453b6932f7a48b68864cb890b91315f899671687c"
+    },
+    {
+      "path": "tests/fixtures/models/refit_goss_querybag_decay09.txt",
+      "sha256": "7e1840facb44565c1031d7223370715ca2c763839d1a90b86aa856676e366992"
+    },
+    {
+      "path": "tests/fixtures/models/refit_goss_querybag_decay10.txt",
+      "sha256": "496f7ec61920d27f021c6244126cb9f411d50445ea18d98365c6fb058107a313"
+    },
+    {
+      "path": "tests/fixtures/models/refit_goss_querybag_initial.txt",
+      "sha256": "d162290d7ba64e5db65cb1585991a3f9fadab8a752dc9bf70f936113dc6dc13a"
+    },
+    {
+      "path": "tests/fixtures/models/refit_l1_decay00.txt",
+      "sha256": "cb5b565bf77292893108c69ca42ae633cd5173f4268e78b9cf8f565fdd7c3d31"
+    },
+    {
+      "path": "tests/fixtures/models/refit_l1_decay05.txt",
+      "sha256": "f6e75df6f9512a1786492e0b709f3dc8670fbcb60dd8214e712f7547d2a935ef"
+    },
+    {
+      "path": "tests/fixtures/models/refit_l1_decay09.txt",
+      "sha256": "c6c44b36de6741c1551e0976c08d726bcc0f080319ca18aeeec5bfaf378397ee"
+    },
+    {
+      "path": "tests/fixtures/models/refit_l1_decay10.txt",
+      "sha256": "239d79beb5c7736499281e84e2b23ddd94c1585ea0c21f99dc7147f2bb94f8b8"
+    },
+    {
+      "path": "tests/fixtures/models/refit_l1_initial.txt",
+      "sha256": "efb8803b087824b812845ca1bf6ec23d7da3026fd96f610c56ce47575575de32"
+    },
+    {
+      "path": "tests/fixtures/models/refit_linear_decay00.txt",
+      "sha256": "11de37d4ddf8af22c09d18f4ff79a96b2a924ab9e44bca762a3dab4d36d60ae9"
+    },
+    {
+      "path": "tests/fixtures/models/refit_linear_decay05.txt",
+      "sha256": "6a4683b92e84e922b3935ac5002a2b773bd8a7c637265fd5d37158208225b839"
+    },
+    {
+      "path": "tests/fixtures/models/refit_linear_decay09.txt",
+      "sha256": "d44951c511ff9dc0cc4b71229ec2dd3c0d3c50af34f53252178ab17f51e188b3"
+    },
+    {
+      "path": "tests/fixtures/models/refit_linear_decay10.txt",
+      "sha256": "a24ba7a54614a430420f6df546d04af71daea155c82e24084a1b280c3235680f"
+    },
+    {
+      "path": "tests/fixtures/models/refit_linear_initial.txt",
+      "sha256": "fc98150f8b03abd9049486aac3ffad4e1ed70a694d60e1f68d97ca1b25cd3c27"
+    },
+    {
+      "path": "tests/fixtures/models/refit_mape_decay00.txt",
+      "sha256": "abd9b9134109c5509f3399b58e519271d077e5b55df06148723a88b2f543891f"
+    },
+    {
+      "path": "tests/fixtures/models/refit_mape_decay05.txt",
+      "sha256": "a6603728f5ba9f06acc95188733b07ec41d1a7f13e8192e479fd2014e9669845"
+    },
+    {
+      "path": "tests/fixtures/models/refit_mape_decay09.txt",
+      "sha256": "5077c1b52c5e795bcbc89fe31ce2b45e5af1692b508e77db5eaac7563f9ca4f3"
+    },
+    {
+      "path": "tests/fixtures/models/refit_mape_decay10.txt",
+      "sha256": "a3ff5bded8356e79e14be25fea67756b56afc637fbb049f7a01fd6c9ba5a963c"
+    },
+    {
+      "path": "tests/fixtures/models/refit_mape_initial.txt",
+      "sha256": "96b2d78f8133cebaa48ea1fe50e6152542bc6a7b8730bfe1a75d6a8b1d71f668"
+    },
+    {
+      "path": "tests/fixtures/models/refit_multiclass_decay00.txt",
+      "sha256": "d3772805ed6a2f122621e96380895f90bd174dcbe96050fa67cc6757e7875718"
+    },
+    {
+      "path": "tests/fixtures/models/refit_multiclass_decay05.txt",
+      "sha256": "bf166e6297750f84e17ec632ee59497d2b4d7d4404bc49b0b2f687fc826798eb"
+    },
+    {
+      "path": "tests/fixtures/models/refit_multiclass_decay09.txt",
+      "sha256": "07e6bdcefa22fc461b6040422d9a0b58c62d56ff2b833b3f12f6fae51356f98b"
+    },
+    {
+      "path": "tests/fixtures/models/refit_multiclass_decay10.txt",
+      "sha256": "fa9e3a4db52e8b619100bad63d216c62c857b470c737d26c721a0484dd725e51"
+    },
+    {
+      "path": "tests/fixtures/models/refit_multiclass_initial.txt",
+      "sha256": "5a51121cb332e713c4b81f9313ad66d6c2bce8f9c24abc2382031bd50aa83dac"
+    },
+    {
+      "path": "tests/fixtures/models/refit_quantile_decay00.txt",
+      "sha256": "62190abf239df4da1ce16ed60ba79cb75f3155ffc8ab92600d5772293d205097"
+    },
+    {
+      "path": "tests/fixtures/models/refit_quantile_decay05.txt",
+      "sha256": "6ee0dec7b893a77bee0f92a3493de012e401a084dd91f7dc177c19d548d11640"
+    },
+    {
+      "path": "tests/fixtures/models/refit_quantile_decay09.txt",
+      "sha256": "21c0d843c56d4e4770a532387b168d08a0774d0bb661c05113b70d226d3dbc83"
+    },
+    {
+      "path": "tests/fixtures/models/refit_quantile_decay10.txt",
+      "sha256": "f6837305a93cdd76693f5f0a2eaf135fbf74ab1c1c7940a84b29a190c8ebb93d"
+    },
+    {
+      "path": "tests/fixtures/models/refit_quantile_initial.txt",
+      "sha256": "feea9517514ec89af2aaf7a04322160d7767b02e87e807c42f6c6fa4329b33fb"
+    },
+    {
+      "path": "tests/fixtures/models/refit_ranking_decay00.txt",
+      "sha256": "424e9b9884fd7fb8d9f32f9f462f8594e7d4ade54de4b559fc860a10b2bca58d"
+    },
+    {
+      "path": "tests/fixtures/models/refit_ranking_decay05.txt",
+      "sha256": "b54b129dddbd37880811cd0e6fcabe74dccfce7452d565868a26e14fe467d3fb"
+    },
+    {
+      "path": "tests/fixtures/models/refit_ranking_decay09.txt",
+      "sha256": "99f76e272864feb1d2655b19ad8661e60a3c33e4f89476fc3b68264eb72a2d20"
+    },
+    {
+      "path": "tests/fixtures/models/refit_ranking_decay10.txt",
+      "sha256": "113fe3c19f4c031d886856f7460ed7dd1c9814c62f911311a0a48b6c4f5f9389"
+    },
+    {
+      "path": "tests/fixtures/models/refit_ranking_initial.txt",
+      "sha256": "23ffa78865c11a30884f42963e94c8f12f3a6c9347e6d6b6edd52f3a2666e60b"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_decay00.txt",
+      "sha256": "56661d23a53526a19d98d69843c67826d8cd20e4eb058187d3031e3b514f6146"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_decay05.txt",
+      "sha256": "602a42edfc795bce64cdacb251bdcd438949c8745b358c454ac244719a75b838"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_decay09.txt",
+      "sha256": "1417546ed82ff68770a12015c799d08a9c72b21007a7440fed0eed346766af4f"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_decay10.txt",
+      "sha256": "e86bfc0657ec11f1cbce20d7aae040dc71c3b21376291b999d6d46d55611cf3e"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_domain_initial.txt",
+      "sha256": "614948a72106a1da3afd91a624ffc2904e9cee652348938978feadad8aae81a6"
+    },
+    {
+      "path": "tests/fixtures/models/refit_regression_initial.txt",
+      "sha256": "614948a72106a1da3afd91a624ffc2904e9cee652348938978feadad8aae81a6"
+    },
+    {
+      "path": "tests/fixtures/models/refit_rf_decay00.txt",
+      "sha256": "661b7cfb8dff4dbf6187bdfaa605bd19a9340e0a9360c7461f0a35e291fdcdb7"
+    },
+    {
+      "path": "tests/fixtures/models/refit_rf_decay05.txt",
+      "sha256": "34fce79d8cf95f54bee0612b0f12635646576fa3d58400724c57e1dcc6091d17"
+    },
+    {
+      "path": "tests/fixtures/models/refit_rf_decay09.txt",
+      "sha256": "81a087d417ea5a565213256b672e1a977ccf9bbe5981811a9a7cdd625491954a"
+    },
+    {
+      "path": "tests/fixtures/models/refit_rf_decay10.txt",
+      "sha256": "91ca7dbcc0a07ebcac0285202f03d7735553fb8e418423934a616ab764b0e541"
+    },
+    {
+      "path": "tests/fixtures/models/refit_rf_initial.txt",
+      "sha256": "7edb4d0cb856ce7d5d59d21fcabc4a702db2342da49a57009677bbd87755aa74"
+    },
+    {
+      "path": "tests/fixtures/models/regression_extended.txt",
+      "sha256": "58ff9b3ffec15c2622526184d93bd0be7f2c67514ef27f0381e8f54d34070b60"
+    },
+    {
+      "path": "tests/fixtures/models/regression_l1_extended.txt",
+      "sha256": "a1d1d83d712711522a007c65ca5cf9474cf19ed41aad97eba395791fa82ceba8"
+    },
+    {
+      "path": "tests/fixtures/models/regression_sqrt.txt",
+      "sha256": "ac4732320791f16ac7b442df3dbc2340a943f4c57a8c286556e0f5c60c4ddb47"
+    },
+    {
+      "path": "tests/fixtures/models/rf_average.txt",
+      "sha256": "b0f358e8a71112df08d96e63f522ad360f93a10484519b4018a0eeceb790f9b3"
+    },
+    {
+      "path": "tests/fixtures/models/rf_averaging.txt",
+      "sha256": "7d3e8b521c791a91c088e7e20026c35509322eaee2f639a1a63bf803bdd40b8f"
+    },
+    {
+      "path": "tests/fixtures/models/rf_binary.txt",
+      "sha256": "ff7c907cabc2194c92335ca821a2d65909d8541c028b4d004ca56464065c35ad"
+    },
+    {
+      "path": "tests/fixtures/models/single_leaf.txt",
+      "sha256": "25a7cc9366b8ff67dbe6b22bc2632f1ac4110af1403ee3f0cfdb7bfd51e43362"
+    },
+    {
+      "path": "tests/fixtures/models/tweedie.txt",
+      "sha256": "143fe02be6bb85347654f7c516939cfa28c3f1ece76e12c7fbf6d18119be1e8b"
+    },
+    {
+      "path": "tests/fixtures/models/tweedie_extended.txt",
+      "sha256": "b5873899589efbdbdcfd40782d6de935a607dc0094d7b4a1bfa3743661b73430"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_binary.txt",
+      "sha256": "bfe7a2e06b74b79fc593659cd6716fd0ee6fe814a79f0117310f969d94627edc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_binary_builtin.txt",
+      "sha256": "495c168ae063fea82be580673b834fc4b89ba563124bf60c2db6699f3a55e018"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_binary_full.txt",
+      "sha256": "bfe7a2e06b74b79fc593659cd6716fd0ee6fe814a79f0117310f969d94627edc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_l2.txt",
+      "sha256": "a4224cef2ea43f76a69f49ef7555aac3fa870b040fd281df75221540a3c3d319"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_l2_builtin.txt",
+      "sha256": "44e37c46cb2a8bd55efbc53c195166c8f4f5362a15192562ac2974b03147267f"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_custom_l2_full.txt",
+      "sha256": "a4224cef2ea43f76a69f49ef7555aac3fa870b040fd281df75221540a3c3d319"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_dart_disabled.txt",
+      "sha256": "8e6fb8aa4b4196e2b89352d8df4e49b95be57acaa8908be4152801721db4983e"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_dart_disabled_full.txt",
+      "sha256": "8e6fb8aa4b4196e2b89352d8df4e49b95be57acaa8908be4152801721db4983e"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_all_metrics.txt",
+      "sha256": "9b9f9e6d4c621e65b45de2db89a4d38cfe7e8a133d04b6365c582a70b7922fe9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_all_metrics_full.txt",
+      "sha256": "2f956a9cb35025cef8e034e2e57b5407bf4656ea3c64e9992592d19ff8f22e58"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_delta_scalar.txt",
+      "sha256": "f6a6fc6f8b7c0b0aa7d7e8db5409a32d06740aacc703aaa635f6869144bc805b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_delta_scalar_full.txt",
+      "sha256": "e7dbbd006b415cea2cdb9e4fededc7af5c084b45c0e820fdf2cf1a9f49d309a9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_delta_vector.txt",
+      "sha256": "f6a6fc6f8b7c0b0aa7d7e8db5409a32d06740aacc703aaa635f6869144bc805b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_delta_vector_full.txt",
+      "sha256": "e7dbbd006b415cea2cdb9e4fededc7af5c084b45c0e820fdf2cf1a9f49d309a9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_final_round.txt",
+      "sha256": "9b826e742c430affd198712006dadfc9a7927a8680878dacea0a1873e4f2c3ce"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_final_round_full.txt",
+      "sha256": "9b826e742c430affd198712006dadfc9a7927a8680878dacea0a1873e4f2c3ce"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_first_metric_only.txt",
+      "sha256": "30ac67a36fad5639b33b53511002dcdafe36b08000975602447970745c904951"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_first_metric_only_full.txt",
+      "sha256": "30ac67a36fad5639b33b53511002dcdafe36b08000975602447970745c904951"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_multival.txt",
+      "sha256": "f6a6fc6f8b7c0b0aa7d7e8db5409a32d06740aacc703aaa635f6869144bc805b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_early_multival_full.txt",
+      "sha256": "e7dbbd006b415cea2cdb9e4fededc7af5c084b45c0e820fdf2cf1a9f49d309a9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold0.txt",
+      "sha256": "8e2d58874f2acd980d5b5602e8c146358f4f544a70a0c69edb53873b38931b47"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold1.txt",
+      "sha256": "6614d15cedce71ee55a48cdbd221060f2c1affc1f33f08970cc0b65240c566db"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_schedule_fold2.txt",
+      "sha256": "8e7c395edc65c63c622014d70f259fefe4dd56e0289e425b57fcfbe08aaa8857"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_stop_fold0.txt",
+      "sha256": "68b8ba0df91d7f300cf18553aefc1065eefe5817e50411a615aafc8cb229cd52"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_stop_fold1.txt",
+      "sha256": "02e968fdf678ac5c6b391132b9f1af86c7e7a18c553e37d007656e523ff9e3cc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_builtin_stop_fold2.txt",
+      "sha256": "292724beba4848491051913f38b0bbefb52a78e818bed84634bdf36a08d4395e"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold0.txt",
+      "sha256": "305874a346a7907a5e9d34c45d88ec34f957d54532be31a0a1d9753746d48b66"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold1.txt",
+      "sha256": "361c2f8dd6b0aa5e22da7ab87dada65eccd12126edc6f01cf4e742a963236eeb"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_after_fold2.txt",
+      "sha256": "c66abb3f6f22b2c7dc0c08124a272ce178199675674288ae4716857dda807bcc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_fold0.txt",
+      "sha256": "57d28aaf6613b661b93f3a42b21082c8efdb9b5d04f668a266f750ade5fb0b1c"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_fold1.txt",
+      "sha256": "f5a14f4de73af23bc29ddc6e9011e890d42104a85bd3805051817fcf62537647"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_schedule_fold2.txt",
+      "sha256": "7f0b1327f785f787948571d82c8c528a423fbdbf3a07787feedc3af94808da30"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_stop_fold0.txt",
+      "sha256": "ae82ba37304701bddc47b9d22490c5d874bb79d2a9b752809d4cd0cbabe58855"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_stop_fold1.txt",
+      "sha256": "9c0b75efc5afff0db0f3679aa0db15942397e89230f9726ecbf46717de8935ab"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_cv_custom_stop_fold2.txt",
+      "sha256": "7fc9aac7abc4f2a8af0af3a805ba46c0387ae6aabb24152d177726423df34611"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_original_three.txt",
+      "sha256": "e345a9b4eeee5d3781799ecd7b53afb5fe507633045899e6ad621f2f5f4aa3e3"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_original_three_initial.txt",
+      "sha256": "f86ca0ec079de46372dfd65c0e60aa7459e872ef8c7c8313ceb91e4786c0e607"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_weighted.txt",
+      "sha256": "17474d39e83cc7d855a39fabf9222d5306f4d38fe71e619b71c7274f7c8abac4"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_weighted_initial.txt",
+      "sha256": "394544f44f9f5ad0cb3273f4bc7394cf778b8b5f916c6f4d5a053803e88de22b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_xgboost.txt",
+      "sha256": "0bce34f25a777bac59e1cf1a3cfedca29fbd16607df05d6c4deef7d3fc25926d"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_continue_xgboost_initial.txt",
+      "sha256": "d68793c1334acb7a116d1fe91f872e5f88d3565c62847f103221bf6ab794e108"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_schedule_after.txt",
+      "sha256": "5d4d2a01ae2c4008c5b3b7a564f74a375ad141d60fda56f01e67c3999be18a8b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_schedule_features.txt",
+      "sha256": "3f0662c1e9716c05792fc451872676458609b6ecf740ee97f8032d445a18ff4b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_schedule_uniform.txt",
+      "sha256": "bc45bd9f4772a2fd65829abcd35c34577ee58d0457a6e79cb713a777346621c6"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_dart_schedule_weighted.txt",
+      "sha256": "355c37ee75d3b0de65892aa7926cad3d5d0848e98a33046967cfad10ee2460af"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_gbdt_schedule_features.txt",
+      "sha256": "d0d3cc97ee1ff921c12a3da7adc6d39ecc1b0aee39dc5696b4ba82f5f592044b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_goss_schedule.txt",
+      "sha256": "9262ae75212bf394eda3a70f91068d90dd108eabfac2071d01ef7f9139e87526"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_extra_goss_schedule_features.txt",
+      "sha256": "200fd14cb543786ac97f0b3272bc237f7493615940fb400a5c016f595310ca46"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_no_split.txt",
+      "sha256": "eb31b8b12bb9eaebfb7ce778314203fcfab063f6c969f1fe8b53dc36230dd5dc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_no_split_full.txt",
+      "sha256": "eb31b8b12bb9eaebfb7ce778314203fcfab063f6c969f1fe8b53dc36230dd5dc"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_ordering_schedule.txt",
+      "sha256": "c38b89912655205e6a847cf1e87d2a0803009eef43a14736045b1cc07ca6634a"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_ordering_schedule_full.txt",
+      "sha256": "c38b89912655205e6a847cf1e87d2a0803009eef43a14736045b1cc07ca6634a"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_training_excluded.txt",
+      "sha256": "f6a6fc6f8b7c0b0aa7d7e8db5409a32d06740aacc703aaa635f6869144bc805b"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_training_excluded_full.txt",
+      "sha256": "e7dbbd006b415cea2cdb9e4fededc7af5c084b45c0e820fdf2cf1a9f49d309a9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_training_only.txt",
+      "sha256": "58bc14fdd875852282883b70c6523697e3ea0c53dcf50154946e5c445e2cdfd9"
+    },
+    {
+      "path": "tests/fixtures/models/workflow_training_only_full.txt",
+      "sha256": "58bc14fdd875852282883b70c6523697e3ea0c53dcf50154946e5c445e2cdfd9"
+    },
+    {
+      "path": "tests/fixtures/objectives.json",
+      "sha256": "47b03d0df4aee49634dfa8aa7543c7d44f50a03ffdb7efeeda29f17c55f146a0"
+    },
+    {
+      "path": "tests/fixtures/parameters.json",
+      "sha256": "8a077d10c60b4e7f31113b3d5a8e0cb6d22c91bd98e6f6c963d529c2fd26468d"
+    },
+    {
+      "path": "tests/fixtures/prediction.json",
+      "sha256": "5614985f03fda4dfc07ab05961b72bcef52ee84201bd4ddd746dc774029b2ad5"
+    },
+    {
+      "path": "tests/fixtures/prediction.schema.json",
+      "sha256": "d9c5bb4deb5550ab231a3619ebaadb6dda5acd81802146983667df980c6d7907"
+    },
+    {
+      "path": "tests/fixtures/prediction_boosting.json",
+      "sha256": "09bad7744b0ace7ba7e3605a2b3d94a197377f0c0e9ef0a6c807aa5198e95988"
+    },
+    {
+      "path": "tests/fixtures/prediction_constraints.json",
+      "sha256": "023f335ca5782a883fb7478a2121311162aacdc1ca947ef62c053740c5fe97fc"
+    },
+    {
+      "path": "tests/fixtures/prediction_constraints_extra.json",
+      "sha256": "5fccc1741a551187ae372535920c125bd2125b2d7a94bfa948e712d0236f2925"
+    },
+    {
+      "path": "tests/fixtures/prediction_constraints_extra.schema.json",
+      "sha256": "dcf0195e476b176e6eb0a868d297bba4bfb9ccbb4c16b12780db764b7fa5353d"
+    },
+    {
+      "path": "tests/fixtures/prediction_extended.json",
+      "sha256": "2a0ec11179653e1a07bcfb8ad2cef54ebe5f75077d45505a08f33a6be5d140db"
+    },
+    {
+      "path": "tests/fixtures/prediction_linear.json",
+      "sha256": "58a8c441f677462daadadf0d059cdae2e29c485321a315b9522581189360320c"
+    },
+    {
+      "path": "tests/fixtures/prediction_linear_training.json",
+      "sha256": "ba21ad773f9a17cc789257181f7f53476f139cc12ff5c225354bf7a4fe42a232"
+    },
+    {
+      "path": "tests/fixtures/prediction_operations.json",
+      "sha256": "f9b7e65e698fe45a31e97d5c5b3f86c03397f2e0cd79af54135a649a2faa0eaa"
+    },
+    {
+      "path": "tests/fixtures/prediction_operations.schema.json",
+      "sha256": "345b79c27136424530101edc6e73dbd6ed4dd7acdfcb4173e99e2359ddf45f7c"
+    },
+    {
+      "path": "tests/fixtures/prediction_ranges.json",
+      "sha256": "f99ebedbc0765160ccf15fee86804d479d57e8e7c40f9ee941e684f39cde4fe6"
+    },
+    {
+      "path": "tests/fixtures/prediction_regressions.json",
+      "sha256": "a237a830562ef702eb8c52a6a1fbb9b4054677fb4e8f603e7e7d9bc8b831e2b3"
+    },
+    {
+      "path": "tests/fixtures/prediction_sparse.json",
+      "sha256": "a73206011c6376e0e8083617e405f2c0b613d71b7f28b356c258b39d19d72b6a"
+    },
+    {
+      "path": "tests/fixtures/primitives.schema.json",
+      "sha256": "8c4be64caeb5547aa2c7a08aeb397896d1b76b27d5c9b2572cdb5e9ac298a3e6"
+    },
+    {
+      "path": "tests/fixtures/reference-baseline.json",
+      "sha256": "118ef94407bb8b05bcfedcb47dea5ba8f419976b707fb73421292bc5843d6046"
+    },
+    {
+      "path": "tests/fixtures/rng.json",
+      "sha256": "cb1b137e98f6ddd7a3954abc62bcf1e2f44434a4af63a1c5322b395438f98a1a"
+    },
+    {
+      "path": "tests/fixtures/rust-model-roundtrip.json",
+      "sha256": "5637bd1d74471cd83fdad6754a9fa1036ad0163bf4a89aeee3f22f5b381b9fff"
+    },
+    {
+      "path": "tests/fixtures/rust-trained-model-roundtrip.json",
+      "sha256": "f151d52f724028642caf299ca5e43ba724f72960c3e545f8a701cd85e58aef40"
+    },
+    {
+      "path": "tests/fixtures/sampling.json",
+      "sha256": "bbd8238404067664746426b75f333a694e162a023aaec55af3e3228edae95e68"
+    },
+    {
+      "path": "tests/fixtures/sampling.schema.json",
+      "sha256": "addd138fc3b6dd3e5e87e7f266a53f3f15558579e00b8d80f249d37606988e53"
+    },
+    {
+      "path": "tests/fixtures/workflow.json",
+      "sha256": "b842b3aacff108de851ab67a0f97dd7832dbf19633d1c21ebea3c50b4ce2c2e5"
+    },
+    {
+      "path": "tests/fixtures/workflow.schema.json",
+      "sha256": "dcce105be5cfb61296ae25ecbbf823f46ab37ef273d38c1f298b7e5c8e16aba3"
+    },
+    {
+      "path": "tests/fixtures/workflow_extended.json",
+      "sha256": "f26f1566dcf2cdffd3055e28fe6eebdf785aa2cc7fc295b65626de4cca3ea7fb"
+    },
+    {
+      "path": "tests/fixtures/workflow_extended.schema.json",
+      "sha256": "5efdd26322968632ef736304bcdf3cc81925a94b28f1a4d36af2f0840f94905b"
+    },
+    {
+      "path": "tools/oracle/README.md",
+      "sha256": "cd4eb6c693e306116869b6610b8deebfdf618c346380c15eaf4370e3427dda17"
+    },
+    {
+      "path": "tools/oracle/benchmark.py",
+      "sha256": "8ad52a8be3243fe874692d4c03fc7fab63870f5648052414840601f218032294"
+    },
+    {
+      "path": "tools/oracle/benchmark_memory.cpp",
+      "sha256": "8da946d5517740fa3eb6619f2f853a5b58188dc9d4e90b8045895b65e90677bf"
+    },
+    {
+      "path": "tools/oracle/build.py",
+      "sha256": "4c803c62155d79846d2f95373eba0607e84c3653f9a9c83d8db3cb55ac3b9343"
+    },
+    {
+      "path": "tools/oracle/bundling_driver.cpp",
+      "sha256": "990b985a2dfa6284156601411b63f865e543e318b5f1af0518bf8a6669e9aeb4"
+    },
+    {
+      "path": "tools/oracle/check.py",
+      "sha256": "b2edae232dfee09351cfa4f199104ce903db01cc6ab0bd2104c2d7f5f647aafb"
+    },
+    {
+      "path": "tools/oracle/check_bundling.py",
+      "sha256": "6bf696866b75421ae95073a28e233bf521866b3330af132c8aabf3480376646d"
+    },
+    {
+      "path": "tools/oracle/check_final.py",
+      "sha256": "f989de14bbd2cede1b21d15afda307747b7ef59188d8bf3ce0d3066f59765fbe"
+    },
+    {
+      "path": "tools/oracle/check_roundtrip.py",
+      "sha256": "084b63f525e2851a29e494517e06cbeb8102d3ba03f53c8b8ccb0b6f864ca5ae"
+    },
+    {
+      "path": "tools/oracle/check_trained.py",
+      "sha256": "3cf00c29920794115f1c610ad7c621ed07a1ec641193d99c6f7f68ecb26d7041"
+    },
+    {
+      "path": "tools/oracle/check_workflows.py",
+      "sha256": "9ffa23620502296b396dd8ccd92436ef3192e58131484f9eac22155d528c1d60"
+    },
+    {
+      "path": "tools/oracle/common.py",
+      "sha256": "80b06eff7a5aaa9b1477b792820693930ad00708b7b6821fd4d962dcefbf65d5"
+    },
+    {
+      "path": "tools/oracle/data_feature_info.cpp",
+      "sha256": "b23058c409e850730d82cbbe3899149462c793e0740141e1e198e5d72a4fd45e"
+    },
+    {
+      "path": "tools/oracle/driver_common.hpp",
+      "sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7"
+    },
+    {
+      "path": "tools/oracle/extended_driver.cpp",
+      "sha256": "c3bf539564637d74e4c2c8a657ac3aadd3bff3efe8b23b15f0f96ca0ac6b15d8"
+    },
+    {
+      "path": "tools/oracle/generate_bundling.py",
+      "sha256": "6eb211a26ef669f7728e63ed4e1bd196f91cb33ede73425a0e62da95a8d1cfb6"
+    },
+    {
+      "path": "tools/oracle/generate_constraints_extra.py",
+      "sha256": "f34eecf373b64799e51f3292f18be4bec5c654c476988b08e67b35040ff5fbba"
+    },
+    {
+      "path": "tools/oracle/generate_cv.py",
+      "sha256": "7d932eb633ebede4d8517d4626a942ece4fe67663b475a5fd05ad0a9c183393e"
+    },
+    {
+      "path": "tools/oracle/generate_empty_queries.py",
+      "sha256": "3ec1e9b4ab384b3edeb9d0248e47e28c23ba1279bce6a6b44a755fa6a73650e6"
+    },
+    {
+      "path": "tools/oracle/generate_explain.py",
+      "sha256": "5af1cbd270c9f9b3517875bd7a4f2f961eff41ad4e4585a97135bb0002d25fd1"
+    },
+    {
+      "path": "tools/oracle/generate_extended.py",
+      "sha256": "e93f8741fa07321040ac78aa11065280e7c4ddd107e51ab4d65cbafc6a7447d1"
+    },
+    {
+      "path": "tools/oracle/generate_feature_info.py",
+      "sha256": "781ab550a3512ebdd8ef27a00881f681bbde47c8de38d88724e19cb7cf3a82d5"
+    },
+    {
+      "path": "tools/oracle/generate_final_schemas.py",
+      "sha256": "9b36f47f1d69f2031954d50f295c276de74186dd524090756bf646df52c738c3"
+    },
+    {
+      "path": "tools/oracle/generate_linear.py",
+      "sha256": "cd2187725b8e6e243f2d222237abb2e14e9845e3bb8533cdd1dd6c35527982c8"
+    },
+    {
+      "path": "tools/oracle/generate_linear_training.py",
+      "sha256": "486c517c885321649070890d65af786d640f5e43470237cf04b0edbf81be21a4"
+    },
+    {
+      "path": "tools/oracle/generate_metric_edges.py",
+      "sha256": "47830a26297134735c4a1019953a4d0e3690ce07ca7d5e1cfac1ac698da479eb"
+    },
+    {
+      "path": "tools/oracle/generate_operations.py",
+      "sha256": "2135c1091bf6058035ddbed00bc20048d5a25aa821f6da21a66fa0f7fb0e5cd4"
+    },
+    {
+      "path": "tools/oracle/generate_prediction_extended.py",
+      "sha256": "beb7945336ce236b72704538dc11519ac39c7380b664389429e1c3f4238659c7"
+    },
+    {
+      "path": "tools/oracle/generate_predictions.py",
+      "sha256": "7e33d820e9a37fa396773e888b9fd7974792c46386ac4e894e7f0645cee4d75e"
+    },
+    {
+      "path": "tools/oracle/generate_primitives.py",
+      "sha256": "be6782411063846f3563554046b917069dca56ef4e6bebf0190eceabf3185b07"
+    },
+    {
+      "path": "tools/oracle/generate_regressions.py",
+      "sha256": "c9ccd07c792340df495329957f4e9f1ba7713fde7623088f9a6d2f05e5d414db"
+    },
+    {
+      "path": "tools/oracle/generate_sampling.py",
+      "sha256": "f597fd743949c577405b43459f91cc4ceb47928e56f1bd51f6636157d9b7e487"
+    },
+    {
+      "path": "tools/oracle/generate_training_controls.py",
+      "sha256": "b48423cbe33b1e61f757e86fbdbcbe236a5c0eb0caf2c80f765b70ce1780ea45"
+    },
+    {
+      "path": "tools/oracle/generate_workflow.py",
+      "sha256": "b6f323fd9a9e6bfd4c517fd9bb02d625ca3b760282b5d4caf21e451798d3d625"
+    },
+    {
+      "path": "tools/oracle/generate_workflow_extended.py",
+      "sha256": "5879185e71c8cca344c86f0bb054c2102ad3d90cedcc3e4c8694d5013780903c"
+    },
+    {
+      "path": "tools/oracle/generate_workflow_schemas.py",
+      "sha256": "71d34d8be92e265cbaef20da0e6258ff5946516a39610bcdf4636c61518b579e"
+    },
+    {
+      "path": "tools/oracle/manifest.py",
+      "sha256": "06a8d28955d29bf387648b0be3a61186a0110a41e8d8044a0f7747b44987c532"
+    },
+    {
+      "path": "tools/oracle/measure_memory.py",
+      "sha256": "7d8f4e77912a2be6410446544a80c9c81813faacba636752945039d4346ab7dc"
+    },
+    {
+      "path": "tools/oracle/native.py",
+      "sha256": "aa06a6354c772c670c1ba9fa86b2fc0d7b8eb15426cb8dd2929f7facf9b55404"
+    },
+    {
+      "path": "tools/oracle/primitive_driver.cpp",
+      "sha256": "040a410592322370f69500e0753ce8f517efa8ddc32eb697ad7b40af8ecf4de4"
+    },
+    {
+      "path": "tools/oracle/pyproject.toml",
+      "sha256": "26f197e0bda232362c707a40396600a0cc76ee45454215caec3f2c40124b248f"
+    },
+    {
+      "path": "tools/oracle/refit_driver.cpp",
+      "sha256": "373274ce169f0db1c64b9a8ceaa51779487dc103514d13bca50ef0a750ebaaf7"
+    },
+    {
+      "path": "tools/oracle/sampling_driver.cpp",
+      "sha256": "4d89d67135679f5ca91fcbb599219c47ff1bb30b74b095a6f9e6a381c640b27a"
+    },
+    {
+      "path": "tools/oracle/uv.lock",
+      "sha256": "279b7cc51283b1d1abc8ef95caac2d5a423e2ee4ff7b49a1c9269fca115727dc"
+    },
+    {
+      "path": "tools/oracle/workflow_common.py",
+      "sha256": "aca72c4d367d2af4c8fd27833fd6e4e0805a4ca66fa93d006710259d7fa0505b"
+    }
+  ],
+  "limitations": [
+    "OpenMP is disabled; no parallel speed equivalence is claimed.",
+    "Only this macOS arm64 build was executed; other hosts are unverified.",
+    "All five fixed quality and saved-baseline timing gates and matched native-only memory passed for the historical source snapshot in docs/performance.md; changed sources require a new checked measurement.",
+    "Fresh native training passes for dense/multiclass but exceeds 1.5x for sparse/categorical/ranking in docs/performance.md; the full performance gate remains open.",
+    "Initial compact evidence is not complete CPU compatibility."
+  ]
+}
