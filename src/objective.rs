@@ -394,15 +394,34 @@ impl<'a> ObjectiveState<'a> {
         (g as f32, h as f32)
     }
 
-    pub(crate) fn renew_leaf_output(
+    /// Check the full score layout once per tree, then renew each leaf in order.
+    /// Output entries contain Newton values on entry and renewed values on return.
+    pub(crate) fn renew_leaf_outputs(
+        &self,
+        class: usize,
+        leaf_rows: &[impl AsRef<[usize]>],
+        scores: &[f64],
+        outputs: &mut [f64],
+    ) -> Result<()> {
+        self.check_class(class)?;
+        validate_scores(scores, self.labels.len(), self.num_classes())?;
+        if leaf_rows.len() != outputs.len() {
+            return invalid("leaf row and output counts must match");
+        }
+        for (rows, output) in leaf_rows.iter().zip(outputs) {
+            *output = self.renew_leaf_output_validated(class, rows.as_ref(), scores, *output)?;
+        }
+        Ok(())
+    }
+
+    // Only the checked batch entry above calls this method.
+    fn renew_leaf_output_validated(
         &self,
         class: usize,
         rows: &[usize],
         scores: &[f64],
         newton: f64,
     ) -> Result<f64> {
-        self.check_class(class)?;
-        validate_scores(scores, self.labels.len(), self.num_classes())?;
         if rows.is_empty() || rows.iter().any(|&row| row >= self.labels.len()) {
             return invalid("leaf rows must be nonempty valid row indexes");
         }

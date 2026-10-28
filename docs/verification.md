@@ -13,7 +13,7 @@ Rust toolchain: 1.92.0. Local measurements use native macOS ARM64. [Native CI](h
 - Normal dependencies contain no native ML or numerical library. The inspected release executable links only `libSystem.B.dylib` on macOS. See `Cargo.toml` and the retained license notices.
 - Matched quality, memory and inference have passing source-identified reports. Native-core training remains above the unchanged per-case 1.5x limit. Reports are snapshots, not proof for later source changes. See `docs/performance.md` and `docs/performance.json`.
 
-The review update passes format, Clippy, 323 all-target tests, one doctest, 323 offline tests, package verification and 323 extracted-package tests locally. All three linked native CI jobs pass the same 323-test update; later source changes require fresh CI. The review ledger is `docs/reviews/pr-1.md`. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
+The review update passes format, Clippy, 326 all-target tests, one doctest, 326 offline tests, package verification and 326 extracted-package tests locally. The linked native CI jobs pass the prior 323-test update; the new leaf-renewal source change requires fresh CI. The review ledger is `docs/reviews/pr-1.md`. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
 
 ## Reproduction
 

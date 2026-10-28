@@ -296,18 +296,16 @@ impl TrainingSession<'_> {
                     config.objective,
                     Objective::RegressionL1 | Objective::Quantile | Objective::Mape
                 ) {
-                    for (leaf, rows) in fitted.leaf_rows.iter().enumerate() {
-                        tree.leaf_values[leaf] = self.objective.renew_leaf_output(
-                            class,
-                            rows,
-                            if self.rf {
-                                &self.rf_scores
-                            } else {
-                                &self.scores
-                            },
-                            tree.leaf_values[leaf],
-                        )?;
-                    }
+                    self.objective.renew_leaf_outputs(
+                        class,
+                        &fitted.leaf_rows,
+                        if self.rf {
+                            &self.rf_scores
+                        } else {
+                            &self.scores
+                        },
+                        &mut tree.leaf_values,
+                    )?;
                 }
                 tree.scale_outputs(shrinkage);
                 if self.rf && self.biases[class].abs() > EPSILON {
@@ -1107,6 +1105,61 @@ mod tests {
             );
             for (a, b) in actual.training_scores.iter().zip(&expected.training_scores) {
                 assert!((a - b).abs() < 1e-12);
+            }
+        }
+    }
+
+    #[test]
+    fn rf_renewal_uses_fixed_scores_not_ensemble_margins() {
+        for objective in [
+            Objective::RegressionL1,
+            Objective::Quantile,
+            Objective::Mape,
+        ] {
+            for weighted in [false, true] {
+                let config = Config {
+                    objective,
+                    boosting: Boosting::Rf,
+                    alpha: 0.5,
+                    bagging_fraction: 0.8,
+                    bagging_freq: 1,
+                    num_iterations: 2,
+                    num_leaves: 3,
+                    min_data_in_leaf: 1,
+                    min_data_in_bin: 1,
+                    feature_pre_filter: false,
+                    ..Config::default()
+                };
+                let mut data = Dataset::from_dense(
+                    &[0., 1., 2., 3., 4., 5., 6., 7.],
+                    8,
+                    1,
+                    vec![-4., -4., -4., -4., 4., 4., 4., 4.],
+                    &config,
+                )
+                .unwrap();
+                if weighted {
+                    data = data.with_weights(vec![2.0; 8]).unwrap();
+                }
+                let trainer = Trainer::new(config).unwrap();
+                let mut expected = trainer
+                    .start_session(&data, &[], FitOptions::default(), true)
+                    .unwrap();
+                let mut actual = trainer
+                    .start_session(&data, &[], FitOptions::default(), true)
+                    .unwrap();
+                for _ in 0..2 {
+                    actual.scores.fill(1000.0);
+                    expected.step().unwrap();
+                    actual.step().unwrap();
+                    let tree = actual.trees.last().unwrap();
+                    assert!(tree.num_leaves() > 1, "{objective:?} weighted={weighted}");
+                    assert_eq!(
+                        tree.leaf_values(),
+                        expected.trees.last().unwrap().leaf_values()
+                    );
+                    assert_eq!(actual.rf_scores, expected.rf_scores);
+                }
             }
         }
     }
