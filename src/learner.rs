@@ -400,6 +400,9 @@ fn evaluate_feature(
     };
     if let Some(mut split) = split {
         split.gain *= config.feature_contri.get(feature).copied().unwrap_or(1.0);
+        // Pinned native DeltaGain stores SplitInfo by value before the caller
+        // deducts CEGB costs or applies the monotone penalty. Keep that raw
+        // candidate: pending-leaf refunds depend on this inherited behavior.
         let candidate = split.clone();
         let mut penalty = config.cegb_penalty_split * leaf.rows.len() as f64;
         if !learner.coupled[feature] {
@@ -640,6 +643,8 @@ fn fit_tree(
             if refund != 0.0 {
                 for leaf in leaves.iter_mut().flatten() {
                     if let Some(candidate) = leaf.candidates[split.feature].as_mut() {
+                        // Native UpdateLeafBestSplits adds this to the raw
+                        // cached gain, not to the cost-adjusted leaf split.
                         candidate.gain += refund;
                         if leaf.split.as_ref().is_some_and(|s| candidate.gain > s.gain) {
                             leaf.split = Some(candidate.clone());

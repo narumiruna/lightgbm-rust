@@ -1,0 +1,4662 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 13,
+      "maxItems": 13,
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_continue_uniform"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_continue_weighted"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_empty_no_drop"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_empty_uniform"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_empty_weighted"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    {
+                      "items": {},
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_empty_xgboost"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_initial_constant"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_multiclass_uniform"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_final_model": {
+                "type": "null"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_multiclass_weighted"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_final_model": {
+                "type": "null"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_safe_no_drop"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "type": "null"
+              },
+              "native_final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_steps": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "current_iteration": {
+                          "type": "number"
+                        },
+                        "evaluation": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "dataset_name": {
+                                "type": "string"
+                              },
+                              "maximize": {
+                                "type": "boolean"
+                              },
+                              "metric_name": {
+                                "type": "string"
+                              },
+                              "metric_std_dev": {
+                                "type": "null"
+                              },
+                              "metric_value": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "dataset_name",
+                              "metric_name",
+                              "metric_value",
+                              "maximize",
+                              "metric_std_dev"
+                            ],
+                            "type": "object"
+                          },
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "type": "array"
+                        },
+                        "finished": {
+                          "type": "boolean"
+                        },
+                        "num_trees": {
+                          "type": "number"
+                        },
+                        "raw": {
+                          "items": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 1,
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "shrinkage": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "training_predictions": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "finished",
+                        "current_iteration",
+                        "num_trees",
+                        "shrinkage",
+                        "raw",
+                        "training_predictions",
+                        "evaluation"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "current_iteration": {
+                          "type": "number"
+                        },
+                        "evaluation": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "dataset_name": {
+                                "type": "string"
+                              },
+                              "maximize": {
+                                "type": "boolean"
+                              },
+                              "metric_name": {
+                                "type": "string"
+                              },
+                              "metric_std_dev": {
+                                "type": "null"
+                              },
+                              "metric_value": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "dataset_name",
+                              "metric_name",
+                              "metric_value",
+                              "maximize",
+                              "metric_std_dev"
+                            ],
+                            "type": "object"
+                          },
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "type": "array"
+                        },
+                        "finished": {
+                          "type": "boolean"
+                        },
+                        "num_trees": {
+                          "type": "number"
+                        },
+                        "raw": {
+                          "items": {
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxItems": 1,
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "shrinkage": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 2,
+                          "minItems": 2,
+                          "type": "array"
+                        },
+                        "training_predictions": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "finished",
+                        "current_iteration",
+                        "num_trees",
+                        "shrinkage",
+                        "raw",
+                        "training_predictions",
+                        "evaluation"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_safe_uniform"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_final_model": {
+                "type": "null"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_safe_weighted"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_final_model": {
+                "type": "null"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "bag_rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "initial_model": {
+                "type": "null"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "last_valid_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "review_dart_safe_xgboost"
+              },
+              "native_attempts": {
+                "type": "number"
+              },
+              "native_empty_bag_executed": {
+                "type": "boolean"
+              },
+              "native_failed_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "sha256": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "sha256"
+                ],
+                "type": "object"
+              },
+              "native_final_model": {
+                "type": "null"
+              },
+              "native_steps": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "current_iteration": {
+                      "type": "number"
+                    },
+                    "evaluation": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "dataset_name": {
+                            "type": "string"
+                          },
+                          "maximize": {
+                            "type": "boolean"
+                          },
+                          "metric_name": {
+                            "type": "string"
+                          },
+                          "metric_std_dev": {
+                            "type": "null"
+                          },
+                          "metric_value": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "dataset_name",
+                          "metric_name",
+                          "metric_value",
+                          "maximize",
+                          "metric_std_dev"
+                        ],
+                        "type": "object"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "finished": {
+                      "type": "boolean"
+                    },
+                    "num_trees": {
+                      "type": "number"
+                    },
+                    "raw": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "shrinkage": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "training_predictions": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "finished",
+                    "current_iteration",
+                    "num_trees",
+                    "shrinkage",
+                    "raw",
+                    "training_predictions",
+                    "evaluation"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "type": "array"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_fraction": {
+                    "type": "number"
+                  },
+                  "bagging_freq": {
+                    "type": "number"
+                  },
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "boosting": {
+                    "type": "string"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_rate": {
+                    "type": "number"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "metric": {
+                    "type": "string"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "skip_drop": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "uniform_drop": {
+                    "type": "boolean"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  },
+                  "xgboost_dart_mode": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "boosting",
+                  "objective",
+                  "metric",
+                  "bagging_fraction",
+                  "bagging_freq",
+                  "uniform_drop",
+                  "xgboost_dart_mode",
+                  "drop_rate",
+                  "skip_drop"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "rust_attempts": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "rows",
+              "labels",
+              "initial_model",
+              "native_attempts",
+              "rust_attempts",
+              "bag_rows",
+              "native_empty_bag_executed",
+              "native_steps",
+              "last_valid_model",
+              "native_final_model",
+              "native_failed_model"
+            ],
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "commit": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "tree": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            },
+            "license_file": {
+              "type": "string"
+            },
+            "license_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "commit",
+            "version",
+            "tree",
+            "license",
+            "license_file",
+            "license_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "compiler": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "selected_toolchain_path": {
+              "type": "string"
+            },
+            "selected_toolchain_sha256": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "version",
+            "selected_toolchain_path",
+            "selected_toolchain_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "producer_sha256": {
+          "type": "string"
+        },
+        "python_sources": {
+          "type": "object",
+          "properties": {
+            "basic.py": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "basic.py"
+          ],
+          "additionalProperties": false
+        },
+        "compile_commands_sha256": {
+          "type": "string"
+        },
+        "library": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string"
+            },
+            "loaded_path": {
+              "type": "string"
+            },
+            "loaded_sha256": {
+              "type": "string"
+            },
+            "verification": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "loaded_path",
+            "loaded_sha256",
+            "verification"
+          ],
+          "additionalProperties": false
+        },
+        "native_sources": {
+          "type": "object",
+          "properties": {
+            "src/boosting/dart.hpp": {
+              "type": "string"
+            },
+            "src/boosting/gbdt.cpp": {
+              "type": "string"
+            },
+            "src/boosting/bagging.hpp": {
+              "type": "string"
+            },
+            "include/LightGBM/utils/random.h": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "src/boosting/dart.hpp",
+            "src/boosting/gbdt.cpp",
+            "src/boosting/bagging.hpp",
+            "include/LightGBM/utils/random.h"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "source",
+        "compiler",
+        "producer_sha256",
+        "python_sources",
+        "compile_commands_sha256",
+        "library",
+        "native_sources"
+      ],
+      "additionalProperties": false
+    },
+    "checked_departure": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases",
+    "provenance",
+    "checked_departure"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -102,6 +102,27 @@ impl Model {
                 positions: data.positions(),
             },
         )?;
+        // Native BinaryLogloss::ToString and MulticlassOVA::ToString write
+        // six significant digits. Compare at that serialization precision,
+        // but keep the full configuration in objective for derivative work.
+        let configured_objective = objective.model_objective();
+        let configured_sigmoid = configured_objective
+            .split_whitespace()
+            .find_map(|token| token.strip_prefix("sigmoid:"))
+            .and_then(|value| value.parse::<f64>().ok());
+        if self
+            .objective
+            .split_whitespace()
+            .filter_map(|token| token.strip_prefix("sigmoid:"))
+            .any(|value| {
+                let sigmoid = value.parse::<f64>().ok();
+                sigmoid != Some(config.sigmoid) && sigmoid != configured_sigmoid
+            })
+        {
+            return Err(invalid(
+                "configured objective or transform differs from model",
+            ));
+        }
         let size = checked_len(data.nrows(), self.num_class)?;
         let mut scores = zeros::<f64>(size)?;
         if let Some(initial) = data.initial_scores() {
@@ -154,8 +175,7 @@ impl Model {
                 }
             }
         }
-        model.validate()?;
-        Ok(model)
+        model.with_live_sigmoid(config)
     }
 
     fn validate_refit(
@@ -217,11 +237,6 @@ impl Model {
         let mut tokens = self.objective.split_whitespace();
         if tokens.next() != Some(config.objective.name())
             || self.objective.split_whitespace().any(|t| t == "sqrt") != config.reg_sqrt
-            || self
-                .objective
-                .split_whitespace()
-                .filter_map(|t| t.strip_prefix("sigmoid:"))
-                .any(|v| v.parse::<f64>().ok() != Some(config.sigmoid))
         {
             return Err(invalid(
                 "configured objective or transform differs from model",

@@ -123,7 +123,7 @@ Use separate evidence for prediction correctness, training correctness, model qu
 - The native oracle integration passed 399 artifact hashes and 126 deliberate mutation rejections. The final integration includes 15 extended workflow, 68 AUC-mu edge, and 14 empty-query cases. Reference regeneration must be repeated after producer/checker changes.
 - Dataset indexes, CV aggregate allocation limits, and finite AUC-mu inputs have dedicated safety regressions. Native-undefined empty-query combinations return typed errors.
 - Final-source quality, fixed-baseline timing, matched memory and native inference pass. Dense and multiclass native training pass. Sparse, categorical and ranking native training remain above 1.5x after measured optimization. This required gate remains open; no exception is authorized.
-- Format, Clippy, all-target tests, doctests, offline tests, Criterion and extracted-package tests pass on native macOS ARM64. Clean package verification passes. Native Ubuntu, macOS and Windows CI pass for `0e0f949`, including the Windows fixture-byte fix. Draft PR #1 is open. Retain this plan while training-time gates are open.
+- Format, Clippy, all-target tests, doctests, offline tests, Criterion and extracted-package tests pass on native macOS ARM64. Clean package verification passes. Native Ubuntu, macOS and Windows CI pass for `0e0f949`, including the Windows fixture-byte fix. PR #1 is open. The review ledger is `docs/reviews/pr-1.md`; review fixes require fresh validation before its earlier evidence is reused. Retain this plan while training-time gates are open.
 
 ## Plan
 

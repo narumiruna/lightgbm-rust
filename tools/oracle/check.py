@@ -15,6 +15,7 @@ from common import COMMIT, OUT, ROOT, SOURCE, load_reference, sha, verify_loaded
 from manifest import artifact_paths
 from check_workflows import validate as phase8_shapes
 from check_final import NAMES as FINAL_FAMILIES, validate as final_shapes, exact_payload as final_compare
+from check_review import NAMES as REVIEW_FAMILIES, validate as review_shapes
 
 PREDICTION_CASES = {"numeric_l2", "binary", "numeric_weighted", "missing_nan", "missing_zero", "categorical",
                     "multiclass", "single_leaf", "regression_sqrt", "binary_sigmoid", "multiclassova", "poisson",
@@ -59,10 +60,11 @@ REQUIRED['prediction_constraints_extra'] = EXTRA_CONSTRAINT_NAMES
 from check_bundling import NAMES as BUNDLING_NAMES, validate as bundling_shapes, stable_payload as bundling_payload
 REQUIRED['bundling'] = BUNDLING_NAMES
 REQUIRED.update(FINAL_FAMILIES)
+REQUIRED.update(REVIEW_FAMILIES)
 
 
 def schema_name(family):
-    if family in PHASE8_FAMILIES or family in FINAL_FAMILIES or family in ('prediction_constraints_extra', 'bundling'):
+    if family in PHASE8_FAMILIES or family in FINAL_FAMILIES or family in REVIEW_FAMILIES or family in ('prediction_constraints_extra', 'bundling'):
         return f'{family}.schema.json'
     return 'prediction.schema.json' if family.startswith('prediction') else f'{family}.schema.json' if family in EXTENDED or family in NEW_FAMILIES else 'primitives.schema.json'
 
@@ -356,7 +358,9 @@ def validate_saved():
         schema = schema_name(family)
         jsonschema.Draft202012Validator(read_json(fixture_dir / schema)).validate(data)
         coverage(family, data)
-        if family in FINAL_FAMILIES:
+        if family in REVIEW_FAMILIES:
+            review_shapes(family, data, manifest)
+        elif family in FINAL_FAMILIES:
             final_shapes(family, data, manifest)
         elif family in PHASE8_FAMILIES:
             phase8_shapes(family, data, manifest)
@@ -414,6 +418,8 @@ def self_test(reference):
     changed["cases"][0]["raw"][0][0] += 0.01
     must_fail("prediction value", lambda: compare_prediction_values(changed, saved))
     manifest = read_json(ROOT / "docs/reference-manifest.json")
+    from check_review import self_test as review_self_test
+    review_self_test(must_fail, read_json, manifest)
     changed_hash = dict(manifest['artifacts'][0], sha256='0' * 64)
     must_fail('changed artifact checksum', lambda: artifact_checksum(changed_hash))
     del manifest["loaded_library"]
@@ -597,6 +603,10 @@ def check_reference(manifest):
     from generate_metric_edges import generate as metric_edges
     from check_final import regenerate_empty_queries as empty_queries
     from generate_final_schemas import generate as final_schemas
+    from check_review import generate_schemas as review_schemas
+    from generate_review_refit import generate as review_refit
+    from generate_review_cegb import generate as review_cegb
+    from generate_review_dart import generate as review_dart
     source_registry_coverage()
     check_sort_headers(manifest)
     check_build_inputs(manifest)
@@ -623,6 +633,15 @@ def check_reference(manifest):
         metric_edges(output)
         empty_queries(output)
         final_schemas(output)
+        review_refit(output)
+        review_cegb(output)
+        review_dart(output)
+        review_schemas(output)
+        for family in REVIEW_FAMILIES:
+            generated = read_json(output / f'{family}.json')
+            jsonschema.Draft202012Validator(read_json(output / f'{family}.schema.json')).validate(generated)
+            review_shapes(family, generated, manifest, output)
+            compare_exact(generated, read_json(ROOT / f'tests/fixtures/{family}.json'))
         for family in FINAL_FAMILIES:
             generated = read_json(output / f'{family}.json')
             jsonschema.Draft202012Validator(read_json(output / f'{family}.schema.json')).validate(generated)
@@ -657,6 +676,7 @@ def check_reference(manifest):
                 else:
                     assert path.read_bytes() == saved.read_bytes(), f"regeneration differs: {saved}"
     print('Final native families passed: ' + ', '.join(f'{family}={len(names)}' for family, names in FINAL_FAMILIES.items()))
+    print('Review native families passed: ' + ', '.join(f'{family}={len(names)}' for family, names in REVIEW_FAMILIES.items()))
     print("Verified loaded image and helper identities; deterministic models, primitives, workflow/CV/operation/extra-constraint evidence and schemas regenerate byte-identically")
     print('Bundling: all 22 native deterministic payloads and model bytes regenerated exactly; runtime resource samples and relink executable hashes checked separately')
 

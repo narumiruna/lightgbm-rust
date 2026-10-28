@@ -7,13 +7,13 @@ Release status: **open**. The required native-core training-time gate has not pa
 Rust toolchain: 1.92.0. Local measurements use native macOS ARM64. [Native CI](https://github.com/narumiruna/lightgbm-rust/actions/runs/40678701542) passed format, Clippy, all targets, doctests, offline fixtures and package verification on Ubuntu, macOS and Windows for commit `0e0f949`. These are Rust product checks against saved reference evidence, not new platform-specific LightGBM reference builds.
 
 - Normal Cargo tests use saved fixtures. They do not load the ignored reference checkout or execute Python or C++.
-- The native oracle check validates 399 artifact hashes and rejects 126 deliberate mutations. Extended families include 15 workflow, 68 AUC-mu edge and 14 empty-query cases. See `docs/conformance.md`.
-- Clean package verification passed with `cargo package --locked` locally and in all three native CI jobs. The package contains 462 text/source files; it excludes the reference checkout and oracle tools.
+- The review update validates 452 native artifact hashes and rejects 147 deliberate mutations. Extended families include 15 workflow, 68 AUC-mu edge and 14 empty-query cases. See `docs/conformance.md`.
+- Clean package verification passed with `cargo package --locked` locally and in all three native CI jobs. The reviewed package contains 515 text/source files; it excludes the reference checkout and oracle tools.
 - All package targets passed offline tests from the extracted package with a restricted toolchain/system PATH. No reference checkout or oracle tools exist inside that package. This also tests Cargo's normalized manifest.
 - Normal dependencies contain no native ML or numerical library. The inspected release executable links only `libSystem.B.dylib` on macOS. See `Cargo.toml` and the retained license notices.
 - Matched quality, memory and inference have passing source-identified reports. Native-core training remains above the unchanged per-case 1.5x limit. Reports are snapshots, not proof for later source changes. See `docs/performance.md` and `docs/performance.json`.
 
-Final-source format, Clippy, 295 all-target tests, doctests, offline tests, Criterion and extracted-package tests passed locally. A fixture line-ending regression increases the native CI total to 296 passing tests. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
+The review update passes format, Clippy, 319 all-target tests, one doctest, 319 offline tests, package verification and 319 extracted-package tests locally. The earlier 296-test native CI result is retained above; new source changes require fresh CI. The review ledger is `docs/reviews/pr-1.md`. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
 
 ## Reproduction
 

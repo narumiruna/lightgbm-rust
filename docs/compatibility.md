@@ -46,6 +46,8 @@ Test names identify Cargo integration targets or module tests. The reference man
 | Threads, histogram modes and cache size | `num_threads`, row/column mode controls and `histogram_pool_size`; bounded CPU execution. |
 | Network, distributed, GPU and adapter-specific options | Unsupported unless a documented Rust equivalent exists. |
 
+The pinned CEGB implementation caches raw candidate gains before costs and later adds the coupled refund to that raw cache. Rust retains this inherited rule. Changing it to refund a cost-adjusted candidate changes native split selection. `cegb_refund` covers first use below the root with a pending competitor and mixed split/lazy costs.
+
 The parser applies source conflict adjustments. In particular, GOSS disables `bagging_by_query`, as in `config.cpp`. A directly constructed `Config` must already satisfy canonical constraints. Neutral values do not make an otherwise unimplemented parameter supported.
 
 ## Data and precision
@@ -92,6 +94,10 @@ Custom derivatives and custom multiclass predictions are class-major. Derivative
 Learning-rate resets preserve learner feature-sampling RNG state and perform the native DART/GOSS resets. Native fixtures cover schedules with tree feature sampling and saved DART prefixes; `workflow_extended` checks scores and structure.
 
 CV provides explicit, standard, stratified and group-safe folds, population standard deviations and a common stopping iteration. NumPy legacy permutation and pinned stratification cases have native evidence. General equal-size group ties use documented descending group index and first least-loaded fold ordering; NumPy's unstable sort is not a portable tie contract.
+
+Binary and multiclass-OVA live models use the full configured sigmoid for transformed predictions. Native text stores six significant digits. A reloaded model uses that stored value, so transformed predictions can change slightly after serialization; raw tree predictions do not change. Refit validates the transform at the stored precision while derivative work retains the full caller value. A distinct stored transform is rejected.
+
+A failed DART round restores the last completed ensemble and its training scores. Validation scores and saved prefixes stay unchanged. Dropout and sampler RNG draws stay consumed; DART finish weights do not advance. This is a checked departure from the pinned native early-return path, which can leave temporary negative shrinkage. Rust does not return that invalid native artifact. `dart_no_split` uses real native successful prefixes as expected results and retains safe nonempty-bag failure observations separately. No empty native learner input is executed.
 
 Stored-model warm starts restart trainer random state. They are not exact training checkpoints. Supply the original model's raw margins for training and every validation set. RF rejects this initial-margin continuation, as the native implementation does.
 

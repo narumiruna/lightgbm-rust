@@ -265,8 +265,25 @@ impl TrainingSession<'_> {
         }
         // Commit whole class rounds. RF always retains each round.
         if !self.rf && !has_split && (!self.trees.is_empty() || self.begin_iteration > 0) {
+            // Native DART returns before Normalize on no-split, leaving
+            // temporary negative trees. Checked models instead retain the last
+            // completed ensemble. Undo only dropout; validation was not changed.
+            // Keep consumed RNG draws, but do not advance DART finish weights.
+            for &round_index in dropped.iter().rev() {
+                for class in 0..self.classes {
+                    let index = round_index * self.classes + class;
+                    let tree = &mut self.trees[index];
+                    tree.scale_outputs(-1.0);
+                    update_scores(
+                        tree,
+                        &self.thresholds[index],
+                        self.data,
+                        &mut self.scores,
+                        class,
+                    )?;
+                }
+            }
             // Python ignores the learner's finished flag and continues hooks.
-            // GBDT returns before DART normalization when no class can split.
             if !self.workflow {
                 return Ok(true);
             }
@@ -550,7 +567,8 @@ impl TrainingSession<'_> {
                 .collect(),
             self.objective.model_objective(),
             self.rf,
-        )?;
+        )?
+        .with_live_sigmoid(&self.owned_config)?;
         Ok(TrainResult {
             model,
             evaluation_history: self.history,
@@ -999,6 +1017,100 @@ fn allocation_error(error: std::collections::TryReserveError) -> Error {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn dart_empty_bag_restores_the_first_round() {
+        let config = Config {
+            boosting: Boosting::Dart,
+            uniform_drop: true,
+            drop_rate: 1.0,
+            skip_drop: 0.0,
+            bagging_seed: 4,
+            bagging_fraction: 0.5,
+            bagging_freq: 1,
+            num_iterations: 3,
+            min_data_in_leaf: 1,
+            min_data_in_bin: 1,
+            feature_pre_filter: false,
+            ..Config::default()
+        };
+        let data =
+            Dataset::from_dense(&[0., 1., 2., 3.], 4, 1, vec![0., 0., 1., 1.], &config).unwrap();
+        let trainer = Trainer::new(config).unwrap();
+        let mut session = trainer
+            .start_session(&data, &[], FitOptions::default(), true)
+            .unwrap();
+        session.step().unwrap();
+        assert_eq!(session.sampler.rows(), &[0, 3]);
+        let scores = session.scores.clone();
+        let tree = session.trees[0].clone();
+        session.step().unwrap();
+        assert!(session.sampler.rows().is_empty());
+        assert_eq!(session.engine_iteration, 1);
+        assert_eq!(session.scores, scores);
+        assert_eq!(session.trees[0].shrinkage(), tree.shrinkage());
+        assert_eq!(session.trees[0].leaf_values(), tree.leaf_values());
+    }
+
+    #[test]
+    fn dart_no_split_consumes_rng_without_finishing_weights() {
+        for (uniform_drop, xgboost_dart_mode) in [(true, false), (false, false), (false, true)] {
+            let config = Config {
+                boosting: Boosting::Dart,
+                uniform_drop,
+                xgboost_dart_mode,
+                drop_rate: 0.65,
+                skip_drop: 0.0,
+                num_iterations: 8,
+                min_data_in_leaf: 1,
+                min_data_in_bin: 1,
+                feature_pre_filter: false,
+                ..Config::default()
+            };
+            let data = Dataset::from_dense(
+                &[0., 1., 2., 3., 4., 5., 6., 7.],
+                8,
+                1,
+                vec![0., 1., 0., 3., 1., 4., 2., 6.],
+                &config,
+            )
+            .unwrap();
+            let trainer = Trainer::new(config).unwrap();
+            let mut actual = trainer
+                .start_session(&data, &[], FitOptions::default(), true)
+                .unwrap();
+            let mut expected = trainer
+                .start_session(&data, &[], FitOptions::default(), true)
+                .unwrap();
+            for _ in 0..3 {
+                actual.step().unwrap();
+                expected.step().unwrap();
+            }
+            assert_eq!(actual.engine_iteration, 3);
+            // Consume the same dropout selection but no finish on the reference
+            // session. Full-row/full-feature sampling needs no RNG replay.
+            let (dropped, _) = expected
+                .dart
+                .select(expected.engine_iteration, &expected.owned_config);
+            assert!(!dropped.is_empty());
+            actual.owned_config.min_gain_to_split = 1e20;
+            actual.step().unwrap();
+            assert_eq!(actual.engine_iteration, 3);
+            assert_eq!(actual.trees.len(), expected.trees.len());
+            actual.owned_config.min_gain_to_split = 0.0;
+            actual.step().unwrap();
+            expected.step().unwrap();
+            let actual = actual.finish().unwrap();
+            let expected = expected.finish().unwrap();
+            assert_eq!(
+                actual.model.to_text().unwrap(),
+                expected.model.to_text().unwrap()
+            );
+            for (a, b) in actual.training_scores.iter().zip(&expected.training_scores) {
+                assert!((a - b).abs() < 1e-12);
+            }
+        }
+    }
+
     #[test]
     fn checked_score_dimensions() {
         assert!(checked_score_len(usize::MAX, 2).is_err());

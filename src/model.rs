@@ -583,6 +583,9 @@ pub struct Model {
     pub(crate) feature_infos: Vec<String>,
     pub(crate) objective: String,
     pub(crate) average_output: bool,
+    // Native live objectives use the original double; ToString writes six digits.
+    #[serde(skip)]
+    live_sigmoid: Option<f64>,
     metadata: BTreeMap<String, String>,
     footer: String,
 }
@@ -605,11 +608,21 @@ impl Model {
             feature_infos,
             objective,
             average_output,
+            live_sigmoid: None,
             metadata: BTreeMap::new(),
             footer: String::new(),
         };
         model.validate()?;
         Ok(model)
+    }
+
+    pub(crate) fn with_live_sigmoid(mut self, config: &crate::Config) -> Result<Self> {
+        self.live_sigmoid = match config.objective {
+            crate::Objective::Binary | crate::Objective::MulticlassOva => Some(config.sigmoid),
+            _ => None,
+        };
+        self.validate()?;
+        Ok(self)
     }
 
     pub fn num_features(&self) -> usize {
@@ -672,6 +685,16 @@ impl Model {
             return invalid("incomplete tree iteration");
         }
         objective_transform(&self.objective, self.num_class)?;
+        if let Some(sigmoid) = self.live_sigmoid
+            && (!sigmoid.is_finite()
+                || sigmoid <= 0.0
+                || !matches!(
+                    self.objective.split_whitespace().next(),
+                    Some("binary" | "multiclassova")
+                ))
+        {
+            return invalid("invalid live objective sigmoid");
+        }
         let mut total = 0usize;
         for tree in &self.trees {
             total = total
@@ -785,6 +808,7 @@ impl Model {
                 output[0] = sign * output[0] * output[0];
             }
             Transform::Sigmoid(sigmoid) => {
+                let sigmoid = self.live_sigmoid.unwrap_or(sigmoid);
                 for value in &mut output {
                     *value = 1.0 / (1.0 + (-sigmoid * *value).exp());
                 }
@@ -1502,4 +1526,34 @@ fn append_array<T: std::fmt::Display>(out: &mut String, key: &str, values: &[T])
         write!(out, "{value}").unwrap();
     }
     out.push('\n');
+}
+
+#[cfg(test)]
+mod live_sigmoid_tests {
+    use super::*;
+
+    #[test]
+    fn live_sigmoid_requires_positive_finite_value_and_compatible_objective() {
+        let mut model = Model::from_parts(
+            vec![Tree::constant(1.0, 1)],
+            1,
+            1,
+            vec!["x".into()],
+            vec!["none".into()],
+            "binary sigmoid:1".into(),
+            false,
+        )
+        .unwrap();
+        assert!(model.live_sigmoid.is_none());
+        for value in [0.0, -1.0, f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+            model.live_sigmoid = Some(value);
+            assert!(model.validate().is_err());
+        }
+        model.live_sigmoid = Some(1.23456789);
+        model.validate().unwrap();
+        for objective in ["regression", "cross_entropy", "custom"] {
+            model.objective = objective.into();
+            assert!(model.validate().is_err());
+        }
+    }
 }
