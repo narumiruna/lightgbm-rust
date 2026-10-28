@@ -4,7 +4,7 @@ Release status: **open**. The required native-core training-time gate has not pa
 
 ## Executed evidence
 
-Rust toolchain: 1.92.0. Local measurements use native macOS ARM64. [Native CI](https://github.com/narumiruna/lightgbm-rust/actions/runs/40732227346) passed format, Clippy, all targets, doctests, offline fixtures and package verification on Ubuntu, macOS and Windows for CV callback fix commit `4b45010`. These are Rust product checks against saved reference evidence, not new platform-specific LightGBM reference builds.
+Rust toolchain: 1.92.0. Local measurements use native macOS ARM64. [Native CI](https://github.com/narumiruna/lightgbm-rust/actions/runs/40750336931) passed format, Clippy, all targets, doctests, offline fixtures and package verification on Ubuntu, macOS and Windows for sparse histogram fix commit `33d9211`. These are Rust product checks against saved reference evidence, not new platform-specific LightGBM reference builds.
 
 - Normal Cargo tests use saved fixtures. They do not load the ignored reference checkout or execute Python or C++.
 - The review update validates 470 native artifact hashes and rejects 163 deliberate mutations. Extended families include 15 workflow, 68 AUC-mu edge and 14 empty-query cases. See `docs/conformance.md`.
@@ -13,7 +13,7 @@ Rust toolchain: 1.92.0. Local measurements use native macOS ARM64. [Native CI](h
 - Normal dependencies contain no native ML or numerical library. The inspected release executable links only `libSystem.B.dylib` on macOS. See `Cargo.toml` and the retained license notices.
 - Matched quality, memory and inference have passing source-identified reports. Native-core training remains above the unchanged per-case 1.5x limit. Reports are snapshots, not proof for later source changes. See `docs/performance.md` and `docs/performance.json`.
 
-The review update passes format, Clippy, 345 all-target tests, one doctest, 345 offline tests, package verification and 345 extracted-package tests locally. The linked native CI jobs pass the prior 340-test update; the sparse histogram source change requires fresh CI. The review ledger is `docs/reviews/pr-1.md`. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
+The review update passes format, Clippy, 345 all-target tests, one doctest, 345 offline tests, package verification and 345 extracted-package tests locally. All three linked native CI jobs pass the same 345-test update; later source changes require fresh CI. The review ledger is `docs/reviews/pr-1.md`. Native regeneration passed after the producer/checker changes. Checks must be repeated after later source changes. A successful benchmark command does not mean that its budgets passed.
 
 ## Reproduction
 
