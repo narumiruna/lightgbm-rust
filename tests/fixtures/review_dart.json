@@ -1,0 +1,2029 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "cases": [
+    {
+      "name": "review_dart_empty_uniform",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_empty_uniform_last_valid.txt",
+        "sha256": "151a7c79b916305f94b91cb96f94af354918d352726e003ffaa930459aa4314a"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_empty_uniform.txt",
+        "sha256": "151a7c79b916305f94b91cb96f94af354918d352726e003ffaa930459aa4314a"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_empty_weighted",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": false,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_empty_weighted_last_valid.txt",
+        "sha256": "d1ff055b73e302391e3e1bcdd8547cff8500f62e4ba910604905daffad6175a0"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_empty_weighted.txt",
+        "sha256": "d1ff055b73e302391e3e1bcdd8547cff8500f62e4ba910604905daffad6175a0"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_empty_xgboost",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": true,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_empty_xgboost_last_valid.txt",
+        "sha256": "e3cf9df9e96acb97f72e09a8f448f5a18eebf6e3196c80d9e4f31a552e3ac548"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_empty_xgboost.txt",
+        "sha256": "e3cf9df9e96acb97f72e09a8f448f5a18eebf6e3196c80d9e4f31a552e3ac548"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_empty_no_drop",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 1.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_empty_no_drop_last_valid.txt",
+        "sha256": "4fa2f7f0a7e16a153cb47e3fa04a9b77484002dc8d75cc5c56330eebecf25c4e"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_empty_no_drop.txt",
+        "sha256": "4fa2f7f0a7e16a153cb47e3fa04a9b77484002dc8d75cc5c56330eebecf25c4e"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_safe_uniform",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            -1.0
+          ],
+          "raw": [
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.5,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_safe_uniform_last_valid.txt",
+        "sha256": "5f8a957673ab7845a6079a0d3e6dbac9ccacaeadb8c25b2655bdccee3f694958"
+      },
+      "native_final_model": null,
+      "native_failed_model": {
+        "text": "tree\nversion=v4\nnum_class=1\nnum_tree_per_iteration=1\nlabel_index=0\nmax_feature_idx=0\nobjective=regression\nfeature_names=Column_0\nfeature_infos=[0:3]\ntree_sizes=301\n\nTree=0\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=0.5\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=-0.37500000000000011 -0.62499999999999989\nleaf_weight=1 1\nleaf_count=1 1\ninternal_value=-0.5\ninternal_weight=2\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nend of trees\n\nfeature_importances:\nColumn_0=1\n\nparameters:\n[boosting: dart]\n[objective: regression]\n[metric: l2]\n[tree_learner: serial]\n[device_type: cpu]\n[data_sample_strategy: bagging]\n[data: ]\n[valid: ]\n[num_iterations: 100]\n[learning_rate: 0.25]\n[num_leaves: 3]\n[num_threads: 1]\n[seed: 0]\n[deterministic: 1]\n[force_col_wise: 1]\n[force_row_wise: 0]\n[histogram_pool_size: -1]\n[max_depth: -1]\n[min_data_in_leaf: 1]\n[min_sum_hessian_in_leaf: 0.001]\n[bagging_fraction: 0.5]\n[pos_bagging_fraction: 1]\n[neg_bagging_fraction: 1]\n[bagging_freq: 1]\n[bagging_seed: 11]\n[bagging_by_query: 0]\n[feature_fraction: 1]\n[feature_fraction_bynode: 1]\n[feature_fraction_seed: 0]\n[extra_trees: 0]\n[extra_seed: 0]\n[early_stopping_round: 0]\n[early_stopping_min_delta: 0]\n[first_metric_only: 0]\n[max_delta_step: 0]\n[lambda_l1: 0]\n[lambda_l2: 0]\n[linear_lambda: 0]\n[min_gain_to_split: 0]\n[drop_rate: 1]\n[max_drop: 50]\n[skip_drop: 0]\n[xgboost_dart_mode: 0]\n[uniform_drop: 1]\n[drop_seed: 0]\n[top_rate: 0.2]\n[other_rate: 0.1]\n[min_data_per_group: 100]\n[max_cat_threshold: 32]\n[cat_l2: 10]\n[cat_smooth: 10]\n[max_cat_to_onehot: 4]\n[top_k: 20]\n[monotone_constraints: ]\n[monotone_constraints_method: basic]\n[monotone_penalty: 0]\n[feature_contri: ]\n[forcedsplits_filename: ]\n[refit_decay_rate: 0.9]\n[cegb_tradeoff: 1]\n[cegb_penalty_split: 0]\n[cegb_penalty_feature_lazy: ]\n[cegb_penalty_feature_coupled: ]\n[path_smooth: 0]\n[interaction_constraints: ]\n[verbosity: -1]\n[saved_feature_importance_type: 0]\n[use_quantized_grad: 0]\n[num_grad_quant_bins: 4]\n[quant_train_renew_leaf: 0]\n[stochastic_rounding: 1]\n[linear_tree: 0]\n[max_bin: 15]\n[max_bin_by_feature: ]\n[min_data_in_bin: 1]\n[bin_construct_sample_cnt: 200000]\n[data_random_seed: 0]\n[is_enable_sparse: 1]\n[enable_bundle: 1]\n[use_missing: 1]\n[zero_as_missing: 0]\n[feature_pre_filter: 0]\n[pre_partition: 0]\n[two_round: 0]\n[header: 0]\n[label_column: ]\n[weight_column: ]\n[group_column: ]\n[ignore_column: ]\n[categorical_feature: ]\n[forcedbins_filename: ]\n[precise_float_parser: 0]\n[parser_config_file: ]\n[objective_seed: 0]\n[num_class: 1]\n[is_unbalance: 0]\n[scale_pos_weight: 1]\n[sigmoid: 1]\n[boost_from_average: 1]\n[reg_sqrt: 0]\n[alpha: 0.9]\n[fair_c: 1]\n[poisson_max_delta_step: 0.7]\n[tweedie_variance_power: 1.5]\n[lambdarank_truncation_level: 30]\n[lambdarank_norm: 1]\n[label_gain: ]\n[lambdarank_position_bias_regularization: 0]\n[eval_at: ]\n[multi_error_top_k: 1]\n[auc_mu_weights: ]\n[num_machines: 1]\n[local_listen_port: 12400]\n[time_out: 120]\n[machine_list_filename: ]\n[machines: ]\n[gpu_platform_id: -1]\n[gpu_device_id: -1]\n[gpu_device_id_list: ]\n[gpu_use_dp: 0]\n[num_gpu: 1]\n\nend of parameters\n\npandas_categorical:null\n",
+        "sha256": "e9f20ff3dd3e5b99a801f25be023067fa7bf14d94475d125e9b51abdd88e88c0"
+      }
+    },
+    {
+      "name": "review_dart_safe_weighted",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": false,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            -1.0
+          ],
+          "raw": [
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.5,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_safe_weighted_last_valid.txt",
+        "sha256": "34a40aaa9b22acad060d132d29e04c37d12f40b7c2b5beff8af8ba5a8c9742f2"
+      },
+      "native_final_model": null,
+      "native_failed_model": {
+        "text": "tree\nversion=v4\nnum_class=1\nnum_tree_per_iteration=1\nlabel_index=0\nmax_feature_idx=0\nobjective=regression\nfeature_names=Column_0\nfeature_infos=[0:3]\ntree_sizes=301\n\nTree=0\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=0.5\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=-0.37500000000000011 -0.62499999999999989\nleaf_weight=1 1\nleaf_count=1 1\ninternal_value=-0.5\ninternal_weight=2\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nend of trees\n\nfeature_importances:\nColumn_0=1\n\nparameters:\n[boosting: dart]\n[objective: regression]\n[metric: l2]\n[tree_learner: serial]\n[device_type: cpu]\n[data_sample_strategy: bagging]\n[data: ]\n[valid: ]\n[num_iterations: 100]\n[learning_rate: 0.25]\n[num_leaves: 3]\n[num_threads: 1]\n[seed: 0]\n[deterministic: 1]\n[force_col_wise: 1]\n[force_row_wise: 0]\n[histogram_pool_size: -1]\n[max_depth: -1]\n[min_data_in_leaf: 1]\n[min_sum_hessian_in_leaf: 0.001]\n[bagging_fraction: 0.5]\n[pos_bagging_fraction: 1]\n[neg_bagging_fraction: 1]\n[bagging_freq: 1]\n[bagging_seed: 11]\n[bagging_by_query: 0]\n[feature_fraction: 1]\n[feature_fraction_bynode: 1]\n[feature_fraction_seed: 0]\n[extra_trees: 0]\n[extra_seed: 0]\n[early_stopping_round: 0]\n[early_stopping_min_delta: 0]\n[first_metric_only: 0]\n[max_delta_step: 0]\n[lambda_l1: 0]\n[lambda_l2: 0]\n[linear_lambda: 0]\n[min_gain_to_split: 0]\n[drop_rate: 1]\n[max_drop: 50]\n[skip_drop: 0]\n[xgboost_dart_mode: 0]\n[uniform_drop: 0]\n[drop_seed: 0]\n[top_rate: 0.2]\n[other_rate: 0.1]\n[min_data_per_group: 100]\n[max_cat_threshold: 32]\n[cat_l2: 10]\n[cat_smooth: 10]\n[max_cat_to_onehot: 4]\n[top_k: 20]\n[monotone_constraints: ]\n[monotone_constraints_method: basic]\n[monotone_penalty: 0]\n[feature_contri: ]\n[forcedsplits_filename: ]\n[refit_decay_rate: 0.9]\n[cegb_tradeoff: 1]\n[cegb_penalty_split: 0]\n[cegb_penalty_feature_lazy: ]\n[cegb_penalty_feature_coupled: ]\n[path_smooth: 0]\n[interaction_constraints: ]\n[verbosity: -1]\n[saved_feature_importance_type: 0]\n[use_quantized_grad: 0]\n[num_grad_quant_bins: 4]\n[quant_train_renew_leaf: 0]\n[stochastic_rounding: 1]\n[linear_tree: 0]\n[max_bin: 15]\n[max_bin_by_feature: ]\n[min_data_in_bin: 1]\n[bin_construct_sample_cnt: 200000]\n[data_random_seed: 0]\n[is_enable_sparse: 1]\n[enable_bundle: 1]\n[use_missing: 1]\n[zero_as_missing: 0]\n[feature_pre_filter: 0]\n[pre_partition: 0]\n[two_round: 0]\n[header: 0]\n[label_column: ]\n[weight_column: ]\n[group_column: ]\n[ignore_column: ]\n[categorical_feature: ]\n[forcedbins_filename: ]\n[precise_float_parser: 0]\n[parser_config_file: ]\n[objective_seed: 0]\n[num_class: 1]\n[is_unbalance: 0]\n[scale_pos_weight: 1]\n[sigmoid: 1]\n[boost_from_average: 1]\n[reg_sqrt: 0]\n[alpha: 0.9]\n[fair_c: 1]\n[poisson_max_delta_step: 0.7]\n[tweedie_variance_power: 1.5]\n[lambdarank_truncation_level: 30]\n[lambdarank_norm: 1]\n[label_gain: ]\n[lambdarank_position_bias_regularization: 0]\n[eval_at: ]\n[multi_error_top_k: 1]\n[auc_mu_weights: ]\n[num_machines: 1]\n[local_listen_port: 12400]\n[time_out: 120]\n[machine_list_filename: ]\n[machines: ]\n[gpu_platform_id: -1]\n[gpu_device_id: -1]\n[gpu_device_id_list: ]\n[gpu_use_dp: 0]\n[num_gpu: 1]\n\nend of parameters\n\npandas_categorical:null\n",
+        "sha256": "04670c16c058c3aeabb24ff4cb83876605ddb49ad58216c3e4c7ed2027bce599"
+      }
+    },
+    {
+      "name": "review_dart_safe_xgboost",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": true,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            -1.0
+          ],
+          "raw": [
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.3750000000000001
+            ],
+            [
+              -0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.5,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_safe_xgboost_last_valid.txt",
+        "sha256": "8162913d26fa3bf328093331634dcf4ccefc35c5d834fb84216ed1835e814499"
+      },
+      "native_final_model": null,
+      "native_failed_model": {
+        "text": "tree\nversion=v4\nnum_class=1\nnum_tree_per_iteration=1\nlabel_index=0\nmax_feature_idx=0\nobjective=regression\nfeature_names=Column_0\nfeature_infos=[0:3]\ntree_sizes=301\n\nTree=0\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=0.5\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=-0.37500000000000011 -0.62499999999999989\nleaf_weight=1 1\nleaf_count=1 1\ninternal_value=-0.5\ninternal_weight=2\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nend of trees\n\nfeature_importances:\nColumn_0=1\n\nparameters:\n[boosting: dart]\n[objective: regression]\n[metric: l2]\n[tree_learner: serial]\n[device_type: cpu]\n[data_sample_strategy: bagging]\n[data: ]\n[valid: ]\n[num_iterations: 100]\n[learning_rate: 0.25]\n[num_leaves: 3]\n[num_threads: 1]\n[seed: 0]\n[deterministic: 1]\n[force_col_wise: 1]\n[force_row_wise: 0]\n[histogram_pool_size: -1]\n[max_depth: -1]\n[min_data_in_leaf: 1]\n[min_sum_hessian_in_leaf: 0.001]\n[bagging_fraction: 0.5]\n[pos_bagging_fraction: 1]\n[neg_bagging_fraction: 1]\n[bagging_freq: 1]\n[bagging_seed: 11]\n[bagging_by_query: 0]\n[feature_fraction: 1]\n[feature_fraction_bynode: 1]\n[feature_fraction_seed: 0]\n[extra_trees: 0]\n[extra_seed: 0]\n[early_stopping_round: 0]\n[early_stopping_min_delta: 0]\n[first_metric_only: 0]\n[max_delta_step: 0]\n[lambda_l1: 0]\n[lambda_l2: 0]\n[linear_lambda: 0]\n[min_gain_to_split: 0]\n[drop_rate: 1]\n[max_drop: 50]\n[skip_drop: 0]\n[xgboost_dart_mode: 1]\n[uniform_drop: 1]\n[drop_seed: 0]\n[top_rate: 0.2]\n[other_rate: 0.1]\n[min_data_per_group: 100]\n[max_cat_threshold: 32]\n[cat_l2: 10]\n[cat_smooth: 10]\n[max_cat_to_onehot: 4]\n[top_k: 20]\n[monotone_constraints: ]\n[monotone_constraints_method: basic]\n[monotone_penalty: 0]\n[feature_contri: ]\n[forcedsplits_filename: ]\n[refit_decay_rate: 0.9]\n[cegb_tradeoff: 1]\n[cegb_penalty_split: 0]\n[cegb_penalty_feature_lazy: ]\n[cegb_penalty_feature_coupled: ]\n[path_smooth: 0]\n[interaction_constraints: ]\n[verbosity: -1]\n[saved_feature_importance_type: 0]\n[use_quantized_grad: 0]\n[num_grad_quant_bins: 4]\n[quant_train_renew_leaf: 0]\n[stochastic_rounding: 1]\n[linear_tree: 0]\n[max_bin: 15]\n[max_bin_by_feature: ]\n[min_data_in_bin: 1]\n[bin_construct_sample_cnt: 200000]\n[data_random_seed: 0]\n[is_enable_sparse: 1]\n[enable_bundle: 1]\n[use_missing: 1]\n[zero_as_missing: 0]\n[feature_pre_filter: 0]\n[pre_partition: 0]\n[two_round: 0]\n[header: 0]\n[label_column: ]\n[weight_column: ]\n[group_column: ]\n[ignore_column: ]\n[categorical_feature: ]\n[forcedbins_filename: ]\n[precise_float_parser: 0]\n[parser_config_file: ]\n[objective_seed: 0]\n[num_class: 1]\n[is_unbalance: 0]\n[scale_pos_weight: 1]\n[sigmoid: 1]\n[boost_from_average: 1]\n[reg_sqrt: 0]\n[alpha: 0.9]\n[fair_c: 1]\n[poisson_max_delta_step: 0.7]\n[tweedie_variance_power: 1.5]\n[lambdarank_truncation_level: 30]\n[lambdarank_norm: 1]\n[label_gain: ]\n[lambdarank_position_bias_regularization: 0]\n[eval_at: ]\n[multi_error_top_k: 1]\n[auc_mu_weights: ]\n[num_machines: 1]\n[local_listen_port: 12400]\n[time_out: 120]\n[machine_list_filename: ]\n[machines: ]\n[gpu_platform_id: -1]\n[gpu_device_id: -1]\n[gpu_device_id_list: ]\n[gpu_use_dp: 0]\n[num_gpu: 1]\n\nend of parameters\n\npandas_categorical:null\n",
+        "sha256": "721958e2b9f81bea0d863bf5366451bfa4b0ee89aec78b90e690d82c947e6c50"
+      }
+    },
+    {
+      "name": "review_dart_safe_no_drop",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 1.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.3750000000000001
+            ],
+            [
+              0.6249999999999999
+            ]
+          ],
+          "training_predictions": [
+            0.3750000000000001,
+            0.3750000000000001,
+            0.3750000000000001,
+            0.6249999999999999
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.20312500000000006,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": false,
+          "current_iteration": 2,
+          "num_trees": 2,
+          "shrinkage": [
+            1.0,
+            0.25
+          ],
+          "raw": [
+            [
+              0.53125
+            ],
+            [
+              0.53125
+            ],
+            [
+              0.53125
+            ],
+            [
+              0.7187499999999998
+            ]
+          ],
+          "training_predictions": [
+            0.53125,
+            0.53125,
+            0.53125,
+            0.7187499999999998
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.21582031250000003,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.21582031250000003,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_safe_no_drop_last_valid.txt",
+        "sha256": "2f41af13c83e0ed80bf8f759acbb8289bff62793eb5ebb2164afe42047c42cb6"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_safe_no_drop.txt",
+        "sha256": "3a1e3d7b43963d72b9aaaae96c31d4b913baed8fbbfdfb82a73e99ea21ad3663"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_continue_uniform",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": {
+        "model_file": "models/review_dart/review_dart_continue_uniform_initial.txt",
+        "sha256": "151a7c79b916305f94b91cb96f94af354918d352726e003ffaa930459aa4314a"
+      },
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 2,
+          "num_trees": 2,
+          "shrinkage": [
+            1.0,
+            0.25
+          ],
+          "raw": [
+            [
+              0.2812500000000002
+            ],
+            [
+              0.2812500000000002
+            ],
+            [
+              0.2812500000000002
+            ],
+            [
+              0.7187499999999998
+            ]
+          ],
+          "training_predictions": [
+            0.2812500000000002,
+            0.2812500000000002,
+            0.2812500000000002,
+            0.7187499999999998
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.1884765625,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.1884765625,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_continue_uniform_last_valid.txt",
+        "sha256": "cd39fe390cd046eab794a880198a29bf20709b3c150fffea1995ff6640056bf2"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_continue_uniform.txt",
+        "sha256": "cd39fe390cd046eab794a880198a29bf20709b3c150fffea1995ff6640056bf2"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_continue_weighted",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 4,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": false,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": {
+        "model_file": "models/review_dart/review_dart_continue_weighted_initial.txt",
+        "sha256": "d1ff055b73e302391e3e1bcdd8547cff8500f62e4ba910604905daffad6175a0"
+      },
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        []
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 2,
+          "num_trees": 2,
+          "shrinkage": [
+            1.0,
+            0.25
+          ],
+          "raw": [
+            [
+              0.2812500000000002
+            ],
+            [
+              0.2812500000000002
+            ],
+            [
+              0.2812500000000002
+            ],
+            [
+              0.7187499999999998
+            ]
+          ],
+          "training_predictions": [
+            0.2812500000000002,
+            0.2812500000000002,
+            0.2812500000000002,
+            0.7187499999999998
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.1884765625,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.1884765625,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_continue_weighted_last_valid.txt",
+        "sha256": "c260ade26c8f646637c285eb53472c2be6b993743e961c88bce0a012f3e74828"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_continue_weighted.txt",
+        "sha256": "c260ade26c8f646637c285eb53472c2be6b993743e961c88bce0a012f3e74828"
+      },
+      "native_failed_model": null
+    },
+    {
+      "name": "review_dart_multiclass_uniform",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "multiclass",
+        "metric": "multi_logloss",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0,
+        "num_class": 3
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 3,
+          "shrinkage": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "raw": [
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -1.0264805138932778,
+              -0.35981384722661286,
+              -34.53877639128319
+            ]
+          ],
+          "training_predictions": [
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.3392436312341829,
+              0.6607563687658162,
+              9.469052571983876e-16
+            ]
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 3,
+          "shrinkage": [
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "raw": [
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              1.0264805138932778,
+              0.35981384722661286,
+              34.53877639128319
+            ]
+          ],
+          "training_predictions": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "multi_logloss",
+              "metric_value": 1.0986122886681098,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_multiclass_uniform_last_valid.txt",
+        "sha256": "d3b03be4ebcb7cdfe20aadd6086c1c17e2eaa6949d115d42a664af227b61295f"
+      },
+      "native_final_model": null,
+      "native_failed_model": {
+        "text": "tree\nversion=v4\nnum_class=3\nnum_tree_per_iteration=3\nlabel_index=0\nmax_feature_idx=0\nobjective=multiclass num_class:3\nfeature_names=Column_0\nfeature_infos=[0:3]\ntree_sizes=317 317 241\n\nTree=0\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=1.33333\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=0.35981384722661286 1.0264805138932778\nleaf_weight=0.375 0.375\nleaf_count=1 1\ninternal_value=0.693147\ninternal_weight=0.75\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nTree=1\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=1.33333\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=1.0264805138932778 0.35981384722661286\nleaf_weight=0.375 0.375\nleaf_count=1 1\ninternal_value=0.693147\ninternal_weight=0.75\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nTree=2\nnum_leaves=1\nnum_cat=0\nsplit_feature=\nsplit_gain=\nthreshold=\ndecision_type=\nleft_child=\nright_child=\nleaf_value=34.538776391283193\nleaf_weight=0\nleaf_count=4\ninternal_value=\ninternal_weight=\ninternal_count=\nis_linear=0\nshrinkage=-1\n\n\nend of trees\n\nfeature_importances:\nColumn_0=2\n\nparameters:\n[boosting: dart]\n[objective: multiclass]\n[metric: multi_logloss]\n[tree_learner: serial]\n[device_type: cpu]\n[data_sample_strategy: bagging]\n[data: ]\n[valid: ]\n[num_iterations: 100]\n[learning_rate: 0.25]\n[num_leaves: 3]\n[num_threads: 1]\n[seed: 0]\n[deterministic: 1]\n[force_col_wise: 1]\n[force_row_wise: 0]\n[histogram_pool_size: -1]\n[max_depth: -1]\n[min_data_in_leaf: 1]\n[min_sum_hessian_in_leaf: 0.001]\n[bagging_fraction: 0.5]\n[pos_bagging_fraction: 1]\n[neg_bagging_fraction: 1]\n[bagging_freq: 1]\n[bagging_seed: 11]\n[bagging_by_query: 0]\n[feature_fraction: 1]\n[feature_fraction_bynode: 1]\n[feature_fraction_seed: 0]\n[extra_trees: 0]\n[extra_seed: 0]\n[early_stopping_round: 0]\n[early_stopping_min_delta: 0]\n[first_metric_only: 0]\n[max_delta_step: 0]\n[lambda_l1: 0]\n[lambda_l2: 0]\n[linear_lambda: 0]\n[min_gain_to_split: 0]\n[drop_rate: 1]\n[max_drop: 50]\n[skip_drop: 0]\n[xgboost_dart_mode: 0]\n[uniform_drop: 1]\n[drop_seed: 0]\n[top_rate: 0.2]\n[other_rate: 0.1]\n[min_data_per_group: 100]\n[max_cat_threshold: 32]\n[cat_l2: 10]\n[cat_smooth: 10]\n[max_cat_to_onehot: 4]\n[top_k: 20]\n[monotone_constraints: ]\n[monotone_constraints_method: basic]\n[monotone_penalty: 0]\n[feature_contri: ]\n[forcedsplits_filename: ]\n[refit_decay_rate: 0.9]\n[cegb_tradeoff: 1]\n[cegb_penalty_split: 0]\n[cegb_penalty_feature_lazy: ]\n[cegb_penalty_feature_coupled: ]\n[path_smooth: 0]\n[interaction_constraints: ]\n[verbosity: -1]\n[saved_feature_importance_type: 0]\n[use_quantized_grad: 0]\n[num_grad_quant_bins: 4]\n[quant_train_renew_leaf: 0]\n[stochastic_rounding: 1]\n[linear_tree: 0]\n[max_bin: 15]\n[max_bin_by_feature: ]\n[min_data_in_bin: 1]\n[bin_construct_sample_cnt: 200000]\n[data_random_seed: 0]\n[is_enable_sparse: 1]\n[enable_bundle: 1]\n[use_missing: 1]\n[zero_as_missing: 0]\n[feature_pre_filter: 0]\n[pre_partition: 0]\n[two_round: 0]\n[header: 0]\n[label_column: ]\n[weight_column: ]\n[group_column: ]\n[ignore_column: ]\n[categorical_feature: ]\n[forcedbins_filename: ]\n[precise_float_parser: 0]\n[parser_config_file: ]\n[objective_seed: 0]\n[num_class: 3]\n[is_unbalance: 0]\n[scale_pos_weight: 1]\n[sigmoid: 1]\n[boost_from_average: 1]\n[reg_sqrt: 0]\n[alpha: 0.9]\n[fair_c: 1]\n[poisson_max_delta_step: 0.7]\n[tweedie_variance_power: 1.5]\n[lambdarank_truncation_level: 30]\n[lambdarank_norm: 1]\n[label_gain: ]\n[lambdarank_position_bias_regularization: 0]\n[eval_at: ]\n[multi_error_top_k: 1]\n[auc_mu_weights: ]\n[num_machines: 1]\n[local_listen_port: 12400]\n[time_out: 120]\n[machine_list_filename: ]\n[machines: ]\n[gpu_platform_id: -1]\n[gpu_device_id: -1]\n[gpu_device_id_list: ]\n[gpu_use_dp: 0]\n[num_gpu: 1]\n\nend of parameters\n\npandas_categorical:null\n",
+        "sha256": "a6699fad6d91667ac11ba982c18741e65646019bd58c044fa3d2a0d3e7b48181"
+      }
+    },
+    {
+      "name": "review_dart_multiclass_weighted",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "multiclass",
+        "metric": "multi_logloss",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": false,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0,
+        "num_class": 3
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "initial_model": null,
+      "native_attempts": 2,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": false,
+          "current_iteration": 1,
+          "num_trees": 3,
+          "shrinkage": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "raw": [
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -0.35981384722661286,
+              -1.0264805138932778,
+              -34.53877639128319
+            ],
+            [
+              -1.0264805138932778,
+              -0.35981384722661286,
+              -34.53877639128319
+            ]
+          ],
+          "training_predictions": [
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.6607563687658162,
+              0.3392436312341829,
+              9.469052571983876e-16
+            ],
+            [
+              0.3392436312341829,
+              0.6607563687658162,
+              9.469052571983876e-16
+            ]
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        },
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 3,
+          "shrinkage": [
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "raw": [
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              0.35981384722661286,
+              1.0264805138932778,
+              34.53877639128319
+            ],
+            [
+              1.0264805138932778,
+              0.35981384722661286,
+              34.53877639128319
+            ]
+          ],
+          "training_predictions": [
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ],
+            [
+              0.3333333333333333,
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "multi_logloss",
+              "metric_value": 1.0986122886681098,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "multi_logloss",
+              "metric_value": 0.5810367535187397,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_multiclass_weighted_last_valid.txt",
+        "sha256": "6151bd8bdbffb1e7673a61516d20b8e6248431859e2a634199fa77be62bd860a"
+      },
+      "native_final_model": null,
+      "native_failed_model": {
+        "text": "tree\nversion=v4\nnum_class=3\nnum_tree_per_iteration=3\nlabel_index=0\nmax_feature_idx=0\nobjective=multiclass num_class:3\nfeature_names=Column_0\nfeature_infos=[0:3]\ntree_sizes=317 317 241\n\nTree=0\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=1.33333\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=0.35981384722661286 1.0264805138932778\nleaf_weight=0.375 0.375\nleaf_count=1 1\ninternal_value=0.693147\ninternal_weight=0.75\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nTree=1\nnum_leaves=2\nnum_cat=0\nsplit_feature=0\nsplit_gain=1.33333\nthreshold=2.5000000000000004\ndecision_type=2\nleft_child=-1\nright_child=-2\nleaf_value=1.0264805138932778 0.35981384722661286\nleaf_weight=0.375 0.375\nleaf_count=1 1\ninternal_value=0.693147\ninternal_weight=0.75\ninternal_count=2\nis_linear=0\nshrinkage=-1\n\n\nTree=2\nnum_leaves=1\nnum_cat=0\nsplit_feature=\nsplit_gain=\nthreshold=\ndecision_type=\nleft_child=\nright_child=\nleaf_value=34.538776391283193\nleaf_weight=0\nleaf_count=4\ninternal_value=\ninternal_weight=\ninternal_count=\nis_linear=0\nshrinkage=-1\n\n\nend of trees\n\nfeature_importances:\nColumn_0=2\n\nparameters:\n[boosting: dart]\n[objective: multiclass]\n[metric: multi_logloss]\n[tree_learner: serial]\n[device_type: cpu]\n[data_sample_strategy: bagging]\n[data: ]\n[valid: ]\n[num_iterations: 100]\n[learning_rate: 0.25]\n[num_leaves: 3]\n[num_threads: 1]\n[seed: 0]\n[deterministic: 1]\n[force_col_wise: 1]\n[force_row_wise: 0]\n[histogram_pool_size: -1]\n[max_depth: -1]\n[min_data_in_leaf: 1]\n[min_sum_hessian_in_leaf: 0.001]\n[bagging_fraction: 0.5]\n[pos_bagging_fraction: 1]\n[neg_bagging_fraction: 1]\n[bagging_freq: 1]\n[bagging_seed: 11]\n[bagging_by_query: 0]\n[feature_fraction: 1]\n[feature_fraction_bynode: 1]\n[feature_fraction_seed: 0]\n[extra_trees: 0]\n[extra_seed: 0]\n[early_stopping_round: 0]\n[early_stopping_min_delta: 0]\n[first_metric_only: 0]\n[max_delta_step: 0]\n[lambda_l1: 0]\n[lambda_l2: 0]\n[linear_lambda: 0]\n[min_gain_to_split: 0]\n[drop_rate: 1]\n[max_drop: 50]\n[skip_drop: 0]\n[xgboost_dart_mode: 0]\n[uniform_drop: 0]\n[drop_seed: 0]\n[top_rate: 0.2]\n[other_rate: 0.1]\n[min_data_per_group: 100]\n[max_cat_threshold: 32]\n[cat_l2: 10]\n[cat_smooth: 10]\n[max_cat_to_onehot: 4]\n[top_k: 20]\n[monotone_constraints: ]\n[monotone_constraints_method: basic]\n[monotone_penalty: 0]\n[feature_contri: ]\n[forcedsplits_filename: ]\n[refit_decay_rate: 0.9]\n[cegb_tradeoff: 1]\n[cegb_penalty_split: 0]\n[cegb_penalty_feature_lazy: ]\n[cegb_penalty_feature_coupled: ]\n[path_smooth: 0]\n[interaction_constraints: ]\n[verbosity: -1]\n[saved_feature_importance_type: 0]\n[use_quantized_grad: 0]\n[num_grad_quant_bins: 4]\n[quant_train_renew_leaf: 0]\n[stochastic_rounding: 1]\n[linear_tree: 0]\n[max_bin: 15]\n[max_bin_by_feature: ]\n[min_data_in_bin: 1]\n[bin_construct_sample_cnt: 200000]\n[data_random_seed: 0]\n[is_enable_sparse: 1]\n[enable_bundle: 1]\n[use_missing: 1]\n[zero_as_missing: 0]\n[feature_pre_filter: 0]\n[pre_partition: 0]\n[two_round: 0]\n[header: 0]\n[label_column: ]\n[weight_column: ]\n[group_column: ]\n[ignore_column: ]\n[categorical_feature: ]\n[forcedbins_filename: ]\n[precise_float_parser: 0]\n[parser_config_file: ]\n[objective_seed: 0]\n[num_class: 3]\n[is_unbalance: 0]\n[scale_pos_weight: 1]\n[sigmoid: 1]\n[boost_from_average: 1]\n[reg_sqrt: 0]\n[alpha: 0.9]\n[fair_c: 1]\n[poisson_max_delta_step: 0.7]\n[tweedie_variance_power: 1.5]\n[lambdarank_truncation_level: 30]\n[lambdarank_norm: 1]\n[label_gain: ]\n[lambdarank_position_bias_regularization: 0]\n[eval_at: ]\n[multi_error_top_k: 1]\n[auc_mu_weights: ]\n[num_machines: 1]\n[local_listen_port: 12400]\n[time_out: 120]\n[machine_list_filename: ]\n[machines: ]\n[gpu_platform_id: -1]\n[gpu_device_id: -1]\n[gpu_device_id_list: ]\n[gpu_use_dp: 0]\n[num_gpu: 1]\n\nend of parameters\n\npandas_categorical:null\n",
+        "sha256": "bab8fe07834c4f61240bd7718851bc9a73d70530898e7888b36fc4b65f684cbf"
+      }
+    },
+    {
+      "name": "review_dart_initial_constant",
+      "params": {
+        "verbosity": -1,
+        "device_type": "cpu",
+        "tree_learner": "serial",
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "seed": 0,
+        "data_random_seed": 0,
+        "feature_fraction_seed": 0,
+        "bagging_seed": 11,
+        "drop_seed": 0,
+        "extra_seed": 0,
+        "objective_seed": 0,
+        "num_leaves": 3,
+        "max_depth": -1,
+        "learning_rate": 0.25,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "min_sum_hessian_in_leaf": 0.001,
+        "max_bin": 15,
+        "feature_pre_filter": false,
+        "boost_from_average": true,
+        "boosting": "dart",
+        "objective": "regression",
+        "metric": "l2",
+        "bagging_fraction": 0.5,
+        "bagging_freq": 1,
+        "uniform_drop": true,
+        "xgboost_dart_mode": false,
+        "drop_rate": 1.0,
+        "skip_drop": 0.0
+      },
+      "rows": [
+        [
+          0.0
+        ],
+        [
+          1.0
+        ],
+        [
+          2.0
+        ],
+        [
+          3.0
+        ]
+      ],
+      "labels": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "initial_model": null,
+      "native_attempts": 1,
+      "rust_attempts": 6,
+      "bag_rows": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "native_empty_bag_executed": false,
+      "native_steps": [
+        {
+          "finished": true,
+          "current_iteration": 1,
+          "num_trees": 1,
+          "shrinkage": [
+            1.0
+          ],
+          "raw": [
+            [
+              2.0
+            ],
+            [
+              2.0
+            ],
+            [
+              2.0
+            ],
+            [
+              2.0
+            ]
+          ],
+          "training_predictions": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "evaluation": [
+            {
+              "dataset_name": "training",
+              "metric_name": "l2",
+              "metric_value": 0.0,
+              "maximize": false,
+              "metric_std_dev": null
+            },
+            {
+              "dataset_name": "valid",
+              "metric_name": "l2",
+              "metric_value": 0.0,
+              "maximize": false,
+              "metric_std_dev": null
+            }
+          ]
+        }
+      ],
+      "last_valid_model": {
+        "model_file": "models/review_dart/review_dart_initial_constant_last_valid.txt",
+        "sha256": "0206c65c7f0fa6fc90bdd26618c9f76766dc1dcf76823aee6dca3faade4c9eb6"
+      },
+      "native_final_model": {
+        "model_file": "models/review_dart/review_dart_initial_constant.txt",
+        "sha256": "0206c65c7f0fa6fc90bdd26618c9f76766dc1dcf76823aee6dca3faade4c9eb6"
+      },
+      "native_failed_model": null
+    }
+  ],
+  "provenance": {
+    "source": {
+      "url": "https://github.com/lightgbm-org/LightGBM",
+      "commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+      "version": "4.7.0.99",
+      "tree": "a9b83f5afaecffbbccfc1a043d519bac6b6b25c8",
+      "license": "MIT",
+      "license_file": "references/LightGBM/LICENSE",
+      "license_sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+    },
+    "compiler": {
+      "path": "/usr/bin/clang++",
+      "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+      "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+      "selected_toolchain_path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+      "selected_toolchain_sha256": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9"
+    },
+    "producer_sha256": "f2375893ae147f4df1e4056f406ff463122fb71d876235a1a7f7eb4cc36e822c",
+    "python_sources": {
+      "basic.py": "5f5adf269636e1b694b6b81764d6e5beec9a76f8f8a366b0a5d4c8a644e9ab4f"
+    },
+    "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+    "library": {
+      "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+      "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+      "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+      "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+    },
+    "native_sources": {
+      "src/boosting/dart.hpp": "c4132f997399a35329d567e70fcd8aa1522be0debfec3936b9954e3a45e7f2c7",
+      "src/boosting/gbdt.cpp": "3157b7e3d8beaa0fb57c2e604f0a50b90c4380f36c8ec773c4aca8c68bd465d7",
+      "src/boosting/bagging.hpp": "8feae67b152c4853b80181841625fb34cf252ce9d020f9026654229cefe57d49",
+      "include/LightGBM/utils/random.h": "42a32ffe667983d6b1eab2c149ebdc0f17a77e09e56633db8f6fb6276f19c5a9"
+    }
+  },
+  "checked_departure": "Native DART::TrainOneIter returns on GBDT no-split before Normalize. Safe nonempty-bag evidence retains negative shrinkage and changed training scores; validation scores remain at the completed prefix. Rust restores dropped trees and training scores, leaves validation unchanged, and does not call DartState::finish. Rust expected failed-round state is the actual native last_valid_model, NOT the native failed-round model. Dropout and sampler RNG draws remain consumed. Seed-4 second empty native learner input is excluded; only its successful prefix runs."
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "library": {
+    "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+  },
+  "rust_binary_sha256": "7bfaa0989d90937f69a2a6e17030714aeb8c5b91cfd2afeffbd5e99a82bae169",
+  "kind": "Rust-trained model interoperability, not a training-quality waiver",
+  "cases": [
+    {
+      "name": "regression",
+      "model_sha256": "85078d17a893b0fa3c02e94ab1d1f83239dff84051140e929295b43591e4a74e",
+      "rows": 8,
+      "rust_predictions": [
+        -0.7837018462518847,
+        -0.544636998620505,
+        -0.544636998620505,
+        0.03554312447085986,
+        0.9525887132622302,
+        1.5130154501491535,
+        1.5130154501491535,
+        1.8588130955894782
+      ],
+      "native_predictions": [
+        -0.7837018462518847,
+        -0.544636998620505,
+        -0.544636998620505,
+        0.03554312447085986,
+        0.9525887132622302,
+        1.5130154501491535,
+        1.5130154501491535,
+        1.8588130955894782
+      ],
+      "max_absolute_difference": 0.0
+    },
+    {
+      "name": "binary",
+      "model_sha256": "c20232f74dd56027c23110872030a8831bb1b00064423c3c08171de91deb3a3b",
+      "rows": 8,
+      "rust_predictions": [
+        0.17926923885828328,
+        0.17926923885828328,
+        0.17926923885828328,
+        0.17926923885828328,
+        0.8207307611417167,
+        0.8207307611417167,
+        0.8207307611417167,
+        0.8207307611417167
+      ],
+      "native_predictions": [
+        0.17926923885828328,
+        0.17926923885828328,
+        0.17926923885828328,
+        0.17926923885828328,
+        0.8207307611417167,
+        0.8207307611417167,
+        0.8207307611417167,
+        0.8207307611417167
+      ],
+      "max_absolute_difference": 0.0
+    }
+  ]
+}

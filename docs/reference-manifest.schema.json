@@ -1,0 +1,516 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pinned CPU reference identity and evidence",
+  "$defs": {
+    "family_build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["compile_command", "link_command", "source_sha256", "shared_header_sha256", "compile_commands_sha256", "driver_object_sha256", "loaded_library_sha256", "object_sha256"],
+      "properties": {
+        "compile_command": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "link_command": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "shared_header_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "compile_commands_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "driver_object_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "loaded_library_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "object_sha256": {"type": "array", "minItems": 1, "items": {
+          "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+          "properties": {"path": {"type": "string", "pattern": "^target/oracle/build/"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+        }}
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "const": "https://github.com/lightgbm-org/LightGBM"
+        },
+        "commit": {
+          "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+        },
+        "version": {
+          "const": "4.7.0.99"
+        },
+        "tree": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "license": {
+          "const": "MIT"
+        },
+        "license_file": {
+          "type": "string"
+        },
+        "license_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "url",
+        "commit",
+        "version",
+        "tree",
+        "license",
+        "license_file",
+        "license_sha256"
+      ]
+    },
+    "license_provenance": {
+      "type": "object",
+      "properties": {
+        "notice_file": {
+          "const": "THIRD_PARTY_NOTICES.md"
+        },
+        "upstream_license_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "notice_file",
+        "upstream_license_sha256"
+      ]
+    },
+    "precision": {
+      "type": "object",
+      "properties": {
+        "label_t": {
+          "const": "f32"
+        },
+        "weight_t": {
+          "const": "f32"
+        },
+        "score_t": {
+          "const": "f32"
+        },
+        "hist_t": {
+          "const": "f64"
+        },
+        "prediction_t": {
+          "const": "f64"
+        },
+        "macros": {
+          "type": "object",
+          "properties": {
+            "SCORE_T_USE_DOUBLE": {
+              "const": false
+            },
+            "LABEL_T_USE_DOUBLE": {
+              "const": false
+            }
+          },
+          "required": [
+            "SCORE_T_USE_DOUBLE",
+            "LABEL_T_USE_DOUBLE"
+          ]
+        }
+      },
+      "required": [
+        "label_t",
+        "weight_t",
+        "score_t",
+        "hist_t",
+        "prediction_t",
+        "macros"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "const": "cpu"
+        },
+        "histogram_mode": {
+          "const": "force_col_wise"
+        },
+        "deterministic": {
+          "const": true
+        },
+        "threads": {
+          "const": 1
+        },
+        "seeds": {
+          "type": "object",
+          "minProperties": 7,
+          "additionalProperties": {
+            "const": 0
+          }
+        },
+        "rng_fixture_seeds": {
+          "const": [
+            0,
+            1,
+            42
+          ]
+        }
+      },
+      "required": [
+        "device",
+        "histogram_mode",
+        "deterministic",
+        "threads",
+        "seeds",
+        "rng_fixture_seeds"
+      ]
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "compiler": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "version": {
+              "type": "string"
+            },
+            "selected_toolchain_path": {
+              "type": "string"
+            },
+            "selected_toolchain_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "version",
+            "selected_toolchain_path",
+            "selected_toolchain_sha256"
+          ]
+        },
+        "cmake_version": {
+          "type": "string"
+        },
+        "ninja_version": {
+          "type": "string"
+        },
+        "configure_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "compile_commands_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "representative_compile_command": {
+          "type": "string"
+        },
+        "openmp": {
+          "const": false
+        },
+        "gpu": {
+          "const": false
+        },
+        "cuda": {
+          "const": false
+        },
+        "rocm": {
+          "const": false
+        },
+        "mpi": {
+          "const": false
+        }
+      },
+      "required": [
+        "compiler",
+        "cmake_version",
+        "ninja_version",
+        "configure_flags",
+        "compile_commands_sha256",
+        "representative_compile_command",
+        "openmp",
+        "gpu",
+        "cuda",
+        "rocm",
+        "mpi"
+      ]
+    },
+    "loaded_library": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "loaded_path": {
+          "type": "string"
+        },
+        "loaded_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "verification": {
+          "const": "dladdr(LGBM_GetLastError) + SHA-256"
+        },
+        "linked_libraries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "loaded_path",
+        "loaded_sha256",
+        "verification",
+        "linked_libraries"
+      ]
+    },
+    "driver": {
+      "type": "object",
+      "properties": {
+        "shared_header_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "compile_command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "link_command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "executable_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "compile_command",
+        "link_command",
+        "source_sha256",
+        "shared_header_sha256",
+        "executable_sha256"
+      ]
+    },
+    "extended_driver": {
+      "allOf": [
+        {"$ref": "#/properties/driver"},
+        {
+          "type": "object",
+          "required": ["loaded_library_sha256"],
+          "properties": {
+            "loaded_library_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      ]
+    },
+    "native_helpers": {
+      "type": "object",
+      "required": ["data_feature_info", "sampling_driver", "refit_driver", "bundling_driver"],
+      "additionalProperties": {
+        "type": "object",
+        "required": ["compile_command", "link_command", "source_sha256", "executable_sha256", "loaded_library_sha256", "object_sha256"],
+        "properties": {
+          "compile_command": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "link_command": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "executable_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "loaded_library_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "object_sha256": {"type": "array", "minItems": 1, "items": {
+            "type": "object", "required": ["path", "sha256"],
+            "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+          }}
+        }
+      }
+    },
+    "family_builds": {
+      "type": "object", "additionalProperties": false,
+      "required": ["metric_edges", "empty_queries"],
+      "properties": {
+        "metric_edges": {"$ref": "#/$defs/family_build"},
+        "empty_queries": {"$ref": "#/$defs/family_build"}
+      }
+    },
+    "sort_headers": {
+      "type": "object", "additionalProperties": false, "required": ["directory", "sha256"],
+      "properties": {
+        "directory": {"type": "string", "minLength": 1},
+        "sha256": {
+          "type": "object", "additionalProperties": false,
+          "required": ["sort.h", "make_heap.h", "sift_down.h", "pop_heap.h", "push_heap.h", "sort_heap.h"],
+          "properties": {
+            "sort.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "make_heap.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "sift_down.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "pop_heap.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "push_heap.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "sort_heap.h": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      }
+    },
+    "host": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "machine": {
+          "type": "string"
+        },
+        "cpu": {
+          "type": "string"
+        },
+        "logical_cpus": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "memory_bytes": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "platform",
+        "machine",
+        "cpu",
+        "logical_cpus",
+        "memory_bytes"
+      ]
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "lockfile": {
+          "const": "tools/oracle/uv.lock"
+        },
+        "lockfile_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "python": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string"
+            },
+            "executable": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "version",
+            "executable"
+          ]
+        },
+        "submodules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "lockfile",
+        "lockfile_sha256",
+        "python",
+        "submodules"
+      ]
+    },
+    "reference_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      },
+      "minItems": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(tests/fixtures/|tools/oracle/|docs/|licenses/|THIRD_PARTY_NOTICES\\.md$)"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      },
+      "minItems": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "generated_at_utc",
+    "source",
+    "license_provenance",
+    "precision",
+    "execution",
+    "build",
+    "loaded_library",
+    "driver",
+    "extended_driver",
+    "native_helpers",
+    "family_builds",
+    "sort_headers",
+    "host",
+    "dependencies",
+    "reference_sources",
+    "artifacts",
+    "limitations"
+  ]
+}

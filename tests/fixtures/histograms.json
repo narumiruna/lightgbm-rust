@@ -1,0 +1,152 @@
+{
+  "cases": [
+    {
+      "bins": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "expected_split": {
+        "default_left": true,
+        "gain": 31.999999999999993,
+        "left_count": 4,
+        "left_output": 1.4999999999999998,
+        "left_sum_gradient": -6,
+        "left_sum_hessian": 4,
+        "right_count": 4,
+        "right_output": -2.4999999999999996,
+        "right_sum_gradient": 10,
+        "right_sum_hessian": 4,
+        "threshold": 1
+      },
+      "gradients": [
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hessians": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "histogram": [
+        [
+          -5,
+          2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "name": "numeric_split",
+      "params": {
+        "lambda_l1": 0,
+        "lambda_l2": 0,
+        "max_delta_step": 0,
+        "min_data_in_leaf": 1,
+        "min_gain_to_split": 0,
+        "min_sum_hessian_in_leaf": 0.001,
+        "path_smooth": 0
+      }
+    },
+    {
+      "bins": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "expected_split": {
+        "default_left": true,
+        "gain": 25.422222222222217,
+        "left_count": 4,
+        "left_output": 1.1999999999999997,
+        "left_sum_gradient": -6,
+        "left_sum_hessian": 4,
+        "right_count": 4,
+        "right_output": -1.9999999999999996,
+        "right_sum_gradient": 10,
+        "right_sum_hessian": 4,
+        "threshold": 1
+      },
+      "gradients": [
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "hessians": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "histogram": [
+        [
+          -5,
+          2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "name": "numeric_split_l2",
+      "params": {
+        "lambda_l1": 0,
+        "lambda_l2": 1,
+        "max_delta_step": 0,
+        "min_data_in_leaf": 1,
+        "min_gain_to_split": 0,
+        "min_sum_hessian_in_leaf": 0.001,
+        "path_smooth": 0
+      }
+    }
+  ],
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+}

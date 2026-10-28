@@ -1,0 +1,398 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compiled LightGBM primitive evidence",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "seed": {
+                "type": "integer"
+              },
+              "lower": {
+                "type": "integer"
+              },
+              "upper": {
+                "type": "integer"
+              },
+              "next_short": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "next_int": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "next_float": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "sample_n": {
+                "type": "integer"
+              },
+              "sample_k": {
+                "type": "integer"
+              },
+              "sample": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "sample_dense": {
+                "type": "object",
+                "properties": {
+                  "n": {
+                    "type": "integer"
+                  },
+                  "k": {
+                    "type": "integer"
+                  },
+                  "indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                },
+                "required": [
+                  "n",
+                  "k",
+                  "indices"
+                ],
+                "additionalProperties": false
+              },
+              "mixed": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "method": {
+                      "enum": [
+                        "NextShort",
+                        "NextFloat",
+                        "NextInt"
+                      ]
+                    },
+                    "value": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "method",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "name",
+              "seed",
+              "lower",
+              "upper",
+              "next_short",
+              "next_int",
+              "next_float",
+              "sample_n",
+              "sample_k",
+              "sample",
+              "sample_dense",
+              "mixed"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "sample_values": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "total_sample_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "probe_values": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "is_categorical": {
+                "type": "boolean"
+              },
+              "params": {
+                "type": "object"
+              },
+              "num_bin": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "upper_bounds": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "enum": [
+                        "Infinity",
+                        "-Infinity",
+                        "NaN"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "missing_type": {
+                "enum": [
+                  "None",
+                  "Zero",
+                  "NaN"
+                ]
+              },
+              "default_bin": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "most_freq_bin": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "value_bins": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "required": [
+              "name",
+              "sample_values",
+              "total_sample_count",
+              "probe_values",
+              "is_categorical",
+              "params",
+              "num_bin",
+              "upper_bounds",
+              "missing_type",
+              "default_bin",
+              "most_freq_bin",
+              "value_bins"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "objective": {
+                "enum": [
+                  "regression",
+                  "binary"
+                ]
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "weights": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "scores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "gradients": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "hessians": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "init_score": {
+                "type": "number"
+              },
+              "params": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "name",
+              "objective",
+              "labels",
+              "scores",
+              "gradients",
+              "hessians",
+              "init_score",
+              "params"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "bins": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "gradients": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "hessians": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "histogram": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              },
+              "params": {
+                "type": "object"
+              },
+              "expected_split": {
+                "type": "object",
+                "properties": {
+                  "threshold": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "left_count": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "right_count": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "left_output": {
+                    "type": "number"
+                  },
+                  "right_output": {
+                    "type": "number"
+                  },
+                  "gain": {
+                    "type": "number"
+                  },
+                  "left_sum_gradient": {
+                    "type": "number"
+                  },
+                  "left_sum_hessian": {
+                    "type": "number"
+                  },
+                  "right_sum_gradient": {
+                    "type": "number"
+                  },
+                  "right_sum_hessian": {
+                    "type": "number"
+                  },
+                  "default_left": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "threshold",
+                  "left_count",
+                  "right_count",
+                  "left_output",
+                  "right_output",
+                  "gain",
+                  "left_sum_gradient",
+                  "left_sum_hessian",
+                  "right_sum_gradient",
+                  "right_sum_hessian",
+                  "default_left"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "bins",
+              "gradients",
+              "hessians",
+              "histogram",
+              "params",
+              "expected_split"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases"
+  ],
+  "additionalProperties": false
+}

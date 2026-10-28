@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "cases": [
+    {
+      "name": "integers",
+      "rows": [
+        -3.0,
+        0.0,
+        1.0,
+        5.0
+      ],
+      "categorical": false,
+      "expected": "[-3:5]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "decimal",
+      "rows": [
+        -0.1,
+        0.7
+      ],
+      "categorical": false,
+      "expected": "[-0.10000000000000001:0.69999999999999996]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "scientific_small",
+      "rows": [
+        1e-05,
+        2e-05
+      ],
+      "categorical": false,
+      "expected": "[1.0000000000000001e-05:2.0000000000000002e-05]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "fixed_small",
+      "rows": [
+        0.0001,
+        0.0002
+      ],
+      "categorical": false,
+      "expected": "[0.0001:0.00020000000000000001]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "fixed_large",
+      "rows": [
+        1e+16,
+        2e+16
+      ],
+      "categorical": false,
+      "expected": "[10000000000000000:20000000000000000]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "scientific_large",
+      "rows": [
+        1e+17,
+        2e+17
+      ],
+      "categorical": false,
+      "expected": "[1e+17:2e+17]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "all_nan",
+      "rows": [
+        null,
+        null
+      ],
+      "categorical": false,
+      "expected": "[0:0]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "zeros",
+      "rows": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "categorical": false,
+      "expected": "[0:0]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "adjacent",
+      "rows": [
+        1.0,
+        1.0000000000000002,
+        1.0000000000000004
+      ],
+      "categorical": false,
+      "expected": "[1.0000000000000004:1.0000000000000004]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "negative_and_implicit_zero",
+      "rows": [
+        -3.0,
+        -1.0,
+        0.0
+      ],
+      "categorical": false,
+      "expected": "[-3:0]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "infinite_extrema",
+      "rows": [
+        "-Infinity",
+        "Infinity",
+        null,
+        0.0
+      ],
+      "categorical": false,
+      "expected": "[-inf:inf]",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "categories",
+      "rows": [
+        0.0,
+        1.0,
+        1.0,
+        2.0,
+        -1.0,
+        null
+      ],
+      "categorical": true,
+      "expected": "-1:1:0:2",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "categories_all_missing",
+      "rows": [
+        null,
+        null
+      ],
+      "categorical": true,
+      "expected": "",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    },
+    {
+      "name": "categories_all_negative",
+      "rows": [
+        -1.0,
+        -2.0
+      ],
+      "categorical": true,
+      "expected": "",
+      "params": {
+        "max_bin": 63,
+        "min_data_in_bin": 1,
+        "min_split_data": 1,
+        "pre_filter": false,
+        "use_missing": true,
+        "zero_as_missing": false,
+        "forced_upper_bounds": []
+      }
+    }
+  ]
+}

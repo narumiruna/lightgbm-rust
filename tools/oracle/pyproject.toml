@@ -1,0 +1,16 @@
+[project]
+name = "lightgbm-rust-reference-oracle"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+  "cmake==3.31.6",
+  "ninja==1.11.1.4",
+  "numpy==2.2.6",
+  "narwhals==2.10.1",
+  "scipy==1.15.3",
+  "jsonschema==4.23.0",
+  "scikit-learn==1.6.1",
+]
+
+[tool.uv]
+package = false

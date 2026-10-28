@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "weights": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "initial_scores": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "num_class": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "binning": {"$ref": "#/$defs/binning_input"},
+          "expected": {
+            "type": "object",
+            "properties": {
+              "binning": {"$ref": "#/$defs/binning_output"},
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "weights": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "query_boundaries": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "query_weights": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "positions": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "position_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "initial_scores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "labels"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "labels",
+          "num_class",
+          "expected"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "rows": {"type": "array", "items": {"type": "array", "items": {"type": ["number", "null"]}}},
+    "bins": {"type": "array", "items": {"type": "array", "items": {"type": "integer", "minimum": 0}}},
+    "binning_input": {
+      "type": "object",
+      "required": ["rows", "validation_rows", "forced_upper_bounds", "max_bin_by_feature", "zero_as_missing"],
+      "properties": {
+        "rows": {"$ref": "#/$defs/rows"},
+        "validation_rows": {"$ref": "#/$defs/rows"},
+        "forced_upper_bounds": {"type": "array", "items": {"type": "array", "items": {"type": "number"}}},
+        "max_bin_by_feature": {"type": "array", "items": {"type": "integer", "minimum": 2}},
+        "zero_as_missing": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "binning_output": {
+      "type": "object",
+      "required": ["training_bins", "validation_bins", "upper_bounds"],
+      "properties": {
+        "training_bins": {"$ref": "#/$defs/bins"},
+        "validation_bins": {"$ref": "#/$defs/bins"},
+        "upper_bounds": {"type": "array", "items": {"type": "array", "items": {"anyOf": [{"type": "number"}, {"enum": ["Infinity", "-Infinity", "NaN"]}]}}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

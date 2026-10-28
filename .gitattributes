@@ -1,0 +1,7 @@
+# Use consistent source line endings on every native checkout.
+* text=auto eol=lf
+# Fixture hashes and serialized model sizes refer to exact producer bytes.
+tests/fixtures/** -text
+tests/fixtures/models/** -whitespace
+# Keep the full upstream license unchanged.
+licenses/LLVM.txt -text -whitespace

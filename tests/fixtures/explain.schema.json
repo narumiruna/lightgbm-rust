@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "model_file": {
+            "type": "string",
+            "pattern": "^models/[^/]+\\.txt$"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "params": {
+            "type": "object"
+          },
+          "raw": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "contributions": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "importance_split": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "importance_gain": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "sparse": {
+            "type": "object",
+            "required": [
+              "indptr",
+              "indices",
+              "data",
+              "shape"
+            ],
+            "properties": {
+              "indptr": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "indices": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "model_file",
+          "rows",
+          "params",
+          "raw",
+          "contributions",
+          "importance_split",
+          "importance_gain"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "expected_errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "model_file": {
+            "type": "string"
+          },
+          "expected_error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "model_file",
+          "expected_error"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "gain_precision": {
+      "type": "object",
+      "properties": {
+        "storage_type": {
+          "const": "f32"
+        },
+        "accumulation_type": {
+          "const": "f64"
+        },
+        "source_file": {
+          "const": "src/io/tree.cpp"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "parser": {
+          "const": "CommonC::StringToArrayFast<float>"
+        },
+        "example_model_file": {
+          "type": "string"
+        },
+        "native_loaded_gains": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "serialized_gain_lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "storage_type",
+        "accumulation_type",
+        "source_file",
+        "source_sha256",
+        "parser",
+        "example_model_file",
+        "native_loaded_gains",
+        "serialized_gain_lines"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases",
+    "expected_errors",
+    "gain_precision"
+  ],
+  "additionalProperties": false
+}

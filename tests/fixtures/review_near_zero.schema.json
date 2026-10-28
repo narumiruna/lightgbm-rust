@@ -1,0 +1,580 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "tree": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_file": {
+          "type": "string"
+        },
+        "license_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "commit",
+        "version",
+        "tree",
+        "license",
+        "license_file",
+        "license_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "library": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "loaded_path": {
+          "type": "string"
+        },
+        "loaded_sha256": {
+          "type": "string"
+        },
+        "verification": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "loaded_path",
+        "loaded_sha256",
+        "verification"
+      ],
+      "additionalProperties": false
+    },
+    "compiler": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "selected_toolchain_path": {
+          "type": "string"
+        },
+        "selected_toolchain_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "version",
+        "selected_toolchain_path",
+        "selected_toolchain_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "compile_commands_sha256": {
+      "type": "string"
+    },
+    "producer_sha256": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "object",
+      "properties": {
+        "include/LightGBM/dataset.h": {
+          "type": "string"
+        },
+        "include/LightGBM/feature_group.h": {
+          "type": "string"
+        },
+        "include/LightGBM/bin.h": {
+          "type": "string"
+        },
+        "include/LightGBM/meta.h": {
+          "type": "string"
+        },
+        "src/c_api.cpp": {
+          "type": "string"
+        },
+        "src/boosting/gbdt.cpp": {
+          "type": "string"
+        },
+        "src/application/predictor.hpp": {
+          "type": "string"
+        },
+        "src/objective/regression_objective.hpp": {
+          "type": "string"
+        },
+        "python-package/lightgbm/basic.py": {
+          "type": "string"
+        },
+        "python-package/lightgbm/engine.py": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "include/LightGBM/dataset.h",
+        "include/LightGBM/feature_group.h",
+        "include/LightGBM/bin.h",
+        "include/LightGBM/meta.h",
+        "src/c_api.cpp",
+        "src/boosting/gbdt.cpp",
+        "src/application/predictor.hpp",
+        "src/objective/regression_objective.hpp",
+        "python-package/lightgbm/basic.py",
+        "python-package/lightgbm/engine.py"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dense": {
+            "additionalProperties": false,
+            "properties": {
+              "training": {
+                "additionalProperties": false,
+                "properties": {
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 4,
+                    "minItems": 4,
+                    "type": "array"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 4,
+                    "minItems": 4,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "raw",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "validation": {
+                "additionalProperties": false,
+                "properties": {
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 9,
+                    "minItems": 9,
+                    "type": "array"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 9,
+                    "minItems": 9,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "raw",
+                  "leaves"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "training",
+              "validation"
+            ],
+            "type": "object"
+          },
+          "model_file": {
+            "pattern": "^models/review_near_zero/[a-z0-9_]+\\.txt$",
+            "type": "string"
+          },
+          "model_sha256": {
+            "type": "string"
+          },
+          "name": {
+            "const": "negative_inclusive"
+          },
+          "native_structure": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "decision_type": {
+                  "type": "string"
+                },
+                "default_left": {
+                  "type": "boolean"
+                },
+                "internal_count": {
+                  "type": "number"
+                },
+                "internal_value": {
+                  "type": "number"
+                },
+                "internal_weight": {
+                  "type": "number"
+                },
+                "left_child": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "leaf_count": {
+                      "type": "number"
+                    },
+                    "leaf_index": {
+                      "type": "number"
+                    },
+                    "leaf_value": {
+                      "type": "number"
+                    },
+                    "leaf_weight": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "leaf_index",
+                    "leaf_value",
+                    "leaf_weight",
+                    "leaf_count"
+                  ],
+                  "type": "object"
+                },
+                "missing_type": {
+                  "type": "string"
+                },
+                "right_child": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "leaf_count": {
+                      "type": "number"
+                    },
+                    "leaf_index": {
+                      "type": "number"
+                    },
+                    "leaf_value": {
+                      "type": "number"
+                    },
+                    "leaf_weight": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "leaf_index",
+                    "leaf_value",
+                    "leaf_weight",
+                    "leaf_count"
+                  ],
+                  "type": "object"
+                },
+                "split_feature": {
+                  "type": "number"
+                },
+                "split_gain": {
+                  "type": "number"
+                },
+                "split_index": {
+                  "type": "number"
+                },
+                "threshold": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "split_index",
+                "split_feature",
+                "split_gain",
+                "threshold",
+                "decision_type",
+                "default_left",
+                "missing_type",
+                "internal_value",
+                "internal_weight",
+                "internal_count",
+                "left_child",
+                "right_child"
+              ],
+              "type": "object"
+            },
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array"
+          },
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "deterministic": {
+                "type": "boolean"
+              },
+              "feature_pre_filter": {
+                "type": "boolean"
+              },
+              "force_col_wise": {
+                "type": "boolean"
+              },
+              "learning_rate": {
+                "type": "number"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "min_data_in_bin": {
+                "type": "number"
+              },
+              "min_data_in_leaf": {
+                "type": "number"
+              },
+              "num_leaves": {
+                "type": "number"
+              },
+              "num_threads": {
+                "type": "number"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "verbosity": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "objective",
+              "metric",
+              "verbosity",
+              "num_threads",
+              "deterministic",
+              "force_col_wise",
+              "num_leaves",
+              "min_data_in_leaf",
+              "min_data_in_bin",
+              "feature_pre_filter",
+              "learning_rate"
+            ],
+            "type": "object"
+          },
+          "rows": {
+            "items": {
+              "items": {
+                "type": "number"
+              },
+              "maxItems": 1,
+              "minItems": 1,
+              "type": "array"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "type": "array"
+          },
+          "training": {
+            "additionalProperties": false,
+            "properties": {
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "metrics": {
+                "additionalProperties": false,
+                "properties": {
+                  "l2": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "l2"
+                ],
+                "type": "object"
+              },
+              "num_boost_round": {
+                "type": "number"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              },
+              "scores": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 4,
+                "minItems": 4,
+                "type": "array"
+              }
+            },
+            "required": [
+              "rows",
+              "labels",
+              "num_boost_round",
+              "scores",
+              "metrics"
+            ],
+            "type": "object"
+          },
+          "validation": {
+            "additionalProperties": false,
+            "properties": {
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 9,
+                "minItems": 9,
+                "type": "array"
+              },
+              "metrics": {
+                "additionalProperties": false,
+                "properties": {
+                  "l2": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "l2"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 1,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "maxItems": 9,
+                "minItems": 9,
+                "type": "array"
+              },
+              "scores": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 9,
+                "minItems": 9,
+                "type": "array"
+              }
+            },
+            "required": [
+              "rows",
+              "labels",
+              "scores",
+              "metrics"
+            ],
+            "type": "object"
+          },
+          "zero_threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "params",
+          "zero_threshold",
+          "rows",
+          "training",
+          "validation",
+          "model_file",
+          "model_sha256",
+          "native_structure",
+          "dense"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "source",
+    "library",
+    "compiler",
+    "compile_commands_sha256",
+    "producer_sha256",
+    "source_sha256",
+    "execution",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

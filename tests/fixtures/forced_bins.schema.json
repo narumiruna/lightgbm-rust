@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sample_values": {
+            "type": "array",
+            "items": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "total_sample_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "probe_values": {
+            "type": "array",
+            "items": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "is_categorical": {
+            "type": "boolean"
+          },
+          "params": {
+            "type": "object"
+          },
+          "num_bin": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "upper_bounds": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "enum": [
+                    "Infinity",
+                    "-Infinity",
+                    "NaN"
+                  ]
+                }
+              ]
+            }
+          },
+          "missing_type": {
+            "enum": [
+              "None",
+              "Zero",
+              "NaN"
+            ]
+          },
+          "default_bin": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "most_freq_bin": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "value_bins": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "forced_upper_bounds": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "sample_values",
+          "total_sample_count",
+          "probe_values",
+          "is_categorical",
+          "params",
+          "num_bin",
+          "upper_bounds",
+          "missing_type",
+          "default_bin",
+          "most_freq_bin",
+          "value_bins",
+          "forced_upper_bounds"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "library": {
+    "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+  },
+  "rust_model_directory": "/Users/narumi/src/lightgbm-rust/target/model-roundtrip-80588",
+  "cases": [
+    {
+      "name": "numeric_l2",
+      "rust_model_sha256": "a238304afaeb5be0eb6bd89d4eb40b1d3a91c8d7b131f08c2546c630800b6b5d",
+      "reference_model_sha256": "5d4fd5167c4c473e646be984ec182902b042407c9fd6f0806ba4a1e25284cdc5",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "binary",
+      "rust_model_sha256": "135c2aaf0bb594e2a2a190684ed3071c33a4a79c528ab635d662e17e0ac5ba82",
+      "reference_model_sha256": "7b5941148a39bc225310c77e2f36e71f870d9b74ab36e72fb273b9073a0ac654",
+      "rows": 30,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "numeric_weighted",
+      "rust_model_sha256": "5f02c2954cc3c61bc7855bd0dbab1d73834ba2c3dd64eaa0dfc4fedaa6cb6b42",
+      "reference_model_sha256": "7795fc3279e9479be3164cc37b85e189f09cbf3ab20e37bcae0bf4ba21f6a559",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "missing_nan",
+      "rust_model_sha256": "376427bfd0b5b3c2207e0b990cbe9379bf8c0285f876bfa8321e5314281c29ec",
+      "reference_model_sha256": "c731a6b9be8721a5c942bb97cc534961578adc18742feaa4d1eb4b20007b19a4",
+      "rows": 35,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "missing_zero",
+      "rust_model_sha256": "8c90ca58df51033d54f41d16366ccfaa2c9a8523f25299bd049cd2d8ab491fad",
+      "reference_model_sha256": "abf43d3063b0c7d6ccdf59028f322a25a363ec29432394ecfe49eeda755396ad",
+      "rows": 35,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "categorical",
+      "rust_model_sha256": "70b461921eb3a31f9339e8853ca2d8f7b788dd8067bd2526c00bb0c285f2bc07",
+      "reference_model_sha256": "71f68ca639406e2e1b4720c261ce2defcb54c3917f316ba77d71176700b5f7c3",
+      "rows": 13,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "multiclass",
+      "rust_model_sha256": "7eedc8442398500e45906d744c224c07b74725d643f6f071ab523e8e2141f7c6",
+      "reference_model_sha256": "86c0353914d7bd1033cc2af8ecdf931d12846ea0cfd0cf206fd5c12f0472393f",
+      "rows": 72,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "single_leaf",
+      "rust_model_sha256": "8b2096cc098f633cbfd36fb038e652e1cce0011a0baa0fda8bb156329615e611",
+      "reference_model_sha256": "25a7cc9366b8ff67dbe6b22bc2632f1ac4110af1403ee3f0cfdb7bfd51e43362",
+      "rows": 9,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "regression_sqrt",
+      "rust_model_sha256": "dde25956277c61fc5288e0652cb70c67cd1125fd481e40799f6b51524a7678fa",
+      "reference_model_sha256": "ac4732320791f16ac7b442df3dbc2340a943f4c57a8c286556e0f5c60c4ddb47",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "binary_sigmoid",
+      "rust_model_sha256": "352e358041a8de86f965ca2973fad72a82c86a854ed1ed114c22e414ad438ae1",
+      "reference_model_sha256": "8a5e13be4837b6e0e39a04427e6407be591b38b6f628a319cc00cac2fbd6a39c",
+      "rows": 27,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "multiclassova",
+      "rust_model_sha256": "c3793cac1538152a73766eaf214907b07b957a4b47ee34acbd3ae40852beac52",
+      "reference_model_sha256": "6bfe1a9cc57f39ce3c23abb1e7eb8f29ec59a9976ce48a858d2130e632a33ccd",
+      "rows": 72,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "poisson",
+      "rust_model_sha256": "6d4205784d51a53232f6b0e17854af8aae03deb50360c2a85f6d1442b7a1382e",
+      "reference_model_sha256": "66cb15defe456ec2a24034c5b0e5014a5012984b7c246849b88662ddead61302",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "gamma",
+      "rust_model_sha256": "a95bf0d6cba6dc4dd1f28ce3ed40e81806c7721d9b5f288388d05aa5d2159543",
+      "reference_model_sha256": "0645558306509b2eb866bbc3bf60002f672d69b0534a7a44b2544d9f23dea330",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "tweedie",
+      "rust_model_sha256": "5c809c7ec826257c3cb630b0964cf690c23247f4f62cc421904b6debb898f85a",
+      "reference_model_sha256": "143fe02be6bb85347654f7c516939cfa28c3f1ece76e12c7fbf6d18119be1e8b",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "cross_entropy",
+      "rust_model_sha256": "5772cc9807f512d0e4ae7139f778519d0c98567aef3e7c4e5539008aeabb968f",
+      "reference_model_sha256": "964b0ecaf81bbf67aa0a79e6d236f5d195011ea8501f1c9e6c322673906bd077",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "cross_entropy_lambda",
+      "rust_model_sha256": "c07dcbfb1ddc3ad21e7a8f18499b50f8935c31ca0f5fe3b185b6e02370995741",
+      "reference_model_sha256": "5eb21053d79c6ca5eaeb2081e2a15c2201505c484c1a51c85b90c7f53065f3b5",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "rf_average",
+      "rust_model_sha256": "895b7f3bcb8b6bc14c280c1e07bbdef6facaa5565f28db577778d776ac9aae69",
+      "reference_model_sha256": "b0f358e8a71112df08d96e63f522ad360f93a10484519b4018a0eeceb790f9b3",
+      "rows": 36,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    },
+    {
+      "name": "missing_none",
+      "rust_model_sha256": "11c27a0d027f3943feb1ec6568984e0e3e149d88096863bea741c0429ba7248d",
+      "reference_model_sha256": "d0c741dc11ad0997ca090141115c76d3b380ad0bd6389cd40e26cdd4ecdfaa66",
+      "rows": 35,
+      "maximum_absolute_error": {
+        "raw": 0.0,
+        "transformed": 0.0
+      },
+      "leaf_indexes_exact": true
+    }
+  ]
+}

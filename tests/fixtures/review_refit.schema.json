@@ -1,0 +1,2567 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "tree": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "license_file": {
+          "type": "string"
+        },
+        "license_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "commit",
+        "version",
+        "tree",
+        "license",
+        "license_file",
+        "license_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "library": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "loaded_path": {
+          "type": "string"
+        },
+        "loaded_sha256": {
+          "type": "string"
+        },
+        "verification": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "loaded_path",
+        "loaded_sha256",
+        "verification"
+      ],
+      "additionalProperties": false
+    },
+    "compiler": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "selected_toolchain_path": {
+          "type": "string"
+        },
+        "selected_toolchain_sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "version",
+        "selected_toolchain_path",
+        "selected_toolchain_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "compile_commands_sha256": {
+      "type": "string"
+    },
+    "producer_sha256": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": "object",
+      "properties": {
+        "src/objective/binary_objective.hpp": {
+          "type": "string"
+        },
+        "src/objective/multiclass_objective.hpp": {
+          "type": "string"
+        },
+        "src/boosting/gbdt.cpp": {
+          "type": "string"
+        },
+        "src/treelearner/serial_tree_learner.cpp": {
+          "type": "string"
+        },
+        "python-package/lightgbm/basic.py": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "src/objective/binary_objective.hpp",
+        "src/objective/multiclass_objective.hpp",
+        "src/boosting/gbdt.cpp",
+        "src/treelearner/serial_tree_learner.cpp",
+        "python-package/lightgbm/basic.py"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "decay_rate": {
+                "type": "number"
+              },
+              "distinct_sigmoid": {
+                "type": "number"
+              },
+              "final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "leaf_pred": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 12,
+                  "minItems": 12,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "live_initial": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "multiclassova_decimal"
+              },
+              "native_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "fresh": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 12,
+                          "minItems": 12,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  },
+                  "reloaded": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 12,
+                          "minItems": 12,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "fresh",
+                  "reloaded"
+                ],
+                "type": "object"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "sigmoid": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "objective",
+                  "sigmoid",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rounded_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "serialized_sigmoid": {
+                "type": "number"
+              },
+              "training": {
+                "additionalProperties": false,
+                "properties": {
+                  "labels": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_boost_round": {
+                    "type": "number"
+                  },
+                  "rows": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "weights": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "rows",
+                  "labels",
+                  "weights",
+                  "num_boost_round"
+                ],
+                "type": "object"
+              },
+              "weights": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "training",
+              "rows",
+              "labels",
+              "weights",
+              "decay_rate",
+              "objective",
+              "serialized_sigmoid",
+              "distinct_sigmoid",
+              "initial_model",
+              "live_initial",
+              "leaf_pred",
+              "final_model",
+              "native_refit",
+              "rounded_refit"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "decay_rate": {
+                "type": "number"
+              },
+              "distinct_sigmoid": {
+                "type": "number"
+              },
+              "final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "leaf_pred": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 12,
+                  "minItems": 12,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "live_initial": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "multiclassova_scientific"
+              },
+              "native_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "fresh": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 12,
+                          "minItems": 12,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  },
+                  "reloaded": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 12,
+                          "minItems": 12,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 3,
+                          "minItems": 3,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "fresh",
+                  "reloaded"
+                ],
+                "type": "object"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "sigmoid": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "objective",
+                  "sigmoid",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rounded_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 12,
+                      "minItems": 12,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 3,
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "serialized_sigmoid": {
+                "type": "number"
+              },
+              "training": {
+                "additionalProperties": false,
+                "properties": {
+                  "labels": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_boost_round": {
+                    "type": "number"
+                  },
+                  "rows": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "weights": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "rows",
+                  "labels",
+                  "weights",
+                  "num_boost_round"
+                ],
+                "type": "object"
+              },
+              "weights": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "training",
+              "rows",
+              "labels",
+              "weights",
+              "decay_rate",
+              "objective",
+              "serialized_sigmoid",
+              "distinct_sigmoid",
+              "initial_model",
+              "live_initial",
+              "leaf_pred",
+              "final_model",
+              "native_refit",
+              "rounded_refit"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "decay_rate": {
+                "type": "number"
+              },
+              "distinct_sigmoid": {
+                "type": "number"
+              },
+              "final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "leaf_pred": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 4,
+                  "minItems": 4,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "live_initial": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "binary_decimal"
+              },
+              "native_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "fresh": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  },
+                  "reloaded": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "fresh",
+                  "reloaded"
+                ],
+                "type": "object"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "sigmoid": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "objective",
+                  "sigmoid",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rounded_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "serialized_sigmoid": {
+                "type": "number"
+              },
+              "training": {
+                "additionalProperties": false,
+                "properties": {
+                  "labels": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_boost_round": {
+                    "type": "number"
+                  },
+                  "rows": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "weights": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "rows",
+                  "labels",
+                  "weights",
+                  "num_boost_round"
+                ],
+                "type": "object"
+              },
+              "weights": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "training",
+              "rows",
+              "labels",
+              "weights",
+              "decay_rate",
+              "objective",
+              "serialized_sigmoid",
+              "distinct_sigmoid",
+              "initial_model",
+              "live_initial",
+              "leaf_pred",
+              "final_model",
+              "native_refit",
+              "rounded_refit"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "decay_rate": {
+                "type": "number"
+              },
+              "distinct_sigmoid": {
+                "type": "number"
+              },
+              "final_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "initial_model": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "model_file": {
+                    "pattern": "^models/review_[a-z]+/[a-z0-9_]+\\.txt$",
+                    "type": "string"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "model_file",
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "labels": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "leaf_pred": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 4,
+                  "minItems": 4,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "live_initial": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "name": {
+                "const": "binary_scientific"
+              },
+              "native_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "fresh": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  },
+                  "reloaded": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "current_iteration": {
+                        "type": "number"
+                      },
+                      "leaves": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 4,
+                          "minItems": 4,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "num_trees": {
+                        "type": "number"
+                      },
+                      "raw": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      },
+                      "transformed": {
+                        "items": {
+                          "items": {
+                            "type": "number"
+                          },
+                          "maxItems": 1,
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "maxItems": 24,
+                        "minItems": 24,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "current_iteration",
+                      "num_trees",
+                      "raw",
+                      "transformed",
+                      "leaves"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "fresh",
+                  "reloaded"
+                ],
+                "type": "object"
+              },
+              "objective": {
+                "type": "string"
+              },
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "bagging_seed": {
+                    "type": "number"
+                  },
+                  "boost_from_average": {
+                    "type": "boolean"
+                  },
+                  "data_random_seed": {
+                    "type": "number"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "device_type": {
+                    "type": "string"
+                  },
+                  "drop_seed": {
+                    "type": "number"
+                  },
+                  "extra_seed": {
+                    "type": "number"
+                  },
+                  "feature_fraction_seed": {
+                    "type": "number"
+                  },
+                  "feature_pre_filter": {
+                    "type": "boolean"
+                  },
+                  "force_col_wise": {
+                    "type": "boolean"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_bin": {
+                    "type": "number"
+                  },
+                  "max_depth": {
+                    "type": "number"
+                  },
+                  "min_data_in_bin": {
+                    "type": "number"
+                  },
+                  "min_data_in_leaf": {
+                    "type": "number"
+                  },
+                  "min_sum_hessian_in_leaf": {
+                    "type": "number"
+                  },
+                  "num_class": {
+                    "type": "number"
+                  },
+                  "num_leaves": {
+                    "type": "number"
+                  },
+                  "num_threads": {
+                    "type": "number"
+                  },
+                  "objective": {
+                    "type": "string"
+                  },
+                  "objective_seed": {
+                    "type": "number"
+                  },
+                  "seed": {
+                    "type": "number"
+                  },
+                  "sigmoid": {
+                    "type": "number"
+                  },
+                  "tree_learner": {
+                    "type": "string"
+                  },
+                  "verbosity": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "verbosity",
+                  "device_type",
+                  "tree_learner",
+                  "num_threads",
+                  "deterministic",
+                  "force_col_wise",
+                  "seed",
+                  "data_random_seed",
+                  "feature_fraction_seed",
+                  "bagging_seed",
+                  "drop_seed",
+                  "extra_seed",
+                  "objective_seed",
+                  "num_leaves",
+                  "max_depth",
+                  "learning_rate",
+                  "min_data_in_leaf",
+                  "min_data_in_bin",
+                  "min_sum_hessian_in_leaf",
+                  "max_bin",
+                  "feature_pre_filter",
+                  "boost_from_average",
+                  "objective",
+                  "sigmoid",
+                  "num_class"
+                ],
+                "type": "object"
+              },
+              "rounded_refit": {
+                "additionalProperties": false,
+                "properties": {
+                  "current_iteration": {
+                    "type": "number"
+                  },
+                  "leaves": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 4,
+                      "minItems": 4,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_trees": {
+                    "type": "number"
+                  },
+                  "raw": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "transformed": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "current_iteration",
+                  "num_trees",
+                  "raw",
+                  "transformed",
+                  "leaves"
+                ],
+                "type": "object"
+              },
+              "rows": {
+                "items": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              },
+              "serialized_sigmoid": {
+                "type": "number"
+              },
+              "training": {
+                "additionalProperties": false,
+                "properties": {
+                  "labels": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "num_boost_round": {
+                    "type": "number"
+                  },
+                  "rows": {
+                    "items": {
+                      "items": {
+                        "type": "number"
+                      },
+                      "maxItems": 2,
+                      "minItems": 2,
+                      "type": "array"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  },
+                  "weights": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 24,
+                    "minItems": 24,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "rows",
+                  "labels",
+                  "weights",
+                  "num_boost_round"
+                ],
+                "type": "object"
+              },
+              "weights": {
+                "items": {
+                  "type": "number"
+                },
+                "maxItems": 24,
+                "minItems": 24,
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "params",
+              "training",
+              "rows",
+              "labels",
+              "weights",
+              "decay_rate",
+              "objective",
+              "serialized_sigmoid",
+              "distinct_sigmoid",
+              "initial_model",
+              "live_initial",
+              "leaf_pred",
+              "final_model",
+              "native_refit",
+              "rounded_refit"
+            ],
+            "type": "object"
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "source",
+    "library",
+    "compiler",
+    "compile_commands_sha256",
+    "producer_sha256",
+    "source_sha256",
+    "execution",
+    "cases"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

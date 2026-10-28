@@ -1,0 +1,711 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "dataset_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric_value": {
+          "type": "number"
+        },
+        "maximize": {
+          "type": "boolean"
+        },
+        "metric_std_dev": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "dataset_name",
+        "metric_name",
+        "metric_value",
+        "maximize",
+        "metric_std_dev"
+      ],
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "properties": {
+        "model_file": {
+          "type": "string",
+          "pattern": "^models/[a-z0-9_]+\\.txt$"
+        },
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "model_file",
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "snapshot": {
+      "type": "object",
+      "properties": {
+        "current_iteration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "num_trees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "transformed": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "leaves": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "current_iteration",
+        "num_trees",
+        "raw",
+        "transformed",
+        "leaves"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "upstream_commit": {
+          "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+        },
+        "loaded_library_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "python_sources": {
+          "type": "object",
+          "properties": {
+            "engine.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "callback.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "basic.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "compat.py": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "engine.py",
+            "callback.py",
+            "basic.py",
+            "compat.py"
+          ],
+          "additionalProperties": false
+        },
+        "dependencies": {
+          "type": "object",
+          "properties": {
+            "numpy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scipy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scikit-learn": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "numpy",
+            "scipy",
+            "scikit-learn"
+          ],
+          "additionalProperties": false
+        },
+        "execution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "iteration_index": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "upstream_commit",
+        "loaded_library_sha256",
+        "python_sources",
+        "dependencies",
+        "execution",
+        "iteration_index"
+      ],
+      "additionalProperties": false
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "folds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "train_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "valid_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "train_indices",
+          "valid_indices"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2
+    },
+    "params": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "dump_tree": {
+      "type": "object",
+      "properties": {
+        "split_gain": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "enum": [
+                "Infinity",
+                "-Infinity",
+                "NaN"
+              ]
+            }
+          ]
+        },
+        "left_child": {
+          "$ref": "#/$defs/dump_tree"
+        },
+        "right_child": {
+          "$ref": "#/$defs/dump_tree"
+        }
+      }
+    },
+    "original_training": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 0
+          },
+          "minItems": 1
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "groups": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "positions": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "num_boost_round": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "rows",
+        "labels",
+        "num_boost_round"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "upstream_commit": {
+      "const": "5d84f3f222b41409a6983d2ac90513ad9702fa9e"
+    },
+    "loaded_library_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "native_driver_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "native_driver_source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "generator_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_sha256": {
+      "type": "object",
+      "properties": {
+        "src/io/metadata.cpp": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "src/objective/rank_objective.hpp": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "src/metric/rank_metric.hpp": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "src/metric/map_metric.hpp": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "src/boosting/bagging.hpp": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "src/io/metadata.cpp",
+        "src/objective/rank_objective.hpp",
+        "src/metric/rank_metric.hpp",
+        "src/metric/map_metric.hpp",
+        "src/boosting/bagging.hpp"
+      ],
+      "additionalProperties": false
+    },
+    "restrictions": {
+      "type": "object",
+      "properties": {
+        "lambdarank_empty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weighted_empty": {
+          "type": "string",
+          "minLength": 1
+        },
+        "query_bagging_queries_exceed_rows": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_subset_empty": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "lambdarank_empty",
+        "weighted_empty",
+        "query_bagging_queries_exceed_rows",
+        "row_subset_empty"
+      ],
+      "additionalProperties": false
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "enum": [
+              "leading",
+              "leading_positions",
+              "middle",
+              "middle_positions",
+              "nonempty",
+              "nonempty_positions",
+              "one_row",
+              "one_row_positions",
+              "repeated",
+              "repeated_positions",
+              "short",
+              "short_positions",
+              "trailing",
+              "trailing_positions"
+            ]
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 1
+          },
+          "boundaries": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1
+          },
+          "positions": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 1
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "properties": {
+                "scores": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "queries": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "minItems": 0
+                },
+                "gradients": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "hessians": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                },
+                "metrics": {
+                  "type": "array",
+                  "minItems": 10,
+                  "maxItems": 10,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "value": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "scores",
+                "gradients",
+                "hessians",
+                "metrics"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "training": {
+            "type": "object",
+            "properties": {
+              "params": {
+                "$ref": "#/$defs/params"
+              },
+              "rounds": {
+                "const": 3
+              },
+              "predictions": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                }
+              },
+              "metrics": {
+                "type": "object",
+                "minProperties": 10,
+                "maxProperties": 10,
+                "additionalProperties": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "trees": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              }
+            },
+            "required": [
+              "params",
+              "rounds",
+              "predictions",
+              "metrics",
+              "trees"
+            ],
+            "additionalProperties": false
+          },
+          "query_bagging": {
+            "type": "object",
+            "properties": {
+              "params": {
+                "$ref": "#/$defs/params"
+              },
+              "rounds": {
+                "const": 3
+              },
+              "predictions": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 1
+                }
+              },
+              "metrics": {
+                "type": "object",
+                "minProperties": 10,
+                "maxProperties": 10,
+                "additionalProperties": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "trees": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              }
+            },
+            "required": [
+              "params",
+              "rounds",
+              "predictions",
+              "metrics",
+              "trees"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "groups",
+          "boundaries",
+          "labels",
+          "steps",
+          "training"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 14,
+      "maxItems": 14
+    }
+  },
+  "required": [
+    "schema_version",
+    "upstream_commit",
+    "loaded_library_sha256",
+    "native_driver_sha256",
+    "native_driver_source_sha256",
+    "generator_sha256",
+    "source_sha256",
+    "restrictions",
+    "cases"
+  ],
+  "additionalProperties": false
+}
