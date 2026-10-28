@@ -27,7 +27,7 @@
 //! Copyright (c) 2016-2026 Microsoft Corporation and The LightGBM developers.
 
 mod random;
-use crate::trainer::{Evaluation, IterationEvaluation};
+use crate::trainer::Evaluation;
 use crate::workflow::{
     CallbackAction, CallbackEnv, CustomMetric, CustomObjective, EarlyStopping, FitOptions,
     LearningRateSchedule, TrainingCallback,
@@ -95,14 +95,8 @@ fn call_training_callback(
             .map(|m| m.evaluation.clone())
             .collect::<Vec<_>>()
     });
-    let history = env
-        .evaluation_history
-        .iter()
-        .map(|e| IterationEvaluation {
-            iteration: e.iteration,
-            results: e.results.iter().map(|m| m.evaluation.clone()).collect(),
-        })
-        .collect::<Vec<_>>();
+    // Only the schedule and stopping callbacks use this private adapter.
+    // Neither reads history. Custom CV callbacks keep the original CV history.
     callback.call(&CallbackEnv {
         config: env.config,
         iteration: env.iteration,
@@ -112,7 +106,7 @@ fn call_training_callback(
         model_num_trees: env.fold_num_trees.iter().sum(),
         best_iteration: env.best_iteration,
         evaluation: values.as_deref(),
-        evaluation_history: &history,
+        evaluation_history: &[],
         training_scores: &[],
         training_name: "train",
     })
@@ -704,6 +698,9 @@ fn check_nfold(nfold: usize, n: usize) -> Result<()> {
 fn invalid<T>(message: &str) -> Result<T> {
     Err(Error::InvalidInput(message.into()))
 }
+
+#[cfg(test)]
+mod callback_tests;
 
 #[cfg(test)]
 mod resource_tests {
