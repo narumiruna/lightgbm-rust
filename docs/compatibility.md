@@ -67,6 +67,8 @@ The parser applies source conflict adjustments. In particular, GOSS disables `ba
 
 Dense native prediction omits values in the inclusive near-zero interval defined by `1e-35_f32` promoted to `f64`. `predict_row`, `predict_sparse_row` and `predict_leaf_sparse_row` apply this normalization. The latter two are dense-equivalent sparse adapters.
 
+Native Dataset construction bins the raw value. At the negative inclusive boundary, its training and validation score buffers can differ from native dense prediction. Rust preserves both native entry points. `review_near_zero` retains the actual buffers, metrics, model and adjacent dense probes. Do not normalize Dataset input to force these native APIs to agree.
+
 `predict_csr_row` and its raw, leaf, contribution and stopping variants preserve explicit tiny values. Their sparse indexes must be strictly increasing. Absent values are zero. This distinction produces real differences at some native split boundaries.
 
 Prediction requires exactly the model feature count. Regression, binary and ranking return one scalar. Multiclass returns one value per class. Leaf output contains one index per selected tree. A multiclass iteration contains one complete class-ordered set of trees.

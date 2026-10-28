@@ -1,11 +1,13 @@
 """Validate native evidence for the PR #1 review outcomes.
 
-Expected numeric values come only from the three native producers. Regeneration
+Expected numeric values come only from the native producers. Regeneration
 compares every JSON field and model byte. There are no relink exclusions.
 """
 import copy
 import hashlib
 import json
+import math
+import struct
 from pathlib import Path
 
 from common import COMMIT, ROOT, save_json, sha
@@ -13,8 +15,10 @@ from generate_predictions import BASE
 from generate_review_refit import NAMES as REFIT_NAMES, specifications as refit_specs
 from generate_review_cegb import NAMES as CEGB_NAMES, BASE as CEGB_BASE, specifications as cegb_specs
 from generate_review_dart import NAMES as DART_NAMES, specifications as dart_specs
+from generate_review_near_zero import NAMES as NEAR_ZERO_NAMES, BASE as NEAR_ZERO_BASE
 
-NAMES = dict(review_refit=REFIT_NAMES, review_cegb=CEGB_NAMES, review_dart=DART_NAMES)
+NAMES = dict(review_refit=REFIT_NAMES, review_cegb=CEGB_NAMES, review_dart=DART_NAMES,
+             review_near_zero=NEAR_ZERO_NAMES)
 
 
 def shape_schema(value):
@@ -37,7 +41,10 @@ def shape_schema(value):
     if 'name' in value:
         properties['name'] = dict(const=value['name'])
     if 'model_file' in value:
-        properties['model_file'] = dict(type='string', pattern=r'^models/review_[a-z]+/[a-z0-9_]+\.txt$')
+        pattern = r'^models/review_[a-z]+/[a-z0-9_]+\.txt$'
+        if value['model_file'].startswith('models/review_near_zero/'):
+            pattern = r'^models/review_near_zero/[a-z0-9_]+\.txt$'
+        properties['model_file'] = dict(type='string', pattern=pattern)
     return dict(type='object', properties=properties, required=list(properties), additionalProperties=False)
 
 
@@ -148,7 +155,7 @@ def validate(family, data, manifest, fixtures=ROOT / 'tests/fixtures'):
         assert root['split_feature'] == 0
         assert root['left_child']['split_feature'] == root['right_child']['split_feature'] == 1
         assert root['right_child']['split_gain'] == 13.0
-    else:
+    elif family == 'review_dart':
         expected = {case['name']: case for case in dart_specs()['cases']}
         for name, inputs in expected.items():
             case = cases[name]
@@ -166,6 +173,30 @@ def validate(family, data, manifest, fixtures=ROOT / 'tests/fixtures'):
                 assert any(value < 0 for value in case['native_steps'][1]['shrinkage'])
                 assert case['native_final_model'] is None and case['native_failed_model']
         assert 'NOT the native failed-round model' in data['checked_departure']
+    elif family == 'review_near_zero':
+        case = cases['negative_inclusive']
+        z = struct.unpack('f', struct.pack('f', 1e-35))[0]
+        training, validation = case['training'], case['validation']
+        assert case['params'] == NEAR_ZERO_BASE and case['zero_threshold'] == z
+        assert training['rows'] == case['rows'] == [[-1.], [-z], [0.], [1.]]
+        assert training['labels'] == [0., 0., 1., 1.] and training['num_boost_round'] == 1
+        assert validation['rows'] == [[v] for v in (-1., math.nextafter(-z, -math.inf), -z,
+            math.nextafter(-z, 0.), 0., math.nextafter(z, 0.), z, math.nextafter(z, math.inf), 1.)]
+        assert validation['labels'] == [0., 0., 0., 0., 1., 1., 1., 1., 1.]
+        assert case['model_file'] == 'models/review_near_zero/negative_inclusive.txt'
+        assert len(case['native_structure']) == 1 and case['native_structure'][0]['threshold'] == -z
+        for name, dataset in [('training', training), ('validation', validation)]:
+            count = len(dataset['rows'])
+            assert len(dataset['scores']) == len(dataset['labels']) == count
+            assert set(dataset['metrics']) == {'l2'} and len(dataset['metrics']['l2']) == 1
+            matrix(case['dense'][name]['raw'], count, 1)
+            matrix(case['dense'][name]['leaves'], count, 1)
+        # Native Dataset bins raw -z; the dense prediction entry point clips it.
+        assert training['scores'][1] != case['dense']['training']['raw'][1][0]
+        assert validation['scores'][2] != case['dense']['validation']['raw'][2][0]
+        assert 'keep_training_booster=True' in data['execution']
+    else:
+        raise AssertionError(f'unknown review family {family}')
 
 
 def self_test(must_fail, read_json, manifest):
@@ -179,6 +210,8 @@ def self_test(must_fail, read_json, manifest):
             changed['cases'][0]['native_steps'][0]['raw'][0][0] += .01
         elif family == 'review_refit':
             changed['cases'][0]['native_refit']['fresh']['raw'][0][0] += .01
+        elif family == 'review_near_zero':
+            changed['cases'][0]['dense']['training']['raw'][0][0] += .01
         else:
             changed['cases'][0]['raw'][0][0] += .01
         def same_native_values():
@@ -197,7 +230,7 @@ def self_test(must_fail, read_json, manifest):
         must_fail(f'{family} loaded native image', lambda: identity(family, changed, manifest))
         changed = copy.deepcopy(original)
         changed['cases'][0]['last_valid_model' if family == 'review_dart' else 'initial_model' if family == 'review_refit' else 'model_file'] = (
-            {'model_file': '../model.txt'} if family != 'review_cegb' else '../model.txt')
+            '../model.txt' if family in ('review_cegb', 'review_near_zero') else {'model_file': '../model.txt'})
         must_fail(f'{family} unsafe model path', lambda: validate(family, changed, manifest))
     changed = read_json(ROOT / 'tests/fixtures/review_cegb.json')
     next(c for c in changed['cases'] if c['name'] == 'mixed_pending')['training']['expected_structure'][0]['right_child']['split_feature'] = 2
@@ -208,6 +241,9 @@ def self_test(must_fail, read_json, manifest):
     changed = read_json(ROOT / 'tests/fixtures/review_dart.json')
     changed['cases'][0]['native_empty_bag_executed'] = True
     must_fail('DART excluded empty native learner', lambda: validate('review_dart', changed, manifest))
+    changed = read_json(ROOT / 'tests/fixtures/review_near_zero.json')
+    changed['cases'][0]['training']['scores'][1] = changed['cases'][0]['dense']['training']['raw'][1][0]
+    must_fail('native near-zero buffer/dense distinction', lambda: validate('review_near_zero', changed, manifest))
 
 
 if __name__ == '__main__':

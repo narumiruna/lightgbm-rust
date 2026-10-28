@@ -1,4 +1,6 @@
-use lightgbm_rust::{Config, Dataset, Error, Objective, Trainer, metric::evaluate_dataset};
+use lightgbm_rust::{
+    Config, Dataset, Error, Objective, Trainer, metric::evaluate_dataset, workflow::FitOptions,
+};
 use serde_json::Value;
 
 fn fixture() -> Value {
@@ -173,6 +175,31 @@ fn query_buffer_limits_are_checked_without_dropping_empty_groups() {
     assert!(
         matches!(Trainer::new(c).unwrap().fit(&d), Err(Error::Unsupported(ref message)) if message.contains("query buffers"))
     );
+}
+
+#[test]
+fn query_rng_review_example_is_rejected_before_core_and_workflow_sampling() {
+    let mut c = config();
+    c.num_iterations = 1;
+    c.bagging_by_query = true;
+    c.bagging_freq = 1;
+    c.bagging_fraction = 0.5;
+    let mut groups = vec![0; 1025];
+    groups[0] = 4;
+    let d = Dataset::from_dense(&[0., 1., 2., 3.], 4, 1, vec![0., 1., 1., 0.], &c)
+        .unwrap()
+        .with_groups(groups.clone())
+        .unwrap();
+    let trainer = Trainer::new(c).unwrap();
+    for result in [
+        trainer.fit(&d),
+        trainer.fit_with_options(&d, &[], FitOptions::default()),
+    ] {
+        assert!(
+            matches!(result, Err(Error::Unsupported(ref message)) if message.contains("query buffers"))
+        );
+    }
+    assert_eq!(d.groups(), Some(groups.as_slice()));
 }
 
 #[test]

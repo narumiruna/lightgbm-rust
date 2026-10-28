@@ -21,6 +21,7 @@ pub(crate) struct TreeLearner {
     extra_random: Vec<Random>,
     eligible: Vec<usize>,
     tree_features: Vec<usize>,
+    tree_feature_mask: Vec<bool>,
     coupled: Vec<bool>,
     lazy: Vec<Vec<bool>>,
     quantizer: Option<Quantizer>,
@@ -60,6 +61,7 @@ impl TreeLearner {
                 })
                 .collect(),
             tree_features: Vec::new(),
+            tree_feature_mask: vec![false; data.ncols()],
             eligible,
             coupled: vec![false; data.ncols()],
             lazy: if config.cegb_penalty_feature_lazy.is_empty() {
@@ -90,6 +92,11 @@ impl TreeLearner {
         } else {
             self.eligible.clone()
         };
+        // Keep tree_features ordered for node sampling; reuse this mask for split scans.
+        self.tree_feature_mask.fill(false);
+        for &feature in &self.tree_features {
+            self.tree_feature_mask[feature] = true;
+        }
         Ok(())
     }
     fn sample_node(&mut self, leaf: &Leaf, config: &Config) -> Result<Vec<bool>> {
@@ -217,7 +224,7 @@ fn find_splits(
     let mut jobs = Vec::new();
     for inner in 0..learner.eligible.len() {
         let feature = learner.eligible[inner];
-        if !learner.tree_features.contains(&feature) || !first.active[feature] {
+        if !learner.tree_feature_mask[feature] || !first.active[feature] {
             continue;
         }
         let a = extra_threshold(
@@ -1384,4 +1391,128 @@ mod tests;
 
 fn allocation_error(error: std::collections::TryReserveError) -> Error {
     Error::InvalidInput(format!("learner allocation failed: {error}"))
+}
+
+#[cfg(test)]
+mod feature_scan_tests {
+    use super::*;
+
+    fn check_mask(learner: &TreeLearner) {
+        for feature in 0..learner.tree_feature_mask.len() {
+            assert_eq!(
+                learner.tree_feature_mask[feature],
+                learner.tree_features.contains(&feature)
+            );
+        }
+        // Include inactive features as well as holes in eligible column indexes.
+        let jobs = |masked: bool| {
+            learner
+                .eligible
+                .iter()
+                .copied()
+                .filter(|&f| {
+                    (if masked {
+                        learner.tree_feature_mask[f]
+                    } else {
+                        learner.tree_features.contains(&f)
+                    }) && f % 3 != 1
+                })
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(jobs(false), jobs(true));
+    }
+
+    #[test]
+    fn tree_feature_mask_reuses_storage_across_fits_and_rate_resets() {
+        for fraction in [1.0, 0.5] {
+            for node_fraction in [1.0, 0.5] {
+                let mut config = Config {
+                    feature_fraction: fraction,
+                    feature_fraction_bynode: node_fraction,
+                    extra_trees: true,
+                    min_data_in_leaf: 1,
+                    min_data_in_bin: 1,
+                    feature_pre_filter: false,
+                    num_leaves: 4,
+                    ..Config::default()
+                };
+                let x: Vec<f64> = (0..32 * 7)
+                    .map(|i| {
+                        let f = i % 7;
+                        if f % 3 == 0 {
+                            0.0
+                        } else {
+                            ((i / 7 * f) % 19) as f64
+                        }
+                    })
+                    .collect();
+                let data = Dataset::from_dense(&x, 32, 7, vec![0.0; 32], &config).unwrap();
+                let mut learner = TreeLearner::new(&config, &data).unwrap();
+                assert_eq!(learner.eligible, [1, 2, 4, 5]);
+                let storage = learner.tree_feature_mask.as_ptr();
+                check_mask(&learner);
+                for _ in 0..4 {
+                    learner
+                        .fit(
+                            &data,
+                            &(0..32).map(|i| i as f32 - 16.0).collect::<Vec<_>>(),
+                            &[1.0; 32],
+                            &config,
+                            &(0..32).collect::<Vec<_>>(),
+                            true,
+                        )
+                        .unwrap();
+                    check_mask(&learner);
+                    // A reset must draw the next tree sample from the current RNG state.
+                    let mut random = learner.feature_random.clone();
+                    let expected = if fraction < 1.0 {
+                        random
+                            .sample(4, 2)
+                            .unwrap()
+                            .into_iter()
+                            .map(|i| learner.eligible[i])
+                            .collect::<Vec<_>>()
+                    } else {
+                        learner.eligible.clone()
+                    };
+                    config.learning_rate *= 0.9;
+                    learner.reset_learning_rate_config(&config).unwrap();
+                    assert_eq!(learner.tree_features, expected);
+                    assert_eq!(
+                        learner.feature_random.clone().next_float(),
+                        random.next_float()
+                    );
+                    assert_eq!(learner.tree_feature_mask.as_ptr(), storage);
+                    check_mask(&learner);
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn tree_feature_mask_covers_the_last_supported_column_and_empty_samples() {
+        let config = Config {
+            min_data_in_leaf: 1,
+            min_data_in_bin: 1,
+            feature_pre_filter: false,
+            ..Config::default()
+        };
+        for indexes in [vec![65_535, 65_535], Vec::new()] {
+            let present = !indexes.is_empty();
+            let data = Dataset::from_csr(
+                if present { &[0, 1, 2] } else { &[0, 0, 0] },
+                &indexes,
+                if present { &[1.0, 2.0] } else { &[] },
+                2,
+                65_536,
+                vec![0.0; 2],
+                &config,
+            )
+            .unwrap();
+            let learner = TreeLearner::new(&config, &data).unwrap();
+            assert_eq!(learner.tree_feature_mask.len(), 65_536);
+            assert_eq!(learner.tree_feature_mask[65_535], present);
+            check_mask(&learner);
+        }
+    }
 }

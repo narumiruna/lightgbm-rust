@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+  "source": {
+    "url": "https://github.com/lightgbm-org/LightGBM",
+    "commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
+    "version": "4.7.0.99",
+    "tree": "a9b83f5afaecffbbccfc1a043d519bac6b6b25c8",
+    "license": "MIT",
+    "license_file": "references/LightGBM/LICENSE",
+    "license_sha256": "ca70f15d841f7e76c8bbd284d25300cd4ae2ef1035e7e5252b13b73449464305"
+  },
+  "library": {
+    "path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "loaded_path": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
+    "loaded_sha256": "9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e",
+    "verification": "dladdr(LGBM_GetLastError) + SHA-256"
+  },
+  "compiler": {
+    "path": "/usr/bin/clang++",
+    "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+    "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+    "selected_toolchain_path": "/Library/Developer/CommandLineTools/usr/bin/clang",
+    "selected_toolchain_sha256": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9"
+  },
+  "compile_commands_sha256": "2b28f43e9325eda7c4a91c811cc3059dd145b10731ef92cc009ac12d06652a49",
+  "producer_sha256": "10c0b31c12e06b094e49c15e22f75f095e875788390e8c977a7ca4cc68d0b713",
+  "source_sha256": {
+    "include/LightGBM/dataset.h": "7067ef8f1dbd95bb218f3912934ceb356cbfd4c6907337fb3153daaaa13a9454",
+    "include/LightGBM/feature_group.h": "2131fd56e41596ba8f00a79529bbae647b20285dc59ad09062796d50e5747c72",
+    "include/LightGBM/bin.h": "b6d660283fa67cfad4f164a5cff7618347ed15e94ef39b1ad0b90a6994e1ae8d",
+    "include/LightGBM/meta.h": "45eb0423aeed9e32a4705df7733c87997369ba749d5d4bc6baba44a5873d027f",
+    "src/c_api.cpp": "f470f9a46c59652e457a73760cb457b4048010f094b098dc98a68637c3d5ebbe",
+    "src/boosting/gbdt.cpp": "3157b7e3d8beaa0fb57c2e604f0a50b90c4380f36c8ec773c4aca8c68bd465d7",
+    "src/application/predictor.hpp": "b2d4c93e8c808f9e99f465b4d77954c702f5a09572a050785c6807ed81eb6a39",
+    "src/objective/regression_objective.hpp": "0e8200eafcf075e93f736fa2d59863a8b34dfb62c19df476af60183f8584408d",
+    "python-package/lightgbm/basic.py": "5f5adf269636e1b694b6b81764d6e5beec9a76f8f8a366b0a5d4c8a644e9ab4f",
+    "python-package/lightgbm/engine.py": "3609f80d3f1b0ad24e9db90e55c7b84e518713df477047e8f46d5f8c053b3eeb"
+  },
+  "execution": "Pinned native CPU serial; public feval captures GetPredict buffers; regression output is identity; keep_training_booster=True; NumPy input/output interchange and adjacent probes only",
+  "cases": [
+    {
+      "name": "negative_inclusive",
+      "params": {
+        "objective": "regression",
+        "metric": "l2",
+        "verbosity": -1,
+        "num_threads": 1,
+        "deterministic": true,
+        "force_col_wise": true,
+        "num_leaves": 2,
+        "min_data_in_leaf": 1,
+        "min_data_in_bin": 1,
+        "feature_pre_filter": false,
+        "learning_rate": 0.1
+      },
+      "zero_threshold": 1.0000000180025095e-35,
+      "rows": [
+        [
+          -1.0
+        ],
+        [
+          -1.0000000180025095e-35
+        ],
+        [
+          0.0
+        ],
+        [
+          1.0
+        ]
+      ],
+      "training": {
+        "rows": [
+          [
+            -1.0
+          ],
+          [
+            -1.0000000180025095e-35
+          ],
+          [
+            0.0
+          ],
+          [
+            1.0
+          ]
+        ],
+        "labels": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "num_boost_round": 1,
+        "scores": [
+          0.45,
+          0.45,
+          0.5499999999999999,
+          0.5499999999999999
+        ],
+        "metrics": {
+          "l2": [
+            0.20250000000000007
+          ]
+        }
+      },
+      "validation": {
+        "rows": [
+          [
+            -1.0
+          ],
+          [
+            -1.0000000180025096e-35
+          ],
+          [
+            -1.0000000180025095e-35
+          ],
+          [
+            -1.0000000180025093e-35
+          ],
+          [
+            0.0
+          ],
+          [
+            1.0000000180025093e-35
+          ],
+          [
+            1.0000000180025095e-35
+          ],
+          [
+            1.0000000180025096e-35
+          ],
+          [
+            1.0
+          ]
+        ],
+        "labels": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "scores": [
+          0.45,
+          0.45,
+          0.45,
+          0.5499999999999999,
+          0.5499999999999999,
+          0.5499999999999999,
+          0.5499999999999999,
+          0.5499999999999999,
+          0.5499999999999999
+        ],
+        "metrics": {
+          "l2": [
+            0.21361111111111117
+          ]
+        }
+      },
+      "model_file": "models/review_near_zero/negative_inclusive.txt",
+      "model_sha256": "f043bfc0511f2eaf1b3d8e4c3657faf8fabe69753a29bc009a1b3bd8767a0c8a",
+      "native_structure": [
+        {
+          "split_index": 0,
+          "split_feature": 0,
+          "split_gain": 1,
+          "threshold": -1.0000000180025095e-35,
+          "decision_type": "<=",
+          "default_left": true,
+          "missing_type": "None",
+          "internal_value": 0.5,
+          "internal_weight": 3.9999999999999996,
+          "internal_count": 4,
+          "left_child": {
+            "leaf_index": 0,
+            "leaf_value": 0.45,
+            "leaf_weight": 1.9999999999999998,
+            "leaf_count": 2
+          },
+          "right_child": {
+            "leaf_index": 1,
+            "leaf_value": 0.5499999999999999,
+            "leaf_weight": 1.9999999999999998,
+            "leaf_count": 2
+          }
+        }
+      ],
+      "dense": {
+        "training": {
+          "raw": [
+            [
+              0.45
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ]
+          ],
+          "leaves": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        "validation": {
+          "raw": [
+            [
+              0.45
+            ],
+            [
+              0.45
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ],
+            [
+              0.5499999999999999
+            ]
+          ],
+          "leaves": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

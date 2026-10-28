@@ -13,6 +13,7 @@ REFERENCE_FILES = (
     ".gitmodules", "CMakeLists.txt", "VERSION.txt", "LICENSE", "include/LightGBM/meta.h",
     "include/LightGBM/config.h", "include/LightGBM/utils/random.h", "include/LightGBM/bin.h",
     "src/io/config.cpp", "src/io/config_auto.cpp", "src/io/bin.cpp", "src/io/dense_bin.hpp",
+    "src/c_api.cpp", "src/application/predictor.hpp",
     "src/objective/regression_objective.hpp", "src/objective/binary_objective.hpp",
     "src/objective/multiclass_objective.hpp", "src/objective/xentropy_objective.hpp",
     "src/objective/objective_function.cpp", "src/objective/rank_objective.hpp",
