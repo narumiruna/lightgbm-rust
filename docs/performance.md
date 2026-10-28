@@ -8,12 +8,12 @@
 
 ## Source and measurement
 
-- Measurement: 2026-10-28T17:00:47Z.
+- Measurement: 2026-10-28T18:54:52Z.
 - Host: macOS ARM64, Apple M4, 10 logical CPUs.
 - Rust 1.92.0, release profile with thin LTO and one codegen unit. No unsafe product code.
 - Reference: LightGBM `5d84f3f222b41409a6983d2ac90513ad9702fa9e`; Apple clang 21.0.0, production `-O3` flags.
 - Loaded library SHA-256: `9ed1d46d2d60bac2966fd03bd81e7d192025804f6a3e3ef24c3aa483d0ec7c1e`.
-- Rust build-input SHA-256: `6b361a683565d0d59bc57d05c964fe16edcf81c2dc2043d13bcb57b194d06a61`.
+- Rust build-input SHA-256: `a8eed229af0661219ea694ec16b9092ed7ab0a4f37072660d85b870f44006900`.
 - Source hashes matched before the isolated snapshot, after compilation and after measurement. This is a source identity, not a Git commit identity.
 
 The source digest covers `src/**/*.rs`, `benches/**/*.rs`, Cargo manifest/lockfile, pinned toolchain and both benchmark examples. The report records each file hash and executable hash.
@@ -33,11 +33,11 @@ Five fresh processes per implementation run in alternating native/Rust order. Ea
 
 | Case | Rust/native training | Training gate | Rust/native inference | Rust/saved Python training |
 | --- | ---: | --- | ---: | ---: |
-| dense | 1.443 | Pass | 0.812 | 0.406 |
-| sparse | 3.181 | **Open** | 0.829 | 0.917 |
-| categorical | 1.572 | **Open** | 0.958 | 0.311 |
-| multiclass | 1.427 | Pass | 0.726 | 0.276 |
-| ranking | 1.815 | **Open** | 0.712 | 0.565 |
+| dense | 1.409 | Pass | 0.837 | 0.395 |
+| sparse | 3.402 | **Open** | 0.855 | 0.985 |
+| categorical | 1.555 | **Open** | 0.982 | 0.308 |
+| multiclass | 1.422 | Pass | 0.723 | 0.276 |
+| ranking | 1.804 | **Open** | 0.772 | 0.565 |
 
 All saved Python-engine training/inference comparisons pass. These are not native-only throughput passes. The direct C API results remain separate; their failures are not waived.
 
@@ -45,21 +45,21 @@ Dataset construction and training medians, in seconds:
 
 | Case | Rust construction | Native construction | Rust training | Native training |
 | --- | ---: | ---: | ---: | ---: |
-| dense | 0.003295 | 0.003886 | 0.023241 | 0.016110 |
-| sparse | 0.001325 | 0.001129 | 0.021823 | 0.006860 |
-| categorical | 0.003172 | 0.003753 | 0.014375 | 0.009142 |
-| multiclass | 0.003269 | 0.003856 | 0.078196 | 0.054780 |
-| ranking | 0.003321 | 0.003841 | 0.047334 | 0.026081 |
+| dense | 0.003273 | 0.003862 | 0.022590 | 0.016027 |
+| sparse | 0.001333 | 0.001129 | 0.023434 | 0.006887 |
+| categorical | 0.003191 | 0.003716 | 0.014258 | 0.009170 |
+| multiclass | 0.003291 | 0.003824 | 0.078077 | 0.054907 |
+| ranking | 0.003265 | 0.003817 | 0.047369 | 0.026261 |
 
 ## Peak memory
 
 | Case | Maximum Rust bytes | Maximum native bytes | Peak ratio | Max Rust / min native |
 | --- | ---: | ---: | ---: | ---: |
-| dense | 11550720 | 10813440 | 1.068 | 1.191 |
-| sparse | 6848512 | 6782976 | 1.010 | 1.040 |
-| categorical | 8404992 | 9846784 | 0.854 | 0.859 |
-| multiclass | 10240000 | 12189696 | 0.840 | 0.967 |
-| ranking | 8667136 | 18432000 | 0.470 | 0.478 |
+| dense | 11370496 | 10977280 | 1.036 | 1.180 |
+| sparse | 6750208 | 6782976 | 0.995 | 1.025 |
+| categorical | 8290304 | 9781248 | 0.848 | 0.866 |
+| multiclass | 10584064 | 10764288 | 0.983 | 1.005 |
+| ranking | 8437760 | 18415616 | 0.458 | 0.465 |
 
 Every conservative ratio is <=1.5. All measured peaks are below the fixed 512 MiB process limit. macOS `/usr/bin/time -l` reports bytes. The tool's Linux conversion path is not native Linux measurement evidence.
 

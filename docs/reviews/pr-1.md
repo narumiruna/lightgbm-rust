@@ -68,6 +68,34 @@ The final refresh at `634b94b` found R17, submitted against `39fe027`. Its sourc
 | --- | --- | --- | --- |
 | R17: [CV built-in callback history copies](https://github.com/narumiruna/lightgbm-rust/pull/1#discussion_r4403459866) | The private CV adapter rebuilds every prior `IterationEvaluation` and clones each metric's strings on each call. Only `LearningRateSchedule` and `EarlyStopping` use this adapter. Neither reads `CallbackEnv::evaluation_history`. Custom CV callbacks already receive the original borrowed CV history directly. This adds O(rounds²*metrics) work to supported CV schedules and stopping. | P2 | Already addressed in `4b45010`. Pass an empty history only through the private adapter for the two built-ins. Current metrics and all other callback fields stay unchanged. Three regressions cover a 10,000-entry history, exact schedule/stop actions and complete custom CV history. The history-copy test fails before the change and passes after it. Existing native CV and custom-workflow regressions pass. |
 
+## Fifth review at `df9abaa`
+
+The branch, base, product source and instructions are unchanged. All six CI jobs still pass. R18 is the only new feedback item. All review, inline and conversation pages were read. The prior eleven thread outcomes remain valid and have no pending action.
+
+| Item | Evidence and relation to the PR | Severity | Outcome |
+| --- | --- | --- | --- |
+| R18: [full-column sparse histogram scans](https://github.com/narumiruna/lightgbm-rust/pull/1#discussion_r4403752973) | The unbundled sparse column kernel traverses every stored entry and probes a dataset-sized membership bitmap for each direct histogram. Smaller children and cache replay repeat this work even for tiny row subsets. The bitmap is also rebuilt per call. This affects supported CSR/CSC CPU training and the PR's performance goal. | P2 | Implemented and validated locally; publication pending. Small partitions use indexed row lookup for long columns and sorted-row membership for short entry lists. No dataset-sized bitmap is allocated for small partitions. Large partitions retain the original scan. Total sums keep original row order and duplicates. Sparse updates remain in ascending row order. Five new tests compare exact histogram bits and counts against the old kernel; existing cache, bundle, quantized and native regressions pass. |
+
+### R18 validation
+
+`Dataset::from_sparse_columns` sorts stored rows and drops default-bin entries. `Dataset::bin` uses a binary search over those same rows. The small-partition path sorts and deduplicates membership only. It does not change the row sequence used for total sums. A short entry list is scanned with binary-search membership instead of doing one indexed lookup for every selected row. This avoids a new cost on wide, very sparse data. Separate compiled paths keep mode tests out of large scan loops. There is no new API, option or limit.
+
+Five new tests make 5,376 exact old/new histogram comparisons. They check f64 gradient and Hessian bits and counts for training and counted statistics. Cases cover sorted, unsorted, duplicate, empty, root and small row sets; CSR/CSC/dense layouts; U8/U16/U32 bins; masks; missing, zero and category bins; constant Hessians; and serial/parallel row/column modes. Existing cache replay and quantized cases pass.
+
+A bounded optimized benchmark compares the exact `df9abaa` histogram kernel with the new kernel in one executable. Each call includes totals, allocation, membership, sorting, updates and final Hessian work. Common data/derivative setup is outside the calls. Seven alternating runs give these median times:
+
+| Selection | Old | New | Old/new |
+| --- | ---: | ---: | ---: |
+| Root, 131,072 rows, 12 columns | 750,317 ns | 759,976 ns | 0.987x |
+| Eight sorted rows, 12 columns | 381,237 ns | 2,925 ns | 130.319x |
+| Eight unsorted/duplicate rows, 12 columns | 386,655 ns | 2,735 ns | 141.387x |
+| 512 rows, 256 one-entry columns | 6,999 ns | 7,402 ns | 0.946x |
+| 512 rows, 256 mixed short/long columns | 40,166 ns | 11,948 ns | 3.362x |
+
+This is isolated histogram work, not total training. The root and one-entry cases are slightly slower. No overall training speedup is claimed. Fresh full-workload timing, quality and memory data is in `docs/performance.json`. All existing bounds remain unchanged.
+
+Local validation passes 345 all-target tests, 345 offline tests, one doctest, formatting and Clippy. All 470 native artifacts are unchanged. Package validation and all 345 extracted-package tests pass. The package has 536 files. Publication, reply and resolution are pending.
+
 The first submitted review receipt and conversation summary contain no separate code request. Their three findings are R1–R3. Do not treat bot commands, links, reactions, or confidence as authority.
 
 ## Validation and publication

@@ -147,6 +147,30 @@ pub(crate) fn build_with_executor(
     }
 }
 
+// Sparse indexed access binary-searches sorted row indexes. Use it when the
+// comparison bound is no larger than initializing dataset-sized membership.
+// Use the dataset row count as a bound for every column, so a nearly empty
+// column cannot trigger an N-row bitmap for an otherwise tiny child.
+fn sparse_indexed(selected: usize, nrows: usize) -> bool {
+    let comparisons = (usize::BITS - nrows.leading_zeros()) as usize + 1;
+    nrows == 0 || selected <= nrows / comparisons
+}
+
+// A short entry list needs fewer membership checks than selected-row lookups.
+fn sparse_short_scan(selected: usize, entries: usize) -> bool {
+    entries <= selected
+}
+
+// Large selections use dataset-sized membership storage.
+fn sparse_bitmap(nrows: usize, scan: bool) -> Result<Vec<bool>> {
+    let mut members = Vec::new();
+    if scan {
+        members.try_reserve_exact(nrows).map_err(allocation_error)?;
+        members.resize(nrows, false);
+    }
+    Ok(members)
+}
+
 fn build_kernel<const CONSTANT: bool, C: Count>(
     dataset: &Dataset,
     rows: &[usize],
@@ -156,22 +180,62 @@ fn build_kernel<const CONSTANT: bool, C: Count>(
     executor: &crate::parallel::Executor,
     active: Option<&[bool]>,
 ) -> Result<Vec<Vec<Stats<C>>>> {
+    if sparse_indexed(rows.len(), dataset.nrows()) {
+        build_kernel_mode::<CONSTANT, true, C>(
+            dataset, rows, gradients, hessians, config, executor, active,
+        )
+    } else {
+        build_kernel_mode::<CONSTANT, false, C>(
+            dataset, rows, gradients, hessians, config, executor, active,
+        )
+    }
+}
+
+fn build_kernel_mode<const CONSTANT: bool, const INDEXED: bool, C: Count>(
+    dataset: &Dataset,
+    rows: &[usize],
+    gradients: &[f32],
+    hessians: &[f32],
+    config: &Config,
+    executor: &crate::parallel::Executor,
+    active: Option<&[bool]>,
+) -> Result<Vec<Vec<Stats<C>>>> {
     histogram_bytes(dataset)?;
+    let indexed = INDEXED;
     let sparse_totals = if (0..dataset.ncols()).any(|f| dataset.sparse_bins(f).is_some()) {
-        let mut members = Vec::new();
-        members
-            .try_reserve_exact(dataset.nrows())
-            .map_err(allocation_error)?;
-        members.resize(dataset.nrows(), false);
+        // Tiny children need only O(k) storage, not an N-row bitmap. Sort and
+        // deduplicate membership without changing the total-sum input order.
+        let selected = if indexed && !rows.windows(2).all(|w| w[0] < w[1]) {
+            let mut selected = Vec::new();
+            selected
+                .try_reserve_exact(rows.len())
+                .map_err(allocation_error)?;
+            selected.extend_from_slice(rows);
+            selected.sort_unstable();
+            selected.dedup();
+            std::borrow::Cow::Owned(selected)
+        } else {
+            std::borrow::Cow::Borrowed(rows)
+        };
+        let mut members = sparse_bitmap(dataset.nrows(), !indexed)?;
         let (mut gradient, mut hessian) = (0.0, 0.0);
-        for &row in rows {
-            members[row] = true;
-            gradient += f64::from(gradients[row]);
-            if !CONSTANT {
-                hessian += f64::from(hessians[row]);
+        if indexed {
+            for &row in rows {
+                gradient += f64::from(gradients[row]);
+                if !CONSTANT {
+                    hessian += f64::from(hessians[row]);
+                }
+            }
+        } else {
+            for &row in rows {
+                members[row] = true;
+                gradient += f64::from(gradients[row]);
+                if !CONSTANT {
+                    hessian += f64::from(hessians[row]);
+                }
             }
         }
-        Some((members, gradient, hessian))
+        Some((members, selected, gradient, hessian))
     } else {
         None
     };
@@ -190,7 +254,8 @@ fn build_kernel<const CONSTANT: bool, C: Count>(
             return Ok(bins);
         }
         if let Some(entries) = dataset.sparse_bins(feature) {
-            let (members, gradient, hessian) = sparse_totals.as_ref().expect("sparse totals exist");
+            let (members, selected, gradient, hessian) =
+                sparse_totals.as_ref().expect("sparse totals exist");
             let default = dataset.mapper(feature).bin(0.0) as usize;
             bins[default] = Stats {
                 gradient: *gradient,
@@ -201,22 +266,56 @@ fn build_kernel<const CONSTANT: bool, C: Count>(
                 },
                 count: C::from_rows(rows.len()),
             };
-            for (row, value) in entries {
-                if !members[row] {
-                    continue;
-                }
-                let gradient = f64::from(gradients[row]);
-                let hessian = if CONSTANT {
-                    1.0
-                } else {
-                    f64::from(hessians[row])
+            if entries.size_hint().0 == 0 {
+                return Ok(bins);
+            }
+            if indexed {
+                let mut accumulate = |row: usize, value: usize| {
+                    let gradient = f64::from(gradients[row]);
+                    let hessian = if CONSTANT {
+                        1.0
+                    } else {
+                        f64::from(hessians[row])
+                    };
+                    bins[default].gradient -= gradient;
+                    bins[default].hessian -= hessian;
+                    bins[default].count.remove();
+                    bins[value].gradient += gradient;
+                    bins[value].hessian += hessian;
+                    bins[value].count.add();
                 };
-                bins[default].gradient -= gradient;
-                bins[default].hessian -= hessian;
-                bins[default].count.remove();
-                bins[value as usize].gradient += gradient;
-                bins[value as usize].hessian += hessian;
-                bins[value as usize].count.add();
+                if sparse_short_scan(selected.len(), entries.size_hint().0) {
+                    for (row, value) in entries {
+                        if selected.binary_search(&row).is_ok() {
+                            accumulate(row, value as usize);
+                        }
+                    }
+                } else {
+                    for &row in selected.iter() {
+                        let value = dataset.bin(row, feature) as usize;
+                        if value != default {
+                            accumulate(row, value);
+                        }
+                    }
+                }
+            } else {
+                for (row, value) in entries {
+                    if !members[row] {
+                        continue;
+                    }
+                    let gradient = f64::from(gradients[row]);
+                    let hessian = if CONSTANT {
+                        1.0
+                    } else {
+                        f64::from(hessians[row])
+                    };
+                    bins[default].gradient -= gradient;
+                    bins[default].hessian -= hessian;
+                    bins[default].count.remove();
+                    bins[value as usize].gradient += gradient;
+                    bins[value as usize].hessian += hessian;
+                    bins[value as usize].count.add();
+                }
             }
         } else if let Some(values) = dataset.dense_bins(feature) {
             match values {
@@ -1342,6 +1441,9 @@ fn allocation_error(error: std::collections::TryReserveError) -> Error {
 #[cfg(test)]
 #[path = "../tests/histogram_optimization/unit.rs"]
 mod optimization_tests;
+
+#[cfg(test)]
+mod sparse_tests;
 
 #[cfg(test)]
 mod modes_tests {
