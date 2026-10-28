@@ -394,7 +394,9 @@ pub(crate) fn negative_inverse_product(mut lu: Vec<f64>, rhs: &[f64]) -> Result<
     let mut result = buffer(n, 0.0)?;
     for row in 0..n {
         for col in 0..n {
-            result[row] = finite(result[row] + -inverse[row * n + col] * rhs[col])?;
+            // Eigen uses fused multiply-add here. A cancellation residual can
+            // retain a feature that a later refit needs.
+            result[row] = finite((-inverse[row * n + col]).mul_add(rhs[col], result[row]))?;
         }
     }
     Ok(result)

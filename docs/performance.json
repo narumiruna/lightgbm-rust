@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "measured_at_utc": "2026-10-28T15:00:33Z",
+  "measured_at_utc": "2026-10-28T16:37:46Z",
   "host": {
     "platform": "macOS-26.6.2-arm64-arm-64bit",
     "machine": "arm64",
@@ -175,7 +175,7 @@
     "rustc_toolchain_path": "/Users/narumi/.rustup/toolchains/1.92.0-aarch64-apple-darwin/bin/rustc",
     "rustc_toolchain_sha256": "12cab30aa9890d54445e29149a1e82d18fbe457de12801bd11bbe7e5e7fe33a0",
     "source_before": {
-      "sha256": "6bd3f302f676ad2c641ee0348173469f01769f96e62bd311be8e63c843a323e0",
+      "sha256": "6c633e91f4d6e21afac10f79520e11540652efc24bca3122449c46daf8e9af19",
       "files": {
         "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
         "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
@@ -193,22 +193,22 @@
         "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
         "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
         "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
-        "src/learner.rs": "87b10004519e4858c23632a2cdcac75935d7679e0e565009fc034ad9f7af9885",
+        "src/learner.rs": "7eb6b5497555e7cf9b5faf3f30262e86049b044c9862866603e262af17766d91",
         "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
-        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/linear.rs": "f79939bd0ef31145b7322018a5d772d21a478d0b60cab4e698b8e4bfcaf59e84",
         "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
         "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
         "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
         "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
         "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
-        "src/model/operations.rs": "790153b97f87bead77027cfaf7d5f78ea99c313bba5f344b3e564a8c4565961c",
+        "src/model/operations.rs": "d824caa3abdb80ec5491927a099541785083d06917601bec0eef294c49fdcd6e",
         "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
         "src/model.rs": "647bbc1cbf7e59b47557e49311a89537cfa09f2dd76c357a24f5ed01aa449518",
         "src/objective/conformance.rs": "ee88bed53889112a1baa639ddd1258b2c84f736bc5e855f9917399a49292fc83",
         "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
         "src/objective.rs": "3d6b13d3eb92b1dfe4e8a5c7f4d97846e66f4dbdc3dcc03235ef315e7bd9162d",
         "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
-        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/quantize.rs": "ec06b5b07f905678b224300cfa66da4257f07da635f0392721516127447e7f65",
         "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
         "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
         "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
@@ -223,7 +223,7 @@
       }
     },
     "source_after_build": {
-      "sha256": "6bd3f302f676ad2c641ee0348173469f01769f96e62bd311be8e63c843a323e0",
+      "sha256": "6c633e91f4d6e21afac10f79520e11540652efc24bca3122449c46daf8e9af19",
       "files": {
         "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
         "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
@@ -241,22 +241,22 @@
         "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
         "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
         "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
-        "src/learner.rs": "87b10004519e4858c23632a2cdcac75935d7679e0e565009fc034ad9f7af9885",
+        "src/learner.rs": "7eb6b5497555e7cf9b5faf3f30262e86049b044c9862866603e262af17766d91",
         "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
-        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/linear.rs": "f79939bd0ef31145b7322018a5d772d21a478d0b60cab4e698b8e4bfcaf59e84",
         "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
         "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
         "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
         "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
         "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
-        "src/model/operations.rs": "790153b97f87bead77027cfaf7d5f78ea99c313bba5f344b3e564a8c4565961c",
+        "src/model/operations.rs": "d824caa3abdb80ec5491927a099541785083d06917601bec0eef294c49fdcd6e",
         "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
         "src/model.rs": "647bbc1cbf7e59b47557e49311a89537cfa09f2dd76c357a24f5ed01aa449518",
         "src/objective/conformance.rs": "ee88bed53889112a1baa639ddd1258b2c84f736bc5e855f9917399a49292fc83",
         "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
         "src/objective.rs": "3d6b13d3eb92b1dfe4e8a5c7f4d97846e66f4dbdc3dcc03235ef315e7bd9162d",
         "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
-        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/quantize.rs": "ec06b5b07f905678b224300cfa66da4257f07da635f0392721516127447e7f65",
         "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
         "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
         "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
@@ -274,10 +274,10 @@
     "snapshot": "/Users/narumi/src/lightgbm-rust/target/phase9-final-memory-source",
     "snapshot_manifest_sha256": "2721fef518605c5f346bdb92d578cc5896d11c3700717ce66409c0a66bc5f961",
     "flags": "Cargo.toml release profile; RUSTFLAGS/CARGO_ENCODED_RUSTFLAGS unset; no native ML dependency",
-    "executable_sha256": "9d96e5b6cba199ebe2b8b1441611fcdd59e252ca7b1db87f72c08fc93877625d",
-    "benchmark_executable_sha256": "cab46358fcdb7e3ecfd8ef40ab7b29641066f61f4295c5dfd910ec0c4fc38777",
+    "executable_sha256": "91cf3c3c975f6c0c199828ef9dff67b1a53c0fb20ca58a110a0b30e52ad341da",
+    "benchmark_executable_sha256": "428d418c99777185201dfc8184a287788db0d55ef2184ce59be6171f1d505a83",
     "source_after_measurement": {
-      "sha256": "6bd3f302f676ad2c641ee0348173469f01769f96e62bd311be8e63c843a323e0",
+      "sha256": "6c633e91f4d6e21afac10f79520e11540652efc24bca3122449c46daf8e9af19",
       "files": {
         "src/bin/lightgbm-rust.rs": "606d166071492a624cd93c5e9bac89d2216491297b785a96eca37f75668c56a5",
         "src/boosting/conformance.rs": "2c75174a175be3a31b4e8619050b09642465cafca7344eaa7ae7121efcb634de",
@@ -295,22 +295,22 @@
         "src/error.rs": "f9339d894f4f339588107f119d03e6e0fbf952d028a372b2f3d57a3de5ca3824",
         "src/histogram.rs": "3ac8b9a78e73b6b2bd91c6402783c0b530a9ef3ad32d0027f44d791841220c4b",
         "src/io.rs": "9f3daaf1a4dd912f88e7ff4e679e06c1c324e35572992e135bec89e339d0db0a",
-        "src/learner.rs": "87b10004519e4858c23632a2cdcac75935d7679e0e565009fc034ad9f7af9885",
+        "src/learner.rs": "7eb6b5497555e7cf9b5faf3f30262e86049b044c9862866603e262af17766d91",
         "src/lib.rs": "237fe25714d013d3d9055d41d15c9d6dfdf6fcdd3d005672b617f8488eb289b9",
-        "src/linear.rs": "80eadb070fab10a200418f7679bb7302a2ec14d52f3ec85855b580a5c854c425",
+        "src/linear.rs": "f79939bd0ef31145b7322018a5d772d21a478d0b60cab4e698b8e4bfcaf59e84",
         "src/metric/discrimination.rs": "98d89cf84dcde16e9a4c7d1483769333fa21a6fe3beb48aa8ec402ddde8873e8",
         "src/metric/rank.rs": "18220f189479d027d1d59279b2285a79a85ee9adc3a3dfd67b86cb993c4a34f9",
         "src/metric.rs": "327b8c67d30452ba06c8a0740d123907e687070dcfc4da55c372568719e051ed",
         "src/model/early_stop.rs": "989cb4d0a1f34d6464ecc3469ceec42ca5a29a43c6cd821ef13f18ea4dfce485",
         "src/model/linear.rs": "c34be1ed734d14a5257a333007c54103b5b0d0be047078be7011d1b5ae92278f",
-        "src/model/operations.rs": "790153b97f87bead77027cfaf7d5f78ea99c313bba5f344b3e564a8c4565961c",
+        "src/model/operations.rs": "d824caa3abdb80ec5491927a099541785083d06917601bec0eef294c49fdcd6e",
         "src/model/shap.rs": "8a896e78418b01e3b2094fc55f7f52509110d9465b446e4310223575e9bd5bc0",
         "src/model.rs": "647bbc1cbf7e59b47557e49311a89537cfa09f2dd76c357a24f5ed01aa449518",
         "src/objective/conformance.rs": "ee88bed53889112a1baa639ddd1258b2c84f736bc5e855f9917399a49292fc83",
         "src/objective/rank.rs": "250c223c22e9d5c2ff97707224768453886737d9f105c72f7034a967da3ecc1c",
         "src/objective.rs": "3d6b13d3eb92b1dfe4e8a5c7f4d97846e66f4dbdc3dcc03235ef315e7bd9162d",
         "src/parallel.rs": "7accbe4ad8c961e6b8f58a284a1874180b50d908eb8420f9d4d4e61f03b2bb06",
-        "src/quantize.rs": "28c930dce9c8f865e5ffe0979007b7a91c729a7f8d19f879f4ae48a6594cc5fb",
+        "src/quantize.rs": "ec06b5b07f905678b224300cfa66da4257f07da635f0392721516127447e7f65",
         "src/random.rs": "28773f6e1e1f989473169b25000f31ffc778e042630492df3492238afd2c3a96",
         "src/sampling/conformance.rs": "dd927d1cafd4e0d3d7f80966384d7d15b191ffc734fc84918efef1ed90040127",
         "src/sampling.rs": "e47697d8068af661727db6cba130d85a4b4c29f77add5080ef18631688f7b54b",
@@ -325,7 +325,7 @@
       }
     },
     "source_unchanged_through_measurement": true,
-    "git_status": "M docs/reviews/pr-1.md\n M src/objective.rs\n M src/objective/conformance.rs\n M src/trainer.rs"
+    "git_status": "M docs/compatibility.md\n M docs/conformance.md\n M docs/reference-manifest.json\n M docs/reviews/pr-1.md\n M src/learner.rs\n M src/linear.rs\n M src/model/operations.rs\n M src/quantize.rs\n M tests/learner/unit.rs\n M tools/oracle/check.py\n M tools/oracle/check_review.py\n M tools/oracle/manifest.py\n?? tests/fixtures/models/review_linear/\n?? tests/fixtures/review_linear.json\n?? tests/fixtures/review_linear.schema.json\n?? tests/linear_skipped_class.rs\n?? tests/refit_feature_scan.rs\n?? tools/oracle/generate_review_linear.py"
   },
   "measurement_script_sha256": "7d8f4e77912a2be6410446544a80c9c81813faacba636752945039d4346ab7dc",
   "boundary": "Absolute entire fresh-process peak, including binary loader, OS libraries, raw input loading, six sequential construction/train/save/predict iterations, and final prediction output. No subtraction. One warm-up is included in each peak; five measured iterations per process, five fresh processes per implementation/case. Python is outside measured children.",
@@ -396,34 +396,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.006017042,
-              0.003934875,
-              0.003792709,
-              0.003851125,
-              0.003802167
+              0.00520025,
+              0.004095666,
+              0.003847917,
+              0.003855875,
+              0.003865708
             ],
             "training_seconds": [
-              0.019835375,
-              0.016041833,
-              0.015976583,
-              0.015997083,
-              0.015985167
+              0.018805875,
+              0.016231584,
+              0.016036916,
+              0.016030583,
+              0.015957375
             ],
             "serialization_seconds": [
-              0.001224125,
-              0.001102458,
-              0.001086208,
-              0.001086833,
-              0.001087333
+              0.00115275,
+              0.001071208,
+              0.00105425,
+              0.001063792,
+              0.001060833
             ],
             "inference_seconds": [
-              0.001592208,
-              0.001459209,
-              0.001436584,
-              0.001445584,
-              0.001446208
+              0.001616458,
+              0.001467792,
+              0.001454042,
+              0.001453541,
+              0.001439375
             ],
-            "peak_rss_bytes": 10993664,
+            "peak_rss_bytes": 10829824,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -446,34 +446,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003833625,
-              0.003824916,
-              0.003858041,
-              0.003829958,
-              0.003854292
+              0.003914167,
+              0.003786583,
+              0.003784,
+              0.003858292,
+              0.003832041
             ],
             "training_seconds": [
-              0.015927542,
-              0.015944375,
-              0.015906542,
-              0.0159415,
-              0.015842625
+              0.01621125,
+              0.01619125,
+              0.016106292,
+              0.016086291,
+              0.016180709
             ],
             "serialization_seconds": [
-              0.001110625,
-              0.001116209,
-              0.0010945,
-              0.001104917,
-              0.001090375
+              0.001160791,
+              0.001114084,
+              0.001124208,
+              0.0011735,
+              0.00106975
             ],
             "inference_seconds": [
-              0.0014965,
-              0.001466875,
-              0.001457417,
-              0.001491125,
-              0.001476042
+              0.001567292,
+              0.001494583,
+              0.00153275,
+              0.00148225,
+              0.001496375
             ],
-            "peak_rss_bytes": 9895936,
+            "peak_rss_bytes": 9715712,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -496,34 +496,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003885416,
-              0.003881666,
-              0.003853458,
-              0.00389725,
-              0.003824625
+              0.003846375,
+              0.003861125,
+              0.003792166,
+              0.003775125,
+              0.003761958
             ],
             "training_seconds": [
-              0.016027542,
-              0.015969042,
-              0.015990459,
-              0.015966208,
-              0.015991542
+              0.01605925,
+              0.016124709,
+              0.016161125,
+              0.016065084,
+              0.016083333
             ],
             "serialization_seconds": [
-              0.001069083,
-              0.001063333,
-              0.001059541,
-              0.001067,
-              0.001056792
+              0.001113334,
+              0.001088708,
+              0.001113334,
+              0.001093583,
+              0.001079917
             ],
             "inference_seconds": [
-              0.001448084,
-              0.001435167,
-              0.001448542,
-              0.001433,
-              0.001433083
+              0.00147175,
+              0.001438167,
+              0.001507333,
+              0.001451167,
+              0.00144075
             ],
-            "peak_rss_bytes": 9568256,
+            "peak_rss_bytes": 9732096,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -546,34 +546,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003799,
-              0.003791375,
-              0.003789084,
-              0.003748542,
-              0.003758584
+              0.004036708,
+              0.003890667,
+              0.003849333,
+              0.003841125,
+              0.00384175
             ],
             "training_seconds": [
-              0.016109875,
-              0.016086125,
-              0.016113583,
-              0.01607475,
-              0.016061208
+              0.015998167,
+              0.016104791,
+              0.016012667,
+              0.016008416,
+              0.016070292
             ],
             "serialization_seconds": [
-              0.001078875,
-              0.001080584,
-              0.001074333,
-              0.001080208,
-              0.001069667
+              0.001106,
+              0.001097042,
+              0.001096041,
+              0.001095625,
+              0.001094167
             ],
             "inference_seconds": [
-              0.001499542,
-              0.001504958,
-              0.001498084,
-              0.001506625,
-              0.001500333
+              0.001455958,
+              0.001434583,
+              0.001430584,
+              0.001432709,
+              0.001442333
             ],
-            "peak_rss_bytes": 9584640,
+            "peak_rss_bytes": 9814016,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -596,34 +596,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003851334,
-              0.003752042,
-              0.003759916,
-              0.003765084,
-              0.003792167
+              0.003789209,
+              0.00383,
+              0.003741792,
+              0.003791541,
+              0.003787333
             ],
             "training_seconds": [
-              0.016067458,
-              0.016036083,
-              0.015998084,
-              0.016090208,
-              0.01599675
+              0.0162885,
+              0.01612425,
+              0.016115333,
+              0.0160835,
+              0.016100542
             ],
             "serialization_seconds": [
-              0.001089375,
-              0.001074959,
-              0.001072833,
-              0.001081333,
-              0.001062542
+              0.001093583,
+              0.00108375,
+              0.001073583,
+              0.001089625,
+              0.001087
             ],
             "inference_seconds": [
-              0.001435792,
-              0.001493625,
-              0.001450875,
-              0.001458417,
-              0.001489666
+              0.00145925,
+              0.001454667,
+              0.001460625,
+              0.001478875,
+              0.00146075
             ],
-            "peak_rss_bytes": 9830400,
+            "peak_rss_bytes": 9584640,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -643,38 +643,38 @@
         "rust": [
           {
             "dataset_construction_seconds": [
-              0.00469375,
-              0.00335,
-              0.00349,
-              0.003584667,
-              0.003275042
+              0.004502208,
+              0.003437166,
+              0.0033675,
+              0.003345083,
+              0.003324417
             ],
             "inference_seconds": [
-              0.001256208,
-              0.001227416,
-              0.00123675,
-              0.0012325,
-              0.001226334
+              0.001209583,
+              0.00126775,
+              0.00127125,
+              0.001226875,
+              0.001327125
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000301333,
-              0.000304459,
-              0.000293375,
-              0.000300625,
-              0.000294
+              0.000310042,
+              0.000305125,
+              0.000301375,
+              0.000301625,
+              0.00030575
             ],
             "threads": 1,
             "training_seconds": [
-              0.025168459,
-              0.023122541,
-              0.023151,
-              0.023119917,
-              0.023168541
+              0.025287125,
+              0.023733209,
+              0.023276583,
+              0.023286084,
+              0.023477666
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 11026432,
+            "peak_rss_bytes": 11501568,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -692,38 +692,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003511833,
-              0.0033935,
-              0.003455291,
-              0.00353775,
-              0.00344625
+              0.003260792,
+              0.003249791,
+              0.003194917,
+              0.003282042,
+              0.00335175
             ],
             "inference_seconds": [
-              0.001239917,
-              0.001221208,
-              0.001212375,
-              0.001215583,
-              0.001213792
+              0.001234167,
+              0.001239666,
+              0.001257375,
+              0.001162625,
+              0.001282292
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000297208,
-              0.000299,
-              0.000294417,
-              0.000293542,
-              0.000311917
+              0.000298125,
+              0.000297834,
+              0.000300375,
+              0.000294042,
+              0.000318917
             ],
             "threads": 1,
             "training_seconds": [
-              0.023279,
-              0.023330208,
-              0.023221167,
-              0.023206708,
-              0.023305458
+              0.023276958,
+              0.02308875,
+              0.02346825,
+              0.023295125,
+              0.023356
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8880128,
+            "peak_rss_bytes": 9289728,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -741,38 +741,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003450417,
-              0.003373,
-              0.003535625,
-              0.003507541,
-              0.003482583
+              0.003328792,
+              0.003280833,
+              0.00316625,
+              0.003303541,
+              0.003167792
             ],
             "inference_seconds": [
-              0.001264667,
-              0.001233167,
-              0.001196333,
-              0.0012975,
-              0.001297583
+              0.001172375,
+              0.00107775,
+              0.001067792,
+              0.001059334,
+              0.00106075
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000312333,
-              0.000301,
-              0.000303667,
-              0.000312583,
-              0.000301917
+              0.000293625,
+              0.000288333,
+              0.00028675,
+              0.000290625,
+              0.0002955
             ],
             "threads": 1,
             "training_seconds": [
-              0.023077375,
-              0.023025958,
-              0.023045166,
-              0.023079042,
-              0.023294917
+              0.023369916,
+              0.023325292,
+              0.023738542,
+              0.0233305,
+              0.023375875
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8814592,
+            "peak_rss_bytes": 9306112,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -790,38 +790,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.00345875,
-              0.003535542,
-              0.003396958,
-              0.003474166,
-              0.003242792
+              0.003556542,
+              0.003393334,
+              0.003348084,
+              0.003719333,
+              0.00333525
             ],
             "inference_seconds": [
-              0.001242459,
-              0.001209666,
-              0.001196333,
-              0.001203333,
-              0.001197291
+              0.0012885,
+              0.001277666,
+              0.001223917,
+              0.001270167,
+              0.001221875
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000301458,
-              0.000295417,
-              0.000290875,
-              0.00029775,
-              0.000291417
+              0.000301709,
+              0.00030225,
+              0.000296333,
+              0.000301375,
+              0.000295292
             ],
             "threads": 1,
             "training_seconds": [
-              0.023082833,
-              0.0230475,
-              0.023008792,
-              0.023068084,
-              0.023043875
+              0.023309541,
+              0.02360825,
+              0.023327083,
+              0.023226417,
+              0.023188583
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 9273344,
+            "peak_rss_bytes": 9338880,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -839,38 +839,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003437542,
-              0.003327583,
-              0.003428125,
-              0.003553375,
-              0.003301166
+              0.003281125,
+              0.003322625,
+              0.0032945,
+              0.003336958,
+              0.003292791
             ],
             "inference_seconds": [
-              0.001241417,
-              0.001204542,
-              0.001200834,
-              0.001211458,
-              0.00120275
+              0.001184959,
+              0.001237917,
+              0.001223583,
+              0.001164041,
+              0.001169958
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000310708,
-              0.000299,
-              0.000293375,
-              0.00029625,
-              0.000294042
+              0.000302375,
+              0.000299333,
+              0.00029225,
+              0.000290209,
+              0.000299833
             ],
             "threads": 1,
             "training_seconds": [
-              0.023373375,
-              0.023398417,
-              0.023123041,
-              0.023188375,
-              0.023138917
+              0.02331825,
+              0.023398458,
+              0.023285042,
+              0.023262208,
+              0.023371709
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8880128,
+            "peak_rss_bytes": 9338880,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -890,37 +890,37 @@
       },
       "summary": {
         "native": {
-          "median_dataset_construction_seconds": 0.003824916,
-          "median_training_seconds": 0.015997083,
-          "median_serialization_seconds": 0.001080584,
-          "median_inference_seconds": 0.001459209,
-          "median_peak_rss_bytes": 9830400,
-          "maximum_peak_rss_bytes": 10993664
+          "median_dataset_construction_seconds": 0.00384175,
+          "median_training_seconds": 0.016100542,
+          "median_serialization_seconds": 0.001093583,
+          "median_inference_seconds": 0.00145925,
+          "median_peak_rss_bytes": 9732096,
+          "maximum_peak_rss_bytes": 10829824
         },
         "rust": {
-          "median_dataset_construction_seconds": 0.003455291,
-          "median_training_seconds": 0.023138917,
-          "median_serialization_seconds": 0.000299,
-          "median_inference_seconds": 0.001221208,
-          "median_peak_rss_bytes": 8880128,
-          "maximum_peak_rss_bytes": 11026432
+          "median_dataset_construction_seconds": 0.003324417,
+          "median_training_seconds": 0.023327083,
+          "median_serialization_seconds": 0.000299333,
+          "median_inference_seconds": 0.001223917,
+          "median_peak_rss_bytes": 9338880,
+          "maximum_peak_rss_bytes": 11501568
         }
       },
       "timing_ratios_to_fixed_baseline": {
-        "training": 0.4044696539164298,
-        "inference": 0.22316378835322848
+        "training": 0.40775880685728866,
+        "inference": 0.22365883154214378
       },
       "timing_ratios_to_fresh_native": {
-        "training": 1.4464460176896001,
-        "inference": 0.8368972504966733
+        "training": 1.4488383682984087,
+        "inference": 0.8387301696076751
       },
       "fresh_native_training_pass": true,
       "fresh_native_inference_pass": true,
       "fixed_reference_median_training_seconds": 0.05720804212614894,
       "fixed_reference_median_inference_seconds": 0.0054722498171031475,
-      "peak_memory_ratio": 1.0029806259314455,
-      "conservative_peak_memory_ratio": 1.1523972602739727,
-      "median_peak_memory_ratio": 0.9033333333333333,
+      "peak_memory_ratio": 1.0620272314674735,
+      "conservative_peak_memory_ratio": 1.2,
+      "median_peak_memory_ratio": 0.9595959595959596,
       "training_pass": true,
       "inference_pass": true,
       "memory_pass": true,
@@ -928,38 +928,38 @@
       "supplemental_rust_parallel": [
         {
           "dataset_construction_seconds": [
-            0.003347542,
-            0.003467583,
-            0.003434291,
-            0.003139083,
-            0.003534542
+            0.003235625,
+            0.003306041,
+            0.0032845,
+            0.0033225,
+            0.003502709
           ],
           "inference_seconds": [
-            0.000674834,
-            0.000724417,
-            0.000640709,
-            0.000734583,
-            0.0006
+            0.000646042,
+            0.000640625,
+            0.000750542,
+            0.000726125,
+            0.000586417
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000296916,
-            0.000285792,
-            0.00028175,
-            0.000306792,
-            0.0002795
+            0.000294042,
+            0.000317167,
+            0.000313542,
+            0.00031,
+            0.000303167
           ],
           "threads": 2,
           "training_seconds": [
-            0.023174,
-            0.023182958,
-            0.02317775,
-            0.023151542,
-            0.023102542
+            0.023301083,
+            0.023173167,
+            0.02320275,
+            0.023294375,
+            0.023319291
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 9207808,
+          "peak_rss_bytes": 9617408,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -977,38 +977,38 @@
         },
         {
           "dataset_construction_seconds": [
-            0.003250541,
-            0.003181959,
-            0.003220292,
-            0.003209417,
-            0.00320925
+            0.003434917,
+            0.003495375,
+            0.003407333,
+            0.003412583,
+            0.00335375
           ],
           "inference_seconds": [
-            0.000474584,
-            0.000373541,
-            0.000403709,
-            0.000448875,
-            0.000398208
+            0.000371166,
+            0.000392666,
+            0.000351375,
+            0.000379375,
+            0.000386167
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000316375,
-            0.000312792,
-            0.000295666,
-            0.000316,
-            0.000292792
+            0.000312459,
+            0.00031325,
+            0.000312375,
+            0.000302583,
+            0.000301791
           ],
           "threads": 4,
           "training_seconds": [
-            0.02804,
-            0.028448333,
-            0.027952375,
-            0.028287042,
-            0.029011833
+            0.028663208,
+            0.028740334,
+            0.029641333,
+            0.029480792,
+            0.028565292
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 9682944,
+          "peak_rss_bytes": 9994240,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -1088,34 +1088,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.001191583,
-              0.001150833,
-              0.001119042,
-              0.001109166,
-              0.001125958
+              0.001210542,
+              0.001165542,
+              0.001130208,
+              0.001125083,
+              0.001102709
             ],
             "training_seconds": [
-              0.006847458,
-              0.006820833,
-              0.006817708,
-              0.006813084,
-              0.006877833
+              0.006880541,
+              0.006892083,
+              0.006829708,
+              0.0068385,
+              0.00681625
             ],
             "serialization_seconds": [
-              0.00110475,
-              0.001095417,
-              0.001096625,
-              0.001091916,
-              0.001115209
+              0.001125334,
+              0.001136,
+              0.001141459,
+              0.001135042,
+              0.001103166
             ],
             "inference_seconds": [
-              0.001870292,
-              0.001865833,
-              0.001865542,
-              0.001881959,
-              0.0018525
+              0.001845,
+              0.001861334,
+              0.001876083,
+              0.001852458,
+              0.001832084
             ],
-            "peak_rss_bytes": 6602752,
+            "peak_rss_bytes": 6553600,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1138,34 +1138,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.001232708,
-              0.001164583,
-              0.001125625,
-              0.001126167,
-              0.001136708
+              0.001250833,
+              0.001197708,
+              0.001149625,
+              0.001134583,
+              0.001129792
             ],
             "training_seconds": [
-              0.00672775,
-              0.006738459,
-              0.006757083,
-              0.006780875,
-              0.006769959
+              0.00693525,
+              0.006898459,
+              0.006861875,
+              0.006856709,
+              0.006924291
             ],
             "serialization_seconds": [
-              0.001116125,
-              0.001114666,
-              0.001123125,
-              0.001119166,
-              0.001129
+              0.001124958,
+              0.001117333,
+              0.001118834,
+              0.001117625,
+              0.001122875
             ],
             "inference_seconds": [
-              0.001758667,
-              0.00180225,
-              0.001786334,
-              0.00180575,
-              0.001831208
+              0.001844667,
+              0.001880417,
+              0.00187125,
+              0.001883041,
+              0.001871084
             ],
-            "peak_rss_bytes": 6701056,
+            "peak_rss_bytes": 6684672,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1188,34 +1188,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.0011465,
-              0.001228792,
-              0.00112175,
-              0.00112975,
-              0.001120667
+              0.001183833,
+              0.00114975,
+              0.001114625,
+              0.001096042,
+              0.001097958
             ],
             "training_seconds": [
-              0.0066785,
-              0.006858208,
-              0.00702175,
-              0.006998333,
-              0.006988625
+              0.006892208,
+              0.006926166,
+              0.00682925,
+              0.006853708,
+              0.00684825
             ],
             "serialization_seconds": [
-              0.001147667,
-              0.001122959,
-              0.001136125,
-              0.001126,
-              0.001117208
+              0.001095417,
+              0.001108834,
+              0.001100125,
+              0.001098208,
+              0.001090875
             ],
             "inference_seconds": [
-              0.001897,
-              0.001908291,
-              0.001898291,
-              0.001880167,
-              0.001875042
+              0.001856333,
+              0.001883833,
+              0.001851,
+              0.001849334,
+              0.001962375
             ],
-            "peak_rss_bytes": 6782976,
+            "peak_rss_bytes": 6651904,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1238,34 +1238,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.001177542,
-              0.001141625,
-              0.00110625,
-              0.001087958,
-              0.001101416
+              0.001232167,
+              0.001134875,
+              0.00109775,
+              0.001086708,
+              0.001124375
             ],
             "training_seconds": [
-              0.006726125,
-              0.006835667,
-              0.006816042,
-              0.006838792,
-              0.00685125
+              0.006927083,
+              0.006921458,
+              0.006862625,
+              0.006887458,
+              0.006907167
             ],
             "serialization_seconds": [
-              0.001098458,
-              0.001092125,
-              0.001116417,
-              0.001100458,
-              0.001094167
+              0.001102042,
+              0.001107958,
+              0.001104708,
+              0.001121834,
+              0.001119208
             ],
             "inference_seconds": [
-              0.001776667,
-              0.001821208,
-              0.001823916,
-              0.001851,
-              0.001868667
+              0.001861125,
+              0.001891875,
+              0.00185325,
+              0.0019075,
+              0.001896917
             ],
-            "peak_rss_bytes": 6766592,
+            "peak_rss_bytes": 6717440,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1288,34 +1288,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.001155959,
-              0.001117792,
-              0.001072416,
-              0.001086083,
-              0.001089041
+              0.00119725,
+              0.001168417,
+              0.001108667,
+              0.001091,
+              0.001084458
             ],
             "training_seconds": [
-              0.006678916,
-              0.00675525,
-              0.006785042,
-              0.006783333,
-              0.006792792
+              0.006875958,
+              0.007029667,
+              0.006971333,
+              0.0068825,
+              0.006873667
             ],
             "serialization_seconds": [
-              0.001086417,
-              0.001077375,
-              0.001100875,
-              0.001101084,
-              0.001081208
+              0.001118542,
+              0.001113208,
+              0.001119834,
+              0.001135542,
+              0.001106791
             ],
             "inference_seconds": [
-              0.001769542,
-              0.001789583,
-              0.001808583,
-              0.001789666,
-              0.001800959
+              0.001871458,
+              0.0017985,
+              0.001868208,
+              0.001840708,
+              0.001837875
             ],
-            "peak_rss_bytes": 6766592,
+            "peak_rss_bytes": 6651904,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1335,38 +1335,38 @@
         "rust": [
           {
             "dataset_construction_seconds": [
-              0.001329708,
-              0.001347709,
-              0.001327042,
-              0.001318208,
-              0.001328083
+              0.001430875,
+              0.001431708,
+              0.001330625,
+              0.001351291,
+              0.001327542
             ],
             "inference_seconds": [
-              0.001626375,
-              0.001564125,
-              0.001569875,
-              0.00157525,
-              0.001570209
+              0.001656292,
+              0.001611625,
+              0.001566584,
+              0.001557167,
+              0.001531917
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000290667,
-              0.000286833,
-              0.00028175,
-              0.000287333,
-              0.000284416
+              0.000302541,
+              0.000285583,
+              0.000282416,
+              0.000285625,
+              0.000276792
             ],
             "threads": 1,
             "training_seconds": [
-              0.021478625,
-              0.021546958,
-              0.021419167,
-              0.0214265,
-              0.020951292
+              0.024914,
+              0.021866584,
+              0.0219685,
+              0.021982792,
+              0.021792708
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 6438912,
+            "peak_rss_bytes": 6782976,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1384,38 +1384,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.001323166,
-              0.00131675,
-              0.001317666,
-              0.001325792,
-              0.001310042
+              0.001343792,
+              0.001346375,
+              0.001343167,
+              0.001374875,
+              0.001357583
             ],
             "inference_seconds": [
-              0.001572417,
-              0.001555583,
-              0.001541542,
-              0.001538792,
-              0.001533917
+              0.001550125,
+              0.001531709,
+              0.001647125,
+              0.001568125,
+              0.001522208
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000287167,
-              0.000282667,
-              0.000289791,
-              0.00028,
-              0.000282042
+              0.000289667,
+              0.000297208,
+              0.000299625,
+              0.000296083,
+              0.000279458
             ],
             "threads": 1,
             "training_seconds": [
-              0.021812375,
-              0.02184725,
-              0.021877959,
-              0.021929541,
-              0.021962416
+              0.022463041,
+              0.022670208,
+              0.023217416,
+              0.022725667,
+              0.022096459
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 6701056,
+            "peak_rss_bytes": 6799360,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1433,38 +1433,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.001337792,
-              0.001337792,
-              0.001316459,
-              0.001315209,
-              0.001337916
+              0.00136725,
+              0.001332375,
+              0.001323167,
+              0.001324291,
+              0.001321666
             ],
             "inference_seconds": [
-              0.00162775,
-              0.001585458,
-              0.001573834,
-              0.001567166,
-              0.001621
+              0.001618208,
+              0.001535458,
+              0.0015595,
+              0.001513833,
+              0.001511541
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000296583,
-              0.000290042,
-              0.00028475,
-              0.00028525,
-              0.000280375
+              0.000301167,
+              0.000279834,
+              0.000283042,
+              0.000282209,
+              0.000275875
             ],
             "threads": 1,
             "training_seconds": [
-              0.021417125,
-              0.021300333,
-              0.021615666,
-              0.02160675,
-              0.021280959
+              0.021491083,
+              0.021439166,
+              0.021415625,
+              0.021565,
+              0.021458834
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 6488064,
+            "peak_rss_bytes": 6848512,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1482,38 +1482,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.001335041,
-              0.001332541,
-              0.001338667,
-              0.00132125,
-              0.001316791
+              0.001347,
+              0.001333417,
+              0.001340542,
+              0.001319041,
+              0.00133375
             ],
             "inference_seconds": [
-              0.001606708,
-              0.001603792,
-              0.001577959,
-              0.001566875,
-              0.0016025
+              0.001605167,
+              0.001542375,
+              0.001518916,
+              0.001517875,
+              0.001516166
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000285083,
-              0.000286875,
-              0.000281708,
-              0.00028075,
-              0.000288708
+              0.000287875,
+              0.000289875,
+              0.000279167,
+              0.000277333,
+              0.0002785
             ],
             "threads": 1,
             "training_seconds": [
-              0.021519959,
-              0.021496542,
-              0.021575625,
-              0.021390541,
-              0.021612084
+              0.02164625,
+              0.022036917,
+              0.021592125,
+              0.021596459,
+              0.021658209
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 6389760,
+            "peak_rss_bytes": 6848512,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1531,38 +1531,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.001327625,
-              0.00132475,
-              0.001319333,
-              0.00133475,
-              0.001316834
+              0.001352667,
+              0.00139625,
+              0.001323292,
+              0.001327792,
+              0.001311208
             ],
             "inference_seconds": [
-              0.001624833,
-              0.001575833,
-              0.001559375,
-              0.001563042,
-              0.001553083
+              0.001629,
+              0.001604209,
+              0.001536375,
+              0.001524209,
+              0.001510292
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000289792,
-              0.00028325,
-              0.00029325,
-              0.000294708,
-              0.000283875
+              0.0003,
+              0.000287708,
+              0.000295459,
+              0.00027925,
+              0.0002775
             ],
             "threads": 1,
             "training_seconds": [
-              0.022095083,
-              0.022128625,
-              0.022087667,
-              0.022229,
-              0.022041333
+              0.022818792,
+              0.022546792,
+              0.022527791,
+              0.022630958,
+              0.022688833
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 6504448,
+            "peak_rss_bytes": 6799360,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1582,37 +1582,37 @@
       },
       "summary": {
         "native": {
-          "median_dataset_construction_seconds": 0.001125958,
-          "median_training_seconds": 0.006813084,
-          "median_serialization_seconds": 0.00110475,
-          "median_inference_seconds": 0.001831208,
-          "median_peak_rss_bytes": 6766592,
-          "maximum_peak_rss_bytes": 6782976
+          "median_dataset_construction_seconds": 0.001130208,
+          "median_training_seconds": 0.0068825,
+          "median_serialization_seconds": 0.001117625,
+          "median_inference_seconds": 0.001861334,
+          "median_peak_rss_bytes": 6651904,
+          "maximum_peak_rss_bytes": 6717440
         },
         "rust": {
-          "median_dataset_construction_seconds": 0.001325792,
-          "median_training_seconds": 0.02160675,
-          "median_serialization_seconds": 0.00028525,
-          "median_inference_seconds": 0.001572417,
-          "median_peak_rss_bytes": 6488064,
-          "maximum_peak_rss_bytes": 6701056
+          "median_dataset_construction_seconds": 0.001340542,
+          "median_training_seconds": 0.021982792,
+          "median_serialization_seconds": 0.000285583,
+          "median_inference_seconds": 0.001542375,
+          "median_peak_rss_bytes": 6799360,
+          "maximum_peak_rss_bytes": 6848512
         }
       },
       "timing_ratios_to_fixed_baseline": {
-        "training": 0.9082218648345696,
-        "inference": 0.23794756247289878
+        "training": 0.9240284792720079,
+        "inference": 0.23340142701912867
       },
       "timing_ratios_to_fresh_native": {
-        "training": 3.1713611633145873,
-        "inference": 0.8586774413392689
+        "training": 3.1940126407555396,
+        "inference": 0.8286395671061721
       },
       "fresh_native_training_pass": false,
       "fresh_native_inference_pass": true,
       "fixed_reference_median_training_seconds": 0.023790167178958654,
       "fixed_reference_median_inference_seconds": 0.006608250085264444,
-      "peak_memory_ratio": 0.9879227053140096,
-      "conservative_peak_memory_ratio": 1.0148883374689825,
-      "median_peak_memory_ratio": 0.9588377723970944,
+      "peak_memory_ratio": 1.0195121951219512,
+      "conservative_peak_memory_ratio": 1.045,
+      "median_peak_memory_ratio": 1.022167487684729,
       "training_pass": true,
       "inference_pass": true,
       "memory_pass": true,
@@ -1620,38 +1620,38 @@
       "supplemental_rust_parallel": [
         {
           "dataset_construction_seconds": [
-            0.001285666,
-            0.001256209,
-            0.001262625,
-            0.001327041,
-            0.001312291
+            0.001332958,
+            0.001326791,
+            0.001350167,
+            0.001332667,
+            0.001311125
           ],
           "inference_seconds": [
-            0.00081275,
-            0.000834959,
-            0.000785042,
-            0.000786584,
-            0.000885375
+            0.000889,
+            0.000878042,
+            0.000884708,
+            0.000838334,
+            0.000818166
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.0002865,
-            0.000291625,
-            0.000290125,
-            0.000292916,
-            0.00027675
+            0.000291583,
+            0.000297625,
+            0.000296292,
+            0.000295458,
+            0.0002865
           ],
           "threads": 2,
           "training_seconds": [
-            0.020522417,
-            0.020260166,
-            0.020436208,
-            0.020613084,
-            0.020527709
+            0.021278959,
+            0.021937792,
+            0.021717166,
+            0.021658875,
+            0.021497042
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 6979584,
+          "peak_rss_bytes": 7077888,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -1669,38 +1669,38 @@
         },
         {
           "dataset_construction_seconds": [
-            0.001274333,
-            0.00129525,
-            0.001227208,
-            0.001300792,
-            0.001332709
+            0.001366834,
+            0.001337709,
+            0.00340375,
+            0.003489959,
+            0.003513417
           ],
           "inference_seconds": [
-            0.000517583,
-            0.000498458,
-            0.000483042,
-            0.000473708,
-            0.000473875
+            0.0005005,
+            0.001020542,
+            0.001022708,
+            0.00100125,
+            0.001010875
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.0002855,
-            0.000287292,
-            0.000276042,
-            0.000310375,
-            0.000287625
+            0.000285417,
+            0.000573417,
+            0.000579583,
+            0.000576833,
+            0.000585542
           ],
           "threads": 4,
           "training_seconds": [
-            0.02225,
-            0.022419833,
-            0.02256925,
-            0.022050375,
-            0.022442666
+            0.021881541,
+            0.022620791,
+            0.042513,
+            0.0379845,
+            0.044123208
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 7127040,
+          "peak_rss_bytes": 7979008,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -1780,34 +1780,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003725125,
-              0.003703,
-              0.003682666,
-              0.00373275,
-              0.003700167
+              0.003759125,
+              0.003703667,
+              0.003803834,
+              0.003721917,
+              0.003706875
             ],
             "training_seconds": [
-              0.009230416,
-              0.009187875,
-              0.009144459,
-              0.009144416,
-              0.009041458
+              0.009209292,
+              0.009258375,
+              0.009233375,
+              0.009173833,
+              0.009137958
             ],
             "serialization_seconds": [
-              0.000589792,
-              0.000580417,
-              0.000575375,
-              0.000567792,
-              0.000568792
+              0.000598416,
+              0.000598792,
+              0.000582208,
+              0.000589667,
+              0.000586
             ],
             "inference_seconds": [
-              0.000690208,
-              0.000671708,
-              0.000689,
-              0.00068275,
-              0.000699208
+              0.000646625,
+              0.00065825,
+              0.000650417,
+              0.000666708,
+              0.000649084
             ],
-            "peak_rss_bytes": 9715712,
+            "peak_rss_bytes": 9863168,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1830,34 +1830,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003730584,
-              0.003762042,
-              0.003721375,
-              0.003691375,
-              0.003751
+              0.003733167,
+              0.003767375,
+              0.003727875,
+              0.003753833,
+              0.003761458
             ],
             "training_seconds": [
-              0.00921425,
-              0.009121375,
-              0.009070042,
-              0.009034333,
-              0.009061667
+              0.009226875,
+              0.009300625,
+              0.0091345,
+              0.009174875,
+              0.009139417
             ],
             "serialization_seconds": [
-              0.000600625,
-              0.000582875,
-              0.000567792,
-              0.00056775,
-              0.000569875
+              0.000600833,
+              0.000577584,
+              0.000566583,
+              0.000569042,
+              0.000573625
             ],
             "inference_seconds": [
-              0.000679083,
-              0.00066325,
-              0.000646458,
-              0.000664542,
-              0.000657125
+              0.000665875,
+              0.0006805,
+              0.000685,
+              0.000681583,
+              0.000679875
             ],
-            "peak_rss_bytes": 9863168,
+            "peak_rss_bytes": 9732096,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1880,34 +1880,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003759917,
-              0.003750208,
-              0.00371425,
-              0.003700625,
-              0.00370825
+              0.003759708,
+              0.003785166,
+              0.003746084,
+              0.003702166,
+              0.003704542
             ],
             "training_seconds": [
-              0.009169291,
-              0.009155542,
-              0.009131375,
-              0.009128958,
-              0.00905075
+              0.00915225,
+              0.00918725,
+              0.009088625,
+              0.009050542,
+              0.009027458
             ],
             "serialization_seconds": [
-              0.000609709,
-              0.000587375,
-              0.000573291,
-              0.000579667,
-              0.000578
+              0.000615083,
+              0.000600584,
+              0.000585375,
+              0.000588583,
+              0.000605333
             ],
             "inference_seconds": [
-              0.000675875,
-              0.00068175,
-              0.000676875,
-              0.000680917,
-              0.000679542
+              0.000729875,
+              0.000735333,
+              0.000725083,
+              0.000718375,
+              0.000716292
             ],
-            "peak_rss_bytes": 9814016,
+            "peak_rss_bytes": 9830400,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1930,34 +1930,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003692,
-              0.003702583,
-              0.003714625,
-              0.00369975,
-              0.003697625
+              0.003811834,
+              0.003803334,
+              0.00378775,
+              0.003804916,
+              0.003797042
             ],
             "training_seconds": [
-              0.009198959,
-              0.009163,
-              0.009085458,
-              0.009021125,
-              0.009078333
+              0.009159416,
+              0.009115875,
+              0.009109292,
+              0.0091385,
+              0.009084291
             ],
             "serialization_seconds": [
-              0.000593583,
-              0.000588542,
-              0.000566125,
-              0.0005665,
-              0.000561834
+              0.00059325,
+              0.00056825,
+              0.000563417,
+              0.000572667,
+              0.000569417
             ],
             "inference_seconds": [
-              0.000637917,
-              0.00067825,
-              0.000654125,
-              0.000659125,
-              0.0006615
+              0.000641334,
+              0.000660125,
+              0.00065075,
+              0.000671125,
+              0.000664542
             ],
-            "peak_rss_bytes": 9895936,
+            "peak_rss_bytes": 9748480,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -1980,34 +1980,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003670834,
-              0.003660125,
-              0.003701375,
-              0.003718875,
-              0.003753917
+              0.003812833,
+              0.003708042,
+              0.003791167,
+              0.003761625,
+              0.003797416
             ],
             "training_seconds": [
-              0.009213333,
-              0.009171083,
-              0.009169666,
-              0.009170875,
-              0.009143541
+              0.009209708,
+              0.009108083,
+              0.009046833,
+              0.009056,
+              0.00900825
             ],
             "serialization_seconds": [
-              0.000624583,
-              0.00060725,
-              0.00060975,
-              0.00061475,
-              0.000623417
+              0.000600042,
+              0.000585167,
+              0.000565792,
+              0.000571666,
+              0.000562292
             ],
             "inference_seconds": [
-              0.000670042,
-              0.000681792,
-              0.00067725,
-              0.000688792,
-              0.000686375
+              0.000679458,
+              0.0006675,
+              0.0006825,
+              0.000692375,
+              0.000701583
             ],
-            "peak_rss_bytes": 9551872,
+            "peak_rss_bytes": 9797632,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2027,38 +2027,38 @@
         "rust": [
           {
             "dataset_construction_seconds": [
-              0.003317833,
-              0.003449416,
-              0.003357167,
-              0.003335375,
-              0.003397792
+              0.003220083,
+              0.003142875,
+              0.003152792,
+              0.003231708,
+              0.003156625
             ],
             "inference_seconds": [
-              0.000686917,
-              0.000644625,
-              0.000658333,
-              0.000659459,
-              0.000657708
+              0.000686125,
+              0.000666625,
+              0.000653542,
+              0.000640208,
+              0.000629042
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000137291,
-              0.000130083,
-              0.000133958,
-              0.000131916,
-              0.000128417
+              0.000137958,
+              0.000132958,
+              0.000137375,
+              0.000132792,
+              0.000138625
             ],
             "threads": 1,
             "training_seconds": [
-              0.014229334,
-              0.014176167,
-              0.014235917,
-              0.014234375,
-              0.014227708
+              0.014444417,
+              0.014459,
+              0.014302625,
+              0.01432825,
+              0.014331791
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 7864320,
+            "peak_rss_bytes": 8404992,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2076,38 +2076,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003245083,
-              0.003157458,
-              0.003205958,
-              0.003059792,
-              0.0031875
+              0.00352375,
+              0.003356333,
+              0.003280375,
+              0.003299625,
+              0.003260792
             ],
             "inference_seconds": [
-              0.000662583,
-              0.000650458,
-              0.000628917,
-              0.000647333,
-              0.000629167
+              0.000688958,
+              0.000631375,
+              0.000628666,
+              0.000631375,
+              0.000678625
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.00013875,
-              0.000134334,
-              0.0001295,
-              0.000131792,
-              0.0001285
+              0.000144209,
+              0.000138709,
+              0.000130125,
+              0.000130708,
+              0.000140667
             ],
             "threads": 1,
             "training_seconds": [
-              0.014321542,
-              0.014171375,
-              0.014173667,
-              0.014232666,
-              0.014104875
+              0.01453,
+              0.01429,
+              0.01413125,
+              0.0141215,
+              0.0144035
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 7847936,
+            "peak_rss_bytes": 8388608,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2125,38 +2125,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003175125,
-              0.003137417,
-              0.003161333,
-              0.003180209,
-              0.0031685
+              0.003225583,
+              0.003240583,
+              0.003214167,
+              0.003171167,
+              0.003132375
             ],
             "inference_seconds": [
-              0.000663833,
-              0.000623417,
-              0.000646792,
-              0.000629042,
-              0.000646542
+              0.000657792,
+              0.00066425,
+              0.000638916,
+              0.000657958,
+              0.000645875
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000138667,
-              0.000130833,
-              0.000131958,
-              0.000127875,
-              0.000131416
+              0.00013975,
+              0.000139917,
+              0.000133042,
+              0.000134792,
+              0.000135458
             ],
             "threads": 1,
             "training_seconds": [
-              0.014297083,
-              0.0142655,
-              0.014124584,
-              0.014202708,
-              0.014172167
+              0.014450625,
+              0.014510833,
+              0.014306625,
+              0.01438225,
+              0.014487125
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 7897088,
+            "peak_rss_bytes": 8388608,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2174,38 +2174,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003145958,
-              0.003187834,
-              0.003178625,
-              0.003152083,
-              0.003097708
+              0.003187083,
+              0.003165208,
+              0.003099208,
+              0.003149333,
+              0.003176666
             ],
             "inference_seconds": [
-              0.000668792,
-              0.00063,
-              0.000655917,
-              0.000640084,
-              0.00064475
+              0.000640375,
+              0.000630875,
+              0.000627833,
+              0.000620083,
+              0.000660958
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.00013625,
-              0.0001325,
-              0.00013325,
-              0.000128625,
-              0.000131292
+              0.000157167,
+              0.000133708,
+              0.000140292,
+              0.000134167,
+              0.000139625
             ],
             "threads": 1,
             "training_seconds": [
-              0.01423,
-              0.014167875,
-              0.014271583,
-              0.014221458,
-              0.014214125
+              0.014346042,
+              0.0141795,
+              0.014491375,
+              0.014289583,
+              0.014261959
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 7962624,
+            "peak_rss_bytes": 8404992,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2223,38 +2223,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003318541,
-              0.003345625,
-              0.003454583,
-              0.003390375,
-              0.003466375
+              0.003284709,
+              0.003353166,
+              0.003234084,
+              0.003183291,
+              0.00332425
             ],
             "inference_seconds": [
-              0.0006675,
-              0.00065275,
-              0.00062925,
-              0.000656167,
-              0.000651917
+              0.000692166,
+              0.000653208,
+              0.000642042,
+              0.000651583,
+              0.00068525
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000137042,
-              0.000135333,
-              0.000128791,
-              0.000130416,
-              0.000131333
+              0.000137,
+              0.000144583,
+              0.000131541,
+              0.000131333,
+              0.000138
             ],
             "threads": 1,
             "training_seconds": [
-              0.014268375,
-              0.014255542,
-              0.014145917,
-              0.014289125,
-              0.014244709
+              0.014315,
+              0.014570709,
+              0.0142735,
+              0.014241209,
+              0.014374959
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 7995392,
+            "peak_rss_bytes": 8355840,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2274,37 +2274,37 @@
       },
       "summary": {
         "native": {
-          "median_dataset_construction_seconds": 0.00370825,
-          "median_training_seconds": 0.009144416,
-          "median_serialization_seconds": 0.000580417,
-          "median_inference_seconds": 0.00067725,
-          "median_peak_rss_bytes": 9814016,
-          "maximum_peak_rss_bytes": 9895936
+          "median_dataset_construction_seconds": 0.003761458,
+          "median_training_seconds": 0.0091385,
+          "median_serialization_seconds": 0.000585167,
+          "median_inference_seconds": 0.000679458,
+          "median_peak_rss_bytes": 9797632,
+          "maximum_peak_rss_bytes": 9863168
         },
         "rust": {
-          "median_dataset_construction_seconds": 0.003187834,
-          "median_training_seconds": 0.014229334,
-          "median_serialization_seconds": 0.000131792,
-          "median_inference_seconds": 0.000650458,
-          "median_peak_rss_bytes": 7897088,
-          "maximum_peak_rss_bytes": 7995392
+          "median_dataset_construction_seconds": 0.003220083,
+          "median_training_seconds": 0.014331791,
+          "median_serialization_seconds": 0.000137375,
+          "median_inference_seconds": 0.000651583,
+          "median_peak_rss_bytes": 8388608,
+          "maximum_peak_rss_bytes": 8404992
         }
       },
       "timing_ratios_to_fixed_baseline": {
-        "training": 0.30738241166357655,
-        "inference": 0.27134920670004103
+        "training": 0.30959569021560257,
+        "inference": 0.2718185188732137
       },
       "timing_ratios_to_fresh_native": {
-        "training": 1.5560680966395228,
-        "inference": 0.9604400147655962
+        "training": 1.5682870274115006,
+        "inference": 0.9589746533266221
       },
       "fresh_native_training_pass": false,
       "fresh_native_inference_pass": true,
       "fixed_reference_median_training_seconds": 0.04629195900633931,
       "fixed_reference_median_inference_seconds": 0.002397125121206045,
-      "peak_memory_ratio": 0.8079470198675497,
-      "conservative_peak_memory_ratio": 0.8370497427101201,
-      "median_peak_memory_ratio": 0.8046744574290484,
+      "peak_memory_ratio": 0.8521594684385382,
+      "conservative_peak_memory_ratio": 0.8636363636363636,
+      "median_peak_memory_ratio": 0.8561872909698997,
       "training_pass": true,
       "inference_pass": true,
       "memory_pass": true,
@@ -2312,38 +2312,38 @@
       "supplemental_rust_parallel": [
         {
           "dataset_construction_seconds": [
-            0.003153833,
-            0.003043417,
-            0.003083209,
-            0.003090667,
-            0.003134792
+            0.003346542,
+            0.003404875,
+            0.003297166,
+            0.003437833,
+            0.00338675
           ],
           "inference_seconds": [
-            0.0003815,
-            0.000359625,
-            0.000344667,
-            0.000372417,
-            0.000330792
+            0.000390375,
+            0.000366875,
+            0.000360666,
+            0.000385375,
+            0.000347542
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000146375,
-            0.000144958,
-            0.000150375,
-            0.000141291,
-            0.000138625
+            0.000152334,
+            0.000142792,
+            0.000135292,
+            0.000152042,
+            0.000131
           ],
           "threads": 2,
           "training_seconds": [
-            0.01386775,
-            0.013792208,
-            0.013692666,
-            0.0137155,
-            0.013758541
+            0.013782458,
+            0.013794542,
+            0.013737792,
+            0.013710667,
+            0.013649958
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 8388608,
+          "peak_rss_bytes": 8683520,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -2361,38 +2361,38 @@
         },
         {
           "dataset_construction_seconds": [
-            0.003135666,
-            0.003236209,
-            0.003117292,
-            0.003219959,
-            0.0031895
+            0.003248917,
+            0.003432916,
+            0.003385584,
+            0.003358166,
+            0.003283167
           ],
           "inference_seconds": [
-            0.000233959,
-            0.000228875,
-            0.000208083,
-            0.000204958,
-            0.000205167
+            0.000234834,
+            0.000226917,
+            0.000200667,
+            0.000219917,
+            0.000200875
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000144125,
-            0.000148583,
-            0.0001455,
-            0.000132667,
-            0.000145708
+            0.000151916,
+            0.000149083,
+            0.000149167,
+            0.000146625,
+            0.000151209
           ],
           "threads": 4,
           "training_seconds": [
-            0.015986625,
-            0.016128375,
-            0.01623325,
-            0.016224833,
-            0.015736917
+            0.016913625,
+            0.016683542,
+            0.016494166,
+            0.015627,
+            0.016518208
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 8781824,
+          "peak_rss_bytes": 9076736,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -2473,34 +2473,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 6144,
             "dataset_construction_seconds": [
-              0.003796417,
-              0.003826459,
-              0.003808541,
-              0.003807333,
-              0.003789333
+              0.003789875,
+              0.003783792,
+              0.003824833,
+              0.003877792,
+              0.003869792
             ],
             "training_seconds": [
-              0.054290708,
-              0.054429875,
-              0.054575625,
-              0.054301167,
-              0.05419425
+              0.055343083,
+              0.05523325,
+              0.055106417,
+              0.054829375,
+              0.054608125
             ],
             "serialization_seconds": [
-              0.003290667,
-              0.003261291,
-              0.003380375,
-              0.003231375,
-              0.0032365
+              0.003313083,
+              0.003309958,
+              0.003364166,
+              0.003309333,
+              0.003285916
             ],
             "inference_seconds": [
-              0.006737166,
-              0.006722084,
-              0.007089625,
-              0.006739291,
-              0.006782208
+              0.006853042,
+              0.006831917,
+              0.007011667,
+              0.006675375,
+              0.006659209
             ],
-            "peak_rss_bytes": 10747904,
+            "peak_rss_bytes": 10649600,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2523,34 +2523,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 6144,
             "dataset_construction_seconds": [
-              0.003777958,
-              0.003781375,
-              0.003791417,
-              0.00382125,
-              0.003880625
+              0.003950583,
+              0.003951208,
+              0.003927542,
+              0.003931708,
+              0.00391125
             ],
             "training_seconds": [
-              0.054729042,
-              0.054682333,
-              0.054541667,
-              0.054754875,
-              0.054236083
+              0.055020833,
+              0.054677542,
+              0.054871917,
+              0.054768167,
+              0.055014958
             ],
             "serialization_seconds": [
-              0.003280291,
-              0.003279834,
-              0.003296416,
-              0.003335375,
-              0.003341625
+              0.003355917,
+              0.003352,
+              0.003322166,
+              0.003305083,
+              0.003332917
             ],
             "inference_seconds": [
-              0.006771292,
-              0.006757458,
-              0.0068075,
-              0.006894333,
-              0.006633417
+              0.006663083,
+              0.006697,
+              0.006618,
+              0.00720475,
+              0.006885042
             ],
-            "peak_rss_bytes": 10649600,
+            "peak_rss_bytes": 10616832,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2573,34 +2573,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 6144,
             "dataset_construction_seconds": [
-              0.00391475,
-              0.003907209,
-              0.003879625,
-              0.003969792,
-              0.003966291
+              0.003844958,
+              0.003950833,
+              0.00382475,
+              0.00388375,
+              0.003885375
             ],
             "training_seconds": [
-              0.054703792,
-              0.054936333,
-              0.054731083,
-              0.054484833,
-              0.054429834
+              0.054684084,
+              0.05403325,
+              0.054131375,
+              0.054165291,
+              0.05459375
             ],
             "serialization_seconds": [
-              0.003368583,
-              0.003376833,
-              0.003408792,
-              0.003345292,
-              0.003323833
+              0.00332,
+              0.003320209,
+              0.003329375,
+              0.003293209,
+              0.003289458
             ],
             "inference_seconds": [
-              0.006567625,
-              0.006538417,
-              0.00655975,
-              0.006547916,
-              0.006896167
+              0.006703375,
+              0.006568208,
+              0.006574167,
+              0.006543458,
+              0.006606334
             ],
-            "peak_rss_bytes": 10813440,
+            "peak_rss_bytes": 10747904,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2623,34 +2623,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 6144,
             "dataset_construction_seconds": [
-              0.003843667,
-              0.003801625,
-              0.003835791,
-              0.003792292,
-              0.003808083
+              0.003844375,
+              0.003808,
+              0.003778583,
+              0.003777458,
+              0.003930209
             ],
             "training_seconds": [
-              0.054786667,
-              0.054843875,
-              0.054765125,
-              0.054764,
-              0.054932
+              0.054577334,
+              0.054708583,
+              0.054775917,
+              0.054774334,
+              0.054688375
             ],
             "serialization_seconds": [
-              0.003352166,
-              0.003302791,
-              0.003350125,
-              0.003324291,
-              0.003306292
+              0.003302416,
+              0.00329425,
+              0.003298041,
+              0.003270041,
+              0.003431291
             ],
             "inference_seconds": [
-              0.006819834,
-              0.0067345,
-              0.006906334,
-              0.0067465,
-              0.006721958
+              0.006833917,
+              0.00677925,
+              0.006778625,
+              0.006844709,
+              0.006974584
             ],
-            "peak_rss_bytes": 10747904,
+            "peak_rss_bytes": 10633216,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2673,34 +2673,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 6144,
             "dataset_construction_seconds": [
-              0.003629875,
-              0.0037715,
-              0.0037505,
-              0.00376575,
-              0.003792792
+              0.003854959,
+              0.003888084,
+              0.00379825,
+              0.003837917,
+              0.003899542
             ],
             "training_seconds": [
-              0.054489,
-              0.054777083,
-              0.0546265,
-              0.054882958,
-              0.0546025
+              0.054578583,
+              0.054634208,
+              0.054732042,
+              0.054580416,
+              0.054492833
             ],
             "serialization_seconds": [
-              0.003359625,
+              0.003350333,
+              0.003335875,
+              0.003327167,
               0.003345042,
-              0.003337125,
-              0.003323542,
-              0.003305708
+              0.003380958
             ],
             "inference_seconds": [
-              0.006966083,
-              0.006771291,
-              0.006742417,
-              0.006710166,
-              0.006705875
+              0.006851042,
+              0.006812,
+              0.006830625,
+              0.007042208,
+              0.00677725
             ],
-            "peak_rss_bytes": 10944512,
+            "peak_rss_bytes": 10633216,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2720,38 +2720,38 @@
         "rust": [
           {
             "dataset_construction_seconds": [
-              0.003226041,
-              0.006868541,
-              0.0032655,
-              0.003285042,
-              0.003303791
+              0.00316975,
+              0.003163625,
+              0.003167375,
+              0.0032865,
+              0.003302375
             ],
             "inference_seconds": [
-              0.005629666,
-              0.004817208,
-              0.004920625,
-              0.004726458,
-              0.004677416
+              0.0048465,
+              0.004686708,
+              0.004967459,
+              0.004986125,
+              0.004916208
             ],
             "measured_runs": 5,
             "prediction_count": 6144,
             "serialization_seconds": [
-              0.000972334,
-              0.000937584,
-              0.00096575,
-              0.000956792,
-              0.000947625
+              0.000941667,
+              0.0009525,
+              0.000946333,
+              0.000968209,
+              0.000927917
             ],
             "threads": 1,
             "training_seconds": [
-              0.12966825,
-              0.082615,
-              0.078086708,
-              0.077661958,
-              0.077701459
+              0.077973333,
+              0.078038209,
+              0.078092458,
+              0.078188041,
+              0.07848575
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 11829248,
+            "peak_rss_bytes": 10092544,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2769,38 +2769,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.0032505,
-              0.003232584,
-              0.003143833,
-              0.003276416,
-              0.003240417
+              0.003225417,
+              0.003236208,
+              0.003244667,
+              0.003289959,
+              0.003265875
             ],
             "inference_seconds": [
-              0.004889125,
-              0.004950334,
-              0.005058875,
-              0.005004708,
-              0.004951833
+              0.004777958,
+              0.00502,
+              0.004949917,
+              0.005001375,
+              0.004924083
             ],
             "measured_runs": 5,
             "prediction_count": 6144,
             "serialization_seconds": [
-              0.000937167,
-              0.00093275,
-              0.000936625,
-              0.0009315,
-              0.000932542
+              0.000932625,
+              0.000941084,
+              0.000941417,
+              0.000934917,
+              0.000965167
             ],
             "threads": 1,
             "training_seconds": [
-              0.078061625,
-              0.077491041,
-              0.078323583,
-              0.077930042,
-              0.078081458
+              0.078699792,
+              0.07869125,
+              0.078166083,
+              0.078674541,
+              0.078328625
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 9633792,
+            "peak_rss_bytes": 10207232,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2818,38 +2818,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003258834,
-              0.003202708,
-              0.003244208,
-              0.003217125,
-              0.003266083
+              0.00326875,
+              0.003268417,
+              0.003229417,
+              0.003284667,
+              0.003246917
             ],
             "inference_seconds": [
-              0.004786375,
-              0.004768542,
-              0.005046792,
-              0.004756333,
-              0.004740084
+              0.00502375,
+              0.004886916,
+              0.005022125,
+              0.004732459,
+              0.004622875
             ],
             "measured_runs": 5,
             "prediction_count": 6144,
             "serialization_seconds": [
-              0.000932667,
-              0.000929333,
-              0.000926916,
-              0.000935167,
-              0.00094175
+              0.000930708,
+              0.000927375,
+              0.000938167,
+              0.000926125,
+              0.000929125
             ],
             "threads": 1,
             "training_seconds": [
-              0.078288458,
-              0.077970292,
-              0.078162542,
-              0.077578083,
-              0.077682333
+              0.078134834,
+              0.078227792,
+              0.078455333,
+              0.078493291,
+              0.079119792
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 9699328,
+            "peak_rss_bytes": 10256384,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2867,38 +2867,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003242917,
-              0.003229083,
-              0.003284292,
-              0.003273375,
-              0.003203458
+              0.003259917,
+              0.00316025,
+              0.003248084,
+              0.003173083,
+              0.003249417
             ],
             "inference_seconds": [
-              0.004792791,
-              0.004997833,
-              0.00496975,
-              0.004766208,
-              0.00474275
+              0.00466025,
+              0.00455925,
+              0.004973625,
+              0.0049505,
+              0.004958584
             ],
             "measured_runs": 5,
             "prediction_count": 6144,
             "serialization_seconds": [
-              0.000925167,
-              0.000928792,
-              0.000926625,
-              0.000931334,
-              0.000932292
+              0.000949584,
+              0.000953292,
+              0.000951209,
+              0.000952875,
+              0.000977375
             ],
             "threads": 1,
             "training_seconds": [
-              0.0775865,
-              0.07735975,
-              0.077394583,
-              0.07741975,
-              0.077430375
+              0.078255166,
+              0.078013083,
+              0.078168416,
+              0.077932375,
+              0.077963583
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 9682944,
+            "peak_rss_bytes": 10141696,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2916,38 +2916,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003296375,
-              0.003180416,
-              0.003261584,
-              0.003228959,
-              0.003140917
+              0.003256625,
+              0.003270916,
+              0.003239958,
+              0.003239042,
+              0.003265125
             ],
             "inference_seconds": [
-              0.00499425,
-              0.00493325,
-              0.005011083,
-              0.00497825,
-              0.004904
+              0.004681833,
+              0.00476075,
+              0.0047045,
+              0.005048542,
+              0.00501375
             ],
             "measured_runs": 5,
             "prediction_count": 6144,
             "serialization_seconds": [
-              0.000936291,
-              0.000935834,
-              0.000931417,
-              0.000931417,
-              0.000937042
+              0.000940375,
+              0.000936166,
+              0.000937958,
+              0.000933417,
+              0.0009385
             ],
             "threads": 1,
             "training_seconds": [
-              0.077948917,
-              0.0779015,
-              0.077411791,
-              0.077690916,
-              0.077682125
+              0.077791334,
+              0.077873209,
+              0.077847792,
+              0.078078291,
+              0.077670708
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 9699328,
+            "peak_rss_bytes": 10158080,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -2967,37 +2967,37 @@
       },
       "summary": {
         "native": {
-          "median_dataset_construction_seconds": 0.003807333,
-          "median_training_seconds": 0.054682333,
-          "median_serialization_seconds": 0.003324291,
-          "median_inference_seconds": 0.006742417,
-          "median_peak_rss_bytes": 10747904,
-          "maximum_peak_rss_bytes": 10944512
+          "median_dataset_construction_seconds": 0.003869792,
+          "median_training_seconds": 0.054688375,
+          "median_serialization_seconds": 0.003320209,
+          "median_inference_seconds": 0.00677925,
+          "median_peak_rss_bytes": 10633216,
+          "maximum_peak_rss_bytes": 10747904
         },
         "rust": {
-          "median_dataset_construction_seconds": 0.003244208,
-          "median_training_seconds": 0.077701459,
-          "median_serialization_seconds": 0.00093275,
-          "median_inference_seconds": 0.004920625,
-          "median_peak_rss_bytes": 9699328,
-          "maximum_peak_rss_bytes": 11829248
+          "median_dataset_construction_seconds": 0.003248084,
+          "median_training_seconds": 0.078166083,
+          "median_serialization_seconds": 0.000940375,
+          "median_inference_seconds": 0.004924083,
+          "median_peak_rss_bytes": 10158080,
+          "maximum_peak_rss_bytes": 10256384
         }
       },
       "timing_ratios_to_fixed_baseline": {
-        "training": 0.2747302312355315,
-        "inference": 0.25486827361466097
+        "training": 0.27637300938410625,
+        "inference": 0.2550473838882867
       },
       "timing_ratios_to_fresh_native": {
-        "training": 1.4209609344941445,
-        "inference": 0.7298013457191983
+        "training": 1.4292997917747603,
+        "inference": 0.7263462772430579
       },
       "fresh_native_training_pass": true,
       "fresh_native_inference_pass": true,
       "fixed_reference_median_training_seconds": 0.2828282080590725,
       "fixed_reference_median_inference_seconds": 0.01930654188618064,
-      "peak_memory_ratio": 1.0808383233532934,
-      "conservative_peak_memory_ratio": 1.1107692307692307,
-      "median_peak_memory_ratio": 0.9024390243902439,
+      "peak_memory_ratio": 0.9542682926829268,
+      "conservative_peak_memory_ratio": 0.9660493827160493,
+      "median_peak_memory_ratio": 0.9553158705701078,
       "training_pass": true,
       "inference_pass": true,
       "memory_pass": true,
@@ -3005,38 +3005,38 @@
       "supplemental_rust_parallel": [
         {
           "dataset_construction_seconds": [
-            0.003256,
-            0.003261958,
-            0.003240166,
-            0.003151375,
-            0.003260125
+            0.003334875,
+            0.0032455,
+            0.00322,
+            0.003319292,
+            0.003278042
           ],
           "inference_seconds": [
-            0.002794417,
-            0.002641208,
-            0.002683,
-            0.002592208,
-            0.00265325
+            0.002774375,
+            0.002712708,
+            0.002757333,
+            0.002749833,
+            0.0028095
           ],
           "measured_runs": 5,
           "prediction_count": 6144,
           "serialization_seconds": [
-            0.000943875,
-            0.000915917,
-            0.00092775,
-            0.0008975,
-            0.000923
+            0.000971667,
+            0.000955667,
+            0.000951625,
+            0.0009535,
+            0.000982834
           ],
           "threads": 2,
           "training_seconds": [
-            0.077247041,
-            0.076801167,
-            0.076768417,
-            0.077096,
-            0.0771485
+            0.077510416,
+            0.077691916,
+            0.077369667,
+            0.077646375,
+            0.078145958
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 10059776,
+          "peak_rss_bytes": 10518528,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -3054,38 +3054,38 @@
         },
         {
           "dataset_construction_seconds": [
-            0.003292625,
-            0.00328625,
-            0.00327125,
-            0.003357834,
-            0.003276583
+            0.00327525,
+            0.003220208,
+            0.003266,
+            0.003189916,
+            0.00326575
           ],
           "inference_seconds": [
-            0.001517166,
-            0.001477167,
-            0.001521041,
-            0.001436125,
-            0.001467583
+            0.001498583,
+            0.001484208,
+            0.001493709,
+            0.001472208,
+            0.001451583
           ],
           "measured_runs": 5,
           "prediction_count": 6144,
           "serialization_seconds": [
-            0.000953,
-            0.000949125,
-            0.000958959,
-            0.000945792,
-            0.0009455
+            0.000964125,
+            0.000952334,
+            0.000943541,
+            0.00095375,
+            0.000936917
           ],
           "threads": 4,
           "training_seconds": [
-            0.089829125,
-            0.089505667,
-            0.089644791,
-            0.089952541,
-            0.088543
+            0.090574625,
+            0.089300208,
+            0.089386125,
+            0.089909167,
+            0.08986775
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 10534912,
+          "peak_rss_bytes": 10911744,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -3678,34 +3678,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003901375,
-              0.003825708,
-              0.003824583,
-              0.0037805,
-              0.003758542
+              0.003849292,
+              0.003786166,
+              0.003829042,
+              0.003764791,
+              0.00378025
             ],
             "training_seconds": [
-              0.026091333,
-              0.026558375,
-              0.026472709,
-              0.026166125,
-              0.0261135
+              0.026495875,
+              0.02610525,
+              0.026020125,
+              0.026020334,
+              0.0260835
             ],
             "serialization_seconds": [
-              0.001132834,
-              0.0012005,
-              0.001143791,
-              0.001142458,
-              0.001138417
+              0.001145625,
+              0.001136084,
+              0.001132917,
+              0.001133208,
+              0.001130791
             ],
             "inference_seconds": [
-              0.001006791,
-              0.001058083,
-              0.001042917,
-              0.001044375,
-              0.001037833
+              0.001080167,
+              0.001065125,
+              0.001097083,
+              0.00109925,
+              0.001128625
             ],
-            "peak_rss_bytes": 18677760,
+            "peak_rss_bytes": 18415616,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3728,34 +3728,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.004073625,
+              0.003866292,
               0.003812375,
-              0.003798625,
-              0.003820208,
-              0.003796417
+              0.00379725,
+              0.00388025,
+              0.003863375
             ],
             "training_seconds": [
-              0.026342167,
-              0.026190375,
-              0.026245959,
-              0.026235542,
-              0.026022625
+              0.026602,
+              0.026033292,
+              0.026166625,
+              0.026197917,
+              0.0258925
             ],
             "serialization_seconds": [
-              0.00114725,
-              0.001128792,
-              0.001164625,
-              0.001156083,
-              0.001136292
+              0.001157208,
+              0.00113475,
+              0.001151625,
+              0.001140333,
+              0.001140375
             ],
             "inference_seconds": [
-              0.001006375,
-              0.00104375,
-              0.001019875,
-              0.001019583,
-              0.001020083
+              0.001017208,
+              0.001015208,
+              0.001041833,
+              0.001009958,
+              0.001001083
             ],
-            "peak_rss_bytes": 18399232,
+            "peak_rss_bytes": 18382848,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3778,34 +3778,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003934375,
-              0.003811125,
-              0.003890792,
-              0.003772875,
-              0.003873875
+              0.003998541,
+              0.003814833,
+              0.003798542,
+              0.003769875,
+              0.003792916
             ],
             "training_seconds": [
-              0.026177708,
-              0.025962875,
-              0.025882875,
-              0.02584675,
-              0.025955459
+              0.02709575,
+              0.026246042,
+              0.026423917,
+              0.0261405,
+              0.026230417
             ],
             "serialization_seconds": [
-              0.001165958,
-              0.001168833,
-              0.0011475,
-              0.001146125,
-              0.001143
+              0.001169459,
+              0.001141458,
+              0.001144458,
+              0.001136167,
+              0.00113725
             ],
             "inference_seconds": [
-              0.001066917,
-              0.001084542,
-              0.001102333,
-              0.001081667,
-              0.001091875
+              0.001022416,
+              0.001042458,
+              0.001040875,
+              0.001040583,
+              0.001044125
             ],
-            "peak_rss_bytes": 18399232,
+            "peak_rss_bytes": 18186240,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3828,34 +3828,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003896209,
-              0.003842583,
-              0.003857208,
-              0.003858542,
-              0.003827875
+              0.003903459,
+              0.003863459,
+              0.003844292,
+              0.003874,
+              0.003951291
             ],
             "training_seconds": [
-              0.0262895,
-              0.026034,
-              0.026002917,
-              0.026021166,
-              0.026153083
+              0.026546083,
+              0.026127458,
+              0.0261215,
+              0.050644541,
+              0.034200209
             ],
             "serialization_seconds": [
-              0.001135166,
-              0.001139167,
-              0.001149333,
-              0.001126459,
-              0.001185792
+              0.001183125,
+              0.001141083,
+              0.001137875,
+              0.001248209,
+              0.001186708
             ],
             "inference_seconds": [
-              0.000991875,
-              0.001007208,
-              0.001000167,
-              0.000996208,
-              0.001036167
+              0.001062958,
+              0.001054,
+              0.00104325,
+              0.001137333,
+              0.001124917
             ],
-            "peak_rss_bytes": 18350080,
+            "peak_rss_bytes": 18268160,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3878,34 +3878,34 @@
             "loaded_library": "/Users/narumi/src/lightgbm-rust/target/oracle/lib/lib_lightgbm.dylib",
             "prediction_count": 2048,
             "dataset_construction_seconds": [
-              0.003851041,
-              0.003777791,
-              0.003830625,
-              0.003810292,
-              0.003811875
+              0.003814708,
+              0.003921041,
+              0.003789875,
+              0.003924459,
+              0.003816125
             ],
             "training_seconds": [
-              0.026232792,
-              0.026185167,
-              0.026107625,
-              0.026082708,
-              0.026383
+              0.026795833,
+              0.026264459,
+              0.026424666,
+              0.026207041,
+              0.026276166
             ],
             "serialization_seconds": [
-              0.001156833,
-              0.001144,
-              0.001149833,
-              0.001131875,
-              0.001142208
+              0.001163959,
+              0.001135708,
+              0.001150959,
+              0.00113525,
+              0.001131875
             ],
             "inference_seconds": [
-              0.001030459,
-              0.001028958,
-              0.001058375,
-              0.00105,
-              0.001045459
+              0.001064916,
+              0.001072792,
+              0.001067625,
+              0.001067084,
+              0.001076792
             ],
-            "peak_rss_bytes": 18448384,
+            "peak_rss_bytes": 18350080,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3925,38 +3925,38 @@
         "rust": [
           {
             "dataset_construction_seconds": [
-              0.003245458,
-              0.003240583,
-              0.003136458,
-              0.003241334,
-              0.003325542
+              0.003395542,
+              0.003264541,
+              0.003234125,
+              0.003274291,
+              0.003288416
             ],
             "inference_seconds": [
-              0.000764416,
-              0.000759459,
-              0.000759083,
-              0.000853792,
-              0.000768833
+              0.000755167,
+              0.000759667,
+              0.000754792,
+              0.000757208,
+              0.000747667
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000322917,
-              0.000329666,
-              0.000319292,
-              0.000333291,
-              0.000323708
+              0.000327708,
+              0.000329541,
+              0.000325833,
+              0.000323083,
+              0.000321875
             ],
             "threads": 1,
             "training_seconds": [
-              0.0474545,
-              0.047120292,
-              0.0473615,
-              0.047644,
-              0.04767375
+              0.04784675,
+              0.047187209,
+              0.047201875,
+              0.047131084,
+              0.047153292
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8290304,
+            "peak_rss_bytes": 8667136,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -3974,38 +3974,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003257792,
-              0.003237833,
-              0.003250583,
-              0.003237291,
-              0.0032655
+              0.003483291,
+              0.0035295,
+              0.003426709,
+              0.003368791,
+              0.003431542
             ],
             "inference_seconds": [
-              0.0007605,
-              0.000754833,
-              0.00076425,
-              0.00075375,
-              0.000792292
+              0.000816625,
+              0.000797625,
+              0.000771459,
+              0.000753,
+              0.0007525
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000324208,
-              0.000319834,
-              0.000322875,
-              0.000331417,
-              0.000331041
+              0.000324833,
+              0.000331125,
+              0.000322708,
+              0.000327875,
+              0.000323792
             ],
             "threads": 1,
             "training_seconds": [
-              0.047800875,
-              0.0477275,
-              0.047549417,
-              0.047870375,
-              0.047931042
+              0.047144459,
+              0.046959541,
+              0.046864958,
+              0.046825,
+              0.046831541
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8192000,
+            "peak_rss_bytes": 8601600,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -4023,38 +4023,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003608625,
-              0.003359,
-              0.00332075,
-              0.003601041,
-              0.003485916
+              0.003291333,
+              0.003328708,
+              0.0032445,
+              0.003171916,
+              0.003259625
             ],
             "inference_seconds": [
-              0.000769166,
-              0.000755791,
-              0.000766833,
-              0.00083725,
-              0.000751667
+              0.000805459,
+              0.00078625,
+              0.000784792,
+              0.000828792,
+              0.000754041
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000334584,
-              0.000319,
-              0.000329542,
-              0.000325791,
-              0.000323542
+              0.000324916,
+              0.000322125,
+              0.000327917,
+              0.00032775,
+              0.000324834
             ],
             "threads": 1,
             "training_seconds": [
-              0.047378208,
-              0.047234042,
-              0.047310458,
-              0.047405959,
-              0.047273
+              0.048543834,
+              0.048201667,
+              0.048314791,
+              0.048582792,
+              0.047545625
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8290304,
+            "peak_rss_bytes": 8634368,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -4072,38 +4072,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003240709,
-              0.00327075,
-              0.003256333,
-              0.003301833,
-              0.003245333
+              0.00333075,
+              0.003255583,
+              0.003220916,
+              0.003211209,
+              0.00320825
             ],
             "inference_seconds": [
-              0.000814625,
-              0.000770958,
-              0.000762541,
-              0.000747166,
-              0.00075825
+              0.000815125,
+              0.000818875,
+              0.000832916,
+              0.000815125,
+              0.000817209
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000327209,
-              0.000321708,
-              0.000336875,
-              0.000325125,
-              0.000323
+              0.000326708,
+              0.000325666,
+              0.000334084,
+              0.000324833,
+              0.000325125
             ],
             "threads": 1,
             "training_seconds": [
-              0.047705166,
-              0.0473835,
-              0.047682334,
-              0.047455959,
-              0.047402542
+              0.047453792,
+              0.047264542,
+              0.0472025,
+              0.04722275,
+              0.047081333
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8323072,
+            "peak_rss_bytes": 9846784,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -4121,38 +4121,38 @@
           },
           {
             "dataset_construction_seconds": [
-              0.003254167,
-              0.003286542,
-              0.003251542,
-              0.003272084,
-              0.003216292
+              0.003285166,
+              0.003281375,
+              0.003238083,
+              0.003216375,
+              0.003276458
             ],
             "inference_seconds": [
-              0.000766708,
-              0.000755334,
-              0.00075675,
-              0.000852042,
-              0.000829375
+              0.000835,
+              0.000758458,
+              0.000759833,
+              0.000759833,
+              0.000745584
             ],
             "measured_runs": 5,
             "prediction_count": 2048,
             "serialization_seconds": [
-              0.000321,
-              0.000336166,
-              0.000326958,
-              0.00031225,
-              0.000323333
+              0.00033,
+              0.000330333,
+              0.000325,
+              0.00032325,
+              0.000321791
             ],
             "threads": 1,
             "training_seconds": [
-              0.047725708,
-              0.047790625,
-              0.047677292,
-              0.047998416,
-              0.04774275
+              0.047915,
+              0.046990375,
+              0.047274125,
+              0.047071792,
+              0.047036417
             ],
             "warmup_runs": 1,
-            "peak_rss_bytes": 8192000,
+            "peak_rss_bytes": 8667136,
             "command": [
               "/usr/bin/time",
               "-l",
@@ -4172,37 +4172,37 @@
       },
       "summary": {
         "native": {
-          "median_dataset_construction_seconds": 0.003825708,
-          "median_training_seconds": 0.026153083,
-          "median_serialization_seconds": 0.001144,
-          "median_inference_seconds": 0.001037833,
-          "median_peak_rss_bytes": 18399232,
-          "maximum_peak_rss_bytes": 18677760
+          "median_dataset_construction_seconds": 0.003829042,
+          "median_training_seconds": 0.026230417,
+          "median_serialization_seconds": 0.001140375,
+          "median_inference_seconds": 0.001062958,
+          "median_peak_rss_bytes": 18350080,
+          "maximum_peak_rss_bytes": 18415616
         },
         "rust": {
-          "median_dataset_construction_seconds": 0.003256333,
-          "median_training_seconds": 0.047644,
-          "median_serialization_seconds": 0.000324208,
-          "median_inference_seconds": 0.00076425,
-          "median_peak_rss_bytes": 8290304,
-          "maximum_peak_rss_bytes": 8323072
+          "median_dataset_construction_seconds": 0.003276458,
+          "median_training_seconds": 0.047201875,
+          "median_serialization_seconds": 0.000325125,
+          "median_inference_seconds": 0.000771459,
+          "median_peak_rss_bytes": 8667136,
+          "maximum_peak_rss_bytes": 9846784
         }
       },
       "timing_ratios_to_fixed_baseline": {
-        "training": 0.568514471768394,
-        "inference": 0.2591007517651202
+        "training": 0.5632387925468634,
+        "inference": 0.26154479143731485
       },
       "timing_ratios_to_fresh_native": {
-        "training": 1.8217355101117523,
-        "inference": 0.7363901514020078
+        "training": 1.7995091347575602,
+        "inference": 0.7257662108945039
       },
       "fresh_native_training_pass": false,
       "fresh_native_inference_pass": true,
       "fixed_reference_median_training_seconds": 0.08380437502637506,
       "fixed_reference_median_inference_seconds": 0.002949624788016081,
-      "peak_memory_ratio": 0.4456140350877193,
-      "conservative_peak_memory_ratio": 0.45357142857142857,
-      "median_peak_memory_ratio": 0.4505788067675868,
+      "peak_memory_ratio": 0.5346975088967971,
+      "conservative_peak_memory_ratio": 0.5414414414414415,
+      "median_peak_memory_ratio": 0.47232142857142856,
       "training_pass": true,
       "inference_pass": true,
       "memory_pass": true,
@@ -4210,38 +4210,38 @@
       "supplemental_rust_parallel": [
         {
           "dataset_construction_seconds": [
-            0.003210625,
-            0.003355041,
-            0.003220291,
-            0.003257875,
-            0.0032375
+            0.003255042,
+            0.00330475,
+            0.00326775,
+            0.003275625,
+            0.00324525
           ],
           "inference_seconds": [
-            0.000448083,
-            0.000430417,
-            0.000443333,
-            0.000433667,
-            0.000422708
+            0.000440042,
+            0.000420917,
+            0.000421416,
+            0.000475292,
+            0.000429458
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000319208,
-            0.000313833,
-            0.000325667,
-            0.000339875,
-            0.000330792
+            0.000328708,
+            0.000331333,
+            0.00033,
+            0.000345791,
+            0.000332667
           ],
           "threads": 2,
           "training_seconds": [
-            0.046768584,
-            0.046616417,
-            0.047082167,
-            0.047368708,
-            0.047212541
+            0.047058375,
+            0.046796167,
+            0.046972125,
+            0.047192042,
+            0.0473275
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 8519680,
+          "peak_rss_bytes": 8978432,
           "command": [
             "/usr/bin/time",
             "-l",
@@ -4259,38 +4259,38 @@
         },
         {
           "dataset_construction_seconds": [
-            0.00342,
-            0.00351075,
-            0.003387709,
-            0.003420709,
-            0.00355175
+            0.003569333,
+            0.003600292,
+            0.003577,
+            0.003610042,
+            0.003584041
           ],
           "inference_seconds": [
-            0.000258,
-            0.0002425,
-            0.000273625,
-            0.0002435,
-            0.000227375
+            0.000263458,
+            0.000255042,
+            0.000259625,
+            0.000239583,
+            0.000227292
           ],
           "measured_runs": 5,
           "prediction_count": 2048,
           "serialization_seconds": [
-            0.000338666,
-            0.000345708,
-            0.000348791,
-            0.000318125,
-            0.000335
+            0.000346125,
+            0.000339708,
+            0.000343292,
+            0.00033375,
+            0.000338083
           ],
           "threads": 4,
           "training_seconds": [
-            0.051831209,
-            0.051977167,
-            0.05191375,
-            0.051829375,
-            0.05175975
+            0.052993584,
+            0.053243583,
+            0.053037458,
+            0.052618292,
+            0.052963667
           ],
           "warmup_runs": 1,
-          "peak_rss_bytes": 8962048,
+          "peak_rss_bytes": 9256960,
           "command": [
             "/usr/bin/time",
             "-l",

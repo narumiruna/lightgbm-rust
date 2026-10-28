@@ -103,6 +103,8 @@ A failed DART round restores the last completed ensemble and its training scores
 
 Stored-model warm starts restart trainer random state. They are not exact training checkpoints. Supply the original model's raw margins for training and every validation set. RF rejects this initial-margin continuation, as the native implementation does.
 
+With `linear_tree=true`, refit rejects nonlinear constant trees. Native training can produce these trees for absent classes. The native linear refit path sets their linear flag but then indexes empty linear vectors. Rust returns `Error::Unsupported` and does not run this undefined path. Training, prediction and saved layout remain native-compatible.
+
 Refit takes the original model's raw leaf indexes, not new binned routing. It preserves structure and diagnostic metadata and uses each old tree's shrinkage. RF, DART, GBDT and GOSS have saved native refit cases. Imported-model `path_smooth` refit is unsupported: the pinned native loader does not restore the parent state that this path reads. No undefined native memory access is reproduced.
 
 Model leaf changes and rollback return validated copies. Prefix truncation keeps complete class rounds and can produce an empty ensemble. It does not restore historical DART normalization, trainer buffers or RNG state. Empty raw predictions are zero; transformed RF prediction on an empty range returns an error instead of native division by zero.

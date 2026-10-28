@@ -1367,9 +1367,16 @@ fn build_hist(
     let Some(q) = q else {
         return histogram::build_training(data, rows, g, h, constant, config, executor, active);
     };
-    let g: Vec<f32> = q.gradient.iter().map(|&v| v as f32).collect();
-    let h: Vec<f32> = q.hessian.iter().map(|&v| v as f32).collect();
-    let mut bins = histogram::build_training(data, rows, &g, &h, false, config, executor, active)?;
+    let mut bins = histogram::build_training(
+        data,
+        rows,
+        &q.histogram_gradient,
+        &q.histogram_hessian,
+        false,
+        config,
+        executor,
+        active,
+    )?;
     histogram::fix(
         data,
         &mut bins,

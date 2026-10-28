@@ -16,9 +16,10 @@ from generate_review_refit import NAMES as REFIT_NAMES, specifications as refit_
 from generate_review_cegb import NAMES as CEGB_NAMES, BASE as CEGB_BASE, specifications as cegb_specs
 from generate_review_dart import NAMES as DART_NAMES, specifications as dart_specs
 from generate_review_near_zero import NAMES as NEAR_ZERO_NAMES, BASE as NEAR_ZERO_BASE
+from generate_review_linear import NAMES as LINEAR_NAMES, BASE as LINEAR_BASE, specifications as linear_specs
 
 NAMES = dict(review_refit=REFIT_NAMES, review_cegb=CEGB_NAMES, review_dart=DART_NAMES,
-             review_near_zero=NEAR_ZERO_NAMES)
+             review_near_zero=NEAR_ZERO_NAMES, review_linear=LINEAR_NAMES)
 
 
 def shape_schema(value):
@@ -195,6 +196,54 @@ def validate(family, data, manifest, fixtures=ROOT / 'tests/fixtures'):
         assert training['scores'][1] != case['dense']['training']['raw'][1][0]
         assert validation['scores'][2] != case['dense']['validation']['raw'][2][0]
         assert 'keep_training_booster=True' in data['execution']
+    elif family == 'review_linear':
+        for name, extra in linear_specs():
+            case = cases[name]
+            assert case['params'] == dict(LINEAR_BASE, **extra)
+            rows = [[float(i - 12), float((i * 5) % 11 - 5)] for i in range(24)]
+            labels = [int((i * 7) % 13 >= 6) for i in range(24)]
+            if name == 'linear_all_classes':
+                labels = [(i * 5) % 7 % 3 for i in range(24)]
+            elif name == 'linear_cancellation_missing_class':
+                labels = [int(i >= 12) for i in range(24)]
+            elif name == 'linear_cancellation_all_classes':
+                labels = [i % 3 for i in range(24)]
+            elif name in ('linear_constant_features', 'linear_no_features'):
+                rows = [[1., 2.] for _ in range(24)]
+            elif name == 'linear_binary_single_class':
+                labels = [0] * 24
+            assert case['rows'] == rows
+            assert case['training'] == dict(rows=rows, labels=labels, num_boost_round=3)
+            assert case['fresh'] == case['reloaded']
+            layout = case['linear_layout']
+            trees = case['fresh']['num_trees']
+            assert len(layout) == len(case['native_structure']) == trees
+            model = model_path(case['model_file'], family, fixtures)
+            assert layout == [line == 'is_linear=1' for line in model.read_text().splitlines()
+                              if line.startswith('is_linear=')]
+            assert case['model_file'] == f'models/review_linear/{name}.txt'
+            refit = case['refit']
+            refit_labels = [(i * 5) % 7 % 3 for i in range(24)] if name == 'linear_cancellation_all_classes' else labels[::-1]
+            assert refit['rows'] == rows and refit['labels'] == refit_labels and refit['decay_rate'] == .5
+            safe = not case['params']['linear_tree'] or all(layout)
+            if safe:
+                assert refit['status'] == 'executed' and refit['reason'] is None
+                assert refit['fresh'] == refit['reloaded']
+                assert refit['model']['model_file'] == f'models/review_linear/{name}_refit.txt'
+            else:
+                assert refit['status'] == 'not_executed_undefined_native_state'
+                assert refit['fresh'] is None and refit['reloaded'] is None and refit['model'] is None
+                assert 'empty vector' in refit['reason']
+        assert cases['linear_missing_class']['linear_layout'] == [True, True, False] * 3
+        assert cases['constant_missing_class']['linear_layout'] == [False] * 9
+        cancellation = cases['linear_cancellation_all_classes']
+        def leaf_at(node, index):
+            if 'leaf_index' in node:
+                return node if node['leaf_index'] == index else None
+            return leaf_at(node['left_child'], index) or leaf_at(node['right_child'], index)
+        for tree, leaf in [(3, 1), (5, 0)]:
+            node = leaf_at(cancellation['native_structure'][tree], leaf)
+            assert node['leaf_features'] == [0] and 0. < abs(node['leaf_coeff'][0]) < 1e-12
     else:
         raise AssertionError(f'unknown review family {family}')
 
@@ -212,6 +261,8 @@ def self_test(must_fail, read_json, manifest):
             changed['cases'][0]['native_refit']['fresh']['raw'][0][0] += .01
         elif family == 'review_near_zero':
             changed['cases'][0]['dense']['training']['raw'][0][0] += .01
+        elif family == 'review_linear':
+            changed['cases'][0]['fresh']['raw'][0][0] += .01
         else:
             changed['cases'][0]['raw'][0][0] += .01
         def same_native_values():
@@ -230,7 +281,7 @@ def self_test(must_fail, read_json, manifest):
         must_fail(f'{family} loaded native image', lambda: identity(family, changed, manifest))
         changed = copy.deepcopy(original)
         changed['cases'][0]['last_valid_model' if family == 'review_dart' else 'initial_model' if family == 'review_refit' else 'model_file'] = (
-            '../model.txt' if family in ('review_cegb', 'review_near_zero') else {'model_file': '../model.txt'})
+            '../model.txt' if family in ('review_cegb', 'review_near_zero', 'review_linear') else {'model_file': '../model.txt'})
         must_fail(f'{family} unsafe model path', lambda: validate(family, changed, manifest))
     changed = read_json(ROOT / 'tests/fixtures/review_cegb.json')
     next(c for c in changed['cases'] if c['name'] == 'mixed_pending')['training']['expected_structure'][0]['right_child']['split_feature'] = 2
@@ -244,6 +295,16 @@ def self_test(must_fail, read_json, manifest):
     changed = read_json(ROOT / 'tests/fixtures/review_near_zero.json')
     changed['cases'][0]['training']['scores'][1] = changed['cases'][0]['dense']['training']['raw'][1][0]
     must_fail('native near-zero buffer/dense distinction', lambda: validate('review_near_zero', changed, manifest))
+    changed = read_json(ROOT / 'tests/fixtures/review_linear.json')
+    changed['cases'][0]['refit']['status'] = 'executed'
+    must_fail('excluded native skipped-linear refit', lambda: validate('review_linear', changed, manifest))
+    changed = read_json(ROOT / 'tests/fixtures/review_linear.json')
+    changed['cases'][0]['linear_layout'][2] = True
+    must_fail('native skipped-class linear layout', lambda: validate('review_linear', changed, manifest))
+    changed = read_json(ROOT / 'tests/fixtures/review_linear.json')
+    case = next(c for c in changed['cases'] if c['name'] == 'linear_cancellation_all_classes')
+    case['refit']['labels'] = case['training']['labels'][::-1]
+    must_fail('cancellation refit input must not change', lambda: validate('review_linear', changed, manifest))
 
 
 if __name__ == '__main__':

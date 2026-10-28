@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-28T14:27:02.029252+00:00",
+  "generated_at_utc": "2026-10-28T16:34:22.203282+00:00",
   "source": {
     "url": "https://github.com/lightgbm-org/LightGBM",
     "commit": "5d84f3f222b41409a6983d2ac90513ad9702fa9e",
@@ -209,7 +209,7 @@
     "source_sha256": "040a410592322370f69500e0753ce8f517efa8ddc32eb697ad7b40af8ecf4de4",
     "shared_header_sha256": "9105841c249262b7e99b01f72a96ec16d5f41611c8988b5c6298e1c617f8b5e7",
     "generated_defaults_include_sha256": "9ec0b3910ee8fdf542691da30b49efb2d1cfb964d2af1f624d1bbcb8597cd651",
-    "executable_sha256": "97b06b2b47103119a1f13b97803af9b3ea1af9b0b8cc7ede53d789c13d15ee20"
+    "executable_sha256": "2ae2727237d016b099593120949b8aaf3bf78cc8656d7a1c30f8d6e1a6d7c592"
   },
   "extended_driver": {
     "compile_command": [
@@ -2003,6 +2003,14 @@
       "sha256": "b2d4c93e8c808f9e99f465b4d77954c702f5a09572a050785c6807ed81eb6a39"
     },
     {
+      "path": "external_libs/eigen/Eigen/src/Core/products/GeneralMatrixVector.h",
+      "sha256": "ea08550845627bf3d7c0ad30ed7061d5eb9590b1fb548fd3d8fde906707b11f3"
+    },
+    {
+      "path": "external_libs/eigen/Eigen/src/Core/arch/NEON/PacketMath.h",
+      "sha256": "3e13180a0dd01b9a69bd17f17aa869c38c4515df1cc83043b88f43d9a131b75f"
+    },
+    {
       "path": "src/objective/regression_objective.hpp",
       "sha256": "0e8200eafcf075e93f736fa2d59863a8b34dfb62c19df476af60183f8584408d"
     },
@@ -2127,6 +2135,10 @@
       "sha256": "2232ec90197424c10ef39ba785c5242f26116e155b0533bfab5b52d4ecb417b3"
     },
     {
+      "path": "src/treelearner/serial_tree_learner.h",
+      "sha256": "e9b953100c55c4ab3cae25ccd9a45baf57f405b1489d590914df5e817b17b132"
+    },
+    {
       "path": "src/io/tree.cpp",
       "sha256": "549cfb20792fed577666fe77156c952776d958a18400002e251535630849dad3"
     },
@@ -2206,7 +2218,7 @@
     },
     {
       "path": "docs/conformance.md",
-      "sha256": "3a9877b4ab9d20a7cc94890f7f508115e7a4fdbfc5b5abf4861cc194d89d0922"
+      "sha256": "7289a0197bf26a4254092ef3307327632b79fad57b382400dc8aa050b5136ac4"
     },
     {
       "path": "docs/reference-manifest.schema.json",
@@ -3401,6 +3413,50 @@
       "sha256": "8162913d26fa3bf328093331634dcf4ccefc35c5d834fb84216ed1835e814499"
     },
     {
+      "path": "tests/fixtures/models/review_linear/constant_missing_class.txt",
+      "sha256": "06db5c59ef571ab9cb1ccae14792253a34cbd63d3ca9b45b37b111ac8887c801"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/constant_missing_class_refit.txt",
+      "sha256": "224d1510f2209101088bf2027dfec353a076339c86dab9b5011d7012a31d846f"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_all_classes.txt",
+      "sha256": "2e692ed7f88bb733b6ba9e9c3870f9e9e6d3102391b20d9d02c9d746afce1354"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_all_classes_refit.txt",
+      "sha256": "7d5d8c290cf8c3df250c5ea80f3952ca16d08a9ea5c355af9ec6f64df4bc22f5"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_binary_single_class.txt",
+      "sha256": "5efffeee47eb62edba3f84096c882806f3bf51f098c030ff01ac296e1b502dab"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_cancellation_all_classes.txt",
+      "sha256": "39cb4c64910784998c972bc8f6b5b350bd26d7c0f90f477045fb53e953669782"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_cancellation_all_classes_refit.txt",
+      "sha256": "e7d325e9052ec1f8bb987af456af96562bfa013e0b473cc2c2551dc2222aac09"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_cancellation_missing_class.txt",
+      "sha256": "94d6e834801b6bd9480c530fd5f671197ba96d233c5a8a62f66dabe34c1dff40"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_constant_features.txt",
+      "sha256": "7623153c5218980fb578b41dcbe2c11094ade09e97d3db8dd9495a82ad324682"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_missing_class.txt",
+      "sha256": "4e484da6b415227bbbe79278a74134d3677462728a87ecf294ee9d465b839835"
+    },
+    {
+      "path": "tests/fixtures/models/review_linear/linear_no_features.txt",
+      "sha256": "f0db1f2f46294c659ea7bc0fb402435af48cf93a00faf27eb63caaf0d14c42dd"
+    },
+    {
       "path": "tests/fixtures/models/review_near_zero/negative_inclusive.txt",
       "sha256": "f043bfc0511f2eaf1b3d8e4c3657faf8fabe69753a29bc009a1b3bd8767a0c8a"
     },
@@ -3773,6 +3829,14 @@
       "sha256": "eb93af6d0599d7c9ceea699693afc43b105fbbfab679d2853104cc338d4df48a"
     },
     {
+      "path": "tests/fixtures/review_linear.json",
+      "sha256": "7f612a600dc7def7ec7212bdedd9b3b6abf5bf61aa6f5c30e69730d3be4936f3"
+    },
+    {
+      "path": "tests/fixtures/review_linear.schema.json",
+      "sha256": "b27adc5ce470c44985d06385d408f99882a269fe557db0dd479a099403421ad0"
+    },
+    {
       "path": "tests/fixtures/review_near_zero.json",
       "sha256": "23b04fd0a261ea0f521b13a3606627c4c55bdefd5521d06005c2220f822022b8"
     },
@@ -3846,7 +3910,7 @@
     },
     {
       "path": "tools/oracle/check.py",
-      "sha256": "775a1bd692896c8012287dd7c21293287f555be42e34e9d5254a4887692907d1"
+      "sha256": "6afbfb1452044237b4273522c21593365ad276d2ea771007eeff8a84b399f18c"
     },
     {
       "path": "tools/oracle/check_bundling.py",
@@ -3858,7 +3922,7 @@
     },
     {
       "path": "tools/oracle/check_review.py",
-      "sha256": "38b77b7d7de919d14561a7654d7a5beec04bea5c5ed39754a08620043eb0b0d6"
+      "sha256": "1954fe705d5cca9e8e0555648048484ef8069bae8713f0c417bcdf4067326ae0"
     },
     {
       "path": "tools/oracle/check_roundtrip.py",
@@ -3961,6 +4025,10 @@
       "sha256": "f2375893ae147f4df1e4056f406ff463122fb71d876235a1a7f7eb4cc36e822c"
     },
     {
+      "path": "tools/oracle/generate_review_linear.py",
+      "sha256": "0fcadb08b8cdc785c730656eb4764d4557760071234f07fe016e106d099dcb55"
+    },
+    {
       "path": "tools/oracle/generate_review_near_zero.py",
       "sha256": "10c0b31c12e06b094e49c15e22f75f095e875788390e8c977a7ca4cc68d0b713"
     },
@@ -3990,7 +4058,7 @@
     },
     {
       "path": "tools/oracle/manifest.py",
-      "sha256": "6f0643abd0a786e9c70204c23f96ef8da945e51019ba82f03a1454d1a0719f52"
+      "sha256": "ac4ccbbc0592817d3987e1702501310f5405ab649f0fa3b0b3348829626437f6"
     },
     {
       "path": "tools/oracle/measure_memory.py",

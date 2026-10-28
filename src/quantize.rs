@@ -10,6 +10,10 @@ pub(super) struct Quantizer {
 pub(super) struct Quantized {
     pub gradient: Vec<f64>,
     pub hessian: Vec<f64>,
+    // Exact copies of the old histogram casts, built once per tree (8 bytes/row).
+    // Keep the f64 integers above for sums and histogram fixup.
+    pub histogram_gradient: Vec<f32>,
+    pub histogram_hessian: Vec<f32>,
     pub gradient_scale: f64,
     pub hessian_scale: f64,
 }
@@ -86,6 +90,9 @@ impl Quantizer {
             });
         }
         Ok(Quantized {
+            // The validated quantization range is exactly representable in f32.
+            histogram_gradient: gradient.iter().map(|&v| v as f32).collect(),
+            histogram_hessian: hessian.iter().map(|&v| v as f32).collect(),
             gradient,
             hessian,
             gradient_scale: gs,
@@ -159,6 +166,65 @@ impl Mt19937 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    fn assert_histogram_casts(q: &Quantized) {
+        for (integers, cached) in [
+            (&q.gradient, &q.histogram_gradient),
+            (&q.hessian, &q.histogram_hessian),
+        ] {
+            assert_eq!(integers.len(), cached.len());
+            for (&integer, &value) in integers.iter().zip(cached) {
+                assert_eq!(value.to_bits(), (integer as f32).to_bits());
+                assert_eq!(f64::from(value), integer);
+            }
+        }
+    }
+
+    #[test]
+    fn histogram_casts_refresh_with_each_quantization() {
+        for stochastic_rounding in [false, true] {
+            for num_grad_quant_bins in [2, 4, 127] {
+                let config = Config {
+                    stochastic_rounding,
+                    num_grad_quant_bins,
+                    ..Config::default()
+                };
+                for constant in [false, true] {
+                    let mut quantizer = Quantizer::new(42, 4);
+                    let zero = quantizer
+                        .discretize(&[0.; 4], &[0.; 4], constant, &config)
+                        .unwrap();
+                    assert_histogram_casts(&zero);
+                    assert_eq!(zero.histogram_gradient, [0.; 4]);
+                    assert_eq!(zero.histogram_hessian, [f32::from(constant); 4]);
+                    let next = quantizer
+                        .discretize(
+                            &[-3., -1., 1., 3.],
+                            if constant {
+                                &[1.; 4]
+                            } else {
+                                &[0., 0.25, 0.5, 1.]
+                            },
+                            constant,
+                            &config,
+                        )
+                        .unwrap();
+                    assert_histogram_casts(&next);
+                    assert_ne!(next.histogram_gradient, zero.histogram_gradient);
+                    // Both results remain live: a new tree owns fresh, independent buffers.
+                    assert_ne!(
+                        next.histogram_gradient.as_ptr(),
+                        zero.histogram_gradient.as_ptr()
+                    );
+                    assert_ne!(
+                        next.histogram_hessian.as_ptr(),
+                        zero.histogram_hessian.as_ptr()
+                    );
+                    assert_histogram_casts(&zero);
+                }
+            }
+        }
+    }
+
     #[test]
     fn quantization_bounds_zero_scales_and_integer_overflow_checks() {
         assert!(!valid_integer_range(usize::MAX, 127));
@@ -217,6 +283,7 @@ mod tests {
                 let result = q
                     .discretize(&g, &h, case["constant_hessian"].as_bool().unwrap(), &config)
                     .unwrap();
+                assert_histogram_casts(&result);
                 assert_eq!(result.gradient_scale, step["grad_scale"].as_f64().unwrap());
                 assert_eq!(result.hessian_scale, step["hess_scale"].as_f64().unwrap());
                 let actual: Vec<i64> = result

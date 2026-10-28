@@ -164,6 +164,11 @@ impl Model {
                         decay,
                     )?;
                 }
+                // Native serial refit does not add one-leaf trees to the
+                // score cache used for the next round's derivatives.
+                if tree.linear.is_none() && tree.num_leaves() == 1 {
+                    continue;
+                }
                 for (row, leaves) in leaf_indices.iter().enumerate() {
                     let output = if tree.linear.is_some() {
                         crate::linear::predict_from_leaf(tree, data, row, leaves[index])?
@@ -247,6 +252,19 @@ impl Model {
             .iter()
             .any(|tree| tree.linear.is_some() != config.linear_tree)
         {
+            if config.linear_tree
+                && self
+                    .trees
+                    .iter()
+                    .any(|tree| tree.linear.is_none() && tree.num_leaves() == 1)
+            {
+                // Native linear refit sets this flag but does not allocate the
+                // skipped tree's linear vectors before indexing them.
+                return Err(Error::Unsupported(
+                    "linear refit of nonlinear constant trees has undefined native linear state"
+                        .into(),
+                ));
+            }
             return Err(invalid("linear-tree configuration differs from model"));
         }
         // Feature type must agree even though new bins need not match old bins.
@@ -347,8 +365,12 @@ fn refit_linear(
         ordered[ids[index]].push(row);
     }
     // HAS_NAN is global to numeric split features, not the current leaf.
+    // Visit each feature once even when several nodes split on it.
+    let mut used = tree.split_features.clone();
+    used.sort_unstable();
+    used.dedup();
     let mut has_nan = false;
-    for &feature in &tree.split_features {
+    for feature in used {
         if !data.mapper(feature).is_categorical() {
             for row in 0..data.nrows() {
                 let value = data.raw_value(row, feature)?;

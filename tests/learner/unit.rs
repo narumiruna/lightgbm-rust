@@ -1,6 +1,184 @@
 // Private learner tests; compiled as a module of src/learner.rs.
 use super::*;
 #[test]
+fn quantized_histograms_reuse_casts_for_subsets_masks_and_cache_replay() {
+    const N: usize = 2048;
+    const P: usize = 8;
+    let root: Vec<_> = (0..N).collect();
+    let small: Vec<_> = (0..512).collect();
+    let child: Vec<_> = (512..768).collect();
+    let large: Vec<_> = (512..N).collect();
+    let unsorted = vec![2047, 0, 1025, 3, 800];
+    let mask: Vec<_> = (0..P).map(|f| f % 3 != 1).collect();
+    let g: Vec<_> = (0..N).map(|r| (r % 37) as f32 - 18.0).collect();
+    let variable_h: Vec<_> = (0..N).map(|r| (r % 17) as f32 / 16.0).collect();
+    let serial = crate::parallel::Executor::new(1).unwrap();
+    let parallel = crate::parallel::Executor::new(2).unwrap();
+    for enable_bundle in [false, true] {
+        let base = Config {
+            enable_bundle,
+            min_data_in_leaf: 1,
+            min_data_in_bin: 1,
+            feature_pre_filter: false,
+            use_quantized_grad: true,
+            ..Config::default()
+        };
+        let x: Vec<_> = (0..N)
+            .flat_map(|r| (0..P).map(move |f| f64::from(r % P == f)))
+            .collect();
+        let dense = Dataset::from_dense(&x, N, P, vec![0.; N], &base).unwrap();
+        let sparse = Dataset::from_csr(
+            &(0..=N).collect::<Vec<_>>(),
+            &(0..N).map(|r| r % P).collect::<Vec<_>>(),
+            &vec![1.; N],
+            N,
+            P,
+            vec![0.; N],
+            &base,
+        )
+        .unwrap();
+        if enable_bundle {
+            assert!(dense.bin_storage_bytes() < N * P / 4);
+            assert!(sparse.bin_storage_bytes() < N * 2);
+        }
+        for data in [&dense, &sparse] {
+            for stochastic_rounding in [false, true] {
+                let mut config = Config {
+                    stochastic_rounding,
+                    ..base.clone()
+                };
+                for (gradients, hessians, constant) in [
+                    (g.clone(), variable_h.clone(), false),
+                    (g.clone(), vec![1.; N], true),
+                    (vec![0.; N], vec![0.; N], false),
+                    (vec![0.; N], vec![0.; N], true),
+                ] {
+                    let q = Quantizer::new(42, N)
+                        .discretize(&gradients, &hessians, constant, &config)
+                        .unwrap();
+                    let storage = (q.histogram_gradient.as_ptr(), q.histogram_hessian.as_ptr());
+                    for (row_wise, executor) in
+                        [(false, &serial), (false, &parallel), (true, &parallel)]
+                    {
+                        config.force_row_wise = row_wise;
+                        config.force_col_wise = !row_wise;
+                        // Keep the previous implementation as the exact numerical oracle.
+                        let old = |rows: &[usize], active: Option<&[bool]>| {
+                            let cast_g: Vec<f32> = q.gradient.iter().map(|&v| v as f32).collect();
+                            let cast_h: Vec<f32> = q.hessian.iter().map(|&v| v as f32).collect();
+                            let mut bins = histogram::build_training(
+                                data, rows, &cast_g, &cast_h, false, &config, executor, active,
+                            )
+                            .unwrap();
+                            histogram::fix(
+                                data,
+                                &mut bins,
+                                rows.iter().map(|&r| q.gradient[r]).sum(),
+                                rows.iter().map(|&r| q.hessian[r]).sum(),
+                            );
+                            for feature in &mut bins {
+                                for bin in feature {
+                                    bin.gradient *= q.gradient_scale;
+                                    bin.hessian *= q.hessian_scale;
+                                }
+                            }
+                            bins
+                        };
+                        let bits = |bins: &[Vec<BinStats>]| {
+                            bins.iter()
+                                .flat_map(|f| {
+                                    f.iter()
+                                        .map(|b| (b.gradient.to_bits(), b.hessian.to_bits()))
+                                })
+                                .collect::<Vec<_>>()
+                        };
+                        for rows in [&root, &small, &large, &unsorted] {
+                            for active in [None, Some(mask.as_slice())] {
+                                let actual = build_hist(
+                                    data,
+                                    rows,
+                                    &gradients,
+                                    &hessians,
+                                    constant,
+                                    Some(&q),
+                                    &config,
+                                    executor,
+                                    active,
+                                )
+                                .unwrap();
+                                assert_eq!(bits(&actual), bits(&old(rows, active)));
+                                assert_eq!(
+                                    storage,
+                                    (q.histogram_gradient.as_ptr(), q.histogram_hessian.as_ptr())
+                                );
+                            }
+                        }
+                        // Two evicted large-leaf histograms replay parent-minus-child arithmetic.
+                        let direct = |rows: &Vec<usize>| HistogramRecipe::Direct {
+                            rows: rows.clone(),
+                            gradient: 0.,
+                            hessian: 0.,
+                        };
+                        let replay = vec![
+                            direct(&root),
+                            direct(&small),
+                            HistogramRecipe::Difference {
+                                parent: 0,
+                                small: 1,
+                            },
+                            direct(&child),
+                            HistogramRecipe::Difference {
+                                parent: 2,
+                                small: 3,
+                            },
+                        ];
+                        let mut leaf = Leaf {
+                            rows: (768..N).collect(),
+                            depth: 2,
+                            gradient: 0.,
+                            hessian: 0.,
+                            histograms: Vec::new(),
+                            split: None,
+                            candidates: Vec::new(),
+                            active: Vec::new(),
+                            branch: Vec::new(),
+                            bounds: (f64::NEG_INFINITY, f64::INFINITY),
+                            parent_output: 0.,
+                            advanced_bounds: Vec::new(),
+                            quant_scales: Some((q.gradient_scale, q.hessian_scale)),
+                        };
+                        let mut expected = old(&root, None);
+                        subtract_in_place(&mut expected, &old(&small, None)).unwrap();
+                        subtract_in_place(&mut expected, &old(&child, None)).unwrap();
+                        for _ in 0..2 {
+                            leaf.histograms.clear();
+                            restore_hist(
+                                &mut leaf,
+                                4,
+                                &replay,
+                                data,
+                                &gradients,
+                                &hessians,
+                                constant,
+                                Some(&q),
+                                &config,
+                                executor,
+                            )
+                            .unwrap();
+                            assert_eq!(bits(&leaf.histograms), bits(&expected));
+                            assert_eq!(
+                                storage,
+                                (q.histogram_gradient.as_ptr(), q.histogram_hessian.as_ptr())
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn categorical_bitset_safety() {
     assert_eq!(
         category_bitset(&[0, 31, 32, 40], 0).unwrap(),

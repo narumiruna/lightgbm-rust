@@ -608,6 +608,7 @@ def check_reference(manifest):
     from generate_review_cegb import generate as review_cegb
     from generate_review_dart import generate as review_dart
     from generate_review_near_zero import generate as review_near_zero
+    from generate_review_linear import generate as review_linear
     source_registry_coverage()
     check_sort_headers(manifest)
     check_build_inputs(manifest)
@@ -638,6 +639,7 @@ def check_reference(manifest):
         review_cegb(output)
         review_dart(output)
         review_near_zero(output)
+        review_linear(output)
         review_schemas(output)
         for family in REVIEW_FAMILIES:
             generated = read_json(output / f'{family}.json')
